@@ -29,6 +29,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import heroSplit from "@/assets/ipb-hero-split.jpg";
 import cardRep from "@/assets/ipb-card-reparation.jpg";
 import cardRemp from "@/assets/ipb-card-remplacement.jpg";
