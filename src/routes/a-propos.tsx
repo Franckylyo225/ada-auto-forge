@@ -77,38 +77,6 @@ function CountUp({
   );
 }
 
-const TIMELINE = [
-  {
-    year: "2013",
-    title: "La naissance d'ADA",
-    text:
-      "Assistance Distribution Auto voit le jour à Abidjan avec une ambition claire : rendre la mobilité accessible et fiable pour tous. Premiers véhicules, premiers clients, première confiance.",
-  },
-  {
-    year: "2015",
-    title: "Les premières conventions assurances",
-    text:
-      "ADA signe ses premiers accords-cadres avec des compagnies d'assurance ivoiriennes pour la mise à disposition de véhicules de remplacement. Un tournant dans le développement de l'entreprise.",
-  },
-  {
-    year: "2018",
-    title: "Extension de la flotte & clientèle B2B",
-    text:
-      "La flotte double de taille. ADA élargit son offre aux entreprises et institutions publiques, proposant des formules de longue durée avec gestion dédiée.",
-  },
-  {
-    year: "2021",
-    title: "Lancement d'Ivoire Pare-Brise by ADA",
-    text:
-      "Face aux besoins croissants du marché, ADA crée sa filiale dédiée à la réparation et au remplacement de vitrages automobiles toutes marques. Une nouvelle expertise au service des Ivoiriens.",
-  },
-  {
-    year: "2024",
-    title: "ADA aujourd'hui",
-    text:
-      "Enregistrée officiellement (RCCM 2024), ADA opère deux activités complémentaires, sert des centaines de clients chaque année et renforce sa position de référence dans la mobilité automobile à Abidjan.",
-  },
-];
 
 const TEAM = [
   {
@@ -264,54 +232,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 2 — NOTRE HISTOIRE */}
-      <section className="bg-white py-20">
-        <div className="container-ada">
-          <Reveal className="text-center max-w-2xl mx-auto">
-            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">
-              Notre parcours
-            </span>
-            <h2 className="mt-3 text-3xl md:text-5xl font-bold">Notre histoire</h2>
-            <p className="mt-3 text-muted-foreground">
-              De l'idée fondatrice à un groupe reconnu — retour sur le chemin
-              parcouru.
-            </p>
-          </Reveal>
-
-          <div className="relative mt-14 max-w-4xl mx-auto">
-            {/* Vertical line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-ada-yellow/60 md:-translate-x-1/2" />
-            <div className="space-y-12">
-              {TIMELINE.map((node, i) => {
-                const isLeft = i % 2 === 0;
-                return (
-                  <Reveal key={node.year} delay={i * 0.05}>
-                    <div className="relative md:grid md:grid-cols-2 md:gap-10 items-center">
-                      {/* Dot */}
-                      <div className="absolute left-4 md:left-1/2 top-2 -translate-x-1/2 h-4 w-4 rounded-full bg-ada-yellow ring-4 ring-white shadow" />
-                      <div
-                        className={`pl-12 md:pl-0 ${
-                          isLeft ? "md:pr-10 md:text-right" : "md:col-start-2 md:pl-10"
-                        }`}
-                      >
-                        <div className="inline-block text-xs font-bold tracking-wider text-ada-black bg-ada-yellow rounded-full px-3 py-1">
-                          {node.year}
-                        </div>
-                        <h3 className="mt-3 text-xl font-bold">{node.title}</h3>
-                        <p className="mt-2 text-muted-foreground leading-relaxed">
-                          {node.text}
-                        </p>
-                      </div>
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3 — MISSION · VISION · VALEURS */}
+      {/* SECTION 2 — MISSION · VISION · VALEURS */}
       <section style={{ backgroundColor: "#FFFBEC" }} className="py-20">
         <div className="container-ada">
           <Reveal className="text-center max-w-2xl mx-auto">
