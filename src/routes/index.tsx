@@ -1,10 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Car, Shield, ArrowRight, Calendar, Search, Zap, Users, Clock, Star, Wrench, ChevronLeft, ChevronRight, Wind } from "lucide-react";
+import { Car, Shield, ArrowRight, Calendar, Search, Zap, Users, Clock, Star, Wrench, ChevronLeft, ChevronRight, Wind, CheckCircle2, Phone, MessageSquare, Building2, Landmark, User as UserIcon, Truck, Award, BadgeCheck, ChevronDown } from "lucide-react";
 import heroImg from "@/assets/hero-suv.jpg";
 import heroPareBrise from "@/assets/hero-parebrise.jpg";
+import locHeroSuv from "@/assets/loc-hero-suv.jpg";
+import locParticuliers from "@/assets/loc-particuliers.jpg";
+import locAssurances from "@/assets/loc-assurances.jpg";
+import locEntreprises from "@/assets/loc-entreprises.jpg";
+import locEtat from "@/assets/loc-etat.jpg";
 import { Reveal } from "@/components/ada/Reveal";
+import { useState as useReactState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
