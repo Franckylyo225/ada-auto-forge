@@ -6,6 +6,7 @@ import logo from "@/assets/ada-logo.png";
 const links = [
   { to: "/", label: "Accueil" },
   { to: "/location", label: "Location" },
+  { to: "/reservation", label: "Réservation" },
   { to: "/ivoire-pare-brise", label: "Ivoire Pare-Brise" },
   { to: "/a-propos", label: "À Propos" },
   { to: "/contact", label: "Contact" },
@@ -52,7 +53,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <Link
-            to="/location"
+            to="/reservation"
             className="hidden sm:inline-flex items-center justify-center rounded-full bg-ada-yellow text-ada-black font-semibold px-5 py-2.5 text-sm hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
           >
             Réserver maintenant
@@ -85,7 +86,7 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            to="/location"
+            to="/reservation"
             className="mt-2 inline-flex items-center justify-center rounded-full bg-ada-yellow text-ada-black font-semibold px-5 py-3"
           >
             Réserver maintenant
