@@ -164,12 +164,13 @@ function IPBPage() {
               sur chaque intervention.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="#devis"
+              <button
+                type="button"
+                onClick={openDevis}
                 className="inline-flex items-center gap-2 rounded-full bg-ada-black text-ada-yellow font-semibold px-6 py-3.5 hover:brightness-110 transition"
               >
                 Demander un devis gratuit <ArrowRight className="h-4 w-4" />
-              </a>
+              </button>
               <a
                 href="tel:+22507002829830"
                 className="inline-flex items-center gap-2 rounded-full border-2 border-ada-black text-ada-black font-semibold px-6 py-3 hover:bg-ada-black hover:text-white transition"
