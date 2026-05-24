@@ -375,12 +375,13 @@ function IPBPage() {
               <div className="text-lg md:text-xl font-semibold">
                 Vous avez un doute sur votre pare-brise ?
               </div>
-              <a
-                href="#devis"
+              <button
+                type="button"
+                onClick={openDevis}
                 className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3 w-fit"
               >
                 Diagnostic gratuit — Prendre RDV <ArrowRight className="h-4 w-4" />
-              </a>
+              </button>
             </div>
           </Reveal>
         </div>
