@@ -497,6 +497,58 @@ function Home() {
         </div>
       </section>
 
+      {/* PARTNERS / TRUST */}
+      <section className="bg-white border-y border-border py-12">
+        <div className="container-ada">
+          <p className="text-center text-xs uppercase tracking-[0.2em] font-semibold text-muted-foreground">
+            Ils nous font confiance
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-70">
+            {["NSIA Assurances", "Groupe Sifca", "SUNU Assurances", "Atlantique Assurance", "Ministère du Transport", "Orange CI"].map((p) => (
+              <span key={p} className="text-sm md:text-base font-black tracking-tight text-ada-black/60">
+                {p}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="container-ada py-20">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12">
+          <Reveal>
+            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">FAQ</span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-black">Vos questions, nos réponses.</h2>
+            <p className="mt-4 text-muted-foreground">
+              Tout ce qu'il faut savoir avant de louer un véhicule ou de faire intervenir
+              Ivoire Pare-Brise.
+            </p>
+            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ada-black hover:text-ada-yellow transition">
+              Une autre question ? Contactez-nous <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="divide-y divide-border rounded-2xl border border-border bg-white">
+              {[
+                { q: "Quels documents pour louer un véhicule ?", a: "Une pièce d'identité valide, un permis de conduire en cours de validité (catégorie B minimum) et un justificatif de domicile. Pour les entreprises, le RCCM et un mandat suffisent." },
+                { q: "Combien de temps pour avoir mon véhicule ?", a: "Sous 2 heures ouvrables dans la zone d'Abidjan après confirmation. 24h maximum pour les villes de l'intérieur." },
+                { q: "Êtes-vous agréé par les assurances ?", a: "Oui. ADA est partenaire des principales compagnies d'assurance (NSIA, SUNU, Atlantique…) pour la mise à disposition de véhicules de remplacement." },
+                { q: "Le pare-brise est-il garanti ?", a: "Tous nos remplacements de pare-brise sont garantis 12 mois pièces et main d'œuvre, avec des vitrages d'origine." },
+                { q: "Intervenez-vous à domicile pour le pare-brise ?", a: "Oui, partout dans la zone d'Abidjan. Vous restez chez vous ou au bureau, nous venons à vous." },
+              ].map((f) => (
+                <details key={f.q} className="group p-5 md:p-6">
+                  <summary className="flex items-center justify-between cursor-pointer list-none">
+                    <span className="font-semibold text-ada-black pr-4">{f.q}</span>
+                    <ChevronDown className="h-5 w-5 text-ada-black/60 group-open:rotate-180 transition" />
+                  </summary>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="container-ada pb-24">
         <Reveal>
