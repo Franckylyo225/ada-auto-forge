@@ -143,6 +143,8 @@ const FAQ = [
 ];
 
 function IPBPage() {
+  const [devisOpen, setDevisOpen] = useState(false);
+  const openDevis = () => setDevisOpen(true);
   return (
     <>
       {/* SECTION 1 — HERO */}
