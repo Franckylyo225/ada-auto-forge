@@ -1,341 +1,365 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { toast } from "sonner";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-  ArrowRight, User as UserIcon, Shield, Building2, Landmark,
-  CheckCircle2, Car, FileText, MessageSquare, Copy,
+  ArrowRight, Users, Shield, Building2, Landmark, Car, Truck,
+  CheckCircle2, Phone, MessageSquare, FileText, KeyRound, ClipboardCheck,
+  Fuel, Settings2,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
-import { rentalsStore } from "@/lib/ada-storage";
-import {
-  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter,
-} from "@/components/ui/dialog";
+import heroSuv from "@/assets/loc-hero-suv.jpg";
+import imgParticuliers from "@/assets/loc-particuliers.jpg";
+import imgAssurances from "@/assets/loc-assurances.jpg";
+import imgEntreprises from "@/assets/loc-entreprises.jpg";
+import imgEtat from "@/assets/loc-etat.jpg";
 
 export const Route = createFileRoute("/location")({
   head: () => ({
     meta: [
-      { title: "Réserver un véhicule — ADA" },
-      { name: "description", content: "Demandez votre véhicule de location en 2 minutes. Notre équipe ADA vous rappelle sous 2h." },
+      { title: "Location de véhicules — ADA Côte d'Ivoire" },
+      { name: "description", content: "Location courte & longue durée pour particuliers, assurances, entreprises et institutions. Une flotte moderne et un service ADA premium." },
+      { property: "og:title", content: "Location de véhicules — ADA Côte d'Ivoire" },
+      { property: "og:description", content: "Location courte & longue durée — flotte moderne, service premium ADA." },
     ],
     links: [{ rel: "canonical", href: "/location" }],
   }),
   component: LocationPage,
 });
 
-const VEHICLE_TYPES = ["Berline", "SUV / 4x4", "Pick-up", "Minibus", "Utilitaire", "Véhicule de prestige"] as const;
-const LICENSE_CATS = ["A", "B", "C", "D", "E"] as const;
+/* ------------------------------ Animated count ----------------------------- */
+function CountUp({ to, suffix = "", duration = 1400 }: { to: number; suffix?: string; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (!inView) return;
+    const start = performance.now();
+    let raf = 0;
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setN(Math.round(eased * to));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, to, duration]);
+  return <span ref={ref}>{n.toLocaleString("fr-FR")}{suffix}</span>;
+}
 
-const usages = [
-  { id: "Personnel", icon: UserIcon },
-  { id: "Remplacement assurance", icon: Shield },
-  { id: "Professionnel", icon: Building2 },
-  { id: "Mission institutionnelle", icon: Landmark },
+/* --------------------------------- Tabs data -------------------------------- */
+const profiles = [
+  {
+    id: "particuliers",
+    label: "Particuliers",
+    icon: Users,
+    image: imgParticuliers,
+    title: "Voyagez en toute sérénité",
+    text: "Que ce soit pour un week-end, des vacances en famille ou un déplacement professionnel, ADA vous propose une flotte récente, entretenue et adaptée à tous vos besoins.",
+    points: ["Véhicules récents et fiables", "Tarifs transparents", "Assistance 24/7"],
+  },
+  {
+    id: "assurances",
+    label: "Assurances",
+    icon: Shield,
+    image: imgAssurances,
+    title: "Véhicules de remplacement",
+    text: "Partenaire de référence des compagnies d'assurance, ADA prend en charge vos clients sinistrés avec un véhicule de remplacement rapide et conforme.",
+    points: ["Mise à disposition sous 24h", "Facturation directe assurance", "Gestion administrative simplifiée"],
+  },
+  {
+    id: "entreprises",
+    label: "Entreprises",
+    icon: Building2,
+    image: imgEntreprises,
+    title: "Mobilité longue durée",
+    text: "Optimisez la mobilité de vos collaborateurs avec nos contrats sur-mesure : location longue durée, flotte dédiée, véhicules de fonction.",
+    points: ["Contrats longue durée", "Gestion de flotte dédiée", "Conditions négociées"],
+  },
+  {
+    id: "etat",
+    label: "État & Institutions",
+    icon: Landmark,
+    image: imgEtat,
+    title: "Missions institutionnelles",
+    text: "ADA accompagne les administrations et institutions avec des véhicules adaptés aux missions officielles, protocolaires et de terrain.",
+    points: ["Marchés publics", "Véhicules protocolaires", "Conformité administrative"],
+  },
 ] as const;
 
-const schema = z.object({
-  vehicleType: z.enum(VEHICLE_TYPES, { message: "Sélectionnez un type de véhicule" }),
-  usage: z.enum(["Personnel", "Remplacement assurance", "Professionnel", "Mission institutionnelle"]),
-  startDate: z.string().min(1, "Date requise"),
-  durationDays: z.coerce.number().int().min(1, "Min 1 jour").max(365),
-  estimatedKm: z.coerce.number().int().min(0).max(100000).optional().or(z.literal("").transform(() => undefined)),
-  outsideCI: z.boolean(),
+/* --------------------------------- Fleet ----------------------------------- */
+const categories = [
+  { name: "Berline", icon: Car, seats: 5, transmission: "Auto/BVM", fuel: "Essence/Diesel" },
+  { name: "SUV / 4x4", icon: Car, seats: 5, transmission: "Auto", fuel: "Diesel" },
+  { name: "Pick-up", icon: Truck, seats: 5, transmission: "BVM", fuel: "Diesel" },
+  { name: "Minibus", icon: Truck, seats: 15, transmission: "BVM", fuel: "Diesel" },
+  { name: "Utilitaire", icon: Truck, seats: 3, transmission: "BVM", fuel: "Diesel" },
+  { name: "Prestige", icon: Car, seats: 5, transmission: "Auto", fuel: "Essence" },
+] as const;
 
-  lastName: z.string().trim().min(1, "Nom requis").max(80),
-  firstName: z.string().trim().min(1, "Prénoms requis").max(80),
-  birthDate: z.string().min(1, "Date requise"),
-  address: z.string().trim().min(5, "Adresse trop courte").max(300),
-  phone: z.string().trim().min(8, "Téléphone invalide").max(20),
-  profession: z.string().trim().max(80).optional().or(z.literal("")),
-  licenseNumber: z.string().trim().min(2, "N° permis requis").max(40),
-  licenseCategory: z.enum(LICENSE_CATS),
-  licenseIssuedAt: z.string().min(1, "Date requise"),
-  licenseIssuedPlace: z.string().trim().min(2, "Lieu requis").max(80),
+/* --------------------------------- Process --------------------------------- */
+const steps = [
+  { icon: ClipboardCheck, title: "Faites votre demande", text: "Remplissez le formulaire en ligne en 2 minutes." },
+  { icon: Phone, title: "Confirmation ADA", text: "Notre équipe vous rappelle sous 2h ouvrables." },
+  { icon: FileText, title: "Signature du contrat", text: "Présentation des pièces et signature en agence." },
+  { icon: KeyRound, title: "Prise en charge", text: "Récupérez votre véhicule, prêt à rouler." },
+] as const;
 
-  observations: z.string().trim().max(1000).optional().or(z.literal("")),
-});
-
-type FormValues = z.input<typeof schema>;
-
+/* ============================== PAGE ==================================== */
 function LocationPage() {
-  const [createdRef, setCreatedRef] = useState<string | null>(null);
-
-  const form = useForm<FormValues>({
-    resolver: zodResolver(schema) as never,
-    defaultValues: {
-      vehicleType: undefined as never,
-      usage: "Personnel",
-      startDate: "",
-      durationDays: 1 as never,
-      estimatedKm: "" as never,
-      outsideCI: false,
-      lastName: "", firstName: "", birthDate: "", address: "", phone: "",
-      profession: "", licenseNumber: "", licenseCategory: "B",
-      licenseIssuedAt: "", licenseIssuedPlace: "", observations: "",
-    },
-  });
-
-  const onSubmit = (values: FormValues) => {
-    const parsed = schema.parse(values);
-    const item = rentalsStore.create({
-      vehicleType: parsed.vehicleType,
-      usage: parsed.usage,
-      startDate: parsed.startDate,
-      durationDays: parsed.durationDays,
-      estimatedKm: parsed.estimatedKm as number | undefined,
-      outsideCI: parsed.outsideCI,
-      lastName: parsed.lastName,
-      firstName: parsed.firstName,
-      birthDate: parsed.birthDate,
-      address: parsed.address,
-      phone: parsed.phone,
-      profession: parsed.profession || undefined,
-      licenseNumber: parsed.licenseNumber,
-      licenseCategory: parsed.licenseCategory,
-      licenseIssuedAt: parsed.licenseIssuedAt,
-      licenseIssuedPlace: parsed.licenseIssuedPlace,
-      observations: parsed.observations || undefined,
-    });
-    setCreatedRef(item.id);
-    form.reset();
-    toast.success(`Demande envoyée — ${item.id}`);
-  };
-
-  const { register, handleSubmit, watch, setValue, formState: { errors, isSubmitting } } = form;
-  const usage = watch("usage");
-  const outsideCI = watch("outsideCI");
+  const [tab, setTab] = useState<(typeof profiles)[number]["id"]>("particuliers");
+  const active = profiles.find((p) => p.id === tab)!;
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-ada-black text-white">
-        <div className="container-ada py-16 md:py-20">
+      {/* HERO */}
+      <section className="bg-ada-black text-white overflow-hidden">
+        <div className="container-ada py-16 md:py-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <Reveal>
             <span className="inline-flex items-center rounded-full bg-ada-yellow text-ada-black text-xs font-bold px-4 py-1.5">
-              Demande de location
+              Location courte & longue durée
             </span>
-            <h1 className="mt-5 text-4xl md:text-5xl font-black tracking-tight">Réservez votre véhicule</h1>
-            <p className="mt-4 max-w-2xl text-white/70 text-lg">
-              Remplissez le formulaire ci-dessous, notre équipe vous contacte sous 2h pour confirmer votre réservation.
+            <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight leading-[1.05]">
+              La mobilité <span className="text-ada-yellow">premium</span>, à votre rythme.
+            </h1>
+            <p className="mt-5 max-w-xl text-white/70 text-lg">
+              ADA met à votre disposition une flotte moderne et un service sur-mesure, pour les particuliers, les
+              assurances, les entreprises et les institutions.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/reservation"
+                className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
+              >
+                Faire une demande <ArrowRight className="h-5 w-5" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white font-semibold px-6 py-3.5 hover:bg-white/10 transition"
+              >
+                Nous contacter
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <div className="relative">
+              <div className="absolute -inset-6 rounded-[2rem] bg-ada-yellow/20 blur-3xl" />
+              <img
+                src={heroSuv}
+                alt="SUV premium ADA"
+                className="relative rounded-2xl object-cover w-full aspect-[5/4] shadow-2xl"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Form */}
-      <section className="bg-[var(--color-ada-yellow-soft)]/40 py-14 md:py-20">
-        <div className="container-ada max-w-5xl">
-          <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-3xl shadow-[var(--shadow-premium)] p-6 md:p-10 space-y-12">
-            {/* BLOC 1 */}
-            <FormBlock icon={Car} index={1} title="Votre véhicule">
-              <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Type de véhicule" required error={errors.vehicleType?.message}>
-                  <select {...register("vehicleType")} className={inputCls}>
-                    <option value="">— Sélectionner —</option>
-                    {VEHICLE_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
-                  </select>
-                </Field>
-
-                <Field label="Date de départ" required error={errors.startDate?.message}>
-                  <input type="date" {...register("startDate")} className={inputCls} />
-                </Field>
-
-                <Field label="Durée souhaitée" required error={errors.durationDays?.message}>
-                  <div className="flex">
-                    <input type="number" min={1} {...register("durationDays")} className={`${inputCls} rounded-r-none`} />
-                    <span className="inline-flex items-center px-4 rounded-r-xl border border-l-0 border-border bg-muted text-sm font-semibold">jours</span>
-                  </div>
-                </Field>
-
-                <Field label="Kilométrage estimé" error={errors.estimatedKm?.message as string | undefined}>
-                  <input type="number" min={0} placeholder="Optionnel" {...register("estimatedKm")} className={inputCls} />
-                </Field>
-
-                <div className="md:col-span-2">
-                  <Label>Usage <Req /></Label>
-                  <div className="mt-2 grid sm:grid-cols-2 lg:grid-cols-4 gap-2">
-                    {usages.map(({ id, icon: Icon }) => {
-                      const selected = usage === id;
-                      return (
-                        <button
-                          type="button"
-                          key={id}
-                          onClick={() => setValue("usage", id, { shouldValidate: true })}
-                          className={`flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-semibold transition ${
-                            selected
-                              ? "border-ada-yellow bg-ada-yellow/15 text-ada-black"
-                              : "border-border text-ada-black/70 hover:border-ada-yellow/60"
-                          }`}
-                        >
-                          <Icon className="h-4 w-4" /> {id}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                <div className="md:col-span-2 flex items-center justify-between rounded-xl border border-border bg-muted/40 px-4 py-3">
-                  <div>
-                    <div className="font-semibold text-sm">Circulation hors Côte d'Ivoire ?</div>
-                    <div className="text-xs text-muted-foreground">Cochez si le véhicule sortira du pays.</div>
-                  </div>
-                  <button
-                    type="button"
-                    role="switch"
-                    aria-checked={outsideCI}
-                    onClick={() => setValue("outsideCI", !outsideCI)}
-                    className={`relative inline-flex h-7 w-12 items-center rounded-full transition ${outsideCI ? "bg-ada-yellow" : "bg-muted-foreground/30"}`}
-                  >
-                    <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition ${outsideCI ? "translate-x-6" : "translate-x-1"}`} />
-                  </button>
-                </div>
+      {/* KEY FIGURES */}
+      <section className="bg-white py-16 md:py-20 border-b border-border">
+        <div className="container-ada grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { n: 150, s: "+", l: "Véhicules dans la flotte" },
+            { n: 20, s: "+", l: "Années d'expérience" },
+            { n: 5000, s: "+", l: "Clients satisfaits" },
+            { n: 24, s: "/7", l: "Assistance disponible" },
+          ].map((k) => (
+            <Reveal key={k.l}>
+              <div className="text-4xl md:text-5xl font-black text-ada-black">
+                <CountUp to={k.n} suffix={k.s} />
               </div>
-            </FormBlock>
-
-            {/* BLOC 2 */}
-            <FormBlock icon={FileText} index={2} title="Vos informations">
-              <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Nom" required error={errors.lastName?.message}>
-                  <input {...register("lastName")} className={inputCls} />
-                </Field>
-                <Field label="Prénoms" required error={errors.firstName?.message}>
-                  <input {...register("firstName")} className={inputCls} />
-                </Field>
-                <Field label="Date de naissance" required error={errors.birthDate?.message}>
-                  <input type="date" {...register("birthDate")} className={inputCls} />
-                </Field>
-                <Field label="Téléphone" required error={errors.phone?.message}>
-                  <input type="tel" placeholder="+225 07 00 00 00 00" {...register("phone")} className={inputCls} />
-                </Field>
-                <Field label="Adresse complète" required error={errors.address?.message} className="md:col-span-2">
-                  <textarea rows={2} {...register("address")} className={inputCls} />
-                </Field>
-                <Field label="Profession" error={errors.profession?.message as string | undefined}>
-                  <input {...register("profession")} className={inputCls} />
-                </Field>
-                <Field label="N° Permis de conduire" required error={errors.licenseNumber?.message}>
-                  <input {...register("licenseNumber")} className={inputCls} />
-                </Field>
-                <Field label="Catégorie permis" required error={errors.licenseCategory?.message}>
-                  <select {...register("licenseCategory")} className={inputCls}>
-                    {LICENSE_CATS.map((c) => <option key={c} value={c}>{c}</option>)}
-                  </select>
-                </Field>
-                <Field label="Date de délivrance permis" required error={errors.licenseIssuedAt?.message}>
-                  <input type="date" {...register("licenseIssuedAt")} className={inputCls} />
-                </Field>
-                <Field label="Lieu de délivrance permis" required error={errors.licenseIssuedPlace?.message} className="md:col-span-2">
-                  <input {...register("licenseIssuedPlace")} className={inputCls} />
-                </Field>
-              </div>
-            </FormBlock>
-
-            {/* BLOC 3 */}
-            <FormBlock icon={MessageSquare} index={3} title="Message">
-              <Field label="Observations / Demandes particulières" error={errors.observations?.message as string | undefined}>
-                <textarea rows={4} placeholder="Optionnel" {...register("observations")} className={inputCls} />
-              </Field>
-            </FormBlock>
-
-            {/* Submit */}
-            <div className="pt-2 text-center">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-8 py-4 text-lg hover:brightness-95 transition shadow-[var(--shadow-yellow)] disabled:opacity-60"
-              >
-                Envoyer ma demande <ArrowRight className="h-5 w-5" />
-              </button>
-              <p className="mt-3 text-xs text-muted-foreground max-w-md mx-auto">
-                Un agent ADA vous contactera dans les 2 heures ouvrables suivant votre demande pour confirmer la disponibilité et le tarif.
-              </p>
-            </div>
-          </form>
-
-          <p className="mt-6 text-center text-xs text-muted-foreground">
-            Vous êtes un agent ADA ? <Link to="/dashboard/login" className="underline hover:text-ada-black">Espace agent</Link>
-          </p>
+              <div className="mt-2 text-sm text-muted-foreground font-medium">{k.l}</div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
-      {/* Success modal */}
-      <Dialog open={!!createdRef} onOpenChange={(o) => !o && setCreatedRef(null)}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <div className="mx-auto h-14 w-14 rounded-full bg-ada-yellow/20 grid place-items-center">
-              <CheckCircle2 className="h-7 w-7 text-ada-black" />
+      {/* PROFILES TABS */}
+      <section className="bg-[var(--color-ada-yellow-soft)]/40 py-20 md:py-24">
+        <div className="container-ada">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight">Une solution pour chaque profil</h2>
+              <p className="mt-3 text-muted-foreground">
+                Découvrez l'offre ADA adaptée à votre besoin.
+              </p>
             </div>
-            <DialogTitle className="text-center text-2xl">Demande envoyée !</DialogTitle>
-            <DialogDescription className="text-center">
-              Notre équipe vous contacte très prochainement.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="my-2 rounded-xl bg-muted p-4 text-center">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">Votre référence</div>
-            <div className="mt-1 flex items-center justify-center gap-2">
-              <span className="text-2xl font-black tracking-tight">{createdRef}</span>
-              <button
-                type="button"
-                aria-label="Copier"
-                onClick={() => { if (createdRef) { navigator.clipboard.writeText(createdRef); toast.success("Référence copiée"); } }}
-                className="p-1.5 rounded-md hover:bg-background"
+          </Reveal>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-2 md:gap-3">
+            {profiles.map((p) => {
+              const Icon = p.icon;
+              const selected = tab === p.id;
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => setTab(p.id)}
+                  className="relative px-5 py-3 rounded-full text-sm font-semibold transition"
+                >
+                  {selected && (
+                    <motion.span
+                      layoutId="tab-pill"
+                      className="absolute inset-0 rounded-full bg-ada-black"
+                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    />
+                  )}
+                  <span className={`relative inline-flex items-center gap-2 ${selected ? "text-white" : "text-ada-black/70 hover:text-ada-black"}`}>
+                    <Icon className="h-4 w-4" /> {p.label}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-12">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.id}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.35 }}
+                className="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-3xl p-6 md:p-10 shadow-[var(--shadow-premium)]"
               >
-                <Copy className="h-4 w-4" />
-              </button>
+                <img src={active.image} alt={active.label} className="rounded-2xl object-cover w-full aspect-[4/3]" />
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight">{active.title}</h3>
+                  <p className="mt-4 text-muted-foreground">{active.text}</p>
+                  <ul className="mt-6 space-y-3">
+                    {active.points.map((pt) => (
+                      <li key={pt} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-ada-yellow shrink-0 mt-0.5" />
+                        <span className="text-ada-black/80">{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/reservation"
+                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
+                  >
+                    Faire une demande <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </section>
+
+      {/* FLEET OVERVIEW */}
+      <section className="bg-white py-20 md:py-24">
+        <div className="container-ada">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight">Notre flotte</h2>
+              <p className="mt-3 text-muted-foreground">
+                Une large gamme de véhicules pour répondre à tous les usages.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categories.map((c) => {
+              const Icon = c.icon;
+              return (
+                <Reveal key={c.name}>
+                  <div className="group h-full rounded-2xl border border-border bg-white p-6 hover:border-ada-yellow hover:shadow-lg transition">
+                    <div className="flex items-center justify-between">
+                      <div className="h-12 w-12 rounded-xl bg-ada-yellow/15 text-ada-black grid place-items-center group-hover:bg-ada-yellow transition">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Catégorie</span>
+                    </div>
+                    <h3 className="mt-5 text-xl font-bold">{c.name}</h3>
+                    <div className="mt-4 grid grid-cols-3 gap-2 text-xs text-ada-black/70">
+                      <div className="flex items-center gap-1.5"><Users className="h-4 w-4 text-ada-yellow" /> {c.seats}</div>
+                      <div className="flex items-center gap-1.5"><Settings2 className="h-4 w-4 text-ada-yellow" /> {c.transmission}</div>
+                      <div className="flex items-center gap-1.5"><Fuel className="h-4 w-4 text-ada-yellow" /> {c.fuel}</div>
+                    </div>
+                    <Link
+                      to="/reservation"
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ada-black hover:text-ada-yellow transition"
+                    >
+                      Demander un devis <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="bg-ada-black text-white py-20 md:py-24">
+        <div className="container-ada">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight">Comment ça marche ?</h2>
+              <p className="mt-3 text-white/60">Un parcours simple, du clic aux clés.</p>
+            </div>
+          </Reveal>
+
+          <div className="mt-14 relative grid md:grid-cols-4 gap-10">
+            <div className="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] border-t-2 border-dashed border-white/15" />
+            {steps.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <Reveal key={s.title} delay={i * 0.08}>
+                  <div className="relative text-center">
+                    <div className="relative mx-auto h-14 w-14 rounded-full bg-ada-yellow text-ada-black grid place-items-center font-black">
+                      <Icon className="h-6 w-6" />
+                      <span className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-white text-ada-black text-xs grid place-items-center font-black">
+                        {i + 1}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 text-lg font-bold">{s.title}</h3>
+                    <p className="mt-2 text-sm text-white/60">{s.text}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="bg-[var(--color-ada-yellow-soft)]/50 py-20 md:py-24">
+        <div className="container-ada">
+          <div className="rounded-3xl bg-ada-black text-white p-10 md:p-16 text-center shadow-[var(--shadow-premium)]">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight">Prêt à prendre la route ?</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-white/70">
+              Faites votre demande en ligne ou contactez-nous directement sur WhatsApp pour une réponse immédiate.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Link
+                to="/reservation"
+                className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-7 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
+              >
+                Faire une demande <ArrowRight className="h-5 w-5" />
+              </Link>
+              <a
+                href="https://wa.me/2250700282930"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-7 py-3.5 hover:bg-white/10 transition"
+              >
+                <MessageSquare className="h-5 w-5" /> WhatsApp
+              </a>
             </div>
           </div>
-          <DialogFooter>
-            <button
-              onClick={() => setCreatedRef(null)}
-              className="w-full rounded-full bg-ada-black text-white font-semibold py-3 hover:brightness-110 transition"
-            >
-              Fermer
-            </button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </>
-  );
-}
-
-/* --------------------------------- UI bits --------------------------------- */
-
-const inputCls = "w-full rounded-xl border border-border bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ada-yellow focus:border-ada-yellow transition";
-
-function Label({ children }: { children: React.ReactNode }) {
-  return <label className="block text-sm font-semibold text-ada-black/80">{children}</label>;
-}
-function Req() { return <span className="text-ada-yellow">*</span>; }
-
-function Field({ label, required, error, className, children }: {
-  label: string; required?: boolean; error?: string; className?: string; children: React.ReactNode;
-}) {
-  return (
-    <div className={className}>
-      <Label>{label} {required && <Req />}</Label>
-      <div className="mt-1.5">{children}</div>
-      {error && <p className="mt-1 text-xs text-destructive">{error}</p>}
-    </div>
-  );
-}
-
-function FormBlock({ icon: Icon, index, title, children }: {
-  icon: React.ComponentType<{ className?: string }>; index: number; title: string; children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <div className="flex items-center gap-3 mb-5 pb-4 border-b border-border">
-        <span className="h-10 w-10 rounded-xl bg-ada-yellow text-ada-black grid place-items-center font-black">{index}</span>
-        <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">Bloc {index}</div>
-          <h2 className="text-xl font-bold flex items-center gap-2">
-            <Icon className="h-5 w-5 text-ada-yellow" /> {title}
-          </h2>
         </div>
+      </section>
+
+      {/* Sticky mobile CTA */}
+      <div className="md:hidden fixed bottom-4 inset-x-4 z-40">
+        <Link
+          to="/reservation"
+          className="flex items-center justify-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold py-4 shadow-[var(--shadow-yellow)]"
+        >
+          Faire une demande <ArrowRight className="h-5 w-5" />
+        </Link>
       </div>
-      {children}
-    </div>
+    </>
   );
 }
