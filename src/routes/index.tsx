@@ -1,26 +1,229 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Car, Shield, ArrowRight, Calendar, Search, Zap, Users, Clock, Star, Wrench } from "lucide-react";
+import heroImg from "@/assets/hero-suv.jpg";
+import { Reveal } from "@/components/ada/Reveal";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "ADA — La mobilité, à votre service" },
+      { name: "description", content: "Location de véhicules et réparation de pare-brise en Côte d'Ivoire. ADA — Assistance Distribution Auto." },
+      { property: "og:title", content: "ADA — La mobilité, à votre service" },
+      { property: "og:description", content: "Location courte & longue durée · Véhicules de remplacement · Ivoire Pare-Brise" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+    <>
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="" className="h-full w-full object-cover" width={1920} height={1080} />
+          <div className="absolute inset-0 bg-gradient-to-r from-ada-black via-ada-black/85 to-ada-black/30" />
+        </div>
+        <div className="relative container-ada pt-20 pb-28 md:pt-32 md:pb-40 text-white">
+          <Reveal>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-medium border border-white/15">
+              <span className="h-1.5 w-1.5 rounded-full bg-ada-yellow" />
+              ADA · Assistance Distribution Auto
+            </span>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1 className="mt-6 text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-3xl">
+              La mobilité,<br />
+              <span className="text-ada-yellow">à votre service.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mt-6 max-w-xl text-lg text-white/75 leading-relaxed">
+              Location courte & longue durée · Véhicules de remplacement ·
+              Réparation pare-brise toutes marques.
+            </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/location" className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]">
+                Louer un véhicule <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/ivoire-pare-brise" className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition">
+                Réparer mon pare-brise
+              </Link>
+            </div>
+          </Reveal>
 
-function Index() {
-  return <PlaceholderIndex />;
+          {/* Quick booking bar */}
+          <Reveal delay={0.4}>
+            <div className="mt-12 md:mt-16 bg-white text-ada-black rounded-2xl p-4 md:p-5 shadow-[var(--shadow-premium)] grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr_auto] gap-3 max-w-4xl">
+              <label className="flex flex-col gap-1 px-3 py-2">
+                <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">Type de location</span>
+                <select className="bg-transparent text-sm font-medium focus:outline-none">
+                  <option>Courte durée</option>
+                  <option>Longue durée</option>
+                  <option>Avec chauffeur</option>
+                </select>
+              </label>
+              <label className="flex flex-col gap-1 px-3 py-2 border-t md:border-t-0 md:border-l border-border">
+                <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1"><Calendar className="h-3 w-3" />Départ</span>
+                <input type="date" className="bg-transparent text-sm font-medium focus:outline-none" />
+              </label>
+              <label className="flex flex-col gap-1 px-3 py-2 border-t md:border-t-0 md:border-l border-border">
+                <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1"><Calendar className="h-3 w-3" />Retour</span>
+                <input type="date" className="bg-transparent text-sm font-medium focus:outline-none" />
+              </label>
+              <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-ada-black text-white font-semibold px-6 py-3 hover:bg-ada-black/90">
+                <Search className="h-4 w-4" /> Rechercher
+              </button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* EXPERTISE */}
+      <section className="container-ada py-24">
+        <Reveal className="max-w-2xl">
+          <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Notre expertise</span>
+          <h2 className="mt-3 text-4xl md:text-5xl font-bold">Deux métiers, une exigence.</h2>
+          <p className="mt-4 text-muted-foreground">
+            ADA réunit deux pôles d'excellence pour répondre à tous vos besoins automobiles.
+          </p>
+        </Reveal>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <Reveal>
+            <div className="group relative overflow-hidden rounded-3xl bg-ada-black text-white p-8 md:p-10 h-full">
+              <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-ada-yellow/20 blur-3xl" />
+              <div className="relative">
+                <div className="h-12 w-12 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center">
+                  <Car className="h-6 w-6" />
+                </div>
+                <h3 className="mt-6 text-2xl md:text-3xl font-bold">Location Courte & Longue Durée</h3>
+                <p className="mt-3 text-white/70 leading-relaxed">
+                  Des véhicules disponibles immédiatement pour vos déplacements personnels,
+                  professionnels ou institutionnels.
+                </p>
+                <Link to="/location" className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-5 py-2.5 hover:brightness-95">
+                  En savoir plus <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="group relative overflow-hidden rounded-3xl bg-white border-2 border-ada-yellow p-8 md:p-10 h-full">
+              <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-ada-yellow/30 blur-3xl" />
+              <div className="relative">
+                <div className="h-12 w-12 rounded-2xl bg-ada-black text-ada-yellow grid place-items-center">
+                  <Shield className="h-6 w-6" />
+                </div>
+                <h3 className="mt-6 text-2xl md:text-3xl font-bold text-ada-black">Ivoire Pare-Brise by ADA</h3>
+                <p className="mt-3 text-muted-foreground leading-relaxed">
+                  Réparation et remplacement de pare-brise toutes marques, rapide et garanti.
+                </p>
+                <Link to="/ivoire-pare-brise" className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-5 py-2.5 hover:brightness-95">
+                  En savoir plus <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="bg-ada-black text-white py-24">
+        <div className="container-ada">
+          <Reveal className="max-w-2xl">
+            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Pourquoi ADA</span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-bold">Une référence sur le marché.</h2>
+          </Reveal>
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { v: "500+", l: "Véhicules disponibles" },
+              { v: "10+", l: "Années d'expérience" },
+              { v: "1200+", l: "Clients satisfaits" },
+              { v: "48h", l: "Délai pare-brise" },
+            ].map((s, i) => (
+              <Reveal key={s.l} delay={i * 0.08}>
+                <div className="rounded-2xl bg-white/5 border border-white/10 p-6">
+                  <div className="text-4xl md:text-5xl font-black text-ada-yellow">{s.v}</div>
+                  <div className="mt-2 text-white/70 text-sm">{s.l}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {[
+              { icon: Zap, t: "Réactivité", d: "Mise à disposition d'un véhicule en moins de 2 heures dans la zone d'Abidjan." },
+              { icon: Car, t: "Flotte récente", d: "Berlines, SUV, 4x4, utilitaires — entretenus, fiables, confortables." },
+              { icon: Clock, t: "Service client 7j/7", d: "Une équipe disponible chaque jour pour répondre à vos urgences." },
+            ].map(({ icon: Icon, t, d }, i) => (
+              <Reveal key={t} delay={i * 0.08}>
+                <div className="rounded-2xl bg-white/5 border border-white/10 p-6 h-full">
+                  <Icon className="h-7 w-7 text-ada-yellow" />
+                  <h3 className="mt-4 text-lg font-semibold">{t}</h3>
+                  <p className="mt-2 text-sm text-white/65">{d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="container-ada py-24">
+        <Reveal className="max-w-2xl">
+          <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Témoignages</span>
+          <h2 className="mt-3 text-4xl md:text-5xl font-bold">Ils nous font confiance.</h2>
+        </Reveal>
+        <div className="mt-12 grid md:grid-cols-3 gap-6">
+          {[
+            { n: "Aminata K.", r: "Particulier", q: "Service impeccable, véhicule récent et propre. Je recommande sans hésiter." },
+            { n: "Groupe Sifca", r: "Entreprise", q: "Partenaire fiable depuis 3 ans pour la flotte de notre direction commerciale." },
+            { n: "NSIA Assurances", r: "Assureur", q: "Réactivité exemplaire pour les véhicules de remplacement de nos assurés." },
+          ].map((t, i) => (
+            <Reveal key={t.n} delay={i * 0.08}>
+              <div className="rounded-2xl border border-border bg-white p-6 h-full hover:shadow-[var(--shadow-premium)] transition">
+                <div className="flex gap-1 text-ada-yellow">
+                  {Array.from({ length: 5 }).map((_, j) => <Star key={j} className="h-4 w-4 fill-ada-yellow" />)}
+                </div>
+                <p className="mt-4 text-ada-black/85 leading-relaxed">"{t.q}"</p>
+                <div className="mt-6 flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-ada-black text-ada-yellow grid place-items-center font-bold">{t.n[0]}</div>
+                  <div>
+                    <div className="font-semibold text-sm">{t.n}</div>
+                    <div className="text-xs text-muted-foreground">{t.r}</div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="container-ada pb-24">
+        <Reveal>
+          <div className="rounded-3xl bg-ada-yellow text-ada-black p-10 md:p-16 relative overflow-hidden">
+            <div className="absolute -right-20 -bottom-20 h-72 w-72 rounded-full bg-ada-black/5" />
+            <div className="relative max-w-2xl">
+              <Wrench className="h-8 w-8" />
+              <h2 className="mt-4 text-3xl md:text-5xl font-bold">Prêt à prendre la route ?</h2>
+              <p className="mt-3 text-ada-black/80">
+                Réservez votre véhicule ou demandez un devis pare-brise — réponse en moins d'une heure.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/location" className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-6 py-3.5">
+                  Réserver <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-ada-black/20 text-ada-black font-semibold px-6 py-3.5 hover:bg-ada-black hover:text-white transition">
+                  Nous contacter
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+    </>
+  );
 }
