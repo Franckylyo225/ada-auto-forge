@@ -148,7 +148,8 @@ function HeroCarousel() {
             </div>
           </div>
         ))}
-      </<div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-6 z-10">
+      </div>
+      <div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-6 z-10">
         <button
           onClick={() => api?.scrollPrev()}
           className="hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-white/15 backdrop-blur border border-white/20 text-white hover:bg-white/30 transition"
