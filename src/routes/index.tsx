@@ -92,7 +92,7 @@ function HeroCarousel() {
       <div className="flex">
         {slides.map((s, i) => (
           <div key={i} className="flex-[0_0_100%] min-w-0 relative">
-            <div className="absolute inset-1">
+            <div className="absolute inset-0">
               <img src={s.img} alt="" className="h-full w-full object-cover" width={1920} height={1080} />
               <div className="absolute inset-0 bg-gradient-to-r from-ada-black via-ada-black/85 to-ada-black/30" />
             </div>
