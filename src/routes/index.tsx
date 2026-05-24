@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Car, Shield, ArrowRight, Calendar, Search, Zap, Users, Clock, Star, Wrench } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { Car, Shield, ArrowRight, Calendar, Search, Zap, Users, Clock, Star, Wrench, ChevronLeft, ChevronRight, Wind } from "lucide-react";
 import heroImg from "@/assets/hero-suv.jpg";
+import heroPareBrise from "@/assets/hero-parebrise.jpg";
 import { Reveal } from "@/components/ada/Reveal";
 
 export const Route = createFileRoute("/")({
@@ -15,6 +18,168 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
+
+function HeroCarousel() {
+  const [emblaRef, api] = useEmblaCarousel({ loop: true });
+  const [selected, setSelected] = useState(1);
+
+  const onSelect = useCallback(() => {
+    if (!api) return;
+    setSelected(api.selectedScrollSnap() + 1);
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+    onSelect();
+    api.on("select", onSelect);
+    return () => { api.off("select", onSelect); };
+  }, [api, onSelect]);
+
+  useEffect(() => {
+    if (!api) return;
+    const timer = setInterval(() => api.scrollNext(), 6000);
+    return () => clearInterval(timer);
+  }, [api]);
+
+  const scrollTo = useCallback(
+    (index: number) => api && api.scrollTo(index),
+    [api]
+  );
+
+  const slides = [
+    {
+      img: heroImg,
+      badge: (
+        <>
+          <span className="h-1.5 w-1.5 rounded-full bg-ada-yellow" />
+          ADA · Assistance Distribution Auto
+        </>
+      ),
+      title: (
+        <>
+          La mobilité,<br />
+          <span className="text-ada-yellow">à votre service.</span>
+        </>
+      ),
+      desc: "Location courte & longue durée · Véhicules de remplacement · Réparation pare-brise toutes marques.",
+      ctaPrimary: { to: "/location", label: "Louer un véhicule", icon: ArrowRight },
+      ctaSecondary: { to: "/ivoire-pare-brise", label: "Réparer mon pare-brise" },
+      booking: true,
+    },
+    {
+      img: heroPareBrise,
+      badge: (
+        <>
+          <Wind className="h-3.5 w-3.5 text-ada-yellow" />
+          Ivoire Pare-Brise by ADA
+        </>
+      ),
+      title: (
+        <>
+          Votre pare-brise,<br />
+          <span className="text-ada-yellow">remis à neuf.</span>
+        </>
+      ),
+      desc: "Réparation et remplacement de pare-brise toutes marques, rapide et garanti. Interventions à domicile ou en atelier.",
+      ctaPrimary: { to: "/ivoire-pare-brise", label: "Demander un devis", icon: ArrowRight },
+      ctaSecondary: { to: "/ivoire-pare-brise", label: "En savoir plus" },
+      booking: false,
+    },
+  ];
+
+  return (
+    <div className="relative overflow-hidden" ref={emblaRef}>
+      <div className="flex">
+        {slides.map((s, i) => (
+          <div key={i} className="flex-[0_0_100%] min-w-0 relative">
+            <div className="absolute inset-0">
+              <img src={s.img} alt="" className="h-full w-full object-cover" width={1920} height={1080} />
+              <div className="absolute inset-0 bg-gradient-to-r from-ada-black via-ada-black/85 to-ada-black/30" />
+            </div>
+            <div className="relative container-ada pt-20 pb-28 md:pt-32 md:pb-40 text-white">
+              <Reveal>
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-medium border border-white/15">
+                  {s.badge}
+                </span>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <h1 className="mt-6 text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-3xl">
+                  {s.title}
+                </h1>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <p className="mt-6 max-w-xl text-lg text-white/75 leading-relaxed">{s.desc}</p>
+              </Reveal>
+              <Reveal delay={0.3}>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link to={s.ctaPrimary.to} className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]">
+                    {s.ctaPrimary.label} <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link to={s.ctaSecondary.to} className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition">
+                    {s.ctaSecondary.label}
+                  </Link>
+                </div>
+              </Reveal>
+              {s.booking && (
+                <Reveal delay={0.4}>
+                  <div className="mt-12 md:mt-16 bg-white text-ada-black rounded-2xl p-4 md:p-5 shadow-[var(--shadow-premium)] grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr_auto] gap-3 max-w-4xl">
+                    <label className="flex flex-col gap-1 px-3 py-2">
+                      <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">Type de location</span>
+                      <select className="bg-transparent text-sm font-medium focus:outline-none">
+                        <option>Courte durée</option>
+                        <option>Longue durée</option>
+                        <option>Avec chauffeur</option>
+                      </select>
+                    </label>
+                    <label className="flex flex-col gap-1 px-3 py-2 border-t md:border-t-0 md:border-l border-border">
+                      <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1"><Calendar className="h-3 w-3" />Départ</span>
+                      <input type="date" className="bg-transparent text-sm font-medium focus:outline-none" />
+                    </label>
+                    <label className="flex flex-col gap-1 px-3 py-2 border-t md:border-t-0 md:border-l border-border">
+                      <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1"><Calendar className="h-3 w-3" />Retour</span>
+                      <input type="date" className="bg-transparent text-sm font-medium focus:outline-none" />
+                    </label>
+                    <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-ada-black text-white font-semibold px-6 py-3 hover:bg-ada-black/90">
+                      <Search className="h-4 w-4" /> Rechercher
+                    </button>
+                  </div>
+                </Reveal>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-6 z-10">
+        <button
+          onClick={() => api?.scrollPrev()}
+          className="hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-white/15 backdrop-blur border border-white/20 text-white hover:bg-white/30 transition"
+          aria-label="Précédent"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+      </div>
+      <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:pr-6 z-10">
+        <button
+          onClick={() => api?.scrollNext()}
+          className="hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-white/15 backdrop-blur border border-white/20 text-white hover:bg-white/30 transition"
+          aria-label="Suivant"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => scrollTo(i)}
+            className={`h-2 rounded-full transition-all ${selected === i + 1 ? "w-8 bg-ada-yellow" : "w-2 bg-white/40 hover:bg-white/70"}`}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function Home() {
   return (
