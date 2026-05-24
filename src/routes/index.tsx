@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Car, Shield, ArrowRight, Calendar, Search, Zap, Users, Clock, Star, Wrench, ChevronLeft, ChevronRight, Wind, CheckCircle2, Phone, Building2, Landmark, User as UserIcon, Award, BadgeCheck, ChevronDown } from "lucide-react";
+import { Car, Shield, ArrowRight, Zap, Users, Clock, Star, Wrench, ChevronLeft, ChevronRight, Wind, CheckCircle2, Phone, Building2, Landmark, User as UserIcon, Award, BadgeCheck, ChevronDown } from "lucide-react";
 import heroImg from "@/assets/hero-suv.jpg";
 import heroPareBrise from "@/assets/hero-parebrise.jpg";
 import locHeroSuv from "@/assets/loc-hero-suv.jpg";
