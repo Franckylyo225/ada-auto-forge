@@ -48,7 +48,7 @@ function ProcessPage() {
   // Auto-compute total
   const total = (Number(c.dailyRate) || 0) * (rental.durationDays || 0);
   useEffect(() => {
-    setC((prev) => ({ ...prev, totalAmount: total }));
+    setC((prev) => (prev.totalAmount === total ? prev : { ...prev, totalAmount: total }));
   }, [total]);
 
   const save = (newStatus?: "processing" | "confirmed") => {
