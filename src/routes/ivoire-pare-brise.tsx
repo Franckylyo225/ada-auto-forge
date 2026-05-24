@@ -29,6 +29,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import heroSplit from "@/assets/ipb-hero-split.jpg";
 import cardRep from "@/assets/ipb-card-reparation.jpg";
 import cardRemp from "@/assets/ipb-card-remplacement.jpg";
@@ -136,6 +143,8 @@ const FAQ = [
 ];
 
 function IPBPage() {
+  const [devisOpen, setDevisOpen] = useState(false);
+  const openDevis = () => setDevisOpen(true);
   return (
     <>
       {/* SECTION 1 — HERO */}
@@ -155,12 +164,13 @@ function IPBPage() {
               sur chaque intervention.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="#devis"
+              <button
+                type="button"
+                onClick={openDevis}
                 className="inline-flex items-center gap-2 rounded-full bg-ada-black text-ada-yellow font-semibold px-6 py-3.5 hover:brightness-110 transition"
               >
                 Demander un devis gratuit <ArrowRight className="h-4 w-4" />
-              </a>
+              </button>
               <a
                 href="tel:+22507002829830"
                 className="inline-flex items-center gap-2 rounded-full border-2 border-ada-black text-ada-black font-semibold px-6 py-3 hover:bg-ada-black hover:text-white transition"
@@ -302,9 +312,9 @@ function IPBPage() {
                     ) : (
                       <span />
                     )}
-                    <a href="#devis" className="inline-flex items-center gap-1 text-sm font-semibold text-ada-yellow hover:underline">
+                    <button type="button" onClick={openDevis} className="inline-flex items-center gap-1 text-sm font-semibold text-ada-yellow hover:underline">
                       En savoir plus <ArrowRight className="h-3.5 w-3.5" />
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -365,12 +375,13 @@ function IPBPage() {
               <div className="text-lg md:text-xl font-semibold">
                 Vous avez un doute sur votre pare-brise ?
               </div>
-              <a
-                href="#devis"
+              <button
+                type="button"
+                onClick={openDevis}
                 className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3 w-fit"
               >
                 Diagnostic gratuit — Prendre RDV <ArrowRight className="h-4 w-4" />
-              </a>
+              </button>
             </div>
           </Reveal>
         </div>
@@ -537,82 +548,116 @@ function IPBPage() {
         </div>
       </section>
 
-      {/* SECTION 10 — CTA FINAL / FORM */}
+      {/* SECTION 10 — CTA FINAL */}
       <section id="devis" className="bg-ada-black text-white py-20">
-        <div className="container-ada grid lg:grid-cols-2 gap-10 items-start">
+        <div className="container-ada grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/15 text-ada-yellow px-3 py-1 text-xs font-semibold">
               Devis gratuit & sans engagement
             </div>
             <h2 className="mt-5 text-4xl md:text-5xl font-bold">Votre pare-brise mérite le meilleur.</h2>
             <p className="mt-4 text-white/60 text-lg max-w-md">
-              Remplissez le formulaire, notre équipe vous rappelle sous 2 heures avec un devis précis.
+              Demandez votre devis en 1 minute, notre équipe vous rappelle sous 2 heures avec un prix précis.
             </p>
           </Reveal>
-
           <Reveal delay={0.1}>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Demande envoyée — notre équipe vous rappelle sous 2h.");
-              }}
-              className="rounded-2xl bg-white text-ada-black p-6 md:p-8 space-y-4 shadow-[var(--shadow-premium)]"
-            >
-              <div>
-                <Label htmlFor="brand">Marque du véhicule *</Label>
-                <Input id="brand" required placeholder="Ex: Toyota Corolla" className="mt-1.5" />
-              </div>
-              <div>
-                <Label>Type d'intervention *</Label>
-                <Select required>
-                  <SelectTrigger className="mt-1.5">
-                    <SelectValue placeholder="Sélectionnez un service" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="reparation">Réparation d'impact</SelectItem>
-                    <SelectItem value="pb-avant">Remplacement pare-brise avant</SelectItem>
-                    <SelectItem value="lunette">Remplacement lunette arrière</SelectItem>
-                    <SelectItem value="lateral">Vitrage latéral / vitre de porte</SelectItem>
-                    <SelectItem value="diag">Je ne sais pas — diagnostic souhaité</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="name">Nom complet *</Label>
-                  <Input id="name" required className="mt-1.5" />
-                </div>
-                <div>
-                  <Label htmlFor="phone">Téléphone *</Label>
-                  <Input id="phone" type="tel" required placeholder="+225 XX XX XX XX" className="mt-1.5" />
-                </div>
-              </div>
-              <div>
-                <Label htmlFor="msg">Message / précisions</Label>
-                <Textarea id="msg" rows={3} className="mt-1.5" />
-              </div>
+            <div className="flex flex-col sm:flex-row gap-3 lg:justify-end">
               <button
-                type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition"
+                type="button"
+                onClick={openDevis}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition"
               >
-                Envoyer ma demande <ArrowRight className="h-4 w-4" />
+                Demander un devis gratuit <ArrowRight className="h-4 w-4" />
               </button>
-
-              <div className="pt-2 text-center text-sm text-muted-foreground">
-                Ou contactez-nous directement :
-                <a
-                  href="https://wa.me/2250700282930"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ml-2 inline-flex items-center gap-2 rounded-full border-2 border-[#25D366] text-[#1f9d52] font-semibold px-4 py-1.5 hover:bg-[#25D366] hover:text-white transition"
-                >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp
-                </a>
-              </div>
-            </form>
+              <a
+                href="https://wa.me/2250700282930"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#25D366] text-[#25D366] font-semibold px-6 py-3 hover:bg-[#25D366] hover:text-white transition"
+              >
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
+
+      {/* DIALOG — FORMULAIRE DE DEVIS */}
+      <Dialog open={devisOpen} onOpenChange={setDevisOpen}>
+        <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto p-0">
+          <div className="bg-ada-black text-white px-6 md:px-8 pt-6 pb-5 rounded-t-lg">
+            <div className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/15 text-ada-yellow px-3 py-1 text-xs font-semibold">
+              Devis gratuit & sans engagement
+            </div>
+            <DialogHeader className="mt-3 space-y-1 text-left">
+              <DialogTitle className="text-2xl font-bold text-white">Demander un devis</DialogTitle>
+              <DialogDescription className="text-white/60">
+                Remplissez le formulaire, notre équipe vous rappelle sous 2 heures.
+              </DialogDescription>
+            </DialogHeader>
+          </div>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              setDevisOpen(false);
+              alert("Demande envoyée — notre équipe vous rappelle sous 2h.");
+            }}
+            className="bg-white text-ada-black p-6 md:p-8 space-y-4"
+          >
+            <div>
+              <Label htmlFor="brand">Marque du véhicule *</Label>
+              <Input id="brand" required placeholder="Ex: Toyota Corolla" className="mt-1.5" />
+            </div>
+            <div>
+              <Label>Type d'intervention *</Label>
+              <Select required>
+                <SelectTrigger className="mt-1.5">
+                  <SelectValue placeholder="Sélectionnez un service" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="reparation">Réparation d'impact</SelectItem>
+                  <SelectItem value="pb-avant">Remplacement pare-brise avant</SelectItem>
+                  <SelectItem value="lunette">Remplacement lunette arrière</SelectItem>
+                  <SelectItem value="lateral">Vitrage latéral / vitre de porte</SelectItem>
+                  <SelectItem value="diag">Je ne sais pas — diagnostic souhaité</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="name">Nom complet *</Label>
+                <Input id="name" required className="mt-1.5" />
+              </div>
+              <div>
+                <Label htmlFor="phone">Téléphone *</Label>
+                <Input id="phone" type="tel" required placeholder="+225 XX XX XX XX" className="mt-1.5" />
+              </div>
+            </div>
+            <div>
+              <Label htmlFor="msg">Message / précisions</Label>
+              <Textarea id="msg" rows={3} className="mt-1.5" />
+            </div>
+            <button
+              type="submit"
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition"
+            >
+              Envoyer ma demande <ArrowRight className="h-4 w-4" />
+            </button>
+            <div className="pt-1 text-center text-sm text-muted-foreground">
+              Ou contactez-nous directement :
+              <a
+                href="https://wa.me/2250700282930"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-2 inline-flex items-center gap-2 rounded-full border-2 border-[#25D366] text-[#1f9d52] font-semibold px-4 py-1.5 hover:bg-[#25D366] hover:text-white transition"
+              >
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </a>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
+
 
       {/* SECTION 11 — LOGOS ASSURANCES */}
       <section className="bg-white py-16 border-t border-border">
