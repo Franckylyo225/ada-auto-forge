@@ -88,7 +88,6 @@ function HeroCarousel() {
       desc: "Réparation et remplacement de pare-brise toutes marques, rapide et garanti. Interventions à domicile ou en atelier.",
       ctaPrimary: { to: "/ivoire-pare-brise", label: "Demander un devis", icon: ArrowRight },
       ctaSecondary: { to: "/ivoire-pare-brise", label: "En savoir plus" },
-      booking: false,
     },
   ];
 
