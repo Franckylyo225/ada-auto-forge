@@ -290,7 +290,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 4 — NOS DEUX ACTIVITÉS */}
+      {/* SECTION 3 — NOS DEUX ACTIVITÉS */}
       <section className="bg-white py-20">
         <div className="container-ada">
           <Reveal className="text-center max-w-2xl mx-auto">
@@ -399,7 +399,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 5 — CHIFFRES CLÉS */}
+      {/* SECTION 4 — CHIFFRES CLÉS */}
       <section className="bg-ada-black text-white py-20">
         <div className="container-ada">
           <Reveal className="text-center max-w-2xl mx-auto">
@@ -431,7 +431,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 6 — ÉQUIPE */}
+      {/* SECTION 5 — ÉQUIPE */}
       <section className="bg-white py-20">
         <div className="container-ada">
           <Reveal className="text-center max-w-2xl mx-auto">
@@ -482,7 +482,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 7 — NOS ENGAGEMENTS */}
+      {/* SECTION 6 — NOS ENGAGEMENTS */}
       <section style={{ backgroundColor: "#FFFBEC" }} className="py-20">
         <div className="container-ada">
           <Reveal className="text-center max-w-2xl mx-auto">
@@ -512,7 +512,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 8 — NOS PARTENAIRES */}
+      {/* SECTION 7 — NOS PARTENAIRES */}
       <section className="bg-white py-20">
         <div className="container-ada">
           <Reveal className="text-center max-w-2xl mx-auto">
@@ -560,7 +560,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 9 — CTA FINAL */}
+      {/* SECTION 8 — CTA FINAL */}
       <section className="relative py-24">
         <div className="absolute inset-0 grid grid-cols-2">
           <div className="bg-ada-black" />
