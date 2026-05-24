@@ -1,10 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Car, Shield, ArrowRight, Calendar, Search, Zap, Users, Clock, Star, Wrench, ChevronLeft, ChevronRight, Wind } from "lucide-react";
+import { Car, Shield, ArrowRight, Calendar, Search, Zap, Users, Clock, Star, Wrench, ChevronLeft, ChevronRight, Wind, CheckCircle2, Phone, Building2, Landmark, User as UserIcon, Award, BadgeCheck, ChevronDown } from "lucide-react";
 import heroImg from "@/assets/hero-suv.jpg";
 import heroPareBrise from "@/assets/hero-parebrise.jpg";
+import locHeroSuv from "@/assets/loc-hero-suv.jpg";
+import locParticuliers from "@/assets/loc-particuliers.jpg";
+import locAssurances from "@/assets/loc-assurances.jpg";
+import locEntreprises from "@/assets/loc-entreprises.jpg";
+import locEtat from "@/assets/loc-etat.jpg";
 import { Reveal } from "@/components/ada/Reveal";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -247,51 +253,176 @@ function Home() {
         </div>
       </section>
 
-      {/* EXPERTISE */}
-      <section className="container-ada py-24">
-        <Reveal className="max-w-2xl">
-          <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Notre expertise</span>
-          <h2 className="mt-3 text-4xl md:text-5xl font-bold">Deux métiers, une exigence.</h2>
-          <p className="mt-4 text-muted-foreground">
-            ADA réunit deux pôles d'excellence pour répondre à tous vos besoins automobiles.
-          </p>
-        </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+      {/* SERVICE 1 — LOCATION */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="container-ada grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <Reveal>
-            <div className="group relative overflow-hidden rounded-3xl bg-ada-black text-white p-8 md:p-10 h-full">
-              <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-ada-yellow/20 blur-3xl" />
-              <div className="relative">
-                <div className="h-12 w-12 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center">
-                  <Car className="h-6 w-6" />
+            <div className="relative">
+              <div className="absolute -inset-6 rounded-[2rem] bg-ada-yellow/15 blur-3xl" />
+              <img src={locHeroSuv} alt="Flotte ADA — Location de véhicules" className="relative rounded-3xl object-cover w-full aspect-[5/4] shadow-2xl" />
+              <div className="absolute -bottom-6 -right-6 hidden md:flex items-center gap-3 rounded-2xl bg-white shadow-[var(--shadow-premium)] p-4 border border-border">
+                <div className="h-10 w-10 rounded-full bg-ada-yellow grid place-items-center"><Award className="h-5 w-5 text-ada-black" /></div>
+                <div>
+                  <div className="text-sm font-bold">Flotte récente</div>
+                  <div className="text-xs text-muted-foreground">Entretenue & assurée</div>
                 </div>
-                <h3 className="mt-6 text-2xl md:text-3xl font-bold">Location Courte & Longue Durée</h3>
-                <p className="mt-3 text-white/70 leading-relaxed">
-                  Des véhicules disponibles immédiatement pour vos déplacements personnels,
-                  professionnels ou institutionnels.
-                </p>
-                <Link to="/location" className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-5 py-2.5 hover:brightness-95">
-                  En savoir plus <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="group relative overflow-hidden rounded-3xl bg-white border-2 border-ada-yellow p-8 md:p-10 h-full">
-              <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-ada-yellow/30 blur-3xl" />
-              <div className="relative">
-                <div className="h-12 w-12 rounded-2xl bg-ada-black text-ada-yellow grid place-items-center">
-                  <Shield className="h-6 w-6" />
-                </div>
-                <h3 className="mt-6 text-2xl md:text-3xl font-bold text-ada-black">Ivoire Pare-Brise by ADA</h3>
-                <p className="mt-3 text-muted-foreground leading-relaxed">
-                  Réparation et remplacement de pare-brise toutes marques, rapide et garanti.
-                </p>
-                <Link to="/ivoire-pare-brise" className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-5 py-2.5 hover:brightness-95">
-                  En savoir plus <ArrowRight className="h-4 w-4" />
+            <span className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/20 text-ada-black text-xs font-bold uppercase tracking-wider px-4 py-1.5">
+              <Car className="h-3.5 w-3.5" /> Service 01 — Location
+            </span>
+            <h2 className="mt-4 text-4xl md:text-5xl font-black tracking-tight">
+              Location courte & longue durée
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+              Une flotte moderne de berlines, SUV, pick-up et utilitaires, disponible immédiatement
+              pour vos déplacements personnels, professionnels ou institutionnels.
+            </p>
+            <ul className="mt-6 grid sm:grid-cols-2 gap-3">
+              {[
+                "Véhicules récents et assurés",
+                "Mise à disposition sous 2h",
+                "Location avec ou sans chauffeur",
+                "Tarifs dégressifs longue durée",
+                "Véhicule de remplacement assurance",
+                "Assistance 24/7",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-5 w-5 text-ada-yellow shrink-0 mt-0.5" />
+                  <span className="text-sm text-ada-black/85">{f}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/reservation" className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-6 py-3.5 hover:brightness-110 transition">
+                Réserver maintenant <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/location" className="inline-flex items-center gap-2 rounded-full border border-ada-black/15 text-ada-black font-semibold px-6 py-3.5 hover:bg-ada-black hover:text-white transition">
+                Découvrir l'offre
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* AUDIENCES — Pour qui */}
+      <section className="bg-[var(--color-ada-yellow-soft)]/40 py-20">
+        <div className="container-ada">
+          <Reveal className="max-w-2xl">
+            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Pour qui</span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-black">Une solution adaptée à chaque besoin.</h2>
+          </Reveal>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { icon: UserIcon, img: locParticuliers, t: "Particuliers", d: "Week-ends, vacances, déplacements — un véhicule fiable à votre rythme." },
+              { icon: Shield, img: locAssurances, t: "Assurances", d: "Véhicule de remplacement sous 24h, facturation directe assureur." },
+              { icon: Building2, img: locEntreprises, t: "Entreprises", d: "Contrats longue durée, gestion de flotte et véhicules de fonction." },
+              { icon: Landmark, img: locEtat, t: "État & Institutions", d: "Marchés publics, missions officielles et véhicules protocolaires." },
+            ].map(({ icon: Icon, img, t, d }, i) => (
+              <Reveal key={t} delay={i * 0.08}>
+                <Link to="/location" className="group block rounded-2xl bg-white border border-border overflow-hidden hover:shadow-[var(--shadow-premium)] hover:-translate-y-1 transition h-full">
+                  <div className="relative h-40 overflow-hidden">
+                    <img src={img} alt={t} className="h-full w-full object-cover group-hover:scale-105 transition duration-500" />
+                    <div className="absolute top-3 left-3 h-9 w-9 rounded-xl bg-white/95 backdrop-blur grid place-items-center">
+                      <Icon className="h-4 w-4 text-ada-black" />
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-bold text-ada-black">{t}</h3>
+                    <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{d}</p>
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ada-black group-hover:text-ada-yellow transition">
+                      Voir l'offre <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
                 </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE 2 — IVOIRE PARE-BRISE */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="container-ada grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <Reveal delay={0.1} className="order-1 lg:order-2">
+            <div className="relative">
+              <div className="absolute -inset-6 rounded-[2rem] bg-ada-yellow/15 blur-3xl" />
+              <img src={heroPareBrise} alt="Ivoire Pare-Brise — Réparation et remplacement" className="relative rounded-3xl object-cover w-full aspect-[5/4] shadow-2xl" />
+              <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 rounded-2xl bg-ada-black text-white shadow-[var(--shadow-premium)] p-4">
+                <div className="h-10 w-10 rounded-full bg-ada-yellow grid place-items-center"><BadgeCheck className="h-5 w-5 text-ada-black" /></div>
+                <div>
+                  <div className="text-sm font-bold">Garantie 12 mois</div>
+                  <div className="text-xs text-white/60">Pose certifiée</div>
+                </div>
               </div>
             </div>
           </Reveal>
+          <Reveal className="order-2 lg:order-1">
+            <span className="inline-flex items-center gap-2 rounded-full bg-ada-black text-ada-yellow text-xs font-bold uppercase tracking-wider px-4 py-1.5">
+              <Wind className="h-3.5 w-3.5" /> Service 02 — Ivoire Pare-Brise
+            </span>
+            <h2 className="mt-4 text-4xl md:text-5xl font-black tracking-tight">
+              Réparation & remplacement de pare-brise
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+              Un impact, une fissure ? Nos techniciens interviennent rapidement, à l'atelier ou
+              à domicile, avec des vitrages d'origine garantis pour toutes les marques.
+            </p>
+            <ul className="mt-6 grid sm:grid-cols-2 gap-3">
+              {[
+                "Toutes marques de véhicules",
+                "Intervention à domicile",
+                "Vitrages d'origine garantis",
+                "Délai express sous 48h",
+                "Prise en charge assurance",
+                "Devis gratuit en ligne",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-5 w-5 text-ada-yellow shrink-0 mt-0.5" />
+                  <span className="text-sm text-ada-black/85">{f}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/ivoire-pare-brise" className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]">
+                Demander un devis <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a href="tel:+2250700282930" className="inline-flex items-center gap-2 rounded-full border border-ada-black/15 text-ada-black font-semibold px-6 py-3.5 hover:bg-ada-black hover:text-white transition">
+                <Phone className="h-4 w-4" /> Appeler
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="bg-[var(--color-ada-yellow-soft)]/40 py-20">
+        <div className="container-ada">
+          <Reveal className="max-w-2xl">
+            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Comment ça marche</span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-black">Simple, rapide, transparent.</h2>
+          </Reveal>
+          <div className="mt-12 grid md:grid-cols-4 gap-6 relative">
+            <div className="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] border-t-2 border-dashed border-ada-black/15" />
+            {[
+              { t: "Demande en ligne", d: "Formulaire ou WhatsApp, en 2 minutes." },
+              { t: "Confirmation 2h", d: "Notre équipe vous rappelle pour valider." },
+              { t: "Signature & paiement", d: "En agence ou à distance, sécurisé." },
+              { t: "Véhicule prêt", d: "Récupération ou livraison sur site." },
+            ].map((s, i) => (
+              <Reveal key={s.t} delay={i * 0.08}>
+                <div className="relative text-center bg-white rounded-2xl p-6 border border-border">
+                  <div className="mx-auto h-14 w-14 rounded-full bg-ada-yellow text-ada-black grid place-items-center font-black text-lg">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="mt-4 font-bold">{s.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -363,6 +494,58 @@ function Home() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* PARTNERS / TRUST */}
+      <section className="bg-white border-y border-border py-12">
+        <div className="container-ada">
+          <p className="text-center text-xs uppercase tracking-[0.2em] font-semibold text-muted-foreground">
+            Ils nous font confiance
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-70">
+            {["NSIA Assurances", "Groupe Sifca", "SUNU Assurances", "Atlantique Assurance", "Ministère du Transport", "Orange CI"].map((p) => (
+              <span key={p} className="text-sm md:text-base font-black tracking-tight text-ada-black/60">
+                {p}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="container-ada py-20">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12">
+          <Reveal>
+            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">FAQ</span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-black">Vos questions, nos réponses.</h2>
+            <p className="mt-4 text-muted-foreground">
+              Tout ce qu'il faut savoir avant de louer un véhicule ou de faire intervenir
+              Ivoire Pare-Brise.
+            </p>
+            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ada-black hover:text-ada-yellow transition">
+              Une autre question ? Contactez-nous <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="divide-y divide-border rounded-2xl border border-border bg-white">
+              {[
+                { q: "Quels documents pour louer un véhicule ?", a: "Une pièce d'identité valide, un permis de conduire en cours de validité (catégorie B minimum) et un justificatif de domicile. Pour les entreprises, le RCCM et un mandat suffisent." },
+                { q: "Combien de temps pour avoir mon véhicule ?", a: "Sous 2 heures ouvrables dans la zone d'Abidjan après confirmation. 24h maximum pour les villes de l'intérieur." },
+                { q: "Êtes-vous agréé par les assurances ?", a: "Oui. ADA est partenaire des principales compagnies d'assurance (NSIA, SUNU, Atlantique…) pour la mise à disposition de véhicules de remplacement." },
+                { q: "Le pare-brise est-il garanti ?", a: "Tous nos remplacements de pare-brise sont garantis 12 mois pièces et main d'œuvre, avec des vitrages d'origine." },
+                { q: "Intervenez-vous à domicile pour le pare-brise ?", a: "Oui, partout dans la zone d'Abidjan. Vous restez chez vous ou au bureau, nous venons à vous." },
+              ].map((f) => (
+                <details key={f.q} className="group p-5 md:p-6">
+                  <summary className="flex items-center justify-between cursor-pointer list-none">
+                    <span className="font-semibold text-ada-black pr-4">{f.q}</span>
+                    <ChevronDown className="h-5 w-5 text-ada-black/60 group-open:rotate-180 transition" />
+                  </summary>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
