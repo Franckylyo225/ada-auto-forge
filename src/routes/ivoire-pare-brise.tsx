@@ -312,9 +312,9 @@ function IPBPage() {
                     ) : (
                       <span />
                     )}
-                    <a href="#devis" className="inline-flex items-center gap-1 text-sm font-semibold text-ada-yellow hover:underline">
+                    <button type="button" onClick={openDevis} className="inline-flex items-center gap-1 text-sm font-semibold text-ada-yellow hover:underline">
                       En savoir plus <ArrowRight className="h-3.5 w-3.5" />
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
