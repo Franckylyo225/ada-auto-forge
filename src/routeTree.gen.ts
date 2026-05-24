@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ReservationRouteImport } from './routes/reservation'
 import { Route as LocationRouteImport } from './routes/location'
 import { Route as IvoirePareBriseRouteImport } from './routes/ivoire-pare-brise'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -24,6 +25,11 @@ import { Route as DashboardContratsRouteImport } from './routes/dashboard.contra
 import { Route as DashboardDemandesIdRouteImport } from './routes/dashboard.demandes.$id'
 import { Route as DashboardContratsIdPrintRouteImport } from './routes/dashboard.contrats.$id.print'
 
+const ReservationRoute = ReservationRouteImport.update({
+  id: '/reservation',
+  path: '/reservation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationRoute = LocationRouteImport.update({
   id: '/location',
   path: '/location',
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
+  '/reservation': typeof ReservationRoute
   '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
@@ -119,6 +126,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
+  '/reservation': typeof ReservationRoute
   '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
@@ -136,6 +144,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
+  '/reservation': typeof ReservationRoute
   '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
@@ -154,6 +163,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/ivoire-pare-brise'
     | '/location'
+    | '/reservation'
     | '/dashboard/contrats'
     | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
@@ -170,6 +180,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/ivoire-pare-brise'
     | '/location'
+    | '/reservation'
     | '/dashboard/contrats'
     | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
@@ -186,6 +197,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/ivoire-pare-brise'
     | '/location'
+    | '/reservation'
     | '/dashboard/contrats'
     | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
@@ -203,6 +215,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   IvoirePareBriseRoute: typeof IvoirePareBriseRoute
   LocationRoute: typeof LocationRoute
+  ReservationRoute: typeof ReservationRoute
   DashboardContratsRoute: typeof DashboardContratsRouteWithChildren
   DashboardContratsCloturesRoute: typeof DashboardContratsCloturesRoute
   DashboardDemandesRoute: typeof DashboardDemandesRouteWithChildren
@@ -214,6 +227,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/reservation': {
+      id: '/reservation'
+      path: '/reservation'
+      fullPath: '/reservation'
+      preLoaderRoute: typeof ReservationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/location': {
       id: '/location'
       path: '/location'
@@ -343,6 +363,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   IvoirePareBriseRoute: IvoirePareBriseRoute,
   LocationRoute: LocationRoute,
+  ReservationRoute: ReservationRoute,
   DashboardContratsRoute: DashboardContratsRouteWithChildren,
   DashboardContratsCloturesRoute: DashboardContratsCloturesRoute,
   DashboardDemandesRoute: DashboardDemandesRouteWithChildren,
@@ -354,3 +375,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
