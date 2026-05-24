@@ -15,8 +15,13 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardParametresRouteImport } from './routes/dashboard.parametres'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard.login'
+import { Route as DashboardFlotteRouteImport } from './routes/dashboard.flotte'
 import { Route as DashboardDemandesRouteImport } from './routes/dashboard.demandes'
+import { Route as DashboardContratsCloturesRouteImport } from './routes/dashboard.contrats-clotures'
+import { Route as DashboardContratsRouteImport } from './routes/dashboard.contrats'
+import { Route as DashboardDemandesIdRouteImport } from './routes/dashboard.demandes.$id'
 
 const LocationRoute = LocationRouteImport.update({
   id: '/location',
@@ -48,15 +53,41 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardParametresRoute = DashboardParametresRouteImport.update({
+  id: '/dashboard/parametres',
+  path: '/dashboard/parametres',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardLoginRoute = DashboardLoginRouteImport.update({
   id: '/dashboard/login',
   path: '/dashboard/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardFlotteRoute = DashboardFlotteRouteImport.update({
+  id: '/dashboard/flotte',
+  path: '/dashboard/flotte',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardDemandesRoute = DashboardDemandesRouteImport.update({
   id: '/dashboard/demandes',
   path: '/dashboard/demandes',
   getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardContratsCloturesRoute =
+  DashboardContratsCloturesRouteImport.update({
+    id: '/dashboard/contrats-clotures',
+    path: '/dashboard/contrats-clotures',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DashboardContratsRoute = DashboardContratsRouteImport.update({
+  id: '/dashboard/contrats',
+  path: '/dashboard/contrats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardDemandesIdRoute = DashboardDemandesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => DashboardDemandesRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -65,9 +96,14 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
-  '/dashboard/demandes': typeof DashboardDemandesRoute
+  '/dashboard/contrats': typeof DashboardContratsRoute
+  '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
+  '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
+  '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/dashboard/parametres': typeof DashboardParametresRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -75,9 +111,14 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
-  '/dashboard/demandes': typeof DashboardDemandesRoute
+  '/dashboard/contrats': typeof DashboardContratsRoute
+  '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
+  '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
+  '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/dashboard/parametres': typeof DashboardParametresRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -86,9 +127,14 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
-  '/dashboard/demandes': typeof DashboardDemandesRoute
+  '/dashboard/contrats': typeof DashboardContratsRoute
+  '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
+  '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
+  '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/dashboard/parametres': typeof DashboardParametresRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -98,9 +144,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/ivoire-pare-brise'
     | '/location'
+    | '/dashboard/contrats'
+    | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
+    | '/dashboard/flotte'
     | '/dashboard/login'
+    | '/dashboard/parametres'
     | '/dashboard/'
+    | '/dashboard/demandes/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -108,9 +159,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/ivoire-pare-brise'
     | '/location'
+    | '/dashboard/contrats'
+    | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
+    | '/dashboard/flotte'
     | '/dashboard/login'
+    | '/dashboard/parametres'
     | '/dashboard'
+    | '/dashboard/demandes/$id'
   id:
     | '__root__'
     | '/'
@@ -118,9 +174,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/ivoire-pare-brise'
     | '/location'
+    | '/dashboard/contrats'
+    | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
+    | '/dashboard/flotte'
     | '/dashboard/login'
+    | '/dashboard/parametres'
     | '/dashboard/'
+    | '/dashboard/demandes/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -129,8 +190,12 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   IvoirePareBriseRoute: typeof IvoirePareBriseRoute
   LocationRoute: typeof LocationRoute
-  DashboardDemandesRoute: typeof DashboardDemandesRoute
+  DashboardContratsRoute: typeof DashboardContratsRoute
+  DashboardContratsCloturesRoute: typeof DashboardContratsCloturesRoute
+  DashboardDemandesRoute: typeof DashboardDemandesRouteWithChildren
+  DashboardFlotteRoute: typeof DashboardFlotteRoute
   DashboardLoginRoute: typeof DashboardLoginRoute
+  DashboardParametresRoute: typeof DashboardParametresRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
@@ -178,11 +243,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/parametres': {
+      id: '/dashboard/parametres'
+      path: '/dashboard/parametres'
+      fullPath: '/dashboard/parametres'
+      preLoaderRoute: typeof DashboardParametresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/login': {
       id: '/dashboard/login'
       path: '/dashboard/login'
       fullPath: '/dashboard/login'
       preLoaderRoute: typeof DashboardLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/flotte': {
+      id: '/dashboard/flotte'
+      path: '/dashboard/flotte'
+      fullPath: '/dashboard/flotte'
+      preLoaderRoute: typeof DashboardFlotteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/demandes': {
@@ -192,8 +271,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDemandesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/contrats-clotures': {
+      id: '/dashboard/contrats-clotures'
+      path: '/dashboard/contrats-clotures'
+      fullPath: '/dashboard/contrats-clotures'
+      preLoaderRoute: typeof DashboardContratsCloturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/contrats': {
+      id: '/dashboard/contrats'
+      path: '/dashboard/contrats'
+      fullPath: '/dashboard/contrats'
+      preLoaderRoute: typeof DashboardContratsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/demandes/$id': {
+      id: '/dashboard/demandes/$id'
+      path: '/$id'
+      fullPath: '/dashboard/demandes/$id'
+      preLoaderRoute: typeof DashboardDemandesIdRouteImport
+      parentRoute: typeof DashboardDemandesRoute
+    }
   }
 }
+
+interface DashboardDemandesRouteChildren {
+  DashboardDemandesIdRoute: typeof DashboardDemandesIdRoute
+}
+
+const DashboardDemandesRouteChildren: DashboardDemandesRouteChildren = {
+  DashboardDemandesIdRoute: DashboardDemandesIdRoute,
+}
+
+const DashboardDemandesRouteWithChildren =
+  DashboardDemandesRoute._addFileChildren(DashboardDemandesRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -201,8 +312,12 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   IvoirePareBriseRoute: IvoirePareBriseRoute,
   LocationRoute: LocationRoute,
-  DashboardDemandesRoute: DashboardDemandesRoute,
+  DashboardContratsRoute: DashboardContratsRoute,
+  DashboardContratsCloturesRoute: DashboardContratsCloturesRoute,
+  DashboardDemandesRoute: DashboardDemandesRouteWithChildren,
+  DashboardFlotteRoute: DashboardFlotteRoute,
   DashboardLoginRoute: DashboardLoginRoute,
+  DashboardParametresRoute: DashboardParametresRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
 export const routeTree = rootRouteImport
