@@ -181,7 +181,7 @@ function IPBPage() {
             <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-premium)]">
               <img
                 src={heroSplit}
-                alt="Avant / après pare-brise réparé"
+                alt="Technicien Ivoire Pare-Brise en pleine réparation de pare-brise"
                 className="w-full h-auto object-cover aspect-[4/5]"
                 width={1024}
                 height={1280}
