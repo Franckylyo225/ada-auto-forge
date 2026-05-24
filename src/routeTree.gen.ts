@@ -22,6 +22,7 @@ import { Route as DashboardDemandesRouteImport } from './routes/dashboard.demand
 import { Route as DashboardContratsCloturesRouteImport } from './routes/dashboard.contrats-clotures'
 import { Route as DashboardContratsRouteImport } from './routes/dashboard.contrats'
 import { Route as DashboardDemandesIdRouteImport } from './routes/dashboard.demandes.$id'
+import { Route as DashboardContratsIdPrintRouteImport } from './routes/dashboard.contrats.$id.print'
 
 const LocationRoute = LocationRouteImport.update({
   id: '/location',
@@ -89,6 +90,12 @@ const DashboardDemandesIdRoute = DashboardDemandesIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => DashboardDemandesRoute,
 } as any)
+const DashboardContratsIdPrintRoute =
+  DashboardContratsIdPrintRouteImport.update({
+    id: '/$id/print',
+    path: '/$id/print',
+    getParentRoute: () => DashboardContratsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -96,7 +103,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
-  '/dashboard/contrats': typeof DashboardContratsRoute
+  '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
   '/dashboard/flotte': typeof DashboardFlotteRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/parametres': typeof DashboardParametresRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
+  '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -111,7 +119,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
-  '/dashboard/contrats': typeof DashboardContratsRoute
+  '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
   '/dashboard/flotte': typeof DashboardFlotteRoute
@@ -119,6 +127,7 @@ export interface FileRoutesByTo {
   '/dashboard/parametres': typeof DashboardParametresRoute
   '/dashboard': typeof DashboardIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
+  '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -127,7 +136,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
-  '/dashboard/contrats': typeof DashboardContratsRoute
+  '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
   '/dashboard/flotte': typeof DashboardFlotteRoute
@@ -135,6 +144,7 @@ export interface FileRoutesById {
   '/dashboard/parametres': typeof DashboardParametresRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
+  '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/dashboard/parametres'
     | '/dashboard/'
     | '/dashboard/demandes/$id'
+    | '/dashboard/contrats/$id/print'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/dashboard/parametres'
     | '/dashboard'
     | '/dashboard/demandes/$id'
+    | '/dashboard/contrats/$id/print'
   id:
     | '__root__'
     | '/'
@@ -182,6 +194,7 @@ export interface FileRouteTypes {
     | '/dashboard/parametres'
     | '/dashboard/'
     | '/dashboard/demandes/$id'
+    | '/dashboard/contrats/$id/print'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -190,7 +203,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   IvoirePareBriseRoute: typeof IvoirePareBriseRoute
   LocationRoute: typeof LocationRoute
-  DashboardContratsRoute: typeof DashboardContratsRoute
+  DashboardContratsRoute: typeof DashboardContratsRouteWithChildren
   DashboardContratsCloturesRoute: typeof DashboardContratsCloturesRoute
   DashboardDemandesRoute: typeof DashboardDemandesRouteWithChildren
   DashboardFlotteRoute: typeof DashboardFlotteRoute
@@ -292,8 +305,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDemandesIdRouteImport
       parentRoute: typeof DashboardDemandesRoute
     }
+    '/dashboard/contrats/$id/print': {
+      id: '/dashboard/contrats/$id/print'
+      path: '/$id/print'
+      fullPath: '/dashboard/contrats/$id/print'
+      preLoaderRoute: typeof DashboardContratsIdPrintRouteImport
+      parentRoute: typeof DashboardContratsRoute
+    }
   }
 }
+
+interface DashboardContratsRouteChildren {
+  DashboardContratsIdPrintRoute: typeof DashboardContratsIdPrintRoute
+}
+
+const DashboardContratsRouteChildren: DashboardContratsRouteChildren = {
+  DashboardContratsIdPrintRoute: DashboardContratsIdPrintRoute,
+}
+
+const DashboardContratsRouteWithChildren =
+  DashboardContratsRoute._addFileChildren(DashboardContratsRouteChildren)
 
 interface DashboardDemandesRouteChildren {
   DashboardDemandesIdRoute: typeof DashboardDemandesIdRoute
@@ -312,7 +343,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   IvoirePareBriseRoute: IvoirePareBriseRoute,
   LocationRoute: LocationRoute,
-  DashboardContratsRoute: DashboardContratsRoute,
+  DashboardContratsRoute: DashboardContratsRouteWithChildren,
   DashboardContratsCloturesRoute: DashboardContratsCloturesRoute,
   DashboardDemandesRoute: DashboardDemandesRouteWithChildren,
   DashboardFlotteRoute: DashboardFlotteRoute,
