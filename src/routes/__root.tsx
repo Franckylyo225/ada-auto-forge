@@ -3,10 +3,12 @@ import {
   Outlet,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   Link,
 } from "@tanstack/react-router";
+import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
 import { Navbar } from "@/components/ada/Navbar";
@@ -85,16 +87,21 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isDashboard = pathname.startsWith("/dashboard");
+  const isPrint = pathname.includes("/print");
+  const hideChrome = isDashboard || isPrint;
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col">
-        <Navbar />
+        {!hideChrome && <Navbar />}
         <main className="flex-1">
           <Outlet />
         </main>
-        <Footer />
-        <WhatsAppButton />
+        {!hideChrome && <Footer />}
+        {!hideChrome && <WhatsAppButton />}
       </div>
+      <Toaster position="top-center" richColors />
     </QueryClientProvider>
   );
 }
