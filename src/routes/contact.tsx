@@ -38,7 +38,7 @@ function ContactPage() {
               {[
                 { icon: MapPin, t: "Adresse", v: "Abidjan, Côte d'Ivoire" },
                 { icon: Phone, t: "Téléphone", v: "+225 07 00 28 29 30" },
-                { icon: Mail, t: "Email", v: "contact@ada-ci.com" },
+                { icon: Mail, t: "Email", v: "assistance@ada-africa.com" },
                 { icon: Clock, t: "Horaires", v: "Lun–Sam · 8h–18h" },
               ].map(({ icon: Icon, t, v }) => (
                 <li key={t} className="flex gap-4">

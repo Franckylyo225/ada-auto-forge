@@ -42,7 +42,7 @@ export function Footer() {
           <ul className="space-y-2 text-white/70 text-sm">
             <li>Abidjan, Côte d'Ivoire</li>
             <li>+225 07 00 28 29 30</li>
-            <li>contact@ada-ci.com</li>
+            <li>assistance@ada-africa.com</li>
             <li>Lun–Sam · 8h–18h</li>
           </ul>
         </div>
