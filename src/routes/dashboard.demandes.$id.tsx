@@ -36,6 +36,11 @@ function ProcessPage() {
     if (rental?.contract) setC(rental.contract);
   }, [rental?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const total = (Number(c.dailyRate) || 0) * (rental?.durationDays || 0);
+  useEffect(() => {
+    setC((prev) => (prev.totalAmount === total ? prev : { ...prev, totalAmount: total }));
+  }, [total]);
+
   if (!rental) {
     return (
       <div className="text-center py-20">
@@ -44,12 +49,6 @@ function ProcessPage() {
       </div>
     );
   }
-
-  // Auto-compute total
-  const total = (Number(c.dailyRate) || 0) * (rental.durationDays || 0);
-  useEffect(() => {
-    setC((prev) => (prev.totalAmount === total ? prev : { ...prev, totalAmount: total }));
-  }, [total]);
 
   const save = (newStatus?: "processing" | "confirmed") => {
     rentalsStore.update(rental.id, {
