@@ -10,7 +10,7 @@ import locAssurances from "@/assets/loc-assurances.jpg";
 import locEntreprises from "@/assets/loc-entreprises.jpg";
 import locEtat from "@/assets/loc-etat.jpg";
 import { Reveal } from "@/components/ada/Reveal";
-import { useState as useReactState } from "react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
