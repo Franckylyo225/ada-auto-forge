@@ -68,9 +68,8 @@ function HeroCarousel() {
         </>
       ),
       desc: "Location courte & longue durée · Véhicules de remplacement · Réparation pare-brise toutes marques.",
-      ctaPrimary: { to: "/location", label: "Louer un véhicule", icon: ArrowRight },
+      ctaPrimary: { to: "/reservation", label: "Louer un véhicule", icon: ArrowRight },
       ctaSecondary: { to: "/ivoire-pare-brise", label: "Réparer mon pare-brise" },
-      booking: true,
     },
     {
       img: heroPareBrise,
