@@ -49,10 +49,10 @@ export const Route = createFileRoute("/ivoire-pare-brise")({
       {
         name: "description",
         content:
-          "Pare-brise fissuré ? Ivoire Pare-Brise by ADA intervient sous 48h à Abidjan. Réparation d'impact, remplacement, vitrage latéral — toutes marques, garantie 12 mois.",
+          "Pare-brise fissuré ? Ivoire Pare-Brise by ADA intervient sous 45min à Abidjan. Réparation d'impact, remplacement, vitrage latéral — toutes marques, garantie 12 mois.",
       },
       { property: "og:title", content: "Ivoire Pare-Brise by ADA" },
-      { property: "og:description", content: "Réparation & remplacement de pare-brise sous 48h à Abidjan." },
+      { property: "og:description", content: "Réparation & remplacement de pare-brise sous 45min à Abidjan." },
       { property: "og:image", content: heroSplit },
     ],
     links: [{ rel: "canonical", href: "/ivoire-pare-brise" }],
@@ -156,7 +156,7 @@ function IPBPage() {
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight text-ada-black leading-[1.05]">
               Votre pare-brise fissuré ?
-              <span className="block text-ada-yellow">On intervient sous 48h.</span>
+              <span className="block text-ada-yellow">On intervient sous 45min.</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-xl">
               Réparation d'impact ou remplacement complet — Ivoire Pare-Brise by ADA prend en charge
@@ -207,7 +207,7 @@ function IPBPage() {
           {[
             { n: 300, s: "+", l: "Véhicules traités" },
             { n: 30, s: "+", l: "Marques couvertes" },
-            { n: 48, s: "h", l: "Délai max d'intervention" },
+            { n: 45, s: "min", l: "Délai max d'intervention" },
             { n: 100, s: "%", l: "Garantie pièces & pose" },
           ].map((stat, i) => (
             <Reveal key={stat.l} delay={i * 0.08}>

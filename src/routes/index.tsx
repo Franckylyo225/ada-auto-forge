@@ -288,7 +288,7 @@ function Home() {
                 "Toutes marques de véhicules",
                 "Intervention à domicile",
                 "Vitrages d'origine garantis",
-                "Délai express sous 48h",
+                "Délai express sous 45min",
                 "Prise en charge assurance",
                 "Devis gratuit en ligne",
               ].map((f) => (
@@ -351,7 +351,7 @@ function Home() {
               { v: "500+", l: "Véhicules disponibles" },
               { v: "10+", l: "Années d'expérience" },
               { v: "1200+", l: "Clients satisfaits" },
-              { v: "48h", l: "Délai pare-brise" },
+              { v: "45min", l: "Délai pare-brise" },
             ].map((s, i) => (
               <Reveal key={s.l} delay={i * 0.08}>
                 <div className="rounded-2xl bg-white/5 border border-white/10 p-6">
