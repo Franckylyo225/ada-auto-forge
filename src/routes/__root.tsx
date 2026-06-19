@@ -105,6 +105,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col">
+        {!hideChrome && <TopBar />}
         {!hideChrome && <Navbar />}
         <main className="flex-1">
           <Outlet />
