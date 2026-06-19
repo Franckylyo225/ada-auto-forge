@@ -21,7 +21,8 @@ import {
   Linkedin,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
-import heroAbout from "@/assets/about-hero.jpg";
+import heroAboutAsset from "@/assets/about-hero.png.asset.json";
+const heroAbout = heroAboutAsset.url;
 
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
