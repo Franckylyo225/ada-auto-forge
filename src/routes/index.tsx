@@ -467,21 +467,33 @@ function Home() {
       {/* FINAL CTA */}
       <section className="container-ada pb-24">
         <Reveal>
-          <div className="rounded-3xl bg-ada-yellow text-ada-black p-10 md:p-16 relative overflow-hidden">
-            <div className="absolute -right-20 -bottom-20 h-72 w-72 rounded-full bg-ada-black/5" />
-            <div className="relative max-w-2xl">
-              <Wrench className="h-8 w-8" />
-              <h2 className="mt-4 text-3xl md:text-5xl font-bold">Prêt à prendre la route ?</h2>
-              <p className="mt-3 text-ada-black/80">
-                Réservez votre véhicule ou demandez un devis pare-brise — réponse en moins d'une heure.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/location" className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-6 py-3.5">
-                  Réserver <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-ada-black/20 text-ada-black font-semibold px-6 py-3.5 hover:bg-ada-black hover:text-white transition">
-                  Nous contacter
-                </Link>
+          <div className="rounded-3xl bg-ada-yellow text-ada-black relative overflow-hidden">
+            <div className="grid md:grid-cols-2 items-center">
+              <div className="p-10 md:p-14 lg:p-16 relative z-10">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-ada-black/10 mb-6">
+                  <Wrench className="h-6 w-6 text-ada-black" />
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">Prêt à prendre la route ?</h2>
+                <p className="mt-4 text-ada-black/80 text-lg max-w-md">
+                  Réservez votre véhicule ou demandez un devis pare-brise — réponse en moins d'une heure.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link to="/location" className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-7 py-4 hover:bg-ada-black/90 transition shadow-lg shadow-ada-black/20">
+                    Réserver <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border-2 border-ada-black/20 text-ada-black font-semibold px-7 py-4 hover:bg-ada-black hover:text-white transition">
+                    Nous contacter
+                  </Link>
+                </div>
+              </div>
+              <div className="relative h-64 md:h-auto md:min-h-[420px] lg:min-h-[480px]">
+                <img
+                  src={ctaCar.url}
+                  alt="Véhicule SUV premium ADA"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-ada-yellow via-ada-yellow/40 to-transparent md:from-ada-yellow md:via-ada-yellow/20 md:to-transparent" />
               </div>
             </div>
           </div>
