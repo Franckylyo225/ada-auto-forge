@@ -40,7 +40,6 @@ import heroNew from "@/assets/ipb-hero-new.png.asset.json";
 import cardRep from "@/assets/ipb-card-reparation.jpg";
 import cardRemp from "@/assets/ipb-card-remplacement.jpg";
 import cardLat from "@/assets/ipb-card-lateral.jpg";
-import imgAssurance from "@/assets/ipb-assurance.jpg";
 
 export const Route = createFileRoute("/ivoire-pare-brise")({
   head: () => ({
@@ -458,46 +457,6 @@ function IPBPage() {
         </div>
       </section>
 
-      {/* SECTION 7 — ASSURANCES */}
-      <section className="grid lg:grid-cols-2">
-        <div className="bg-ada-black text-white p-10 md:p-16 flex items-center">
-          <Reveal className="max-w-xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/15 text-ada-yellow px-3 py-1 text-xs font-semibold">
-              Partenaires assureurs
-            </div>
-            <h3 className="mt-5 text-3xl md:text-4xl font-bold">Vous êtes une compagnie d'assurance ?</h3>
-            <p className="mt-4 text-white/70">
-              Ivoire Pare-Brise by ADA travaille en partenariat direct avec les compagnies d'assurance
-              pour la prise en charge des sinistres vitrages. Facturation directe, interlocuteur dédié,
-              délais garantis.
-            </p>
-            <ul className="mt-6 space-y-3 text-sm">
-              {[
-                "Prise en charge directe sans avance de frais pour l'assuré",
-                "Facturation mensuelle consolidée à la compagnie",
-                "Rapport d'intervention pour chaque dossier sinistre",
-                "Accord-cadre tarifaire disponible",
-              ].map((t) => (
-                <li key={t} className="flex gap-2">
-                  <Check className="h-5 w-5 text-ada-yellow shrink-0" />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-            <Link
-              to="/contact"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5"
-            >
-              Discutons d'un partenariat <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
-        </div>
-        <div className="bg-white p-6 md:p-10 flex items-center justify-center">
-          <div className="rounded-3xl overflow-hidden w-full max-w-xl shadow-[var(--shadow-premium)]">
-            <img src={imgAssurance} alt="Technicien remettant les clés à un client" className="w-full h-full object-cover" loading="lazy" />
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 8 — TÉMOIGNAGES */}
       <section className="container-ada py-20">
