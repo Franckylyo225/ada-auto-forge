@@ -350,12 +350,10 @@ function Home() {
           </Reveal>
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { v: "200+", l: "Véhicules disponibles" },
+              { v: "80+", l: "Véhicules disponibles" },
               { v: "7+", l: "Années d'expérience" },
               { v: "200+", l: "Clients satisfaits" },
               { v: "45min", l: "Délai pare-brise" },
-
-
             ].map((s, i) => (
               <Reveal key={s.l} delay={i * 0.08}>
                 <div className="rounded-2xl bg-white/5 border border-white/10 p-6">
