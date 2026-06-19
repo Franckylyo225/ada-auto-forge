@@ -37,9 +37,12 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import heroNew from "@/assets/ipb-hero-new.png.asset.json";
-import cardRep from "@/assets/ipb-card-reparation.jpg";
-import cardRemp from "@/assets/ipb-card-remplacement.jpg";
-import cardLat from "@/assets/ipb-card-lateral.jpg";
+import cardRepAsset from "@/assets/ipb-card-reparation.png.asset.json";
+import cardRempAsset from "@/assets/ipb-card-remplacement.png.asset.json";
+import cardLatAsset from "@/assets/ipb-card-lateral.png.asset.json";
+const cardRep = cardRepAsset.url;
+const cardRemp = cardRempAsset.url;
+const cardLat = cardLatAsset.url;
 
 export const Route = createFileRoute("/ivoire-pare-brise")({
   head: () => ({
