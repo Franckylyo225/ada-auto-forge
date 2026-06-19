@@ -5,9 +5,9 @@ import logo from "@/assets/ada-logo.png";
 
 const links = [
   { to: "/", label: "Accueil" },
+  { to: "/a-propos", label: "À Propos" },
   { to: "/location", label: "Location" },
   { to: "/ivoire-pare-brise", label: "Ivoire Pare-Brise" },
-  { to: "/a-propos", label: "À Propos" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
