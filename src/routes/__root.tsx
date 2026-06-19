@@ -59,6 +59,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Location de véhicules courte & longue durée et réparation de pare-brise en Côte d'Ivoire." },
       { property: "og:site_name", content: "ADA" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "ADA — Assistance Distribution Auto" },
+      { name: "twitter:title", content: "ADA — Assistance Distribution Auto" },
+      { property: "og:description", content: "Location de véhicules courte & longue durée et réparation de pare-brise en Côte d'Ivoire." },
+      { name: "twitter:description", content: "Location de véhicules courte & longue durée et réparation de pare-brise en Côte d'Ivoire." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/afb8ad39-2452-494f-b9ee-3295a5dbf7e7/id-preview-60a2de57--bdd29baf-067a-47c5-b52e-ee9bf4354281.lovable.app-1781876893137.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/afb8ad39-2452-494f-b9ee-3295a5dbf7e7/id-preview-60a2de57--bdd29baf-067a-47c5-b52e-ee9bf4354281.lovable.app-1781876893137.png" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
