@@ -76,7 +76,7 @@ function HeroCarousel() {
       ctaSecondary: { to: "/ivoire-pare-brise", label: "Réparer mon pare-brise" },
     },
     {
-      img: heroPareBrise,
+      img: heroSliderPareBrise,
       badge: (
         <>
           <Wind className="h-3.5 w-3.5 text-ada-yellow" />
