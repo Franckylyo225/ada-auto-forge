@@ -2,9 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Car, Shield, ArrowRight, Zap, Users, Clock, Star, Wrench, ChevronLeft, ChevronRight, Wind, CheckCircle2, Phone, Building2, Landmark, User as UserIcon, Award, BadgeCheck, ChevronDown } from "lucide-react";
-import heroImg from "@/assets/hero-suv.jpg";
+import heroImgAsset from "@/assets/hero-loc-key.png.asset.json";
+import heroPareBriseAsset from "@/assets/hero-parebrise-crack.png.asset.json";
 import heroPareBrise from "@/assets/hero-parebrise.jpg";
 import locHeroSuv from "@/assets/loc-hero-suv.jpg";
+const heroImg = heroImgAsset.url;
+const heroSliderPareBrise = heroPareBriseAsset.url;
 import locParticuliers from "@/assets/loc-particuliers.jpg";
 import locAssurances from "@/assets/loc-assurances.jpg";
 import locEntreprises from "@/assets/loc-entreprises.jpg";
@@ -73,7 +76,7 @@ function HeroCarousel() {
       ctaSecondary: { to: "/ivoire-pare-brise", label: "Réparer mon pare-brise" },
     },
     {
-      img: heroPareBrise,
+      img: heroSliderPareBrise,
       badge: (
         <>
           <Wind className="h-3.5 w-3.5 text-ada-yellow" />
