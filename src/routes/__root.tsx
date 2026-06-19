@@ -12,6 +12,7 @@ import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
 import { Navbar } from "@/components/ada/Navbar";
+import { TopBar } from "@/components/ada/TopBar";
 import { Footer } from "@/components/ada/Footer";
 import { WhatsAppButton } from "@/components/ada/WhatsAppButton";
 
