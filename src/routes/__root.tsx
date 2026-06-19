@@ -12,6 +12,7 @@ import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
 import { Navbar } from "@/components/ada/Navbar";
+import { TopBar } from "@/components/ada/TopBar";
 import { Footer } from "@/components/ada/Footer";
 import { WhatsAppButton } from "@/components/ada/WhatsAppButton";
 
@@ -104,6 +105,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col">
+        {!hideChrome && <TopBar />}
         {!hideChrome && <Navbar />}
         <main className="flex-1">
           <Outlet />
