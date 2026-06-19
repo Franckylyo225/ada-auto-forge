@@ -9,6 +9,7 @@ import locParticuliers from "@/assets/loc-particuliers.jpg";
 import locAssurances from "@/assets/loc-assurances.jpg";
 import locEntreprises from "@/assets/loc-entreprises.jpg";
 import locEtat from "@/assets/loc-etat.jpg";
+import ctaCar from "@/assets/cta-car.png.asset.json";
 import { Reveal } from "@/components/ada/Reveal";
 
 
