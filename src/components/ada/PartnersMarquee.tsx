@@ -1,27 +1,28 @@
-import allianz from "@/assets/partners/allianz.png.asset.json";
-import atlantique from "@/assets/partners/atlantique.png.asset.json";
-import saar from "@/assets/partners/saar.jpeg.asset.json";
-import afg from "@/assets/partners/afg.png.asset.json";
-import amsa from "@/assets/partners/amsa.png.asset.json";
-import sunu from "@/assets/partners/sunu.jpg.asset.json";
-import serenity from "@/assets/partners/serenity.png.asset.json";
-import nsia from "@/assets/partners/nsia.webp.asset.json";
-import sanlam from "@/assets/partners/sanlam.png.asset.json";
+import allianz from "@/assets/partners/allianz.png";
+import atlantique from "@/assets/partners/atlantique.png";
+import saar from "@/assets/partners/saar.jpeg";
+import afg from "@/assets/partners/afg.png";
+import amsa from "@/assets/partners/amsa.png";
+import sunu from "@/assets/partners/sunu.jpg";
+import serenity from "@/assets/partners/serenity.png";
+import nsia from "@/assets/partners/nsia.webp";
+import sanlam from "@/assets/partners/sanlam.png";
 
 const row1 = [
-  { src: allianz.url, alt: "Allianz" },
-  { src: nsia.url, alt: "NSIA Assurances" },
-  { src: sunu.url, alt: "SUNU Assurances" },
-  { src: atlantique.url, alt: "Atlantique Assurances" },
-  { src: amsa.url, alt: "AMSA Assurances" },
+  { src: allianz, alt: "Allianz" },
+  { src: nsia, alt: "NSIA Assurances" },
+  { src: sunu, alt: "SUNU Assurances" },
+  { src: atlantique, alt: "Atlantique Assurances" },
+  { src: amsa, alt: "AMSA Assurances" },
 ];
 
 const row2 = [
-  { src: afg.url, alt: "AFG Assurances" },
-  { src: sanlam.url, alt: "Sanlam" },
-  { src: serenity.url, alt: "Serenity S.A" },
-  { src: saar.url, alt: "SAAR Vie" },
+  { src: afg, alt: "AFG Assurances" },
+  { src: sanlam, alt: "Sanlam" },
+  { src: serenity, alt: "Serenity S.A" },
+  { src: saar, alt: "SAAR Vie" },
 ];
+
 
 function Track({
   items,
