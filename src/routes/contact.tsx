@@ -35,8 +35,25 @@ function ContactPage() {
           <div className="rounded-3xl bg-ada-black text-white p-8 md:p-10 h-full">
             <h2 className="text-2xl font-bold">Nos coordonnées</h2>
             <ul className="mt-8 space-y-6">
+              <li className="flex gap-4">
+                <div className="h-11 w-11 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center shrink-0">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-wider text-white/50 font-semibold">Bureau ADA</div>
+                  <div className="mt-0.5 text-white font-medium">Treichville, Boulevard VGE,<br />Immeuble Chevalier de Clieu, 1er étage</div>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <div className="h-11 w-11 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center shrink-0">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-wider text-white/50 font-semibold">Bureau Ivoire Pare-Brise</div>
+                  <div className="mt-0.5 text-white font-medium">Angré nouveau CHU,<br />Pharmacie Val d'Oise</div>
+                </div>
+              </li>
               {[
-                { icon: MapPin, t: "Adresse", v: "Abidjan, Côte d'Ivoire" },
                 { icon: Phone, t: "Téléphone", v: "+225 07 00 28 29 30" },
                 { icon: Mail, t: "Email", v: "assistance@ada-africa.com" },
                 { icon: Clock, t: "Horaires", v: "Lun–Sam · 8h–18h" },

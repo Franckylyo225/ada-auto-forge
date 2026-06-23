@@ -39,8 +39,15 @@ export function Footer() {
         </div>
         <div>
           <h4 className="font-semibold text-ada-yellow mb-4">Contact</h4>
-          <ul className="space-y-2 text-white/70 text-sm">
-            <li>Abidjan, Côte d'Ivoire</li>
+          <ul className="space-y-3 text-white/70 text-sm">
+            <li>
+              <div className="text-white font-semibold">Bureau ADA</div>
+              <div>Treichville, Boulevard VGE,<br />Immeuble Chevalier de Clieu, 1er étage</div>
+            </li>
+            <li>
+              <div className="text-white font-semibold">Ivoire Pare-Brise</div>
+              <div>Angré nouveau CHU,<br />Pharmacie Val d'Oise</div>
+            </li>
             <li>+225 07 00 28 29 30</li>
             <li>assistance@ada-africa.com</li>
             <li>Lun–Sam · 8h–18h</li>
