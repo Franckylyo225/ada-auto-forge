@@ -36,7 +36,7 @@ function Track({
   return (
     <div className="group relative overflow-hidden">
       <div
-        className="flex w-max gap-12 md:gap-16"
+        className="marquee-track flex w-max gap-12 md:gap-16"
         style={{
           animation: `marquee-x ${duration}s linear infinite`,
           animationDirection: reverse ? "reverse" : "normal",
@@ -59,6 +59,7 @@ function Track({
     </div>
   );
 }
+
 
 export default function PartnersMarquee() {
   return (
