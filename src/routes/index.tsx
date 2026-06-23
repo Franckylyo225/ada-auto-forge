@@ -12,6 +12,7 @@ import locEntreprises from "@/assets/loc-entreprises.jpg";
 import locEtat from "@/assets/loc-etat.jpg";
 import ctaCar from "@/assets/cta-car-cdn.png";
 import { Reveal } from "@/components/ada/Reveal";
+import PartnersMarquee from "@/components/ada/PartnersMarquee";
 
 
 export const Route = createFileRoute("/")({
