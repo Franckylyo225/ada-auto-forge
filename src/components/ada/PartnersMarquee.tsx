@@ -36,7 +36,7 @@ function Track({
   return (
     <div className="group relative overflow-hidden">
       <div
-        className="flex w-max gap-12 md:gap-16"
+        className="marquee-track flex w-max gap-12 md:gap-16"
         style={{
           animation: `marquee-x ${duration}s linear infinite`,
           animationDirection: reverse ? "reverse" : "normal",
@@ -60,6 +60,7 @@ function Track({
   );
 }
 
+
 export default function PartnersMarquee() {
   return (
     <section className="bg-white border-y border-border py-12">
@@ -77,7 +78,13 @@ export default function PartnersMarquee() {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
         }
+        .group:hover .marquee-track { animation-play-state: paused; }
+        .marquee-track:focus-within { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-track { animation: none !important; transform: none !important; }
+        }
       `}</style>
+
     </section>
   );
 }
