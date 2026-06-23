@@ -488,7 +488,7 @@ function Home() {
               </div>
               <div className="relative h-64 md:h-auto md:min-h-[420px] lg:min-h-[480px]">
                 <img
-                  src={ctaCar.url}
+                  src={ctaCar}
                   alt="Véhicule SUV premium ADA"
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"

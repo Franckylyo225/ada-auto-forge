@@ -52,7 +52,7 @@ export const Route = createFileRoute("/ivoire-pare-brise")({
       },
       { property: "og:title", content: "Ivoire Pare-Brise by ADA" },
       { property: "og:description", content: "Réparation & remplacement de pare-brise sous 45min à Abidjan." },
-      { property: "og:image", content: heroNew.url },
+      { property: "og:image", content: heroNew },
     ],
     links: [{ rel: "canonical", href: "/ivoire-pare-brise" }],
   }),
@@ -189,7 +189,7 @@ function IPBPage() {
           <div className="lg:col-span-2">
             <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-premium)]">
               <img
-                src={heroNew.url}
+                src={heroNew}
                 alt="Stock de pare-brises neufs Ivoire Pare-Brise by ADA"
                 className="w-full h-auto object-cover aspect-[4/5]"
                 width={1024}
