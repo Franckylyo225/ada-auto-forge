@@ -414,20 +414,8 @@ function Home() {
       </section>
 
       {/* PARTNERS / TRUST */}
-      <section className="bg-white border-y border-border py-12">
-        <div className="container-ada">
-          <p className="text-center text-xs uppercase tracking-[0.2em] font-semibold text-muted-foreground">
-            Ils nous font confiance
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-70">
-            {["NSIA Assurances", "Groupe Sifca", "SUNU Assurances", "Atlantique Assurance", "Ministère du Transport", "Orange CI"].map((p) => (
-              <span key={p} className="text-sm md:text-base font-black tracking-tight text-ada-black/60">
-                {p}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PartnersMarquee />
+
 
       {/* FAQ */}
       <section className="container-ada py-20">
