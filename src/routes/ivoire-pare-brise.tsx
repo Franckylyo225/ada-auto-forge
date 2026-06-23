@@ -36,13 +36,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import heroNew from "@/assets/ipb-hero-new.png.asset.json";
-import cardRepAsset from "@/assets/ipb-card-reparation.png.asset.json";
-import cardRempAsset from "@/assets/ipb-card-remplacement.png.asset.json";
-import cardLatAsset from "@/assets/ipb-card-lateral.png.asset.json";
-const cardRep = cardRepAsset.url;
-const cardRemp = cardRempAsset.url;
-const cardLat = cardLatAsset.url;
+import heroNew from "@/assets/ipb-hero-new-cdn.png";
+import cardRep from "@/assets/ipb-card-reparation-cdn.png";
+import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
+import cardLat from "@/assets/ipb-card-lateral-cdn.png";
 
 export const Route = createFileRoute("/ivoire-pare-brise")({
   head: () => ({
@@ -55,7 +52,7 @@ export const Route = createFileRoute("/ivoire-pare-brise")({
       },
       { property: "og:title", content: "Ivoire Pare-Brise by ADA" },
       { property: "og:description", content: "Réparation & remplacement de pare-brise sous 45min à Abidjan." },
-      { property: "og:image", content: heroNew.url },
+      { property: "og:image", content: heroNew },
     ],
     links: [{ rel: "canonical", href: "/ivoire-pare-brise" }],
   }),
@@ -192,7 +189,7 @@ function IPBPage() {
           <div className="lg:col-span-2">
             <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-premium)]">
               <img
-                src={heroNew.url}
+                src={heroNew}
                 alt="Stock de pare-brises neufs Ivoire Pare-Brise by ADA"
                 className="w-full h-auto object-cover aspect-[4/5]"
                 width={1024}
