@@ -78,7 +78,13 @@ export default function PartnersMarquee() {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
         }
+        .group:hover .marquee-track { animation-play-state: paused; }
+        .marquee-track:focus-within { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-track { animation: none !important; transform: none !important; }
+        }
       `}</style>
+
     </section>
   );
 }
