@@ -5,19 +5,21 @@ import logo from "@/assets/ada-logo.png";
 
 type Site = "ada" | "ipb";
 
-const ADA_LINKS = [
+type NavLink = { to: string; label: string; exact?: boolean };
+
+const ADA_LINKS: NavLink[] = [
   { to: "/ada", label: "Accueil", exact: true },
   { to: "/ada/a-propos", label: "À Propos" },
   { to: "/ada/services", label: "Services" },
   { to: "/ada/contact", label: "Contact" },
-] as const;
+];
 
-const IPB_LINKS = [
+const IPB_LINKS: NavLink[] = [
   { to: "/ipb", label: "Accueil", exact: true },
   { to: "/ipb/a-propos", label: "À Propos" },
   { to: "/ipb/services", label: "Services" },
   { to: "/ipb/contact", label: "Contact" },
-] as const;
+];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
