@@ -15,13 +15,23 @@ import { Route as IvoirePareBriseRouteImport } from './routes/ivoire-pare-brise'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as IpbIndexRouteImport } from './routes/ipb.index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as AdaIndexRouteImport } from './routes/ada.index'
+import { Route as IpbServicesRouteImport } from './routes/ipb.services'
+import { Route as IpbRendezVousRouteImport } from './routes/ipb.rendez-vous'
+import { Route as IpbContactRouteImport } from './routes/ipb.contact'
+import { Route as IpbAProposRouteImport } from './routes/ipb.a-propos'
 import { Route as DashboardParametresRouteImport } from './routes/dashboard.parametres'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard.login'
 import { Route as DashboardFlotteRouteImport } from './routes/dashboard.flotte'
 import { Route as DashboardDemandesRouteImport } from './routes/dashboard.demandes'
 import { Route as DashboardContratsCloturesRouteImport } from './routes/dashboard.contrats-clotures'
 import { Route as DashboardContratsRouteImport } from './routes/dashboard.contrats'
+import { Route as AdaServicesRouteImport } from './routes/ada.services'
+import { Route as AdaReservationRouteImport } from './routes/ada.reservation'
+import { Route as AdaContactRouteImport } from './routes/ada.contact'
+import { Route as AdaAProposRouteImport } from './routes/ada.a-propos'
 import { Route as DashboardDemandesIdRouteImport } from './routes/dashboard.demandes.$id'
 import { Route as DashboardContratsIdPrintRouteImport } from './routes/dashboard.contrats.$id.print'
 
@@ -55,9 +65,39 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IpbIndexRoute = IpbIndexRouteImport.update({
+  id: '/ipb/',
+  path: '/ipb/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdaIndexRoute = AdaIndexRouteImport.update({
+  id: '/ada/',
+  path: '/ada/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IpbServicesRoute = IpbServicesRouteImport.update({
+  id: '/ipb/services',
+  path: '/ipb/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IpbRendezVousRoute = IpbRendezVousRouteImport.update({
+  id: '/ipb/rendez-vous',
+  path: '/ipb/rendez-vous',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IpbContactRoute = IpbContactRouteImport.update({
+  id: '/ipb/contact',
+  path: '/ipb/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IpbAProposRoute = IpbAProposRouteImport.update({
+  id: '/ipb/a-propos',
+  path: '/ipb/a-propos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardParametresRoute = DashboardParametresRouteImport.update({
@@ -91,6 +131,26 @@ const DashboardContratsRoute = DashboardContratsRouteImport.update({
   path: '/dashboard/contrats',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdaServicesRoute = AdaServicesRouteImport.update({
+  id: '/ada/services',
+  path: '/ada/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdaReservationRoute = AdaReservationRouteImport.update({
+  id: '/ada/reservation',
+  path: '/ada/reservation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdaContactRoute = AdaContactRouteImport.update({
+  id: '/ada/contact',
+  path: '/ada/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdaAProposRoute = AdaAProposRouteImport.update({
+  id: '/ada/a-propos',
+  path: '/ada/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardDemandesIdRoute = DashboardDemandesIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -110,13 +170,23 @@ export interface FileRoutesByFullPath {
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
   '/reservation': typeof ReservationRoute
+  '/ada/a-propos': typeof AdaAProposRoute
+  '/ada/contact': typeof AdaContactRoute
+  '/ada/reservation': typeof AdaReservationRoute
+  '/ada/services': typeof AdaServicesRoute
   '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
   '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/dashboard/parametres': typeof DashboardParametresRoute
+  '/ipb/a-propos': typeof IpbAProposRoute
+  '/ipb/contact': typeof IpbContactRoute
+  '/ipb/rendez-vous': typeof IpbRendezVousRoute
+  '/ipb/services': typeof IpbServicesRoute
+  '/ada/': typeof AdaIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/ipb/': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
 }
@@ -127,13 +197,23 @@ export interface FileRoutesByTo {
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
   '/reservation': typeof ReservationRoute
+  '/ada/a-propos': typeof AdaAProposRoute
+  '/ada/contact': typeof AdaContactRoute
+  '/ada/reservation': typeof AdaReservationRoute
+  '/ada/services': typeof AdaServicesRoute
   '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
   '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/dashboard/parametres': typeof DashboardParametresRoute
+  '/ipb/a-propos': typeof IpbAProposRoute
+  '/ipb/contact': typeof IpbContactRoute
+  '/ipb/rendez-vous': typeof IpbRendezVousRoute
+  '/ipb/services': typeof IpbServicesRoute
+  '/ada': typeof AdaIndexRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/ipb': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
 }
@@ -145,13 +225,23 @@ export interface FileRoutesById {
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
   '/reservation': typeof ReservationRoute
+  '/ada/a-propos': typeof AdaAProposRoute
+  '/ada/contact': typeof AdaContactRoute
+  '/ada/reservation': typeof AdaReservationRoute
+  '/ada/services': typeof AdaServicesRoute
   '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
   '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/dashboard/parametres': typeof DashboardParametresRoute
+  '/ipb/a-propos': typeof IpbAProposRoute
+  '/ipb/contact': typeof IpbContactRoute
+  '/ipb/rendez-vous': typeof IpbRendezVousRoute
+  '/ipb/services': typeof IpbServicesRoute
+  '/ada/': typeof AdaIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/ipb/': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
 }
@@ -164,13 +254,23 @@ export interface FileRouteTypes {
     | '/ivoire-pare-brise'
     | '/location'
     | '/reservation'
+    | '/ada/a-propos'
+    | '/ada/contact'
+    | '/ada/reservation'
+    | '/ada/services'
     | '/dashboard/contrats'
     | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
     | '/dashboard/flotte'
     | '/dashboard/login'
     | '/dashboard/parametres'
+    | '/ipb/a-propos'
+    | '/ipb/contact'
+    | '/ipb/rendez-vous'
+    | '/ipb/services'
+    | '/ada/'
     | '/dashboard/'
+    | '/ipb/'
     | '/dashboard/demandes/$id'
     | '/dashboard/contrats/$id/print'
   fileRoutesByTo: FileRoutesByTo
@@ -181,13 +281,23 @@ export interface FileRouteTypes {
     | '/ivoire-pare-brise'
     | '/location'
     | '/reservation'
+    | '/ada/a-propos'
+    | '/ada/contact'
+    | '/ada/reservation'
+    | '/ada/services'
     | '/dashboard/contrats'
     | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
     | '/dashboard/flotte'
     | '/dashboard/login'
     | '/dashboard/parametres'
+    | '/ipb/a-propos'
+    | '/ipb/contact'
+    | '/ipb/rendez-vous'
+    | '/ipb/services'
+    | '/ada'
     | '/dashboard'
+    | '/ipb'
     | '/dashboard/demandes/$id'
     | '/dashboard/contrats/$id/print'
   id:
@@ -198,13 +308,23 @@ export interface FileRouteTypes {
     | '/ivoire-pare-brise'
     | '/location'
     | '/reservation'
+    | '/ada/a-propos'
+    | '/ada/contact'
+    | '/ada/reservation'
+    | '/ada/services'
     | '/dashboard/contrats'
     | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
     | '/dashboard/flotte'
     | '/dashboard/login'
     | '/dashboard/parametres'
+    | '/ipb/a-propos'
+    | '/ipb/contact'
+    | '/ipb/rendez-vous'
+    | '/ipb/services'
+    | '/ada/'
     | '/dashboard/'
+    | '/ipb/'
     | '/dashboard/demandes/$id'
     | '/dashboard/contrats/$id/print'
   fileRoutesById: FileRoutesById
@@ -216,13 +336,23 @@ export interface RootRouteChildren {
   IvoirePareBriseRoute: typeof IvoirePareBriseRoute
   LocationRoute: typeof LocationRoute
   ReservationRoute: typeof ReservationRoute
+  AdaAProposRoute: typeof AdaAProposRoute
+  AdaContactRoute: typeof AdaContactRoute
+  AdaReservationRoute: typeof AdaReservationRoute
+  AdaServicesRoute: typeof AdaServicesRoute
   DashboardContratsRoute: typeof DashboardContratsRouteWithChildren
   DashboardContratsCloturesRoute: typeof DashboardContratsCloturesRoute
   DashboardDemandesRoute: typeof DashboardDemandesRouteWithChildren
   DashboardFlotteRoute: typeof DashboardFlotteRoute
   DashboardLoginRoute: typeof DashboardLoginRoute
   DashboardParametresRoute: typeof DashboardParametresRoute
+  IpbAProposRoute: typeof IpbAProposRoute
+  IpbContactRoute: typeof IpbContactRoute
+  IpbRendezVousRoute: typeof IpbRendezVousRoute
+  IpbServicesRoute: typeof IpbServicesRoute
+  AdaIndexRoute: typeof AdaIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
+  IpbIndexRoute: typeof IpbIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -269,11 +399,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ipb/': {
+      id: '/ipb/'
+      path: '/ipb'
+      fullPath: '/ipb/'
+      preLoaderRoute: typeof IpbIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/': {
       id: '/dashboard/'
       path: '/dashboard'
       fullPath: '/dashboard/'
       preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ada/': {
+      id: '/ada/'
+      path: '/ada'
+      fullPath: '/ada/'
+      preLoaderRoute: typeof AdaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ipb/services': {
+      id: '/ipb/services'
+      path: '/ipb/services'
+      fullPath: '/ipb/services'
+      preLoaderRoute: typeof IpbServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ipb/rendez-vous': {
+      id: '/ipb/rendez-vous'
+      path: '/ipb/rendez-vous'
+      fullPath: '/ipb/rendez-vous'
+      preLoaderRoute: typeof IpbRendezVousRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ipb/contact': {
+      id: '/ipb/contact'
+      path: '/ipb/contact'
+      fullPath: '/ipb/contact'
+      preLoaderRoute: typeof IpbContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ipb/a-propos': {
+      id: '/ipb/a-propos'
+      path: '/ipb/a-propos'
+      fullPath: '/ipb/a-propos'
+      preLoaderRoute: typeof IpbAProposRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/parametres': {
@@ -316,6 +488,34 @@ declare module '@tanstack/react-router' {
       path: '/dashboard/contrats'
       fullPath: '/dashboard/contrats'
       preLoaderRoute: typeof DashboardContratsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ada/services': {
+      id: '/ada/services'
+      path: '/ada/services'
+      fullPath: '/ada/services'
+      preLoaderRoute: typeof AdaServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ada/reservation': {
+      id: '/ada/reservation'
+      path: '/ada/reservation'
+      fullPath: '/ada/reservation'
+      preLoaderRoute: typeof AdaReservationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ada/contact': {
+      id: '/ada/contact'
+      path: '/ada/contact'
+      fullPath: '/ada/contact'
+      preLoaderRoute: typeof AdaContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ada/a-propos': {
+      id: '/ada/a-propos'
+      path: '/ada/a-propos'
+      fullPath: '/ada/a-propos'
+      preLoaderRoute: typeof AdaAProposRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/demandes/$id': {
@@ -364,13 +564,23 @@ const rootRouteChildren: RootRouteChildren = {
   IvoirePareBriseRoute: IvoirePareBriseRoute,
   LocationRoute: LocationRoute,
   ReservationRoute: ReservationRoute,
+  AdaAProposRoute: AdaAProposRoute,
+  AdaContactRoute: AdaContactRoute,
+  AdaReservationRoute: AdaReservationRoute,
+  AdaServicesRoute: AdaServicesRoute,
   DashboardContratsRoute: DashboardContratsRouteWithChildren,
   DashboardContratsCloturesRoute: DashboardContratsCloturesRoute,
   DashboardDemandesRoute: DashboardDemandesRouteWithChildren,
   DashboardFlotteRoute: DashboardFlotteRoute,
   DashboardLoginRoute: DashboardLoginRoute,
   DashboardParametresRoute: DashboardParametresRoute,
+  IpbAProposRoute: IpbAProposRoute,
+  IpbContactRoute: IpbContactRoute,
+  IpbRendezVousRoute: IpbRendezVousRoute,
+  IpbServicesRoute: IpbServicesRoute,
+  AdaIndexRoute: AdaIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
+  IpbIndexRoute: IpbIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
