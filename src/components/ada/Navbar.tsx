@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Wind, ArrowLeft } from "lucide-react";
+import { Menu, X, ArrowLeft } from "lucide-react";
 import logo from "@/assets/ada-logo.png";
+import ipbLogoBlack from "@/assets/ipb-logo-black.png.asset.json";
+
 
 type Site = "ada" | "ipb";
 
@@ -49,7 +51,11 @@ export function Navbar() {
     >
       <div className="container-ada flex items-center justify-between h-18 py-3">
         <Link to={site === "ipb" ? "/ipb" : "/ada"} className="flex items-center gap-2 shrink-0">
-          {site === "ipb" ? <IPBLogo /> : <img src={logo} alt="ADA — Assistance Distribution Auto" className="h-10 w-auto" />}
+          {site === "ipb" ? (
+            <img src={ipbLogoBlack.url} alt="Ivoire Pare-Brise by ADA" className="h-12 w-auto" />
+          ) : (
+            <img src={logo} alt="ADA — Assistance Distribution Auto" className="h-10 w-auto" />
+          )}
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
@@ -124,20 +130,5 @@ export function Navbar() {
   );
 }
 
-function IPBLogo() {
-  return (
-    <div className="flex items-center gap-2">
-      <div className="h-10 w-10 rounded-xl bg-ada-black grid place-items-center">
-        <Wind className="h-5 w-5 text-ada-yellow" />
-      </div>
-      <div className="leading-tight">
-        <div className="text-sm font-black tracking-tight text-ada-black">
-          Ivoire Pare-Brise
-        </div>
-        <div className="text-[10px] uppercase tracking-wider text-ada-black/50 font-semibold">
-          by ADA
-        </div>
-      </div>
-    </div>
-  );
-}
+
+
