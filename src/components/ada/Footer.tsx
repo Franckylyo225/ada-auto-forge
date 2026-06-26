@@ -1,5 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, MessageCircle, Wind } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
+import ipbLogoWhite from "@/assets/ipb-logo-white-v2.png.asset.json";
+
 
 export function Footer() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -34,16 +36,9 @@ export function Footer() {
       <div className="container-ada py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
           {isIpb ? (
-            <div className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-xl bg-ada-yellow grid place-items-center">
-                <Wind className="h-6 w-6 text-ada-black" />
-              </div>
-              <div className="leading-tight">
-                <div className="text-2xl font-black tracking-tight">Ivoire Pare-Brise</div>
-                <div className="text-xs uppercase tracking-wider text-white/50 font-semibold">by ADA</div>
-              </div>
-            </div>
+            <img src={ipbLogoWhite.url} alt="Ivoire Pare-Brise by ADA" className="h-20 w-auto" />
           ) : (
+
             <div className="text-3xl font-black tracking-tight">
               <span className="text-white">ada</span>
               <span className="text-ada-yellow">.</span>
