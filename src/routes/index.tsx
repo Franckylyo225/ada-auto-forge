@@ -85,7 +85,7 @@ function Portal() {
             <img
               src={ipbLogo.url}
               alt="Ivoire Pare-Brise — by ADA"
-              className="mt-6 mx-auto h-32 md:h-40 w-auto object-contain"
+              className="mt-6 mx-auto h-44 md:h-56 w-auto object-contain"
             />
             <p className="mt-4 text-white/85 text-lg leading-relaxed">
               Réparation & remplacement
