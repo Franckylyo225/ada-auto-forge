@@ -15,7 +15,7 @@ import { Reveal } from "@/components/ada/Reveal";
 import PartnersMarquee from "@/components/ada/PartnersMarquee";
 
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/ada/")({
   head: () => ({
     meta: [
       { title: "ADA — La mobilité, à votre service" },
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "ADA — La mobilité, à votre service" },
       { property: "og:description", content: "Location courte & longue durée · Véhicules de remplacement · Ivoire Pare-Brise" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "/ada" }],
   }),
   component: Home,
 });
@@ -212,10 +212,10 @@ function Home() {
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/reservation" className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-6 py-3.5 hover:brightness-110 transition">
+              <Link to="/ada/reservation" className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-6 py-3.5 hover:brightness-110 transition">
                 Réserver maintenant <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/location" className="inline-flex items-center gap-2 rounded-full border border-ada-black/15 text-ada-black font-semibold px-6 py-3.5 hover:bg-ada-black hover:text-white transition">
+              <Link to="/ada/services" className="inline-flex items-center gap-2 rounded-full border border-ada-black/15 text-ada-black font-semibold px-6 py-3.5 hover:bg-ada-black hover:text-white transition">
                 Découvrir l'offre
               </Link>
             </div>
@@ -238,7 +238,7 @@ function Home() {
               { icon: Landmark, img: locEtat, t: "État & Institutions", d: "Marchés publics, missions officielles et véhicules protocolaires." },
             ].map(({ icon: Icon, img, t, d }, i) => (
               <Reveal key={t} delay={i * 0.08}>
-                <Link to="/location" className="group block rounded-2xl bg-white border border-border overflow-hidden hover:shadow-[var(--shadow-premium)] hover:-translate-y-1 transition h-full">
+                <Link to="/ada/services" className="group block rounded-2xl bg-white border border-border overflow-hidden hover:shadow-[var(--shadow-premium)] hover:-translate-y-1 transition h-full">
                   <div className="relative h-40 overflow-hidden">
                     <img src={img} alt={t} className="h-full w-full object-cover group-hover:scale-105 transition duration-500" />
                     <div className="absolute top-3 left-3 h-9 w-9 rounded-xl bg-white/95 backdrop-blur grid place-items-center">
@@ -302,7 +302,7 @@ function Home() {
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/ivoire-pare-brise" className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]">
+              <Link to="/ipb" className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]">
                 Demander un devis <ArrowRight className="h-4 w-4" />
               </Link>
               <a href="tel:+2250700282930" className="inline-flex items-center gap-2 rounded-full border border-ada-black/15 text-ada-black font-semibold px-6 py-3.5 hover:bg-ada-black hover:text-white transition">
@@ -427,7 +427,7 @@ function Home() {
               Tout ce qu'il faut savoir avant de louer un véhicule ou de faire intervenir
               Ivoire Pare-Brise.
             </p>
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ada-black hover:text-ada-yellow transition">
+            <Link to="/ada/contact" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ada-black hover:text-ada-yellow transition">
               Une autre question ? Contactez-nous <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
@@ -467,10 +467,10 @@ function Home() {
                   Réservez votre véhicule ou demandez un devis pare-brise — réponse en moins d'une heure.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link to="/location" className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-7 py-4 hover:bg-ada-black/90 transition shadow-lg shadow-ada-black/20">
+                  <Link to="/ada/services" className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-7 py-4 hover:bg-ada-black/90 transition shadow-lg shadow-ada-black/20">
                     Réserver <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border-2 border-ada-black/20 text-ada-black font-semibold px-7 py-4 hover:bg-ada-black hover:text-white transition">
+                  <Link to="/ada/contact" className="inline-flex items-center gap-2 rounded-full border-2 border-ada-black/20 text-ada-black font-semibold px-7 py-4 hover:bg-ada-black hover:text-white transition">
                     Nous contacter
                   </Link>
                 </div>

@@ -23,7 +23,7 @@ import {
 import { Reveal } from "@/components/ada/Reveal";
 import heroAbout from "@/assets/about-hero-cdn.png";
 
-export const Route = createFileRoute("/a-propos")({
+export const Route = createFileRoute("/ada/a-propos")({
   head: () => ({
     meta: [
       { title: "À Propos — ADA · Assistance Distribution Auto Abidjan" },
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/a-propos")({
       },
       { property: "og:image", content: heroAbout },
     ],
-    links: [{ rel: "canonical", href: "/a-propos" }],
+    links: [{ rel: "canonical", href: "/ada/a-propos" }],
   }),
   component: AboutPage,
 });
@@ -185,13 +185,13 @@ function AboutPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                to="/location"
+                to="/ada/services"
                 className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition"
               >
                 Nos services <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                to="/contact"
+                to="/ada/contact"
                 className="inline-flex items-center gap-2 rounded-full border-2 border-white/80 text-white font-semibold px-6 py-3 hover:bg-white hover:text-ada-black transition"
               >
                 Nous contacter
@@ -341,7 +341,7 @@ function AboutPage() {
                 </ul>
                 <div className="mt-auto pt-8">
                   <Link
-                    to="/location"
+                    to="/ada/services"
                     className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3 hover:brightness-95 transition"
                   >
                     Découvrir la location <ArrowRight className="h-4 w-4" />
@@ -387,7 +387,7 @@ function AboutPage() {
                 </ul>
                 <div className="mt-auto pt-8">
                   <Link
-                    to="/ivoire-pare-brise"
+                    to="/ipb"
                     className="inline-flex items-center gap-2 rounded-full bg-ada-black text-ada-yellow font-semibold px-6 py-3 hover:brightness-110 transition"
                   >
                     Découvrir Ivoire Pare-Brise <ArrowRight className="h-4 w-4" />
@@ -551,7 +551,7 @@ function AboutPage() {
           <p className="mt-12 text-center text-muted-foreground italic">
             Votre organisation souhaite travailler avec ADA ? Parlons-en.{" "}
             <Link
-              to="/contact"
+              to="/ada/contact"
               className="not-italic font-semibold text-ada-black underline decoration-ada-yellow decoration-2 underline-offset-4 hover:text-ada-yellow transition"
             >
               Nous contacter
@@ -577,13 +577,13 @@ function AboutPage() {
               </p>
               <div className="mt-7 flex flex-wrap justify-center gap-3">
                 <Link
-                  to="/location"
+                  to="/ada/services"
                   className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-6 py-3.5 hover:brightness-110 transition"
                 >
                   Découvrir nos services <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  to="/contact"
+                  to="/ada/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition"
                 >
                   Nous contacter

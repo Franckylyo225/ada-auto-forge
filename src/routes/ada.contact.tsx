@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 
-export const Route = createFileRoute("/contact")({
+export const Route = createFileRoute("/ada/contact")({
   head: () => ({
     meta: [
       { title: "Contact — ADA" },
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact — ADA" },
       { property: "og:description", content: "Une équipe disponible 7j/7 pour vous répondre." },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "/ada/contact" }],
   }),
   component: ContactPage,
 });

@@ -9,55 +9,35 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ReservationRouteImport } from './routes/reservation'
-import { Route as LocationRouteImport } from './routes/location'
-import { Route as IvoirePareBriseRouteImport } from './routes/ivoire-pare-brise'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AProposRouteImport } from './routes/a-propos'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as IpbIndexRouteImport } from './routes/ipb.index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as AdaIndexRouteImport } from './routes/ada.index'
 import { Route as DashboardParametresRouteImport } from './routes/dashboard.parametres'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard.login'
 import { Route as DashboardFlotteRouteImport } from './routes/dashboard.flotte'
 import { Route as DashboardDemandesRouteImport } from './routes/dashboard.demandes'
 import { Route as DashboardContratsCloturesRouteImport } from './routes/dashboard.contrats-clotures'
 import { Route as DashboardContratsRouteImport } from './routes/dashboard.contrats'
+import { Route as AdaServicesRouteImport } from './routes/ada.services'
+import { Route as AdaReservationRouteImport } from './routes/ada.reservation'
+import { Route as AdaContactRouteImport } from './routes/ada.contact'
+import { Route as AdaAProposRouteImport } from './routes/ada.a-propos'
 import { Route as DashboardDemandesIdRouteImport } from './routes/dashboard.demandes.$id'
 import { Route as DashboardContratsIdPrintRouteImport } from './routes/dashboard.contrats.$id.print'
 
-const ReservationRoute = ReservationRouteImport.update({
-  id: '/reservation',
-  path: '/reservation',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LocationRoute = LocationRouteImport.update({
-  id: '/location',
-  path: '/location',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IvoirePareBriseRoute = IvoirePareBriseRouteImport.update({
-  id: '/ivoire-pare-brise',
-  path: '/ivoire-pare-brise',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AProposRoute = AProposRouteImport.update({
-  id: '/a-propos',
-  path: '/a-propos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const IpbIndexRoute = IpbIndexRouteImport.update({
+  id: '/ipb/',
+  path: '/ipb/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdaIndexRoute = AdaIndexRouteImport.update({
+  id: '/ada/',
+  path: '/ada/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardParametresRoute = DashboardParametresRouteImport.update({
@@ -91,6 +71,26 @@ const DashboardContratsRoute = DashboardContratsRouteImport.update({
   path: '/dashboard/contrats',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdaServicesRoute = AdaServicesRouteImport.update({
+  id: '/ada/services',
+  path: '/ada/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdaReservationRoute = AdaReservationRouteImport.update({
+  id: '/ada/reservation',
+  path: '/ada/reservation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdaContactRoute = AdaContactRouteImport.update({
+  id: '/ada/contact',
+  path: '/ada/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdaAProposRoute = AdaAProposRouteImport.update({
+  id: '/ada/a-propos',
+  path: '/ada/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardDemandesIdRoute = DashboardDemandesIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -104,169 +104,134 @@ const DashboardContratsIdPrintRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/a-propos': typeof AProposRoute
-  '/contact': typeof ContactRoute
-  '/ivoire-pare-brise': typeof IvoirePareBriseRoute
-  '/location': typeof LocationRoute
-  '/reservation': typeof ReservationRoute
+  '/ada/a-propos': typeof AdaAProposRoute
+  '/ada/contact': typeof AdaContactRoute
+  '/ada/reservation': typeof AdaReservationRoute
+  '/ada/services': typeof AdaServicesRoute
   '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
   '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/dashboard/parametres': typeof DashboardParametresRoute
+  '/ada/': typeof AdaIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/ipb/': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/a-propos': typeof AProposRoute
-  '/contact': typeof ContactRoute
-  '/ivoire-pare-brise': typeof IvoirePareBriseRoute
-  '/location': typeof LocationRoute
-  '/reservation': typeof ReservationRoute
+  '/ada/a-propos': typeof AdaAProposRoute
+  '/ada/contact': typeof AdaContactRoute
+  '/ada/reservation': typeof AdaReservationRoute
+  '/ada/services': typeof AdaServicesRoute
   '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
   '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/dashboard/parametres': typeof DashboardParametresRoute
+  '/ada': typeof AdaIndexRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/ipb': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/a-propos': typeof AProposRoute
-  '/contact': typeof ContactRoute
-  '/ivoire-pare-brise': typeof IvoirePareBriseRoute
-  '/location': typeof LocationRoute
-  '/reservation': typeof ReservationRoute
+  '/ada/a-propos': typeof AdaAProposRoute
+  '/ada/contact': typeof AdaContactRoute
+  '/ada/reservation': typeof AdaReservationRoute
+  '/ada/services': typeof AdaServicesRoute
   '/dashboard/contrats': typeof DashboardContratsRouteWithChildren
   '/dashboard/contrats-clotures': typeof DashboardContratsCloturesRoute
   '/dashboard/demandes': typeof DashboardDemandesRouteWithChildren
   '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/dashboard/parametres': typeof DashboardParametresRoute
+  '/ada/': typeof AdaIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/ipb/': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/a-propos'
-    | '/contact'
-    | '/ivoire-pare-brise'
-    | '/location'
-    | '/reservation'
+    | '/ada/a-propos'
+    | '/ada/contact'
+    | '/ada/reservation'
+    | '/ada/services'
     | '/dashboard/contrats'
     | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
     | '/dashboard/flotte'
     | '/dashboard/login'
     | '/dashboard/parametres'
+    | '/ada/'
     | '/dashboard/'
+    | '/ipb/'
     | '/dashboard/demandes/$id'
     | '/dashboard/contrats/$id/print'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/a-propos'
-    | '/contact'
-    | '/ivoire-pare-brise'
-    | '/location'
-    | '/reservation'
+    | '/ada/a-propos'
+    | '/ada/contact'
+    | '/ada/reservation'
+    | '/ada/services'
     | '/dashboard/contrats'
     | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
     | '/dashboard/flotte'
     | '/dashboard/login'
     | '/dashboard/parametres'
+    | '/ada'
     | '/dashboard'
+    | '/ipb'
     | '/dashboard/demandes/$id'
     | '/dashboard/contrats/$id/print'
   id:
     | '__root__'
-    | '/'
-    | '/a-propos'
-    | '/contact'
-    | '/ivoire-pare-brise'
-    | '/location'
-    | '/reservation'
+    | '/ada/a-propos'
+    | '/ada/contact'
+    | '/ada/reservation'
+    | '/ada/services'
     | '/dashboard/contrats'
     | '/dashboard/contrats-clotures'
     | '/dashboard/demandes'
     | '/dashboard/flotte'
     | '/dashboard/login'
     | '/dashboard/parametres'
+    | '/ada/'
     | '/dashboard/'
+    | '/ipb/'
     | '/dashboard/demandes/$id'
     | '/dashboard/contrats/$id/print'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AProposRoute: typeof AProposRoute
-  ContactRoute: typeof ContactRoute
-  IvoirePareBriseRoute: typeof IvoirePareBriseRoute
-  LocationRoute: typeof LocationRoute
-  ReservationRoute: typeof ReservationRoute
+  AdaAProposRoute: typeof AdaAProposRoute
+  AdaContactRoute: typeof AdaContactRoute
+  AdaReservationRoute: typeof AdaReservationRoute
+  AdaServicesRoute: typeof AdaServicesRoute
   DashboardContratsRoute: typeof DashboardContratsRouteWithChildren
   DashboardContratsCloturesRoute: typeof DashboardContratsCloturesRoute
   DashboardDemandesRoute: typeof DashboardDemandesRouteWithChildren
   DashboardFlotteRoute: typeof DashboardFlotteRoute
   DashboardLoginRoute: typeof DashboardLoginRoute
   DashboardParametresRoute: typeof DashboardParametresRoute
+  AdaIndexRoute: typeof AdaIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
+  IpbIndexRoute: typeof IpbIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/reservation': {
-      id: '/reservation'
-      path: '/reservation'
-      fullPath: '/reservation'
-      preLoaderRoute: typeof ReservationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/location': {
-      id: '/location'
-      path: '/location'
-      fullPath: '/location'
-      preLoaderRoute: typeof LocationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ivoire-pare-brise': {
-      id: '/ivoire-pare-brise'
-      path: '/ivoire-pare-brise'
-      fullPath: '/ivoire-pare-brise'
-      preLoaderRoute: typeof IvoirePareBriseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/a-propos': {
-      id: '/a-propos'
-      path: '/a-propos'
-      fullPath: '/a-propos'
-      preLoaderRoute: typeof AProposRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/ipb/': {
+      id: '/ipb/'
+      path: '/ipb'
+      fullPath: '/ipb/'
+      preLoaderRoute: typeof IpbIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/': {
@@ -274,6 +239,13 @@ declare module '@tanstack/react-router' {
       path: '/dashboard'
       fullPath: '/dashboard/'
       preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ada/': {
+      id: '/ada/'
+      path: '/ada'
+      fullPath: '/ada/'
+      preLoaderRoute: typeof AdaIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/parametres': {
@@ -318,6 +290,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardContratsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ada/services': {
+      id: '/ada/services'
+      path: '/ada/services'
+      fullPath: '/ada/services'
+      preLoaderRoute: typeof AdaServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ada/reservation': {
+      id: '/ada/reservation'
+      path: '/ada/reservation'
+      fullPath: '/ada/reservation'
+      preLoaderRoute: typeof AdaReservationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ada/contact': {
+      id: '/ada/contact'
+      path: '/ada/contact'
+      fullPath: '/ada/contact'
+      preLoaderRoute: typeof AdaContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ada/a-propos': {
+      id: '/ada/a-propos'
+      path: '/ada/a-propos'
+      fullPath: '/ada/a-propos'
+      preLoaderRoute: typeof AdaAProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/demandes/$id': {
       id: '/dashboard/demandes/$id'
       path: '/$id'
@@ -358,19 +358,19 @@ const DashboardDemandesRouteWithChildren =
   DashboardDemandesRoute._addFileChildren(DashboardDemandesRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AProposRoute: AProposRoute,
-  ContactRoute: ContactRoute,
-  IvoirePareBriseRoute: IvoirePareBriseRoute,
-  LocationRoute: LocationRoute,
-  ReservationRoute: ReservationRoute,
+  AdaAProposRoute: AdaAProposRoute,
+  AdaContactRoute: AdaContactRoute,
+  AdaReservationRoute: AdaReservationRoute,
+  AdaServicesRoute: AdaServicesRoute,
   DashboardContratsRoute: DashboardContratsRouteWithChildren,
   DashboardContratsCloturesRoute: DashboardContratsCloturesRoute,
   DashboardDemandesRoute: DashboardDemandesRouteWithChildren,
   DashboardFlotteRoute: DashboardFlotteRoute,
   DashboardLoginRoute: DashboardLoginRoute,
   DashboardParametresRoute: DashboardParametresRoute,
+  AdaIndexRoute: AdaIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
+  IpbIndexRoute: IpbIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

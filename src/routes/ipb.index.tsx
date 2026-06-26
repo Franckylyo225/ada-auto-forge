@@ -41,7 +41,7 @@ import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
 
-export const Route = createFileRoute("/ivoire-pare-brise")({
+export const Route = createFileRoute("/ipb/")({
   head: () => ({
     meta: [
       { title: "Ivoire Pare-Brise by ADA — Réparation & remplacement vitrage auto Abidjan" },
@@ -54,7 +54,7 @@ export const Route = createFileRoute("/ivoire-pare-brise")({
       { property: "og:description", content: "Réparation & remplacement de pare-brise sous 45min à Abidjan." },
       { property: "og:image", content: heroNew },
     ],
-    links: [{ rel: "canonical", href: "/ivoire-pare-brise" }],
+    links: [{ rel: "canonical", href: "/ipb" }],
   }),
   component: IPBPage,
 });

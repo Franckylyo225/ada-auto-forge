@@ -13,7 +13,7 @@ import imgAssurances from "@/assets/loc-assurances.jpg";
 import imgEntreprises from "@/assets/loc-entreprises.jpg";
 import imgEtat from "@/assets/loc-etat.jpg";
 
-export const Route = createFileRoute("/location")({
+export const Route = createFileRoute("/ada/services")({
   head: () => ({
     meta: [
       { title: "Location de véhicules — ADA Côte d'Ivoire" },
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/location")({
       { property: "og:title", content: "Location de véhicules — ADA Côte d'Ivoire" },
       { property: "og:description", content: "Location courte & longue durée — flotte moderne, service premium ADA." },
     ],
-    links: [{ rel: "canonical", href: "/location" }],
+    links: [{ rel: "canonical", href: "/ada/services" }],
   }),
   component: LocationPage,
 });
@@ -128,13 +128,13 @@ function LocationPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                to="/reservation"
+                to="/ada/reservation"
                 className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
               >
                 Faire une demande <ArrowRight className="h-5 w-5" />
               </Link>
               <Link
-                to="/contact"
+                to="/ada/contact"
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white font-semibold px-6 py-3.5 hover:bg-white/10 transition"
               >
                 Nous contacter
@@ -234,7 +234,7 @@ function LocationPage() {
                     ))}
                   </ul>
                   <Link
-                    to="/reservation"
+                    to="/ada/reservation"
                     className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
                   >
                     Faire une demande <ArrowRight className="h-4 w-4" />
@@ -277,7 +277,7 @@ function LocationPage() {
                       <div className="flex items-center gap-1.5"><Fuel className="h-4 w-4 text-ada-yellow" /> {c.fuel}</div>
                     </div>
                     <Link
-                      to="/reservation"
+                      to="/ada/reservation"
                       className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ada-black hover:text-ada-yellow transition"
                     >
                       Demander un devis <ArrowRight className="h-4 w-4" />
@@ -333,7 +333,7 @@ function LocationPage() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
-                to="/reservation"
+                to="/ada/reservation"
                 className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-7 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
               >
                 Faire une demande <ArrowRight className="h-5 w-5" />
@@ -354,7 +354,7 @@ function LocationPage() {
       {/* Sticky mobile CTA */}
       <div className="md:hidden fixed bottom-4 inset-x-4 z-40">
         <Link
-          to="/reservation"
+          to="/ada/reservation"
           className="flex items-center justify-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold py-4 shadow-[var(--shadow-yellow)]"
         >
           Faire une demande <ArrowRight className="h-5 w-5" />

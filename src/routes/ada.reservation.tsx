@@ -14,13 +14,13 @@ import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter,
 } from "@/components/ui/dialog";
 
-export const Route = createFileRoute("/reservation")({
+export const Route = createFileRoute("/ada/reservation")({
   head: () => ({
     meta: [
       { title: "Réserver un véhicule — ADA" },
       { name: "description", content: "Demandez votre véhicule de location en 2 minutes. Notre équipe ADA vous rappelle sous 2h." },
     ],
-    links: [{ rel: "canonical", href: "/reservation" }],
+    links: [{ rel: "canonical", href: "/ada/reservation" }],
   }),
   component: ReservationPage,
 });
