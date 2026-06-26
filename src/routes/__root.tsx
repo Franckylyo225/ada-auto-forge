@@ -101,7 +101,8 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isDashboard = pathname.startsWith("/dashboard");
   const isPrint = pathname.includes("/print");
-  const hideChrome = isDashboard || isPrint;
+  const isPortal = pathname === "/";
+  const hideChrome = isDashboard || isPrint || isPortal;
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col">
