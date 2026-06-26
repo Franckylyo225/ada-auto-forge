@@ -1,14 +1,12 @@
 // Vercel serverless function — adapts Node IncomingMessage/ServerResponse to the
-// Web Fetch handler exported by dist/server/server.js (built from src/server.ts).
+// Web Fetch handler exported by the production server bundle.
 import { Readable } from "node:stream";
 
 let handlerPromise;
 
 async function getHandler() {
   if (!handlerPromise) {
-    handlerPromise = import("../dist/server/server.js").then(
-      (m) => m.default ?? m,
-    );
+    handlerPromise = import("../dist/server/index.mjs").then((m) => m.default ?? m);
   }
   return handlerPromise;
 }
@@ -36,7 +34,12 @@ export default async function handler(req, res) {
 
     const request = new Request(url, init);
     const server = await getHandler();
-    const response = await server.fetch(request, {}, {});
+    const waitUntil = (promise) => {
+      if (promise && typeof promise.catch === "function") {
+        promise.catch((error) => console.error("[vercel-adapter] waitUntil error:", error));
+      }
+    };
+    const response = await server.fetch(request, process.env, { waitUntil });
 
     res.statusCode = response.status;
     response.headers.forEach((value, key) => {
