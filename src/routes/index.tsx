@@ -95,7 +95,7 @@ function Portal() {
               </span>
             </p>
             <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-ada-black font-bold px-6 py-3 shadow-lg">
-              Entrer sur IPB <ArrowRight className="h-4 w-4" />
+              Entrer sur Ivoire Pare-Brise <ArrowRight className="h-4 w-4" />
             </span>
           </div>
         </Link>
