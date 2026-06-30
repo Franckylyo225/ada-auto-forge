@@ -20,24 +20,27 @@ import {
 import { Reveal } from "@/components/ada/Reveal";
 import heroAbout from "@/assets/about-hero-cdn.png";
 
+import { abs, SITE_URL } from "@/lib/seo";
+
+const TITLE = "À propos d'ADA — Mobilité premium à Abidjan depuis +10 ans";
+const DESC =
+  "ADA Côte d'Ivoire : entreprise ivoirienne de location de véhicules et de réparation pare-brise (Ivoire Pare-Brise). Notre mission, notre équipe, nos engagements à Abidjan.";
+
 export const Route = createFileRoute("/ada/a-propos")({
   head: () => ({
     meta: [
-      { title: "À Propos — ADA · Mobilité Premium & Location à Abidjan" },
-      {
-        name: "description",
-        content:
-          "Depuis plus de 10 ans, ADA accompagne les Ivoiriens dans leur mobilité : location de véhicules premium et expertise vitrage automobile à Abidjan.",
-      },
-      { property: "og:title", content: "À Propos — ADA Mobilité" },
-      {
-        property: "og:description",
-        content:
-          "L'exigence de la mobilité premium en Côte d'Ivoire. Location de véhicules et service expert.",
-      },
-      { property: "og:image", content: heroAbout },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ada/a-propos" },
+      { property: "og:image", content: abs(heroAbout) },
+      { property: "og:image:alt", content: "Équipe ADA Côte d'Ivoire" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+      { name: "twitter:image", content: abs(heroAbout) },
     ],
-    links: [{ rel: "canonical", href: "/ada/a-propos" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/ada/a-propos" }],
   }),
   component: AboutPage,
 });
