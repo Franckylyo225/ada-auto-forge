@@ -150,6 +150,168 @@ const FAQ = [
   },
 ];
 
+function HeroCarousel({ onDevis }: { onDevis: () => void }) {
+  const [emblaRef, api] = useEmblaCarousel({ loop: true });
+  const [selected, setSelected] = useState(1);
+
+  const onSelect = useCallback(() => {
+    if (!api) return;
+    setSelected(api.selectedScrollSnap() + 1);
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+    onSelect();
+    api.on("select", onSelect);
+    return () => { api.off("select", onSelect); };
+  }, [api, onSelect]);
+
+  useEffect(() => {
+    if (!api) return;
+    const timer = setInterval(() => api.scrollNext(), 6000);
+    return () => clearInterval(timer);
+  }, [api]);
+
+  const scrollTo = useCallback((index: number) => api && api.scrollTo(index), [api]);
+
+  const slides = [
+    {
+      img: heroWindshield,
+      badge: (
+        <>
+          <span className="h-1.5 w-1.5 rounded-full bg-ada-yellow" />
+          Ivoire Pare-Brise · by ADA
+        </>
+      ),
+      title: (
+        <>
+          Votre pare-brise mérite<br />
+          <span className="text-ada-yellow">une expertise premium.</span>
+        </>
+      ),
+      desc:
+        "Impact, fissure ou bris complet : techniciens certifiés, vitrages homologués constructeur et garantie 12 mois pièces & pose. Toutes marques, partout à Abidjan.",
+      ctaPrimaryLabel: "Demander un devis gratuit",
+      ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
+    },
+    {
+      img: heroAtelier,
+      badge: (
+        <>
+          <Clock className="h-3.5 w-3.5 text-ada-yellow" />
+          Intervention rapide
+        </>
+      ),
+      title: (
+        <>
+          Réparation d'impact,<br />
+          <span className="text-ada-yellow">en moins de 45 min.</span>
+        </>
+      ),
+      desc:
+        "Atelier ou à domicile, nos techniciens interviennent rapidement avec une résine haute résistance certifiée pour restaurer la solidité et la transparence du verre.",
+      ctaPrimaryLabel: "Prendre rendez-vous",
+      ctaSecondary: { href: "tel:+22507002829830", label: "Diagnostic gratuit" },
+    },
+    {
+      img: heroNew,
+      badge: (
+        <>
+          <ShieldCheck className="h-3.5 w-3.5 text-ada-yellow" />
+          Pièces homologuées
+        </>
+      ),
+      title: (
+        <>
+          Remplacement pare-brise,<br />
+          <span className="text-ada-yellow">garanti 12 mois.</span>
+        </>
+      ),
+      desc:
+        "Vitrages d'origine ou OEM, mastics et joints neufs, temps de séchage respecté : chaque pose est réalisée selon les normes constructeur.",
+      ctaPrimaryLabel: "Obtenir un devis",
+      ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
+    },
+  ];
+
+  return (
+    <div className="relative overflow-hidden" ref={emblaRef}>
+      <div className="flex">
+        {slides.map((s, i) => (
+          <div key={i} className="flex-[0_0_100%] min-w-0 relative">
+            <div className="absolute inset-0">
+              <img src={s.img} alt="" className="h-full w-full object-cover" width={1920} height={1080} />
+              <div className="absolute inset-0 bg-gradient-to-r from-ada-black via-ada-black/85 to-ada-black/30" />
+            </div>
+            <div className="relative container-ada pt-20 pb-28 md:pt-32 md:pb-40 text-white">
+              <Reveal>
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-medium border border-white/15">
+                  {s.badge}
+                </span>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <h1 className="mt-6 text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-3xl">
+                  {s.title}
+                </h1>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <p className="mt-6 max-w-xl text-lg text-white/75 leading-relaxed">{s.desc}</p>
+              </Reveal>
+              <Reveal delay={0.3}>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={onDevis}
+                    className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
+                  >
+                    {s.ctaPrimaryLabel} <ArrowRight className="h-4 w-4" />
+                  </button>
+                  <a
+                    href={s.ctaSecondary.href}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition"
+                  >
+                    <Phone className="h-4 w-4" /> {s.ctaSecondary.label}
+                  </a>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-6 z-10">
+        <button
+          onClick={() => api?.scrollPrev()}
+          className="hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-white/15 backdrop-blur border border-white/20 text-white hover:bg-white/30 transition"
+          aria-label="Précédent"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+      </div>
+      <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:pr-6 z-10">
+        <button
+          onClick={() => api?.scrollNext()}
+          className="hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-white/15 backdrop-blur border border-white/20 text-white hover:bg-white/30 transition"
+          aria-label="Suivant"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => scrollTo(i)}
+            className={`h-2 rounded-full transition-all ${selected === i + 1 ? "w-8 bg-ada-yellow" : "w-2 bg-white/40 hover:bg-white/70"}`}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
+
 function IPBPage() {
   const [devisOpen, setDevisOpen] = useState(false);
   const openDevis = () => setDevisOpen(true);
