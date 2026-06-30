@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /dashboard
+Disallow: /dashboard/
+
+Sitemap: https://ada-auto-forge.lovable.app/sitemap.xml
