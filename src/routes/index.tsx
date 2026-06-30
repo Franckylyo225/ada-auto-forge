@@ -95,7 +95,7 @@ function Portal() {
                 Toutes marques · Intervention sous 45 min · Garantie 12 mois
               </span>
             </p>
-            <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-ada-black font-bold px-6 py-3 shadow-lg">
+            <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3 shadow-[var(--shadow-yellow)]">
               Entrer sur Ivoire Pare-Brise <ArrowRight className="h-4 w-4" />
             </span>
           </div>
