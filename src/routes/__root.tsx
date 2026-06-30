@@ -51,22 +51,20 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+import { ORG_JSONLD } from "@/lib/seo";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ADA — Assistance Distribution Auto" },
-      { name: "description", content: "Location de véhicules courte & longue durée et réparation de pare-brise en Côte d'Ivoire." },
-      { property: "og:site_name", content: "ADA" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "theme-color", content: "#FFE800" },
+      { property: "og:site_name", content: "Groupe ADA Côte d'Ivoire" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "ADA — Assistance Distribution Auto" },
-      { name: "twitter:title", content: "ADA — Assistance Distribution Auto" },
-      { property: "og:description", content: "Location de véhicules courte & longue durée et réparation de pare-brise en Côte d'Ivoire." },
-      { name: "twitter:description", content: "Location de véhicules courte & longue durée et réparation de pare-brise en Côte d'Ivoire." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/afb8ad39-2452-494f-b9ee-3295a5dbf7e7/id-preview-60a2de57--bdd29baf-067a-47c5-b52e-ee9bf4354281.lovable.app-1781876893137.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/afb8ad39-2452-494f-b9ee-3295a5dbf7e7/id-preview-60a2de57--bdd29baf-067a-47c5-b52e-ee9bf4354281.lovable.app-1781876893137.png" },
+      { property: "og:locale", content: "fr_CI" },
       { name: "twitter:card", content: "summary_large_image" },
+      // No og:image / twitter:image here — leaf routes own their share preview.
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -76,6 +74,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(ORG_JSONLD),
+      },
     ],
   }),
   shellComponent: RootShell,
