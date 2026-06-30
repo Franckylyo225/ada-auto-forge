@@ -44,14 +44,15 @@ import cardLat from "@/assets/ipb-card-lateral-cdn.png";
 export const Route = createFileRoute("/ipb/")({
   head: () => ({
     meta: [
-      { title: "Ivoire Pare-Brise by ADA — Réparation & remplacement vitrage auto Abidjan" },
+      { title: "Ivoire Pare-Brise by ADA — Vitrage automobile premium à Abidjan" },
       {
         name: "description",
         content:
-          "Pare-brise fissuré ? Ivoire Pare-Brise by ADA intervient sous 45min à Abidjan. Réparation d'impact, remplacement, vitrage latéral — toutes marques, garantie 12 mois.",
+          "Ivoire Pare-Brise by ADA : expertise vitrage automobile à Abidjan. Réparation d'impact, remplacement pare-brise et vitrages latéraux — toutes marques, pièces homologuées, garantie 12 mois.",
       },
-      { property: "og:title", content: "Ivoire Pare-Brise by ADA" },
-      { property: "og:description", content: "Réparation & remplacement de pare-brise sous 45min à Abidjan." },
+      { property: "og:title", content: "Ivoire Pare-Brise by ADA — Votre vitrage entre de bonnes mains" },
+      { property: "og:description", content: "Techniciens certifiés, pièces d'origine et intervention sous 45 min à Abidjan." },
+
       { property: "og:image", content: heroNew },
     ],
     links: [{ rel: "canonical", href: "/ipb" }],
@@ -151,16 +152,16 @@ function IPBPage() {
         <div className="container-ada grid lg:grid-cols-5 gap-10 py-14 lg:py-20 items-center">
           <div className="lg:col-span-3">
             <div className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/15 text-ada-black px-3 py-1 text-xs font-semibold">
-              Toutes marques · Abidjan
+              L'expertise vitrage du groupe ADA · Abidjan
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight text-ada-black leading-[1.05]">
-              Votre pare-brise fissuré ?
-              <span className="block text-ada-yellow">On intervient sous 45min.</span>
+              Votre pare-brise mérite
+              <span className="block text-ada-yellow">une expertise premium.</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-              Réparation d'impact ou remplacement complet — Ivoire Pare-Brise by ADA prend en charge
-              votre vitrage avec des techniciens certifiés, des pièces homologuées et une garantie
-              sur chaque intervention.
+              Impact, fissure ou bris complet : Ivoire Pare-Brise by ADA intervient avec des techniciens
+              certifiés, des vitrages homologués constructeur et une garantie pièces & pose sur chaque
+              intervention. Toutes marques, partout à Abidjan.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <button
@@ -178,13 +179,14 @@ function IPBPage() {
               </a>
             </div>
             <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ada-black/80">
-              {["Diagnostic gratuit", "Intervention en atelier ou à domicile", "Garantie pièces & pose"].map((t) => (
+              {["Diagnostic gratuit & sans engagement", "Intervention en atelier ou à domicile", "Garantie 12 mois pièces & pose"].map((t) => (
                 <li key={t} className="inline-flex items-center gap-2">
                   <Check className="h-4 w-4 text-ada-yellow" />
                   {t}
                 </li>
               ))}
             </ul>
+
           </div>
           <div className="lg:col-span-2">
             <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-premium)]">
@@ -516,8 +518,9 @@ function IPBPage() {
             </div>
             <h2 className="mt-5 text-4xl md:text-5xl font-bold">Votre pare-brise mérite le meilleur.</h2>
             <p className="mt-4 text-white/60 text-lg max-w-md">
-              Demandez votre devis en 1 minute, notre équipe vous rappelle sous 2 heures avec un prix précis.
+              Devis en 1 minute, rappel sous 2 heures par un conseiller IPB avec un prix précis et un créneau d'intervention.
             </p>
+
           </Reveal>
           <Reveal delay={0.1}>
             <div className="flex flex-col sm:flex-row gap-3 lg:justify-end">
