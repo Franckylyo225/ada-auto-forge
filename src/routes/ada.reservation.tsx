@@ -6,7 +6,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import {
   ArrowRight, User as UserIcon, Shield, Building2, Landmark,
-  CheckCircle2, Car, FileText, MessageSquare, Copy,
+  CheckCircle2, Car, FileText, MessageSquare, Copy, ChevronDown,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import { rentalsStore } from "@/lib/ada-storage";
@@ -17,8 +17,8 @@ import {
 export const Route = createFileRoute("/ada/reservation")({
   head: () => ({
     meta: [
-      { title: "Réserver un véhicule — ADA" },
-      { name: "description", content: "Demandez votre véhicule de location en 2 minutes. Notre équipe ADA vous rappelle sous 2h." },
+      { title: "Réserver votre véhicule — ADA Côte d'Ivoire" },
+      { name: "description", content: "Demande de réservation en ligne. Notre équipe vous recontacte sous 2h pour confirmer la disponibilité de votre véhicule." },
     ],
     links: [{ rel: "canonical", href: "/ada/reservation" }],
   }),
@@ -100,7 +100,7 @@ function ReservationPage() {
     });
     setCreatedRef(item.id);
     form.reset();
-    toast.success(`Demande envoyée — ${item.id}`);
+    toast.success(`Demande enregistrée avec succès`);
   };
 
   const { register, handleSubmit, watch, setValue, formState: { errors, isSubmitting } } = form;
@@ -109,233 +109,266 @@ function ReservationPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-ada-black text-white">
-        <div className="container-ada py-16 md:py-20">
+      {/* HERO */}
+      <section className="bg-ada-black text-white py-16 md:py-24 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-ada-yellow/5 skew-x-12 transform translate-x-1/2" />
+        <div className="container-ada relative z-10">
           <Reveal>
-            <span className="inline-flex items-center rounded-full bg-ada-yellow text-ada-black text-xs font-bold px-4 py-1.5">
-              Demande de location
+            <span className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black text-[10px] font-black uppercase tracking-widest px-4 py-1.5 mb-6">
+              Booking Premium
             </span>
-            <h1 className="mt-5 text-4xl md:text-5xl font-black tracking-tight">Réservez votre véhicule</h1>
-            <p className="mt-4 max-w-2xl text-white/70 text-lg">
-              Remplissez le formulaire ci-dessous, notre équipe vous contacte sous 2h pour confirmer votre réservation.
+            <h1 className="text-4xl md:text-7xl font-black tracking-tighter leading-none">
+              Réservez votre <br />
+              <span className="text-ada-yellow">liberté de mouvement.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-white/60 text-lg leading-relaxed">
+              Choisissez votre véhicule et transmettez-nous vos informations. 
+              Un agent ADA vous confirme la réservation sous 2 heures ouvrables.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Form */}
-      <section className="bg-[var(--color-ada-yellow-soft)]/40 py-14 md:py-20">
+      {/* FORM SECTION */}
+      <section className="bg-[#f8f8f8] py-12 md:py-20">
         <div className="container-ada max-w-5xl">
-          <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-3xl shadow-[var(--shadow-premium)] p-6 md:p-10 space-y-12">
-            {/* BLOC 1 */}
-            <FormBlock icon={Car} index={1} title="Votre véhicule">
-              <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Type de véhicule" required error={errors.vehicleType?.message}>
-                  <select {...register("vehicleType")} className={inputCls}>
-                    <option value="">— Sélectionner —</option>
-                    {VEHICLE_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
-                  </select>
-                </Field>
-
-                <Field label="Date de départ" required error={errors.startDate?.message}>
-                  <input type="date" {...register("startDate")} className={inputCls} />
-                </Field>
-
-                <Field label="Durée souhaitée" required error={errors.durationDays?.message}>
-                  <div className="flex">
-                    <input type="number" min={1} {...register("durationDays")} className={`${inputCls} rounded-r-none`} />
-                    <span className="inline-flex items-center px-4 rounded-r-xl border border-l-0 border-border bg-muted text-sm font-semibold">jours</span>
-                  </div>
-                </Field>
-
-                <Field label="Kilométrage estimé" error={errors.estimatedKm?.message as string | undefined}>
-                  <input type="number" min={0} placeholder="Optionnel" {...register("estimatedKm")} className={inputCls} />
-                </Field>
-
-                <div className="md:col-span-2">
-                  <Label>Usage <Req /></Label>
-                  <div className="mt-2 grid sm:grid-cols-2 lg:grid-cols-4 gap-2">
-                    {usages.map(({ id, icon: Icon }) => {
-                      const selected = usage === id;
-                      return (
-                        <button
-                          type="button"
-                          key={id}
-                          onClick={() => setValue("usage", id, { shouldValidate: true })}
-                          className={`flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-semibold transition ${
-                            selected
-                              ? "border-ada-yellow bg-ada-yellow/15 text-ada-black"
-                              : "border-border text-ada-black/70 hover:border-ada-yellow/60"
-                          }`}
-                        >
-                          <Icon className="h-4 w-4" /> {id}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                <div className="md:col-span-2 flex items-center justify-between rounded-xl border border-border bg-muted/40 px-4 py-3">
+          <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-border">
+            <div className="p-6 md:p-12 space-y-16">
+              
+              {/* BLOCK 1: VEHICLE */}
+              <div className="space-y-10">
+                <header className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center font-black text-xl shadow-lg">1</div>
                   <div>
-                    <div className="font-semibold text-sm">Circulation hors Côte d'Ivoire ?</div>
-                    <div className="text-xs text-muted-foreground">Cochez si le véhicule sortira du pays.</div>
+                    <h2 className="text-2xl font-bold tracking-tight">Votre véhicule</h2>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-widest">Détails de la location</p>
                   </div>
-                  <button
-                    type="button"
-                    role="switch"
-                    aria-checked={outsideCI}
-                    onClick={() => setValue("outsideCI", !outsideCI)}
-                    className={`relative inline-flex h-7 w-12 items-center rounded-full transition ${outsideCI ? "bg-ada-yellow" : "bg-muted-foreground/30"}`}
-                  >
-                    <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition ${outsideCI ? "translate-x-6" : "translate-x-1"}`} />
-                  </button>
+                </header>
+
+                <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                  <Field label="Type de véhicule" required error={errors.vehicleType?.message}>
+                    <div className="relative">
+                      <select {...register("vehicleType")} className="input-ada appearance-none">
+                        <option value="">— Sélectionner un modèle —</option>
+                        {VEHICLE_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
+                      </select>
+                      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                    </div>
+                  </Field>
+
+                  <Field label="Date de départ souhaitée" required error={errors.startDate?.message}>
+                    <input type="date" {...register("startDate")} className="input-ada" />
+                  </Field>
+
+                  <Field label="Durée de location" required error={errors.durationDays?.message}>
+                    <div className="flex">
+                      <input type="number" min={1} {...register("durationDays")} className="input-ada rounded-r-none border-r-0" />
+                      <span className="inline-flex items-center px-5 rounded-r-xl border border-border bg-muted/30 text-xs font-bold uppercase text-muted-foreground tracking-widest">jours</span>
+                    </div>
+                  </Field>
+
+                  <Field label="Kilométrage estimé (Optionnel)" error={errors.estimatedKm?.message as string | undefined}>
+                    <input type="number" min={0} placeholder="Ex: 500" {...register("estimatedKm")} className="input-ada" />
+                  </Field>
+
+                  <div className="md:col-span-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Type d'usage</label>
+                    <div className="mt-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
+                      {usages.map(({ id, icon: Icon }) => {
+                        const selected = usage === id;
+                        return (
+                          <button
+                            type="button"
+                            key={id}
+                            onClick={() => setValue("usage", id, { shouldValidate: true })}
+                            className={`flex flex-col items-center justify-center gap-3 rounded-2xl border p-4 text-center transition-all duration-300 ${
+                              selected
+                                ? "border-ada-yellow bg-ada-yellow/5 text-ada-black shadow-md scale-[1.02]"
+                                : "border-border text-ada-black/50 hover:border-ada-yellow/40 hover:bg-muted/5"
+                            }`}
+                          >
+                            <Icon className={`h-6 w-6 ${selected ? "text-ada-yellow" : "text-muted-foreground"}`} /> 
+                            <span className="text-[10px] font-bold uppercase tracking-tighter leading-tight">{id}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="md:col-span-2 flex items-center justify-between rounded-2xl border border-dashed border-border bg-muted/20 px-6 py-5">
+                    <div>
+                      <div className="font-bold text-sm">Sortie du territoire ?</div>
+                      <div className="text-xs text-muted-foreground font-medium">Cochez si vous prévoyez de circuler hors de Côte d'Ivoire.</div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setValue("outsideCI", !outsideCI)}
+                      className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors duration-300 ${outsideCI ? "bg-ada-yellow" : "bg-muted-foreground/30"}`}
+                    >
+                      <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow-lg transition-transform duration-300 ${outsideCI ? "translate-x-6" : "translate-x-1"}`} />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </FormBlock>
 
-            {/* BLOC 2 */}
-            <FormBlock icon={FileText} index={2} title="Vos informations">
-              <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Nom" required error={errors.lastName?.message}>
-                  <input {...register("lastName")} className={inputCls} />
-                </Field>
-                <Field label="Prénoms" required error={errors.firstName?.message}>
-                  <input {...register("firstName")} className={inputCls} />
-                </Field>
-                <Field label="Date de naissance" required error={errors.birthDate?.message}>
-                  <input type="date" {...register("birthDate")} className={inputCls} />
-                </Field>
-                <Field label="Téléphone" required error={errors.phone?.message}>
-                  <input type="tel" placeholder="+225 07 00 00 00 00" {...register("phone")} className={inputCls} />
-                </Field>
-                <Field label="Adresse complète" required error={errors.address?.message} className="md:col-span-2">
-                  <textarea rows={2} {...register("address")} className={inputCls} />
-                </Field>
-                <Field label="Profession" error={errors.profession?.message as string | undefined}>
-                  <input {...register("profession")} className={inputCls} />
-                </Field>
-                <Field label="N° Permis de conduire" required error={errors.licenseNumber?.message}>
-                  <input {...register("licenseNumber")} className={inputCls} />
-                </Field>
-                <Field label="Catégorie permis" required error={errors.licenseCategory?.message}>
-                  <select {...register("licenseCategory")} className={inputCls}>
-                    {LICENSE_CATS.map((c) => <option key={c} value={c}>{c}</option>)}
-                  </select>
-                </Field>
-                <Field label="Date de délivrance permis" required error={errors.licenseIssuedAt?.message}>
-                  <input type="date" {...register("licenseIssuedAt")} className={inputCls} />
-                </Field>
-                <Field label="Lieu de délivrance permis" required error={errors.licenseIssuedPlace?.message} className="md:col-span-2">
-                  <input {...register("licenseIssuedPlace")} className={inputCls} />
+              {/* BLOCK 2: IDENTITY */}
+              <div className="space-y-10">
+                <header className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center font-black text-xl shadow-lg">2</div>
+                  <div>
+                    <h2 className="text-2xl font-bold tracking-tight">Vos informations</h2>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-widest">Identité du conducteur</p>
+                  </div>
+                </header>
+
+                <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                  <Field label="Nom" required error={errors.lastName?.message}>
+                    <input {...register("lastName")} className="input-ada" placeholder="Votre nom" />
+                  </Field>
+                  <Field label="Prénoms" required error={errors.firstName?.message}>
+                    <input {...register("firstName")} className="input-ada" placeholder="Vos prénoms" />
+                  </Field>
+                  <Field label="Date de naissance" required error={errors.birthDate?.message}>
+                    <input type="date" {...register("birthDate")} className="input-ada" />
+                  </Field>
+                  <Field label="Téléphone mobile" required error={errors.phone?.message}>
+                    <input type="tel" placeholder="+225 07..." {...register("phone")} className="input-ada" />
+                  </Field>
+                  <Field label="Adresse de résidence" required error={errors.address?.message} className="md:col-span-2">
+                    <input {...register("address")} className="input-ada" placeholder="Ex: Cocody Riviera 3" />
+                  </Field>
+                  <Field label="Profession" error={errors.profession?.message as string | undefined}>
+                    <input {...register("profession")} className="input-ada" placeholder="Votre activité" />
+                  </Field>
+                  <div className="md:col-span-2 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+                    <Field label="N° Permis" required error={errors.licenseNumber?.message} className="lg:col-span-2">
+                      <input {...register("licenseNumber")} className="input-ada" />
+                    </Field>
+                    <Field label="Catégorie" required error={errors.licenseCategory?.message}>
+                       <select {...register("licenseCategory")} className="input-ada">
+                        {LICENSE_CATS.map((c) => <option key={c} value={c}>{c}</option>)}
+                      </select>
+                    </Field>
+                    <Field label="Lieu délivrance" required error={errors.licenseIssuedPlace?.message}>
+                      <input {...register("licenseIssuedPlace")} className="input-ada" />
+                    </Field>
+                  </div>
+                </div>
+              </div>
+
+              {/* BLOCK 3: NOTES */}
+              <div className="space-y-10">
+                 <header className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center font-black text-xl shadow-lg">3</div>
+                  <div>
+                    <h2 className="text-2xl font-bold tracking-tight">Commentaires</h2>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-widest">Précisions éventuelles</p>
+                  </div>
+                </header>
+                <Field label="Observations ou demandes particulières" error={errors.observations?.message as string | undefined}>
+                  <textarea rows={4} placeholder="Besoins spécifiques, accessoires (siège bébé), etc." {...register("observations")} className="input-ada resize-none" />
                 </Field>
               </div>
-            </FormBlock>
 
-            {/* BLOC 3 */}
-            <FormBlock icon={MessageSquare} index={3} title="Message">
-              <Field label="Observations / Demandes particulières" error={errors.observations?.message as string | undefined}>
-                <textarea rows={4} placeholder="Optionnel" {...register("observations")} className={inputCls} />
-              </Field>
-            </FormBlock>
+            </div>
 
-            {/* Submit */}
-            <div className="pt-2 text-center">
+            {/* SUBMIT FOOTER */}
+            <div className="bg-[#fafafa] border-t border-border p-8 md:p-12 text-center">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-8 py-4 text-lg hover:brightness-95 transition shadow-[var(--shadow-yellow)] disabled:opacity-60"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-4 rounded-full bg-ada-black text-white font-black px-12 py-5 text-lg hover:bg-ada-yellow hover:text-ada-black transition-all duration-300 shadow-2xl disabled:opacity-50 group"
               >
-                Envoyer ma demande <ArrowRight className="h-5 w-5" />
+                Envoyer ma demande <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
               </button>
-              <p className="mt-3 text-xs text-muted-foreground max-w-md mx-auto">
-                Un agent ADA vous contactera dans les 2 heures ouvrables suivant votre demande pour confirmer la disponibilité et le tarif.
+              <p className="mt-6 text-sm text-muted-foreground font-medium max-w-lg mx-auto leading-relaxed">
+                En envoyant ce formulaire, un conseiller ADA traitera votre dossier en priorité 
+                et vous recontactera pour finaliser les modalités de location.
               </p>
             </div>
           </form>
 
-          <p className="mt-6 text-center text-xs text-muted-foreground">
-            Vous êtes un agent ADA ? <Link to="/dashboard/login" className="underline hover:text-ada-black">Espace agent</Link>
+          <p className="mt-10 text-center text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/50">
+            © {new Date().getFullYear()} ADA Côte d'Ivoire — Service Mobility
           </p>
         </div>
       </section>
 
-      {/* Success modal */}
+      {/* SUCCESS DIALOG */}
       <Dialog open={!!createdRef} onOpenChange={(o) => !o && setCreatedRef(null)}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <div className="mx-auto h-14 w-14 rounded-full bg-ada-yellow/20 grid place-items-center">
-              <CheckCircle2 className="h-7 w-7 text-ada-black" />
+        <DialogContent className="sm:max-w-md rounded-[2rem] border-0 shadow-2xl">
+          <DialogHeader className="pt-6">
+            <div className="mx-auto h-20 w-20 rounded-full bg-ada-yellow/20 grid place-items-center mb-4">
+              <CheckCircle2 className="h-10 w-10 text-ada-black" />
             </div>
-            <DialogTitle className="text-center text-2xl">Demande envoyée !</DialogTitle>
-            <DialogDescription className="text-center">
-              Notre équipe vous contacte très prochainement.
+            <DialogTitle className="text-center text-3xl font-black tracking-tight">Demande reçue !</DialogTitle>
+            <DialogDescription className="text-center text-lg mt-2">
+              Votre dossier est en cours de traitement par nos équipes.
             </DialogDescription>
           </DialogHeader>
-          <div className="my-2 rounded-xl bg-muted p-4 text-center">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">Votre référence</div>
-            <div className="mt-1 flex items-center justify-center gap-2">
-              <span className="text-2xl font-black tracking-tight">{createdRef}</span>
+          
+          <div className="my-6 rounded-3xl bg-muted/50 p-6 text-center border border-border">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-black mb-2">Référence dossier</div>
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-3xl font-black text-ada-black tracking-widest">{createdRef}</span>
               <button
                 type="button"
-                aria-label="Copier"
-                onClick={() => { if (createdRef) { navigator.clipboard.writeText(createdRef); toast.success("Référence copiée"); } }}
-                className="p-1.5 rounded-md hover:bg-background"
+                onClick={() => { if (createdRef) { navigator.clipboard.writeText(createdRef); toast.success("Copié !"); } }}
+                className="p-2 rounded-xl bg-white shadow-sm hover:shadow-md transition-all active:scale-95"
               >
                 <Copy className="h-4 w-4" />
               </button>
             </div>
           </div>
-          <DialogFooter>
+
+          <DialogFooter className="pb-6">
             <button
               onClick={() => setCreatedRef(null)}
-              className="w-full rounded-full bg-ada-black text-white font-semibold py-3 hover:brightness-110 transition"
+              className="w-full rounded-full bg-ada-black text-white font-bold py-4 hover:brightness-125 transition-all shadow-xl"
             >
-              Fermer
+              Compris
             </button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      <style>{`
+        .input-ada {
+          width: 100%;
+          background: #fdfdfd;
+          border: 1px solid #e5e7eb;
+          border-radius: 1.25rem;
+          padding: 0.875rem 1.25rem;
+          font-size: 0.95rem;
+          transition: all .25s ease;
+          color: var(--color-ada-black);
+          font-weight: 500;
+        }
+        .input-ada:focus {
+          outline: none;
+          border-color: var(--color-ada-yellow);
+          background: white;
+          box-shadow: 0 0 0 5px rgba(255, 232, 0, 0.1);
+        }
+        .input-ada::placeholder {
+          color: #9ca3af;
+          font-weight: 400;
+        }
+      `}</style>
     </>
   );
 }
-
-/* --------------------------------- UI bits --------------------------------- */
-
-const inputCls = "w-full rounded-xl border border-border bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ada-yellow focus:border-ada-yellow transition";
-
-function Label({ children }: { children: React.ReactNode }) {
-  return <label className="block text-sm font-semibold text-ada-black/80">{children}</label>;
-}
-function Req() { return <span className="text-ada-yellow">*</span>; }
 
 function Field({ label, required, error, className, children }: {
   label: string; required?: boolean; error?: string; className?: string; children: React.ReactNode;
 }) {
   return (
     <div className={className}>
-      <Label>{label} {required && <Req />}</Label>
-      <div className="mt-1.5">{children}</div>
-      {error && <p className="mt-1 text-xs text-destructive">{error}</p>}
-    </div>
-  );
-}
-
-function FormBlock({ icon: Icon, index, title, children }: {
-  icon: React.ComponentType<{ className?: string }>; index: number; title: string; children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <div className="flex items-center gap-3 mb-5 pb-4 border-b border-border">
-        <span className="h-10 w-10 rounded-xl bg-ada-yellow text-ada-black grid place-items-center font-black">{index}</span>
-        <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">Bloc {index}</div>
-          <h2 className="text-xl font-bold flex items-center gap-2">
-            <Icon className="h-5 w-5 text-ada-yellow" /> {title}
-          </h2>
-        </div>
-      </div>
+      <label className="block text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1 mb-2">
+        {label} {required && <span className="text-ada-yellow">*</span>}
+      </label>
       {children}
+      {error && <p className="mt-2 text-xs font-bold text-destructive ml-1">{error}</p>}
     </div>
   );
 }
