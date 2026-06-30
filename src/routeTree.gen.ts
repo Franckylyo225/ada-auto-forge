@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ReservationRouteImport } from './routes/reservation'
 import { Route as LocationRouteImport } from './routes/location'
 import { Route as IvoirePareBriseRouteImport } from './routes/ivoire-pare-brise'
@@ -35,6 +36,11 @@ import { Route as AdaAProposRouteImport } from './routes/ada.a-propos'
 import { Route as DashboardDemandesIdRouteImport } from './routes/dashboard.demandes.$id'
 import { Route as DashboardContratsIdPrintRouteImport } from './routes/dashboard.contrats.$id.print'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReservationRoute = ReservationRouteImport.update({
   id: '/reservation',
   path: '/reservation',
@@ -170,6 +176,7 @@ export interface FileRoutesByFullPath {
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
   '/reservation': typeof ReservationRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ada/a-propos': typeof AdaAProposRoute
   '/ada/contact': typeof AdaContactRoute
   '/ada/reservation': typeof AdaReservationRoute
@@ -197,6 +204,7 @@ export interface FileRoutesByTo {
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
   '/reservation': typeof ReservationRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ada/a-propos': typeof AdaAProposRoute
   '/ada/contact': typeof AdaContactRoute
   '/ada/reservation': typeof AdaReservationRoute
@@ -225,6 +233,7 @@ export interface FileRoutesById {
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
   '/reservation': typeof ReservationRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ada/a-propos': typeof AdaAProposRoute
   '/ada/contact': typeof AdaContactRoute
   '/ada/reservation': typeof AdaReservationRoute
@@ -254,6 +263,7 @@ export interface FileRouteTypes {
     | '/ivoire-pare-brise'
     | '/location'
     | '/reservation'
+    | '/sitemap.xml'
     | '/ada/a-propos'
     | '/ada/contact'
     | '/ada/reservation'
@@ -281,6 +291,7 @@ export interface FileRouteTypes {
     | '/ivoire-pare-brise'
     | '/location'
     | '/reservation'
+    | '/sitemap.xml'
     | '/ada/a-propos'
     | '/ada/contact'
     | '/ada/reservation'
@@ -308,6 +319,7 @@ export interface FileRouteTypes {
     | '/ivoire-pare-brise'
     | '/location'
     | '/reservation'
+    | '/sitemap.xml'
     | '/ada/a-propos'
     | '/ada/contact'
     | '/ada/reservation'
@@ -336,6 +348,7 @@ export interface RootRouteChildren {
   IvoirePareBriseRoute: typeof IvoirePareBriseRoute
   LocationRoute: typeof LocationRoute
   ReservationRoute: typeof ReservationRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdaAProposRoute: typeof AdaAProposRoute
   AdaContactRoute: typeof AdaContactRoute
   AdaReservationRoute: typeof AdaReservationRoute
@@ -357,6 +370,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reservation': {
       id: '/reservation'
       path: '/reservation'
@@ -564,6 +584,7 @@ const rootRouteChildren: RootRouteChildren = {
   IvoirePareBriseRoute: IvoirePareBriseRoute,
   LocationRoute: LocationRoute,
   ReservationRoute: ReservationRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdaAProposRoute: AdaAProposRoute,
   AdaContactRoute: AdaContactRoute,
   AdaReservationRoute: AdaReservationRoute,
