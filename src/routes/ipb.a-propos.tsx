@@ -70,7 +70,7 @@ const PILIERS = [
   {
     icon: Award,
     t: "Adossé au groupe ADA",
-    d: "20+ années d'expertise mobilité en Côte d'Ivoire. Une rigueur de gestion, des process éprouvés, une exigence de service héritée du métier de la location premium.",
+    d: "+5 années d'expertise mobilité en Côte d'Ivoire. Une rigueur de gestion, des process éprouvés, une exigence de service héritée du métier de la location premium.",
   },
   {
     icon: Users,
@@ -179,7 +179,7 @@ function IPBAboutPage() {
               En gérant pendant deux décennies une flotte de véhicules de location, le groupe ADA
               a vu passer des centaines de pare-brises impactés, des poses approximatives, des
               vitrages non conformes. Le constat était sans appel : à Abidjan, le marché du
-              vitrage automobile méritait un acteur premium, transparent et garanti.
+              vitrage automobile méritait un actor premium, transparent et garanti.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Ivoire Pare-Brise by ADA est née de cette exigence. Un atelier moderne à Angré, des
