@@ -70,7 +70,7 @@ const PILIERS = [
   {
     icon: Award,
     t: "Adossé au groupe ADA",
-    d: "20+ années d'expertise mobilité en Côte d'Ivoire. Une rigueur de gestion, des process éprouvés, une exigence de service héritée du métier de la location premium.",
+    d: "+5 années d'expertise mobilité en Côte d'Ivoire. Une rigueur de gestion, des process éprouvés, une exigence de service héritée du métier de la location premium.",
   },
   {
     icon: Users,
