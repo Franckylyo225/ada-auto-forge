@@ -78,7 +78,7 @@ function Portal() {
             alt="Atelier Ivoire Pare-Brise"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-110"
           />
-          <div className="absolute inset-0 bg-ada-black/70 group-hover/portal:bg-ada-black/85 hover:!bg-[#0f2747]/60 transition-colors duration-500" />
+          <div className="absolute inset-0 bg-ada-black/30 group-hover/portal:bg-ada-black/50 hover:!bg-[#0f2747]/40 transition-colors duration-500" />
           <div className="relative z-10 text-center px-6 max-w-md">
             <div className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black text-xs font-bold uppercase tracking-wider px-4 py-1.5">
               <Wind className="h-3.5 w-3.5" /> Vitrage auto
