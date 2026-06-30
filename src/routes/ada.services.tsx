@@ -16,17 +16,16 @@ import imgEtat from "@/assets/loc-etat.jpg";
 export const Route = createFileRoute("/ada/services")({
   head: () => ({
     meta: [
-      { title: "Location de véhicules — ADA Côte d'Ivoire" },
-      { name: "description", content: "Location courte & longue durée pour particuliers, assurances, entreprises et institutions. Une flotte moderne et un service ADA premium." },
-      { property: "og:title", content: "Location de véhicules — ADA Côte d'Ivoire" },
-      { property: "og:description", content: "Location courte & longue durée — flotte moderne, service premium ADA." },
+      { title: "Services de Location — ADA Côte d'Ivoire · Particuliers & Entreprises" },
+      { name: "description", content: "Location courte et longue durée à Abidjan. Berlines, SUV, 4x4 et utilitaires. Service premium pour assurances, entreprises et institutions." },
+      { property: "og:title", content: "Services de Location ADA" },
+      { property: "og:description", content: "La mobilité premium à votre rythme : courte et longue durée." },
     ],
     links: [{ rel: "canonical", href: "/ada/services" }],
   }),
   component: LocationPage,
 });
 
-/* ------------------------------ Animated count ----------------------------- */
 function CountUp({ to, suffix = "", duration = 1400 }: { to: number; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -47,7 +46,6 @@ function CountUp({ to, suffix = "", duration = 1400 }: { to: number; suffix?: st
   return <span ref={ref}>{n.toLocaleString("fr-FR")}{suffix}</span>;
 }
 
-/* --------------------------------- Tabs data -------------------------------- */
 const profiles = [
   {
     id: "particuliers",
@@ -55,7 +53,7 @@ const profiles = [
     icon: Users,
     image: imgParticuliers,
     title: "Voyagez en toute sérénité",
-    text: "Que ce soit pour un week-end, des vacances en famille ou un déplacement professionnel, ADA vous propose une flotte récente, entretenue et adaptée à tous vos besoins.",
+    text: "Une flotte récente, entretenue et adaptée à tous vos besoins : week-ends, vacances ou déplacements quotidiens.",
     points: ["Véhicules récents et fiables", "Tarifs transparents", "Assistance 24/7"],
   },
   {
@@ -64,17 +62,17 @@ const profiles = [
     icon: Shield,
     image: imgAssurances,
     title: "Véhicules de remplacement",
-    text: "Partenaire de référence des compagnies d'assurance, ADA prend en charge vos clients sinistrés avec un véhicule de remplacement rapide et conforme.",
-    points: ["Mise à disposition sous 24h", "Facturation directe assurance", "Gestion administrative simplifiée"],
+    text: "Partenaire de référence des assureurs, nous prenons en charge vos clients sinistrés avec rapidité et professionnalisme.",
+    points: ["Mise à disposition sous 2h", "Facturation directe assurance", "Gestion administrative simplifiée"],
   },
   {
     id: "entreprises",
     label: "Entreprises",
     icon: Building2,
     image: imgEntreprises,
-    title: "Mobilité longue durée",
-    text: "Optimisez la mobilité de vos collaborateurs avec nos contrats sur-mesure : location longue durée, flotte dédiée, véhicules de fonction.",
-    points: ["Contrats longue durée", "Gestion de flotte dédiée", "Conditions négociées"],
+    title: "Mobilité longue durée (LLD)",
+    text: "Optimisez votre parc automobile avec nos contrats sur-mesure et une gestion de flotte externalisée performante.",
+    points: ["Contrats longue durée flexibles", "Maintenance incluse", "Avantages fiscaux"],
   },
   {
     id: "etat",
@@ -82,12 +80,11 @@ const profiles = [
     icon: Landmark,
     image: imgEtat,
     title: "Missions institutionnelles",
-    text: "ADA accompagne les administrations et institutions avec des véhicules adaptés aux missions officielles, protocolaires et de terrain.",
-    points: ["Marchés publics", "Véhicules protocolaires", "Conformité administrative"],
+    text: "Accompagnement des administrations avec des véhicules conformes aux exigences officielles et protocolaires.",
+    points: ["Marchés publics", "Véhicules protocolaires", "Disponibilité immédiate"],
   },
 ] as const;
 
-/* --------------------------------- Fleet ----------------------------------- */
 const categories = [
   { name: "Berline", icon: Car, seats: 5, transmission: "Auto/BVM", fuel: "Essence/Diesel" },
   { name: "SUV / 4x4", icon: Car, seats: 5, transmission: "Auto", fuel: "Diesel" },
@@ -97,15 +94,13 @@ const categories = [
   { name: "Prestige", icon: Car, seats: 5, transmission: "Auto", fuel: "Essence" },
 ] as const;
 
-/* --------------------------------- Process --------------------------------- */
 const steps = [
-  { icon: ClipboardCheck, title: "Faites votre demande", text: "Remplissez le formulaire en ligne en 2 minutes." },
-  { icon: Phone, title: "Confirmation ADA", text: "Notre équipe vous rappelle sous 2h ouvrables." },
-  { icon: FileText, title: "Signature du contrat", text: "Présentation des pièces et signature en agence." },
-  { icon: KeyRound, title: "Prise en charge", text: "Récupérez votre véhicule, prêt à rouler." },
+  { icon: ClipboardCheck, title: "Demande", text: "Formulaire en ligne ou WhatsApp." },
+  { icon: Phone, title: "Confirmation", text: "Rappel sous 2h ouvrables." },
+  { icon: FileText, title: "Contrat", text: "Signature simplifiée en agence." },
+  { icon: KeyRound, title: "Départ", text: "Clés en main, prêt à rouler." },
 ] as const;
 
-/* ============================== PAGE ==================================== */
 function LocationPage() {
   const [tab, setTab] = useState<(typeof profiles)[number]["id"]>("particuliers");
   const active = profiles.find((p) => p.id === tab)!;
@@ -113,62 +108,67 @@ function LocationPage() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-ada-black text-white overflow-hidden">
-        <div className="container-ada py-16 md:py-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <section className="bg-ada-black text-white">
+        <div className="container-ada py-20 md:py-28 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
           <Reveal>
-            <span className="inline-flex items-center rounded-full bg-ada-yellow text-ada-black text-xs font-bold px-4 py-1.5">
-              Location courte & longue durée
+            <span className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/15 text-ada-yellow px-3 py-1 text-xs font-semibold">
+              <span className="h-1.5 w-1.5 rounded-full bg-ada-yellow" />
+              Location Courte & Longue Durée
             </span>
             <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight leading-[1.05]">
-              La mobilité <span className="text-ada-yellow">premium</span>, à votre rythme.
+              La mobilité <span className="text-ada-yellow text-shadow-yellow">premium</span>,
+              <span className="block italic font-serif font-light text-white/90">à votre rythme.</span>
             </h1>
-            <p className="mt-5 max-w-xl text-white/70 text-lg">
-              ADA met à votre disposition une flotte moderne et un service sur-mesure, pour les particuliers, les
-              assurances, les entreprises et les institutions.
+            <p className="mt-6 text-white/70 text-lg max-w-xl leading-relaxed">
+              Que vous soyez un particulier ou une organisation, ADA propose une flotte 
+              diversifiée et un service sur-mesure pour garantir votre liberté de mouvement.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/ada/reservation"
-                className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
+                className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
               >
-                Faire une demande <ArrowRight className="h-5 w-5" />
+                Réserver en ligne <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="/ada/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white font-semibold px-6 py-3.5 hover:bg-white/10 transition"
+              <a
+                href="https://wa.me/2250700282930"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition"
               >
-                Nous contacter
-              </Link>
+                <MessageSquare className="h-4 w-4" /> WhatsApp
+              </a>
             </div>
           </Reveal>
-
-          <Reveal delay={0.15}>
+          <Reveal delay={0.1}>
             <div className="relative">
-              <div className="absolute -inset-6 rounded-[2rem] bg-ada-yellow/20 blur-3xl" />
+              <div className="absolute -inset-10 bg-ada-yellow/10 blur-[100px] rounded-full" />
               <img
                 src={heroSuv}
-                alt="SUV premium ADA"
-                className="relative rounded-2xl object-cover w-full aspect-[5/4] shadow-2xl"
+                alt="Flotte Premium ADA"
+                className="relative w-full aspect-[5/4] object-cover rounded-3xl shadow-2xl"
               />
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* KEY FIGURES */}
-      <section className="bg-white py-16 md:py-20 border-b border-border">
-        <div className="container-ada grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {/* STATS */}
+      <section className="bg-white border-b border-border">
+        <div className="container-ada py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           {[
-            { n: 150, s: "+", l: "Véhicules dans la flotte" },
-            { n: 20, s: "+", l: "Années d'expérience" },
+            { n: 150, s: "+", l: "Véhicules en flotte" },
+            { n: 10, s: "+", l: "Années d'expérience" },
             { n: 5000, s: "+", l: "Clients satisfaits" },
-            { n: 24, s: "/7", l: "Assistance disponible" },
-          ].map((k) => (
-            <Reveal key={k.l}>
-              <div className="text-4xl md:text-5xl font-black text-ada-black">
-                <CountUp to={k.n} suffix={k.s} />
+            { n: 2, s: "h", l: "Délai de réponse max" },
+          ].map((stat, i) => (
+            <Reveal key={stat.l} delay={i * 0.05}>
+              <div className="text-3xl md:text-4xl font-black text-ada-black">
+                <CountUp to={stat.n} suffix={stat.s} />
               </div>
-              <div className="mt-2 text-sm text-muted-foreground font-medium">{k.l}</div>
+              <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground font-semibold">
+                {stat.l}
+              </div>
             </Reveal>
           ))}
         </div>
@@ -177,34 +177,24 @@ function LocationPage() {
       {/* PROFILES TABS */}
       <section className="bg-[var(--color-ada-yellow-soft)]/40 py-20 md:py-24">
         <div className="container-ada">
-          <Reveal>
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight">Une solution pour chaque profil</h2>
-              <p className="mt-3 text-muted-foreground">
-                Découvrez l'offre ADA adaptée à votre besoin.
-              </p>
-            </div>
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Sur-mesure</span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-black tracking-tight">Une solution pour chaque besoin.</h2>
           </Reveal>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-2 md:gap-3">
+          <div className="mt-10 flex flex-wrap justify-center gap-2">
             {profiles.map((p) => {
-              const Icon = p.icon;
               const selected = tab === p.id;
               return (
                 <button
                   key={p.id}
                   onClick={() => setTab(p.id)}
-                  className="relative px-5 py-3 rounded-full text-sm font-semibold transition"
+                  className={`relative px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+                    selected ? "bg-ada-black text-white shadow-lg" : "bg-white text-ada-black/60 hover:text-ada-black border border-border"
+                  }`}
                 >
-                  {selected && (
-                    <motion.span
-                      layoutId="tab-pill"
-                      className="absolute inset-0 rounded-full bg-ada-black"
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    />
-                  )}
-                  <span className={`relative inline-flex items-center gap-2 ${selected ? "text-white" : "text-ada-black/70 hover:text-ada-black"}`}>
-                    <Icon className="h-4 w-4" /> {p.label}
+                  <span className="inline-flex items-center gap-2">
+                    <p.icon className="h-4 w-4" /> {p.label}
                   </span>
                 </button>
               );
@@ -215,30 +205,36 @@ function LocationPage() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.35 }}
-                className="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-3xl p-6 md:p-10 shadow-[var(--shadow-premium)]"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="grid lg:grid-cols-[1fr_1.1fr] gap-8 md:gap-12 items-center bg-white rounded-[2.5rem] p-6 md:p-12 shadow-[var(--shadow-premium)]"
               >
-                <img src={active.image} alt={active.label} className="rounded-2xl object-cover w-full aspect-[4/3]" />
+                <div className="relative group overflow-hidden rounded-2xl">
+                  <img src={active.image} alt={active.label} className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-black tracking-tight">{active.title}</h3>
-                  <p className="mt-4 text-muted-foreground">{active.text}</p>
-                  <ul className="mt-6 space-y-3">
+                  <p className="mt-5 text-muted-foreground text-lg leading-relaxed">{active.text}</p>
+                  <ul className="mt-8 grid sm:grid-cols-1 gap-4">
                     {active.points.map((pt) => (
-                      <li key={pt} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-ada-yellow shrink-0 mt-0.5" />
-                        <span className="text-ada-black/80">{pt}</span>
+                      <li key={pt} className="flex items-center gap-3">
+                        <div className="h-6 w-6 rounded-full bg-ada-yellow/20 flex items-center justify-center shrink-0">
+                          <CheckCircle2 className="h-4 w-4 text-ada-black" />
+                        </div>
+                        <span className="text-ada-black/80 font-medium">{pt}</span>
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    to="/ada/reservation"
-                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
-                  >
-                    Faire une demande <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <div className="mt-10">
+                    <Link
+                      to="/ada/reservation"
+                      className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-bold px-8 py-4 hover:brightness-110 transition shadow-xl"
+                    >
+                      Demander un devis <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -246,46 +242,37 @@ function LocationPage() {
         </div>
       </section>
 
-      {/* FLEET OVERVIEW */}
-      <section className="bg-white py-20 md:py-24">
+      {/* FLOTTE */}
+      <section className="bg-white py-20 md:py-24 text-ada-black">
         <div className="container-ada">
           <Reveal>
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight">Notre flotte</h2>
-              <p className="mt-3 text-muted-foreground">
-                Une large gamme de véhicules pour répondre à tous les usages.
-              </p>
-            </div>
+            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Notre Flotte</span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-black tracking-tight">Le choix de la performance.</h2>
           </Reveal>
 
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((c) => {
-              const Icon = c.icon;
-              return (
-                <Reveal key={c.name}>
-                  <div className="group h-full rounded-2xl border border-border bg-white p-6 hover:border-ada-yellow hover:shadow-lg transition">
-                    <div className="flex items-center justify-between">
-                      <div className="h-12 w-12 rounded-xl bg-ada-yellow/15 text-ada-black grid place-items-center group-hover:bg-ada-yellow transition">
-                        <Icon className="h-6 w-6" />
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Catégorie</span>
+            {categories.map((c, i) => (
+              <Reveal key={c.name} delay={i * 0.05}>
+                <div className="group h-full rounded-2xl border border-border bg-white p-6 hover:border-ada-yellow hover:shadow-2xl transition-all duration-500">
+                  <div className="flex items-center justify-between">
+                    <div className="h-14 w-14 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center group-hover:scale-110 transition-transform">
+                      <c.icon className="h-7 w-7" />
                     </div>
-                    <h3 className="mt-5 text-xl font-bold">{c.name}</h3>
-                    <div className="mt-4 grid grid-cols-3 gap-2 text-xs text-ada-black/70">
-                      <div className="flex items-center gap-1.5"><Users className="h-4 w-4 text-ada-yellow" /> {c.seats}</div>
-                      <div className="flex items-center gap-1.5"><Settings2 className="h-4 w-4 text-ada-yellow" /> {c.transmission}</div>
-                      <div className="flex items-center gap-1.5"><Fuel className="h-4 w-4 text-ada-yellow" /> {c.fuel}</div>
-                    </div>
-                    <Link
-                      to="/ada/reservation"
-                      className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ada-black hover:text-ada-yellow transition"
-                    >
-                      Demander un devis <ArrowRight className="h-4 w-4" />
-                    </Link>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Catégorie</span>
                   </div>
-                </Reveal>
-              );
-            })}
+                  <h3 className="mt-6 text-xl font-bold">{c.name}</h3>
+                  <div className="mt-6 flex flex-wrap gap-4 text-xs text-ada-black/60 font-semibold">
+                    <div className="flex items-center gap-1.5"><Users className="h-4 w-4 text-ada-yellow" /> {c.seats} pers.</div>
+                    <div className="flex items-center gap-1.5"><Settings2 className="h-4 w-4 text-ada-yellow" /> {c.transmission}</div>
+                    <div className="flex items-center gap-1.5"><Fuel className="h-4 w-4 text-ada-yellow" /> {c.fuel}</div>
+                  </div>
+                  <div className="mt-8 pt-6 border-t border-border flex items-center justify-between">
+                     <Link to="/ada/reservation" className="text-sm font-bold hover:text-ada-yellow transition-colors">Réserver</Link>
+                     <ArrowRight className="h-4 w-4 text-ada-yellow group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -293,73 +280,64 @@ function LocationPage() {
       {/* PROCESS */}
       <section className="bg-ada-black text-white py-20 md:py-24">
         <div className="container-ada">
-          <Reveal>
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight">Comment ça marche ?</h2>
-              <p className="mt-3 text-white/60">Un parcours simple, du clic aux clés.</p>
-            </div>
+          <Reveal className="text-center max-w-2xl mx-auto">
+             <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Simplicité</span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-black tracking-tight">Votre véhicule en 4 étapes.</h2>
           </Reveal>
 
-          <div className="mt-14 relative grid md:grid-cols-4 gap-10">
-            <div className="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] border-t-2 border-dashed border-white/15" />
-            {steps.map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <Reveal key={s.title} delay={i * 0.08}>
-                  <div className="relative text-center">
-                    <div className="relative mx-auto h-14 w-14 rounded-full bg-ada-yellow text-ada-black grid place-items-center font-black">
-                      <Icon className="h-6 w-6" />
-                      <span className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-white text-ada-black text-xs grid place-items-center font-black">
-                        {i + 1}
-                      </span>
-                    </div>
-                    <h3 className="mt-5 text-lg font-bold">{s.title}</h3>
-                    <p className="mt-2 text-sm text-white/60">{s.text}</p>
+          <div className="mt-16 relative grid md:grid-cols-4 gap-12">
+            <div className="hidden md:block absolute top-7 left-[12%] right-[12%] border-t border-dashed border-white/20" />
+            {steps.map((s, i) => (
+              <Reveal key={s.title} delay={i * 0.1}>
+                <div className="relative text-center group">
+                  <div className="relative mx-auto h-16 w-16 rounded-full bg-ada-yellow text-ada-black grid place-items-center font-black group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(255,232,0,0.3)]">
+                    <s.icon className="h-7 w-7" />
+                    <span className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-white text-ada-black text-xs grid place-items-center font-black border-2 border-ada-black">
+                      0{i + 1}
+                    </span>
                   </div>
-                </Reveal>
-              );
-            })}
+                  <h3 className="mt-6 text-lg font-bold text-white">{s.title}</h3>
+                  <p className="mt-3 text-sm text-white/50 leading-relaxed max-w-[200px] mx-auto">{s.text}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-[var(--color-ada-yellow-soft)]/50 py-20 md:py-24">
+      <section className="bg-white py-20">
         <div className="container-ada">
-          <div className="rounded-3xl bg-ada-black text-white p-10 md:p-16 text-center shadow-[var(--shadow-premium)]">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight">Prêt à prendre la route ?</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-white/70">
-              Faites votre demande en ligne ou contactez-nous directement sur WhatsApp pour une réponse immédiate.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Link
-                to="/ada/reservation"
-                className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-7 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
-              >
-                Faire une demande <ArrowRight className="h-5 w-5" />
-              </Link>
-              <a
-                href="https://wa.me/2250700282930"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-7 py-3.5 hover:bg-white/10 transition"
-              >
-                <MessageSquare className="h-5 w-5" /> WhatsApp
-              </a>
+          <Reveal>
+            <div className="rounded-[3rem] bg-[var(--color-ada-yellow-soft)]/60 border border-ada-yellow/20 p-10 md:p-20 text-center relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-64 h-64 bg-ada-yellow/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+               <div className="absolute bottom-0 left-0 w-64 h-64 bg-ada-yellow/10 rounded-full -ml-32 -mb-32 blur-3xl" />
+               
+               <h2 className="relative text-3xl md:text-5xl font-black tracking-tight">Prêt à prendre la route ?</h2>
+               <p className="relative mt-6 max-w-2xl mx-auto text-muted-foreground text-lg leading-relaxed">
+                 Nos agents sont à votre écoute pour vous proposer le véhicule idéal 
+                 au meilleur tarif. Réponse garantie sous 2 heures.
+               </p>
+               <div className="relative mt-10 flex flex-wrap justify-center gap-4">
+                 <Link
+                   to="/ada/reservation"
+                   className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-bold px-8 py-4 hover:brightness-110 transition shadow-2xl"
+                 >
+                   Faire une demande <ArrowRight className="h-4 w-4" />
+                 </Link>
+                 <a
+                   href="https://wa.me/2250700282930"
+                   target="_blank"
+                   rel="noreferrer"
+                   className="inline-flex items-center gap-2 rounded-full bg-white text-ada-black font-bold px-8 py-4 border border-border hover:bg-muted transition"
+                 >
+                   <MessageSquare className="h-5 w-5" /> Parler à un conseiller
+                 </a>
+               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
-
-      {/* Sticky mobile CTA */}
-      <div className="md:hidden fixed bottom-4 inset-x-4 z-40">
-        <Link
-          to="/ada/reservation"
-          className="flex items-center justify-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold py-4 shadow-[var(--shadow-yellow)]"
-        >
-          Faire une demande <ArrowRight className="h-5 w-5" />
-        </Link>
-      </div>
     </>
   );
 }
