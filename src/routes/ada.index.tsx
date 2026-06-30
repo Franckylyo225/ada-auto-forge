@@ -478,33 +478,63 @@ function Home() {
       {/* FINAL CTA */}
       <section className="container-ada pb-24">
         <Reveal>
-          <div className="rounded-3xl bg-ada-yellow text-ada-black relative overflow-hidden">
-            <div className="grid md:grid-cols-2 items-center">
-              <div className="p-10 md:p-14 lg:p-16 relative z-10">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-ada-black/10 mb-6">
-                  <Car className="h-6 w-6 text-ada-black" />
+          <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-premium)] isolate">
+            {/* Background image */}
+            <img
+              src={ctaBg}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover scale-105"
+              loading="lazy"
+            />
+            {/* Dark overlays for legibility */}
+            <div className="absolute inset-0 bg-ada-black/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ada-black/90 via-ada-black/60 to-ada-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ada-black/80 via-transparent to-transparent" />
+            {/* Yellow accent glow */}
+            <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-ada-yellow/25 blur-3xl" />
+            <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-ada-yellow/10 blur-3xl" />
+
+            <div className="relative z-10 p-10 md:p-16 lg:p-20 max-w-3xl">
+              <div className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/15 border border-ada-yellow/30 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-ada-yellow">
+                <span className="h-1.5 w-1.5 rounded-full bg-ada-yellow animate-pulse" />
+                Réservation express
+              </div>
+              <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-white">
+                Prêt à prendre <br className="hidden md:block" />
+                <span className="text-ada-yellow">la route ?</span>
+              </h2>
+              <p className="mt-6 text-white/80 text-lg md:text-xl max-w-xl leading-relaxed">
+                Réservez votre véhicule en quelques clics — notre équipe vous confirme votre prise en charge en moins d'une heure.
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-4 text-white/75 text-sm">
+                <div className="inline-flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-ada-yellow" /> Confirmation sous 1h
                 </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">Prêt à prendre la route ?</h2>
-                <p className="mt-4 text-ada-black/80 text-lg max-w-md">
-                  Réservez votre véhicule en quelques clics — notre équipe vous confirme votre prise en charge en moins d'une heure.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link to="/ada/reservation" className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-semibold px-7 py-4 hover:bg-ada-black/90 transition shadow-lg shadow-ada-black/20">
-                    Réserver maintenant <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link to="/ada/contact" className="inline-flex items-center gap-2 rounded-full border-2 border-ada-black/20 text-ada-black font-semibold px-7 py-4 hover:bg-ada-black hover:text-white transition">
-                    Nous contacter
-                  </Link>
+                <div className="hidden sm:block h-1 w-1 rounded-full bg-white/30" />
+                <div className="inline-flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 text-ada-yellow" /> Assurance tous risques
+                </div>
+                <div className="hidden sm:block h-1 w-1 rounded-full bg-white/30" />
+                <div className="inline-flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-ada-yellow" /> Mise à disposition 2h
                 </div>
               </div>
-              <div className="relative h-64 md:h-auto md:min-h-[420px] lg:min-h-[480px]">
-                <img
-                  src={ctaCar}
-                  alt="Véhicule SUV premium ADA"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-ada-yellow via-ada-yellow/40 to-transparent md:from-ada-yellow md:via-ada-yellow/20 md:to-transparent" />
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link
+                  to="/ada/reservation"
+                  className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-7 py-4 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
+                >
+                  Réserver maintenant <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/ada/contact"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 text-white font-semibold px-7 py-4 hover:bg-white hover:text-ada-black backdrop-blur transition"
+                >
+                  Nous contacter
+                </Link>
               </div>
             </div>
           </div>
