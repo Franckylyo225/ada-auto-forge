@@ -16,23 +16,48 @@ import ctaCar from "@/assets/cta-car-cdn.png";
 import { Reveal } from "@/components/ada/Reveal";
 import PartnersMarquee from "@/components/ada/PartnersMarquee";
 
+import { abs, SITE_URL } from "@/lib/seo";
+
+const TITLE = "ADA Côte d'Ivoire — Location de véhicules à Abidjan (CDD & LLD)";
+const DESC =
+  "Louez berline, SUV, 4×4, pick-up ou utilitaire à Abidjan avec ADA : courte & longue durée, flotte récente assurée tous risques, mise à disposition sous 2h, assistance 24/7.";
+
 export const Route = createFileRoute("/ada/")({
   head: () => ({
     meta: [
-      { title: "ADA Côte d'Ivoire — Location de véhicules premium, courte & longue durée" },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ada" },
+      { property: "og:image", content: abs(locHeroSuv) },
+      { property: "og:image:alt", content: "Flotte ADA — SUV et berlines premium à Abidjan" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+      { name: "twitter:image", content: abs(locHeroSuv) },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/ada" }],
+    scripts: [
       {
-        name: "description",
-        content:
-          "ADA Côte d'Ivoire : location de véhicules courte et longue durée pour particuliers, entreprises, assurances et institutions. Flotte récente, service premium, assistance 24/7.",
-      },
-      { property: "og:title", content: "ADA — La référence de la location auto en Côte d'Ivoire" },
-      {
-        property: "og:description",
-        content:
-          "Une flotte moderne, un service sur-mesure et une assistance disponible 7j/7 à Abidjan et dans toute la Côte d'Ivoire.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AutoRental",
+          name: "ADA — Location de véhicules Côte d'Ivoire",
+          image: abs(locHeroSuv),
+          url: SITE_URL + "/ada",
+          telephone: "+225 07 00 28 29 30",
+          priceRange: "$$",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Boulevard VGE, Immeuble Chevalier de Clieu",
+            addressLocality: "Treichville, Abidjan",
+            addressCountry: "CI",
+          },
+          areaServed: "Côte d'Ivoire",
+        }),
       },
     ],
-    links: [{ rel: "canonical", href: "/ada" }],
   }),
   component: Home,
 });
