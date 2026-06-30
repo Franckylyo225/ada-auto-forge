@@ -13,25 +13,27 @@ import {
 import { Reveal } from "@/components/ada/Reveal";
 import heroParebrise from "@/assets/hero-parebrise.jpg";
 import heroAtelier from "@/assets/ipb-hero-windshield-cropped.jpg";
+import { abs, SITE_URL } from "@/lib/seo";
+
+const TITLE = "À propos d'Ivoire Pare-Brise — Expertise vitrage auto Abidjan";
+const DESC =
+  "Ivoire Pare-Brise by ADA : filiale spécialisée vitrage automobile à Abidjan. Techniciens certifiés, pièces OEM, garantie 12 mois. Notre histoire et nos engagements.";
 
 export const Route = createFileRoute("/ipb/a-propos")({
   head: () => ({
     meta: [
-      { title: "À Propos — Ivoire Pare-Brise by ADA · L'expertise vitrage premium d'Abidjan" },
-      {
-        name: "description",
-        content:
-          "Filiale spécialisée du groupe ADA, Ivoire Pare-Brise est l'expert du vitrage automobile en Côte d'Ivoire : techniciens certifiés, pièces homologuées constructeur, garantie 12 mois sur chaque intervention.",
-      },
-      { property: "og:title", content: "À Propos — Ivoire Pare-Brise by ADA" },
-      {
-        property: "og:description",
-        content:
-          "L'expertise vitrage premium du groupe ADA : techniciens certifiés, pièces homologuées, garantie 12 mois.",
-      },
-      { property: "og:image", content: heroParebrise },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ipb/a-propos" },
+      { property: "og:image", content: abs(heroParebrise) },
+      { property: "og:image:alt", content: "Ivoire Pare-Brise — Atelier d'Angré" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+      { name: "twitter:image", content: abs(heroParebrise) },
     ],
-    links: [{ rel: "canonical", href: "/ipb/a-propos" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/ipb/a-propos" }],
   }),
   component: IPBAboutPage,
 });

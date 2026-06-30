@@ -12,23 +12,24 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 
+import { SITE_URL } from "@/lib/seo";
+
+const TITLE = "Rendez-vous pare-brise Abidjan — Devis gratuit sous 2h | Ivoire Pare-Brise";
+const DESC =
+  "Prenez rendez-vous en ligne avec Ivoire Pare-Brise à Abidjan : devis gratuit sous 2h, intervention sous 45 min, atelier Angré ou à domicile, garantie 12 mois.";
+
 export const Route = createFileRoute("/ipb/rendez-vous")({
   head: () => ({
     meta: [
-      { title: "Prendre rendez-vous — Ivoire Pare-Brise by ADA · Devis gratuit sous 2h" },
-      {
-        name: "description",
-        content:
-          "Demandez un devis ou un rendez-vous pour votre pare-brise à Abidjan : réponse sous 2h ouvrables, intervention sous 45 min, garantie 12 mois pièces & pose.",
-      },
-      { property: "og:title", content: "Prendre rendez-vous — Ivoire Pare-Brise by ADA" },
-      {
-        property: "og:description",
-        content:
-          "Devis gratuit, créneau garanti sous 24h, intervention en atelier ou à votre adresse à Abidjan.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ipb/rendez-vous" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
     ],
-    links: [{ rel: "canonical", href: "/ipb/rendez-vous" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/ipb/rendez-vous" }],
   }),
   component: IPBRdvPage,
 });

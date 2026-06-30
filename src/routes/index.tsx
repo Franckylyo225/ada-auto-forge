@@ -2,27 +2,42 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Car, Wind } from "lucide-react";
 import heroAda from "@/assets/loc-hero-suv.jpg";
 import heroIpb from "@/assets/ipb-hero-windshield-cropped.jpg";
+import { abs, SITE_URL } from "@/lib/seo";
 
 import adaLogo from "@/assets/ada-logo-white.png.asset.json";
 import ipbLogo from "@/assets/ipb-logo-white-v2.png.asset.json";
 
+const TITLE = "Groupe ADA Côte d'Ivoire — Location de véhicules & Pare-brise";
+const DESC =
+  "Groupe ADA Abidjan : location de véhicules courte/longue durée et expertise pare-brise (Ivoire Pare-Brise). Devis 2h, intervention 45 min, garantie 12 mois.";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Groupe ADA — Location auto & Ivoire Pare-Brise · Côte d'Ivoire" },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/" },
+      { property: "og:image", content: abs(heroAda) },
+      { property: "og:image:alt", content: "Groupe ADA — Location auto & Pare-brise en Côte d'Ivoire" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+      { name: "twitter:image", content: abs(heroAda) },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/" }],
+    scripts: [
       {
-        name: "description",
-        content:
-          "Deux expertises au service de votre mobilité en Côte d'Ivoire : ADA pour la location de véhicules, Ivoire Pare-Brise pour la réparation et le remplacement de pare-brise.",
-      },
-      { property: "og:title", content: "Groupe ADA — Choisissez votre service" },
-      {
-        property: "og:description",
-        content:
-          "ADA · Location de véhicules — Ivoire Pare-Brise · Réparation & remplacement de vitrages.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Groupe ADA Côte d'Ivoire",
+          url: SITE_URL,
+          inLanguage: "fr-CI",
+        }),
       },
     ],
-    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Portal,
 });

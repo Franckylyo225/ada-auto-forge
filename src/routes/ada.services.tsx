@@ -12,16 +12,27 @@ import imgParticuliers from "@/assets/loc-particuliers.jpg";
 import imgAssurances from "@/assets/loc-assurances.jpg";
 import imgEntreprises from "@/assets/loc-entreprises.jpg";
 import imgEtat from "@/assets/loc-etat.jpg";
+import { abs, SITE_URL } from "@/lib/seo";
+
+const TITLE = "Location de véhicules à Abidjan — ADA · Particuliers & Entreprises";
+const DESC =
+  "Berlines, SUV, 4×4, pick-up, minibus, utilitaires : location courte et longue durée à Abidjan. Tarifs dégressifs, véhicules de remplacement assurance, contrats LLD entreprises.";
 
 export const Route = createFileRoute("/ada/services")({
   head: () => ({
     meta: [
-      { title: "Services de Location — ADA Côte d'Ivoire · Particuliers & Entreprises" },
-      { name: "description", content: "Location courte et longue durée à Abidjan. Berlines, SUV, 4x4 et utilitaires. Service premium pour assurances, entreprises et institutions." },
-      { property: "og:title", content: "Services de Location ADA" },
-      { property: "og:description", content: "La mobilité premium à votre rythme : courte et longue durée." },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ada/services" },
+      { property: "og:image", content: abs(heroSuv) },
+      { property: "og:image:alt", content: "Flotte ADA — SUV premium" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+      { name: "twitter:image", content: abs(heroSuv) },
     ],
-    links: [{ rel: "canonical", href: "/ada/services" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/ada/services" }],
   }),
   component: LocationPage,
 });

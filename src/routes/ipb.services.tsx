@@ -16,24 +16,27 @@ import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
 
+import { abs, SITE_URL } from "@/lib/seo";
+
+const TITLE = "Services pare-brise Abidjan — Réparation, remplacement & latéraux";
+const DESC =
+  "Réparation d'impact, remplacement pare-brise, vitrage latéral et lunette arrière à Abidjan. Pièces OEM homologuées, pose par technicien certifié, garantie 12 mois.";
+
 export const Route = createFileRoute("/ipb/services")({
   head: () => ({
     meta: [
-      { title: "Services vitrage automobile — Ivoire Pare-Brise by ADA · Abidjan" },
-      {
-        name: "description",
-        content:
-          "Réparation d'impact, remplacement de pare-brise, vitrage latéral et lunette arrière. Pièces homologuées constructeur, garantie 12 mois pièces & pose, toutes marques à Abidjan.",
-      },
-      { property: "og:title", content: "Services — Ivoire Pare-Brise by ADA" },
-      {
-        property: "og:description",
-        content:
-          "Toutes les solutions vitrage automobile : réparation, remplacement, latéraux. Pièces homologuées, garantie 12 mois.",
-      },
-      { property: "og:image", content: cardRemp },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ipb/services" },
+      { property: "og:image", content: abs(cardRemp) },
+      { property: "og:image:alt", content: "Remplacement de pare-brise — Ivoire Pare-Brise Abidjan" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+      { name: "twitter:image", content: abs(cardRemp) },
     ],
-    links: [{ rel: "canonical", href: "/ipb/services" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/ipb/services" }],
   }),
   component: IPBServicesPage,
 });

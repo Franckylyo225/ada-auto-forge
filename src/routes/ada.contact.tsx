@@ -1,16 +1,44 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, Clock, Send, MessageSquare } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
+import { SITE_URL } from "@/lib/seo";
+
+const TITLE = "Contact ADA Abidjan — Location & Pare-brise · +225 07 00 28 29 30";
+const DESC =
+  "Contactez ADA Côte d'Ivoire à Treichville (Boulevard VGE) : téléphone, WhatsApp, email. Réponse sous 2h, devis location ou pare-brise gratuit. Lun–Sam · 8h–18h.";
 
 export const Route = createFileRoute("/ada/contact")({
   head: () => ({
     meta: [
-      { title: "Contactez ADA — Mobilité & Location à Abidjan" },
-      { name: "description", content: "Une question ? Un devis ? Contactez l'équipe ADA à Abidjan par téléphone, WhatsApp ou via notre formulaire en ligne." },
-      { property: "og:title", content: "Contact ADA" },
-      { property: "og:description", content: "Une équipe à votre écoute 6j/7 pour toutes vos demandes de mobilité." },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ada/contact" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
     ],
-    links: [{ rel: "canonical", href: "/ada/contact" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/ada/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "ADA Côte d'Ivoire",
+          telephone: "+225 07 00 28 29 30",
+          email: "assistance@ada-africa.com",
+          url: SITE_URL + "/ada/contact",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Boulevard VGE, Immeuble Chevalier de Clieu, 1er étage",
+            addressLocality: "Treichville, Abidjan",
+            addressCountry: "CI",
+          },
+          openingHours: "Mo-Sa 08:00-18:00",
+        }),
+      },
+    ],
   }),
   component: ContactPage,
 });
