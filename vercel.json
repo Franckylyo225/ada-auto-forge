@@ -6,10 +6,10 @@
   "functions": {
     "api/server.mjs": {
       "runtime": "@vercel/node@5.1.14",
-      "includeFiles": "dist/server/**"
+      "includeFiles": "dist/**"
     }
   },
   "rewrites": [
-    { "source": "/((?!api/|_build/|assets/|favicon\\.png|robots\\.txt|sitemap\\.xml).*)", "destination": "/api/server" }
+    { "source": "/((?!api/|_build/|assets/|favicon\\.ico|favicon\\.png|robots\\.txt|sitemap\\.xml).*)", "destination": "/api/server" }
   ]
 }
