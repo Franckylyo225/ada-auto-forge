@@ -13,14 +13,24 @@ import { rentalsStore } from "@/lib/ada-storage";
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter,
 } from "@/components/ui/dialog";
+import { SITE_URL } from "@/lib/seo";
+
+const TITLE = "Réserver un véhicule à Abidjan — ADA · Devis sous 2h";
+const DESC =
+  "Réservation en ligne de votre véhicule de location à Abidjan : berline, SUV, 4×4, pick-up, minibus ou utilitaire. Confirmation et tarif sous 2h ouvrables.";
 
 export const Route = createFileRoute("/ada/reservation")({
   head: () => ({
     meta: [
-      { title: "Réserver votre véhicule — ADA Côte d'Ivoire" },
-      { name: "description", content: "Demande de réservation en ligne. Notre équipe vous recontacte sous 2h pour confirmer la disponibilité de votre véhicule." },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ada/reservation" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
     ],
-    links: [{ rel: "canonical", href: "/ada/reservation" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/ada/reservation" }],
   }),
   component: ReservationPage,
 });
