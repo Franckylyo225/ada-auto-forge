@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Car, Wind } from "lucide-react";
 import heroAda from "@/assets/loc-hero-suv.jpg";
-import heroIpb from "@/assets/ipb-hero-split.jpg";
+import heroIpbAsset from "@/assets/ipb-hero-windshield.jpg.asset.json";
+const heroIpb = heroIpbAsset.url;
 import adaLogo from "@/assets/ada-logo-white.png.asset.json";
 import ipbLogo from "@/assets/ipb-logo-white-v2.png.asset.json";
 
@@ -79,7 +80,7 @@ function Portal() {
           />
           <div className="absolute inset-0 bg-ada-black/70 group-hover/portal:bg-ada-black/85 hover:!bg-[#0f2747]/60 transition-colors duration-500" />
           <div className="relative z-10 text-center px-6 max-w-md">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white text-ada-black text-xs font-bold uppercase tracking-wider px-4 py-1.5">
+            <div className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black text-xs font-bold uppercase tracking-wider px-4 py-1.5">
               <Wind className="h-3.5 w-3.5" /> Vitrage auto
             </div>
             <img
@@ -94,7 +95,7 @@ function Portal() {
                 Toutes marques · Intervention sous 45 min · Garantie 12 mois
               </span>
             </p>
-            <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-ada-black font-bold px-6 py-3 shadow-lg">
+            <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3 shadow-[var(--shadow-yellow)]">
               Entrer sur Ivoire Pare-Brise <ArrowRight className="h-4 w-4" />
             </span>
           </div>
