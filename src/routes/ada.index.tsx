@@ -13,6 +13,8 @@ import locAssurances from "@/assets/loc-assurances.jpg";
 import locEntreprises from "@/assets/loc-entreprises.jpg";
 import locEtat from "@/assets/loc-etat.jpg";
 import ctaCar from "@/assets/cta-car-cdn.png";
+import ctaBgAsset from "@/assets/cta-bg.png.asset.json";
+const ctaBg = ctaBgAsset.url;
 import { Reveal } from "@/components/ada/Reveal";
 import PartnersMarquee from "@/components/ada/PartnersMarquee";
 
