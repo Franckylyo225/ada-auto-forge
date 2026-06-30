@@ -80,7 +80,7 @@ function Portal() {
           />
           <div className="absolute inset-0 bg-ada-black/70 group-hover/portal:bg-ada-black/85 hover:!bg-[#0f2747]/60 transition-colors duration-500" />
           <div className="relative z-10 text-center px-6 max-w-md">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white text-ada-black text-xs font-bold uppercase tracking-wider px-4 py-1.5">
+            <div className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black text-xs font-bold uppercase tracking-wider px-4 py-1.5">
               <Wind className="h-3.5 w-3.5" /> Vitrage auto
             </div>
             <img
