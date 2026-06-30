@@ -318,59 +318,8 @@ function IPBPage() {
   return (
     <>
       {/* SECTION 1 — HERO */}
-      <section className="bg-white">
-        <div className="container-ada grid lg:grid-cols-5 gap-10 py-14 lg:py-20 items-center">
-          <div className="lg:col-span-3">
-            <div className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/15 text-ada-black px-3 py-1 text-xs font-semibold">
-              L'expertise vitrage du groupe ADA · Abidjan
-            </div>
-            <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight text-ada-black leading-[1.05]">
-              Votre pare-brise mérite
-              <span className="block text-ada-yellow">une expertise premium.</span>
-            </h1>
-            <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-              Impact, fissure ou bris complet : Ivoire Pare-Brise by ADA intervient avec des techniciens
-              certifiés, des vitrages homologués constructeur et une garantie pièces & pose sur chaque
-              intervention. Toutes marques, partout à Abidjan.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={openDevis}
-                className="inline-flex items-center gap-2 rounded-full bg-ada-black text-ada-yellow font-semibold px-6 py-3.5 hover:brightness-110 transition"
-              >
-                Demander un devis gratuit <ArrowRight className="h-4 w-4" />
-              </button>
-              <a
-                href="tel:+22507002829830"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-ada-black text-ada-black font-semibold px-6 py-3 hover:bg-ada-black hover:text-white transition"
-              >
-                <Phone className="h-4 w-4" /> Nous appeler maintenant
-              </a>
-            </div>
-            <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ada-black/80">
-              {["Diagnostic gratuit & sans engagement", "Intervention en atelier ou à domicile", "Garantie 12 mois pièces & pose"].map((t) => (
-                <li key={t} className="inline-flex items-center gap-2">
-                  <Check className="h-4 w-4 text-ada-yellow" />
-                  {t}
-                </li>
-              ))}
-            </ul>
+      <HeroCarousel onDevis={openDevis} />
 
-          </div>
-          <div className="lg:col-span-2">
-            <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-premium)]">
-              <img
-                src={heroNew}
-                alt="Stock de pare-brises neufs Ivoire Pare-Brise by ADA"
-                className="w-full h-auto object-cover aspect-[4/5]"
-                width={1024}
-                height={1280}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 2 — CHIFFRES */}
       <section className="bg-ada-black text-white py-16">
