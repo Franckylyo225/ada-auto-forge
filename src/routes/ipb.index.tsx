@@ -49,21 +49,49 @@ import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
 
 
+import { abs, SITE_URL } from "@/lib/seo";
+
+const TITLE = "Ivoire Pare-Brise Abidjan — Réparation & remplacement pare-brise";
+const DESC =
+  "Ivoire Pare-Brise by ADA à Abidjan (Angré) : réparation d'impact, remplacement pare-brise et vitrages latéraux. Pièces homologuées, garantie 12 mois, intervention 45 min.";
+
 export const Route = createFileRoute("/ipb/")({
   head: () => ({
     meta: [
-      { title: "Ivoire Pare-Brise by ADA — Vitrage automobile premium à Abidjan" },
-      {
-        name: "description",
-        content:
-          "Ivoire Pare-Brise by ADA : expertise vitrage automobile à Abidjan. Réparation d'impact, remplacement pare-brise et vitrages latéraux — toutes marques, pièces homologuées, garantie 12 mois.",
-      },
-      { property: "og:title", content: "Ivoire Pare-Brise by ADA — Votre vitrage entre de bonnes mains" },
-      { property: "og:description", content: "Techniciens certifiés, pièces d'origine et intervention sous 45 min à Abidjan." },
-
-      { property: "og:image", content: heroNew },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ipb" },
+      { property: "og:image", content: abs(heroNew) },
+      { property: "og:image:alt", content: "Ivoire Pare-Brise — Atelier d'Angré, Abidjan" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+      { name: "twitter:image", content: abs(heroNew) },
     ],
-    links: [{ rel: "canonical", href: "/ipb" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/ipb" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AutoRepair",
+          name: "Ivoire Pare-Brise by ADA",
+          image: abs(heroNew),
+          url: SITE_URL + "/ipb",
+          telephone: "+225 07 00 28 29 30",
+          priceRange: "$$",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Angré nouveau CHU, Pharmacie Val d'Oise",
+            addressLocality: "Cocody, Abidjan",
+            addressCountry: "CI",
+          },
+          areaServed: "Abidjan",
+          openingHours: "Mo-Sa 08:00-18:00",
+        }),
+      },
+    ],
   }),
   component: IPBPage,
 });
