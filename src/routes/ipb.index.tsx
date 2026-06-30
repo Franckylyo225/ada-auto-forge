@@ -42,9 +42,12 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import heroNew from "@/assets/ipb-hero-new-cdn.png";
+import heroWindshield from "@/assets/ipb-hero-windshield-cropped.jpg";
+import heroAtelier from "@/assets/hero-parebrise.jpg";
 import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
+
 
 export const Route = createFileRoute("/ipb/")({
   head: () => ({
