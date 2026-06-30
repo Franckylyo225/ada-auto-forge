@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Car, Wind } from "lucide-react";
 import heroAda from "@/assets/loc-hero-suv.jpg";
-import heroIpb from "@/assets/ipb-hero-split.jpg";
+import heroIpbAsset from "@/assets/ipb-hero-windshield.jpg.asset.json";
+const heroIpb = heroIpbAsset.url;
 import adaLogo from "@/assets/ada-logo-white.png.asset.json";
 import ipbLogo from "@/assets/ipb-logo-white-v2.png.asset.json";
 
