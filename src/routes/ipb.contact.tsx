@@ -1,24 +1,43 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ArrowRight, ShieldCheck, BadgeCheck } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
+import { SITE_URL } from "@/lib/seo";
+
+const TITLE = "Contact Ivoire Pare-Brise Abidjan — Atelier Angré · +225 07 00 28 29 30";
+const DESC =
+  "Contactez Ivoire Pare-Brise à Abidjan (Angré, près du nouveau CHU) : téléphone, WhatsApp, email. Diagnostic gratuit, devis sous 2h ouvrables. Lun–Sam · 8h–18h.";
 
 export const Route = createFileRoute("/ipb/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Ivoire Pare-Brise by ADA · Atelier Angré, Abidjan" },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: SITE_URL + "/ipb/contact" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/ipb/contact" }],
+    scripts: [
       {
-        name: "description",
-        content:
-          "Contactez Ivoire Pare-Brise à Abidjan : atelier d'Angré, téléphone, WhatsApp, email. Réponse sous 2h ouvrables, diagnostic gratuit pour votre pare-brise.",
-      },
-      { property: "og:title", content: "Contact — Ivoire Pare-Brise by ADA" },
-      {
-        property: "og:description",
-        content:
-          "Atelier d'Angré · Réponse sous 2h ouvrables · Diagnostic gratuit pour tout vitrage automobile.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AutoRepair",
+          name: "Ivoire Pare-Brise by ADA",
+          telephone: "+225 07 00 28 29 30",
+          url: SITE_URL + "/ipb/contact",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Angré nouveau CHU, Pharmacie Val d'Oise",
+            addressLocality: "Cocody, Abidjan",
+            addressCountry: "CI",
+          },
+          openingHours: "Mo-Sa 08:00-18:00",
+        }),
       },
     ],
-    links: [{ rel: "canonical", href: "/ipb/contact" }],
   }),
   component: IPBContactPage,
 });
