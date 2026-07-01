@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as ReservationRouteImport } from './routes/reservation'
 import { Route as LocationRouteImport } from './routes/location'
 import { Route as IvoirePareBriseRouteImport } from './routes/ivoire-pare-brise'
@@ -40,6 +41,11 @@ import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/l
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 import { Route as DashboardContratsIdPrintRouteImport } from './routes/dashboard.contrats.$id.print'
 
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReservationRoute = ReservationRouteImport.update({
   id: '/reservation',
   path: '/reservation',
@@ -203,6 +209,7 @@ export interface FileRoutesByFullPath {
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
   '/reservation': typeof ReservationRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/ada/a-propos': typeof AdaAProposRoute
   '/ada/contact': typeof AdaContactRoute
   '/ada/reservation': typeof AdaReservationRoute
@@ -235,6 +242,7 @@ export interface FileRoutesByTo {
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
   '/reservation': typeof ReservationRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/ada/a-propos': typeof AdaAProposRoute
   '/ada/contact': typeof AdaContactRoute
   '/ada/reservation': typeof AdaReservationRoute
@@ -268,6 +276,7 @@ export interface FileRoutesById {
   '/ivoire-pare-brise': typeof IvoirePareBriseRoute
   '/location': typeof LocationRoute
   '/reservation': typeof ReservationRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/ada/a-propos': typeof AdaAProposRoute
   '/ada/contact': typeof AdaContactRoute
   '/ada/reservation': typeof AdaReservationRoute
@@ -302,6 +311,7 @@ export interface FileRouteTypes {
     | '/ivoire-pare-brise'
     | '/location'
     | '/reservation'
+    | '/unsubscribe'
     | '/ada/a-propos'
     | '/ada/contact'
     | '/ada/reservation'
@@ -334,6 +344,7 @@ export interface FileRouteTypes {
     | '/ivoire-pare-brise'
     | '/location'
     | '/reservation'
+    | '/unsubscribe'
     | '/ada/a-propos'
     | '/ada/contact'
     | '/ada/reservation'
@@ -366,6 +377,7 @@ export interface FileRouteTypes {
     | '/ivoire-pare-brise'
     | '/location'
     | '/reservation'
+    | '/unsubscribe'
     | '/ada/a-propos'
     | '/ada/contact'
     | '/ada/reservation'
@@ -399,6 +411,7 @@ export interface RootRouteChildren {
   IvoirePareBriseRoute: typeof IvoirePareBriseRoute
   LocationRoute: typeof LocationRoute
   ReservationRoute: typeof ReservationRoute
+  UnsubscribeRoute: typeof UnsubscribeRoute
   AdaAProposRoute: typeof AdaAProposRoute
   AdaContactRoute: typeof AdaContactRoute
   AdaReservationRoute: typeof AdaReservationRoute
@@ -425,6 +438,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reservation': {
       id: '/reservation'
       path: '/reservation'
@@ -667,6 +687,7 @@ const rootRouteChildren: RootRouteChildren = {
   IvoirePareBriseRoute: IvoirePareBriseRoute,
   LocationRoute: LocationRoute,
   ReservationRoute: ReservationRoute,
+  UnsubscribeRoute: UnsubscribeRoute,
   AdaAProposRoute: AdaAProposRoute,
   AdaContactRoute: AdaContactRoute,
   AdaReservationRoute: AdaReservationRoute,
