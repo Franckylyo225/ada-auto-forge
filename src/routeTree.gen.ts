@@ -22,6 +22,7 @@ import { Route as IpbServicesRouteImport } from './routes/ipb.services'
 import { Route as IpbRendezVousRouteImport } from './routes/ipb.rendez-vous'
 import { Route as IpbContactRouteImport } from './routes/ipb.contact'
 import { Route as IpbAProposRouteImport } from './routes/ipb.a-propos'
+import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as DashboardParametresRouteImport } from './routes/dashboard.parametres'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard.login'
 import { Route as DashboardFlotteRouteImport } from './routes/dashboard.flotte'
@@ -32,7 +33,10 @@ import { Route as AdaServicesRouteImport } from './routes/ada.services'
 import { Route as AdaReservationRouteImport } from './routes/ada.reservation'
 import { Route as AdaContactRouteImport } from './routes/ada.contact'
 import { Route as AdaAProposRouteImport } from './routes/ada.a-propos'
+import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as DashboardDemandesIdRouteImport } from './routes/dashboard.demandes.$id'
+import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 import { Route as DashboardContratsIdPrintRouteImport } from './routes/dashboard.contrats.$id.print'
 
@@ -101,6 +105,11 @@ const IpbAProposRoute = IpbAProposRouteImport.update({
   path: '/ipb/a-propos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
+  id: '/email/unsubscribe',
+  path: '/email/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardParametresRoute = DashboardParametresRouteImport.update({
   id: '/dashboard/parametres',
   path: '/dashboard/parametres',
@@ -152,11 +161,28 @@ const AdaAProposRoute = AdaAProposRouteImport.update({
   path: '/ada/a-propos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
+  id: '/lovable/email/suppression',
+  path: '/lovable/email/suppression',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardDemandesIdRoute = DashboardDemandesIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => DashboardDemandesRoute,
 } as any)
+const LovableEmailTransactionalSendRoute =
+  LovableEmailTransactionalSendRouteImport.update({
+    id: '/lovable/email/transactional/send',
+    path: '/lovable/email/transactional/send',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LovableEmailQueueProcessRoute =
   LovableEmailQueueProcessRouteImport.update({
     id: '/lovable/email/queue/process',
@@ -187,6 +213,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/dashboard/parametres': typeof DashboardParametresRoute
+  '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/ipb/a-propos': typeof IpbAProposRoute
   '/ipb/contact': typeof IpbContactRoute
   '/ipb/rendez-vous': typeof IpbRendezVousRoute
@@ -195,8 +222,11 @@ export interface FileRoutesByFullPath {
   '/dashboard/': typeof DashboardIndexRoute
   '/ipb/': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
+  '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -215,6 +245,7 @@ export interface FileRoutesByTo {
   '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/dashboard/parametres': typeof DashboardParametresRoute
+  '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/ipb/a-propos': typeof IpbAProposRoute
   '/ipb/contact': typeof IpbContactRoute
   '/ipb/rendez-vous': typeof IpbRendezVousRoute
@@ -223,8 +254,11 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardIndexRoute
   '/ipb': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
+  '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -244,6 +278,7 @@ export interface FileRoutesById {
   '/dashboard/flotte': typeof DashboardFlotteRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/dashboard/parametres': typeof DashboardParametresRoute
+  '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/ipb/a-propos': typeof IpbAProposRoute
   '/ipb/contact': typeof IpbContactRoute
   '/ipb/rendez-vous': typeof IpbRendezVousRoute
@@ -252,8 +287,11 @@ export interface FileRoutesById {
   '/dashboard/': typeof DashboardIndexRoute
   '/ipb/': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
+  '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -274,6 +312,7 @@ export interface FileRouteTypes {
     | '/dashboard/flotte'
     | '/dashboard/login'
     | '/dashboard/parametres'
+    | '/email/unsubscribe'
     | '/ipb/a-propos'
     | '/ipb/contact'
     | '/ipb/rendez-vous'
@@ -282,8 +321,11 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/ipb/'
     | '/dashboard/demandes/$id'
+    | '/lovable/email/suppression'
     | '/dashboard/contrats/$id/print'
     | '/lovable/email/queue/process'
+    | '/lovable/email/transactional/preview'
+    | '/lovable/email/transactional/send'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -302,6 +344,7 @@ export interface FileRouteTypes {
     | '/dashboard/flotte'
     | '/dashboard/login'
     | '/dashboard/parametres'
+    | '/email/unsubscribe'
     | '/ipb/a-propos'
     | '/ipb/contact'
     | '/ipb/rendez-vous'
@@ -310,8 +353,11 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/ipb'
     | '/dashboard/demandes/$id'
+    | '/lovable/email/suppression'
     | '/dashboard/contrats/$id/print'
     | '/lovable/email/queue/process'
+    | '/lovable/email/transactional/preview'
+    | '/lovable/email/transactional/send'
   id:
     | '__root__'
     | '/'
@@ -330,6 +376,7 @@ export interface FileRouteTypes {
     | '/dashboard/flotte'
     | '/dashboard/login'
     | '/dashboard/parametres'
+    | '/email/unsubscribe'
     | '/ipb/a-propos'
     | '/ipb/contact'
     | '/ipb/rendez-vous'
@@ -338,8 +385,11 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/ipb/'
     | '/dashboard/demandes/$id'
+    | '/lovable/email/suppression'
     | '/dashboard/contrats/$id/print'
     | '/lovable/email/queue/process'
+    | '/lovable/email/transactional/preview'
+    | '/lovable/email/transactional/send'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -359,6 +409,7 @@ export interface RootRouteChildren {
   DashboardFlotteRoute: typeof DashboardFlotteRoute
   DashboardLoginRoute: typeof DashboardLoginRoute
   DashboardParametresRoute: typeof DashboardParametresRoute
+  EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   IpbAProposRoute: typeof IpbAProposRoute
   IpbContactRoute: typeof IpbContactRoute
   IpbRendezVousRoute: typeof IpbRendezVousRoute
@@ -366,7 +417,10 @@ export interface RootRouteChildren {
   AdaIndexRoute: typeof AdaIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
   IpbIndexRoute: typeof IpbIndexRoute
+  LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
+  LovableEmailTransactionalSendRoute: typeof LovableEmailTransactionalSendRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -462,6 +516,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IpbAProposRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/email/unsubscribe': {
+      id: '/email/unsubscribe'
+      path: '/email/unsubscribe'
+      fullPath: '/email/unsubscribe'
+      preLoaderRoute: typeof EmailUnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/parametres': {
       id: '/dashboard/parametres'
       path: '/dashboard/parametres'
@@ -532,12 +593,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdaAProposRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/suppression': {
+      id: '/lovable/email/suppression'
+      path: '/lovable/email/suppression'
+      fullPath: '/lovable/email/suppression'
+      preLoaderRoute: typeof LovableEmailSuppressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/demandes/$id': {
       id: '/dashboard/demandes/$id'
       path: '/$id'
       fullPath: '/dashboard/demandes/$id'
       preLoaderRoute: typeof DashboardDemandesIdRouteImport
       parentRoute: typeof DashboardDemandesRoute
+    }
+    '/lovable/email/transactional/send': {
+      id: '/lovable/email/transactional/send'
+      path: '/lovable/email/transactional/send'
+      fullPath: '/lovable/email/transactional/send'
+      preLoaderRoute: typeof LovableEmailTransactionalSendRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/lovable/email/queue/process': {
       id: '/lovable/email/queue/process'
@@ -595,6 +677,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardFlotteRoute: DashboardFlotteRoute,
   DashboardLoginRoute: DashboardLoginRoute,
   DashboardParametresRoute: DashboardParametresRoute,
+  EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   IpbAProposRoute: IpbAProposRoute,
   IpbContactRoute: IpbContactRoute,
   IpbRendezVousRoute: IpbRendezVousRoute,
@@ -602,7 +685,10 @@ const rootRouteChildren: RootRouteChildren = {
   AdaIndexRoute: AdaIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
   IpbIndexRoute: IpbIndexRoute,
+  LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
+  LovableEmailTransactionalSendRoute: LovableEmailTransactionalSendRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
