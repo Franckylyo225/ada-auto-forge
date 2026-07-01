@@ -33,6 +33,7 @@ import { Route as AdaReservationRouteImport } from './routes/ada.reservation'
 import { Route as AdaContactRouteImport } from './routes/ada.contact'
 import { Route as AdaAProposRouteImport } from './routes/ada.a-propos'
 import { Route as DashboardDemandesIdRouteImport } from './routes/dashboard.demandes.$id'
+import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 import { Route as DashboardContratsIdPrintRouteImport } from './routes/dashboard.contrats.$id.print'
 
 const ReservationRoute = ReservationRouteImport.update({
@@ -156,6 +157,12 @@ const DashboardDemandesIdRoute = DashboardDemandesIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => DashboardDemandesRoute,
 } as any)
+const LovableEmailQueueProcessRoute =
+  LovableEmailQueueProcessRouteImport.update({
+    id: '/lovable/email/queue/process',
+    path: '/lovable/email/queue/process',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DashboardContratsIdPrintRoute =
   DashboardContratsIdPrintRouteImport.update({
     id: '/$id/print',
@@ -189,6 +196,7 @@ export interface FileRoutesByFullPath {
   '/ipb/': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -216,6 +224,7 @@ export interface FileRoutesByTo {
   '/ipb': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -244,6 +253,7 @@ export interface FileRoutesById {
   '/ipb/': typeof IpbIndexRoute
   '/dashboard/demandes/$id': typeof DashboardDemandesIdRoute
   '/dashboard/contrats/$id/print': typeof DashboardContratsIdPrintRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -273,6 +283,7 @@ export interface FileRouteTypes {
     | '/ipb/'
     | '/dashboard/demandes/$id'
     | '/dashboard/contrats/$id/print'
+    | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -300,6 +311,7 @@ export interface FileRouteTypes {
     | '/ipb'
     | '/dashboard/demandes/$id'
     | '/dashboard/contrats/$id/print'
+    | '/lovable/email/queue/process'
   id:
     | '__root__'
     | '/'
@@ -327,6 +339,7 @@ export interface FileRouteTypes {
     | '/ipb/'
     | '/dashboard/demandes/$id'
     | '/dashboard/contrats/$id/print'
+    | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -353,6 +366,7 @@ export interface RootRouteChildren {
   AdaIndexRoute: typeof AdaIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
   IpbIndexRoute: typeof IpbIndexRoute
+  LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -525,6 +539,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDemandesIdRouteImport
       parentRoute: typeof DashboardDemandesRoute
     }
+    '/lovable/email/queue/process': {
+      id: '/lovable/email/queue/process'
+      path: '/lovable/email/queue/process'
+      fullPath: '/lovable/email/queue/process'
+      preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/contrats/$id/print': {
       id: '/dashboard/contrats/$id/print'
       path: '/$id/print'
@@ -581,6 +602,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdaIndexRoute: AdaIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
   IpbIndexRoute: IpbIndexRoute,
+  LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
