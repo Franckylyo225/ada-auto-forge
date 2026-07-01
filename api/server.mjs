@@ -4,12 +4,12 @@ import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
 import { extname, join, normalize, relative } from "node:path";
 import { Readable } from "node:stream";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 let handlerPromise;
 
 const rootDir = normalize(join(fileURLToPath(new URL("..", import.meta.url))));
-const clientDir = join(rootDir, "dist", "client");
+const rootCandidates = [...new Set([rootDir, process.cwd(), join(rootDir, "..")].map((dir) => normalize(dir)))];
 
 const mimeTypes = new Map([
   [".css", "text/css; charset=utf-8"],
@@ -31,9 +31,28 @@ const mimeTypes = new Map([
 
 async function getHandler() {
   if (!handlerPromise) {
-    handlerPromise = import("../dist/server/index.mjs").then((m) => m.default ?? m);
+    handlerPromise = resolveExistingFile("dist/server/index.mjs")
+      .then((filePath) => import(pathToFileURL(filePath).href))
+      .then((m) => m.default ?? m)
+      .catch((error) => {
+        handlerPromise = undefined;
+        throw error;
+      });
   }
   return handlerPromise;
+}
+
+async function resolveExistingFile(relativePath) {
+  for (const baseDir of rootCandidates) {
+    const filePath = normalize(join(baseDir, relativePath));
+    try {
+      const fileStat = await stat(filePath);
+      if (fileStat.isFile()) return filePath;
+    } catch {
+      // Try the next likely Vercel bundle root.
+    }
+  }
+  throw new Error(`Unable to find ${relativePath} from ${rootCandidates.join(", ")}`);
 }
 
 function sendErrorPage(res) {
@@ -45,29 +64,40 @@ function sendErrorPage(res) {
 async function tryServeStatic(req, res) {
   if (req.method !== "GET" && req.method !== "HEAD") return false;
 
-  const path = decodeURIComponent(new URL(req.url, "https://local.invalid").pathname);
-  const requestedPath = path === "/favicon.ico" ? "/favicon.ico" : path;
-  const filePath = normalize(join(clientDir, requestedPath));
-  if (relative(clientDir, filePath).startsWith("..")) return false;
-
+  let path;
   try {
-    const fileStat = await stat(filePath);
-    if (!fileStat.isFile()) return false;
-
-    res.statusCode = 200;
-    res.setHeader("content-type", mimeTypes.get(extname(filePath).toLowerCase()) ?? "application/octet-stream");
-    res.setHeader("cache-control", requestedPath.startsWith("/assets/") ? "public, max-age=31536000, immutable" : "public, max-age=3600");
-    res.setHeader("content-length", fileStat.size);
-
-    if (req.method === "HEAD") {
-      res.end();
-    } else {
-      createReadStream(filePath).pipe(res);
-    }
-    return true;
+    path = decodeURIComponent(new URL(req.url, "https://local.invalid").pathname);
   } catch {
     return false;
   }
+  const requestedPath = path === "/favicon.ico" ? "/favicon.ico" : path;
+
+  for (const baseDir of rootCandidates) {
+    const clientDir = join(baseDir, "dist", "client");
+    const filePath = normalize(join(clientDir, requestedPath));
+    if (relative(clientDir, filePath).startsWith("..")) continue;
+
+    try {
+      const fileStat = await stat(filePath);
+      if (!fileStat.isFile()) continue;
+
+      res.statusCode = 200;
+      res.setHeader("content-type", mimeTypes.get(extname(filePath).toLowerCase()) ?? "application/octet-stream");
+      res.setHeader("cache-control", requestedPath.startsWith("/assets/") ? "public, max-age=31536000, immutable" : "public, max-age=3600");
+      res.setHeader("content-length", fileStat.size);
+
+      if (req.method === "HEAD") {
+        res.end();
+      } else {
+        createReadStream(filePath).pipe(res);
+      }
+      return true;
+    } catch {
+      // Try the next likely Vercel bundle root.
+    }
+  }
+
+  return false;
 }
 
 export default async function handler(req, res) {

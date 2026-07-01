@@ -10,6 +10,7 @@
     }
   },
   "rewrites": [
-    { "source": "/((?!api/|_build/|assets/|favicon\\.ico|favicon\\.png|robots\\.txt|sitemap\\.xml).*)", "destination": "/api/server" }
+    { "source": "/__l5e/:path*", "destination": "https://bdd29baf-067a-47c5-b52e-ee9bf4354281.lovableproject.com/__l5e/:path*" },
+    { "source": "/((?!api/|_build/|assets/|__l5e/|favicon\\.ico|favicon\\.png|robots\\.txt|sitemap\\.xml).*)", "destination": "/api/server" }
   ]
 }
