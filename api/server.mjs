@@ -9,7 +9,8 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 let handlerPromise;
 
 const rootDir = normalize(join(fileURLToPath(new URL("..", import.meta.url))));
-const rootCandidates = [...new Set([rootDir, process.cwd(), join(rootDir, "..")].map((dir) => normalize(dir)))];
+const apiDir = normalize(fileURLToPath(new URL(".", import.meta.url)));
+const rootCandidates = [...new Set([apiDir, rootDir, process.cwd(), join(rootDir, "..")].map((dir) => normalize(dir)))];
 
 const mimeTypes = new Map([
   [".css", "text/css; charset=utf-8"],
