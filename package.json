@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node -e \"import('node:fs').then(fs=>fs.cpSync('dist/server','api/_server',{recursive:true}))\"",
+    "build": "vite build && node scripts/copy-server-bundle.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
