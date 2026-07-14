@@ -30,9 +30,17 @@ const mimeTypes = new Map([
   [".woff2", "font/woff2"],
 ]);
 
+async function resolveServerEntry() {
+  try {
+    return await resolveExistingFile("_server/index.mjs");
+  } catch {
+    return await resolveExistingFile("dist/server/index.mjs");
+  }
+}
+
 async function getHandler() {
   if (!handlerPromise) {
-    handlerPromise = resolveExistingFile("dist/server/index.mjs")
+    handlerPromise = resolveServerEntry()
       .then((filePath) => import(pathToFileURL(filePath).href))
       .then((m) => m.default ?? m)
       .catch((error) => {
