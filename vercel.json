@@ -6,7 +6,7 @@
   "functions": {
     "api/server.mjs": {
       "runtime": "@vercel/node@5.1.14",
-      "includeFiles": "dist/**"
+      "includeFiles": "dist/server/**"
     }
   },
   "rewrites": [
