@@ -353,7 +353,7 @@ function IPBPage() {
       <section className="bg-ada-black text-white py-16">
         <div className="container-ada grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { n: 200, s: "+", l: "Véhicules traités" },
+            { n: 1000, s: "+", l: "Véhicules traités" },
             { n: 80, s: "+", l: "Marques couvertes" },
             { n: 45, s: "min", l: "Délai max d'intervention" },
             { n: 100, s: "%", l: "Garantie pièces & pose" },
