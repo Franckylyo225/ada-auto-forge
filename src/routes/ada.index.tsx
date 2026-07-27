@@ -228,14 +228,13 @@ function Home() {
           </Reveal>
           <Reveal delay={0.1}>
             <span className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/20 text-ada-black text-xs font-bold uppercase tracking-wider px-4 py-1.5">
-              <Car className="h-3.5 w-3.5" /> Notre métier — Location
+              <Car className="h-3.5 w-3.5" /> NOTRE MÉTIER — FAVORISER VOTRE MOBILITÉ PLUS NETTE
             </span>
             <h2 className="mt-4 text-4xl md:text-5xl font-black tracking-tight">
-              Location courte & longue durée
+              Location courte & longue durée (LLC/LDD)
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              Berlines, SUV, 4×4, pick-up, utilitaires et minibus : une flotte premium régulièrement renouvelée,
-              entretenue par nos équipes certifiées et assurée tous risques pour votre tranquillité.
+              Berlines, SUV, 4×4, pick-up, utilitaires et minibus : une flotte premium régulièrement renouvelée, entretenue par nos équipes professionnelle.
             </p>
             <ul className="mt-6 grid sm:grid-cols-2 gap-3">
               {[
