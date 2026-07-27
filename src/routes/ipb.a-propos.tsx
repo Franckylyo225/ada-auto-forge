@@ -62,9 +62,9 @@ const VALEURS = [
 ];
 
 const STATS = [
-  { v: "200+", l: "Véhicules traités chaque année" },
+  { v: "100%", l: "INTERVENTION SUR TOUTE LA CÔTE D'IVOIRE" },
   { v: "80+", l: "Marques couvertes, toutes générations" },
-  { v: "45 min", l: "Délai moyen pour une réparation d'impact" },
+  { v: "90 min", l: "Délai moyen pour une réparation d'impact" },
   { v: "12 mois", l: "Garantie pièces & pose systématique" },
 ];
 
