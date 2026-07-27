@@ -104,7 +104,7 @@ function HeroCarousel() {
         </>
       ),
       desc:
-        "Une flotte récente, un service premium, une assistance 24/7. ADA accompagne particuliers, entreprises et institutions partout en Côte d'Ivoire.",
+        "Une flotte récente, un service premium, une assistance 24/7. ADA Rent\u00a0 accompagne particuliers, entreprises et institutions partout en Côte d'Ivoire.",
       ctaPrimary: { to: "/ada/reservation", label: "Réserver un véhicule" },
       ctaSecondary: { to: "/ada/services", label: "Découvrir nos offres" },
     },
@@ -243,7 +243,7 @@ function Home() {
                 "Mise à disposition sous 2 heures à Abidjan",
                 "Avec ou sans chauffeur professionnel",
                 "Tarifs dégressifs en longue durée",
-                "Véhicule de remplacement pour assureurs",
+                "Véhicule de remplacement selon conditions\u00a0",
                 "Assistance routière 24h/7j",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-2.5">
