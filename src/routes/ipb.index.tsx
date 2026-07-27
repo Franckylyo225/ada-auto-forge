@@ -214,7 +214,7 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
       title: (
         <>
           Votre pare-brise mérite<br />
-          <span className="text-ada-yellow">une expertise premium.</span>
+          <span className="text-ada-yellow">une expertise.</span>
         </>
       ),
       desc:
