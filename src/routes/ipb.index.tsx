@@ -354,8 +354,8 @@ function IPBPage() {
         <div className="container-ada grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { n: 1000, s: "+", l: "Véhicules traités" },
-            { n: 80, s: "+", l: "Marques couvertes" },
-            { n: 45, s: "min", l: "Délai max d'intervention" },
+            { n: 30, s: "+", l: "Marques en référence" },
+            { n: 90, s: " min", l: "Délai max d'intervention" },
             { n: 100, s: "%", l: "Garantie pièces & pose" },
           ].map((stat, i) => (
             <Reveal key={stat.l} delay={i * 0.08}>
@@ -394,7 +394,7 @@ function IPBPage() {
                 "Traitement invisible après séchage",
                 "Économique vs remplacement",
               ],
-              tag: "À partir de XX 000 FCFA",
+              tag: "",
               featured: false,
             },
             {
