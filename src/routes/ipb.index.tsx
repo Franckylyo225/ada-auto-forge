@@ -237,7 +237,7 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
         </>
       ),
       desc:
-        "Atelier ou à domicile, nos techniciens interviennent rapidement avec une résine haute résistance certifiée pour restaurer la solidité et la transparence du verre.",
+        "Atelier, à domicile ou sur votre lieu de travail, nos techniciens interviennent rapidement avec une résine haute résistance certifiée pour restaurer la solidité et la transparence du verre.",
       ctaPrimaryLabel: "Prendre rendez-vous",
       ctaSecondary: { href: "tel:+22507002829830", label: "Diagnostic gratuit" },
     },
