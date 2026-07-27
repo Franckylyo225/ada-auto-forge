@@ -478,7 +478,7 @@ function IPBPage() {
             <span className="text-xs uppercase tracking-wider font-semibold text-ada-black/60">Pourquoi nous</span>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold">Notre engagement qualité</h2>
             <p className="mt-3 text-muted-foreground">
-              Chaque intervention est réalisée dans les règles de l'art, avec les bons matériaux et les bons techniciens.
+              Chaque intervention est réalisée dans les règles de l'art, avec les bons matériaux de qualité et des techniciens prodessionnels.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
