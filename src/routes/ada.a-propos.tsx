@@ -116,7 +116,7 @@ function AboutPage() {
               <span className="block text-ada-yellow">avec exigence.</span>
             </h1>
             <p className="mt-6 text-white/70 text-lg max-w-xl leading-relaxed">
-              Assistance Distribution Auto (ADA) est l'acteur de référence de la mobilité à Abidjan. 
+              Assistance Distribution Auto (ADA Rent) est un acteur majeur de la mobilité à Abidjan. 
               À travers nos pôles Location et Ivoire Pare-Brise, nous offrons une qualité de service 
               héritée d'une culture du premium et d'une rigueur opérationnelle sans faille.
             </p>
@@ -171,10 +171,10 @@ function AboutPage() {
       <section className="bg-white border-b border-border">
         <div className="container-ada py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { n: 10, s: "+", l: "Années d'expérience" },
-            { n: 150, s: "+", l: "Véhicules en flotte" },
-            { n: 5000, s: "+", l: "Clients satisfaits" },
-            { n: 24, s: "/7", l: "Assistance routière" },
+            { n: 10, s: "+ Plus", l: "VEHICULES DISPONIBLES TOUTES CATÉGORIES" },
+            { n: 150, s: "+ Plus", l: "VÉHICULES DE REMPLACEMENT" },
+            { n: 500, s: "+", l: "ASSISTANCE" },
+            { n: 24, s: "/7", l: "Clients satisfaits" },
           ].map((stat, i) => (
             <Reveal key={stat.l} delay={i * 0.05} className="text-center md:text-left">
               <div className="text-3xl md:text-4xl font-black text-ada-black">
@@ -200,7 +200,7 @@ function AboutPage() {
                 Accompagner le dynamisme ivoirien par une mobilité sans faille.
               </h2>
               <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-                Plus qu'un simple loueur, ADA se positionne comme un partenaire stratégique 
+                Plus qu'un simple loueur, ADA Rent se positionne comme un partenaire stratégique 
                 pour ses clients. Notre ambition est de devenir la référence incontestée 
                 du service automobile premium en Côte d'Ivoire, en alliant innovation digitale 
                 et proximité humaine.
