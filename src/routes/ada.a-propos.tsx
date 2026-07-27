@@ -171,8 +171,8 @@ function AboutPage() {
       <section className="bg-white border-b border-border">
         <div className="container-ada py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { n: 10, s: "+ Plus", l: "VEHICULES DISPONIBLES TOUTES CATÉGORIES" },
-            { n: 150, s: "+ Plus", l: "VÉHICULES DE REMPLACEMENT" },
+            { n: 0, s: "+ Plus", l: "VEHICULES DISPONIBLES TOUTES CATÉGORIES" },
+            { n: 0, s: "+ Plus", l: "VÉHICULES DE REMPLACEMENT" },
             { n: 500, s: "+", l: "ASSISTANCE" },
             { n: 24, s: "/7", l: "Clients satisfaits" },
           ].map((stat, i) => (
