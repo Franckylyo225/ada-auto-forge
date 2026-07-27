@@ -75,7 +75,7 @@ function Portal() {
               </span>
             </p>
             <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3 shadow-[var(--shadow-yellow)]">
-              Entrer sur ADA <ArrowRight className="h-4 w-4" />
+              Entrer sur ADA Rent <ArrowRight className="h-4 w-4" />
             </span>
           </div>
         </Link>
