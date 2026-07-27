@@ -256,7 +256,7 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
         </>
       ),
       desc:
-        "Vitrages d'origine ou OEM, mastics et joints neufs, temps de séchage respecté : chaque pose est réalisée selon les normes constructeur.",
+        "Vitrages d'origine ou certifé, mastics et joints neufs, temps de séchage respecté : chaque pose est réalisée selon les normes constructeur.",
       ctaPrimaryLabel: "Obtenir un devis",
       ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
     },
