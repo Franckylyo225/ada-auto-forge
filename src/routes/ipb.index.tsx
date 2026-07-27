@@ -389,7 +389,7 @@ function IPBPage() {
               desc:
                 "Votre pare-brise présente un impact ou une petite fissure ? Dans la plupart des cas, il n'est pas nécessaire de le remplacer. Notre résine spéciale restaure la solidité et la transparence du verre en moins d'une heure.",
               feats: [
-                "Intervention en moins d'1 heure",
+                "Intervention en moins de 90 minutes",
                 "Résine haute résistance certifiée",
                 "Traitement invisible après séchage",
                 "Économique vs remplacement",
