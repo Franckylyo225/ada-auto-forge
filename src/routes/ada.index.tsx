@@ -270,7 +270,7 @@ function Home() {
             <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Pour qui</span>
             <h2 className="mt-3 text-3xl md:text-4xl font-black">Une solution adaptée à chaque besoin.</h2>
             <p className="mt-3 text-muted-foreground">
-              Que vous soyez un particulier exigeant, une entreprise structurée ou une institution,
+              Que vous soyez un particulier exigeant, une entreprise ou une institution,
               ADA conçoit une offre à votre image.
             </p>
           </Reveal>
@@ -373,9 +373,9 @@ function Home() {
           </Reveal>
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { v: "150+", l: "Véhicules dans la flotte" },
-              { v: "20+", l: "Années d'expérience" },
-              { v: "5 000+", l: "Clients satisfaits" },
+              { v: "100+", l: "Véhicules dans la flotte" },
+              { v: "10+", l: "Années d'expérience" },
+              { v: "500+", l: "Clients satisfaits" },
               { v: "24/7", l: "Assistance disponible" },
             ].map((s, i) => (
               <Reveal key={s.l} delay={i * 0.08}>
