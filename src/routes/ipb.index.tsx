@@ -218,7 +218,7 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
         </>
       ),
       desc:
-        "Impact, fissure ou bris complet : techniciens certifiés, vitrages homologués constructeur et garantie 12 mois pièces & pose. Toutes marques, partout à Abidjan.",
+        "Impact, fissure ou bris complet : techniciens professionnels, vitrages homologués constructeur et garantie 12 mois pièces & pose. Toutes marques, partout en Côte d'Ivoire.",
       ctaPrimaryLabel: "Demander un devis gratuit",
       ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
     },
