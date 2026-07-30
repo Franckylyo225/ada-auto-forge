@@ -68,6 +68,7 @@ const SERVICES = [
       "Mastic uréthane et joints neufs systématiques",
       "Temps de séchage respecté avant remise du véhicule",
       "Garantie 12 mois pièces & pose",
+      "Nettoyage du véhicule après intervention",
     ],
     featured: true,
   },
