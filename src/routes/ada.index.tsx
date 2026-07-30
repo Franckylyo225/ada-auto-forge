@@ -136,7 +136,7 @@ function HeroCarousel() {
           <div key={i} className="flex-[0_0_100%] min-w-0 relative">
             <div className="absolute inset-0">
               <img src={s.img} alt="" className="h-full w-full object-cover" width={1920} height={1080} />
-              <div className="absolute inset-0 bg-gradient-to-r from-ada-black via-ada-black/85 to-ada-black/30" />
+              <div className="absolute inset-0 bg-gradient-to-r from-ada-black/80 via-ada-black/55 to-ada-black/10" />
             </div>
             <div className="relative container-ada pt-20 pb-28 md:pt-32 md:pb-40 text-white">
               <Reveal>
