@@ -409,6 +409,7 @@ function IPBPage() {
                 "Mastic et joints neufs à chaque pose",
                 "Temps de séchage respecté avant remise du véhicule",
                 "Garantie 12 mois sur la pose",
+                "Nettoyage du véhicule après intervention",
               ],
               featured: true,
             },
