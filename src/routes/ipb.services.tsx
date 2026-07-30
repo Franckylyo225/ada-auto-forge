@@ -83,6 +83,7 @@ const SERVICES = [
       "Lunette arrière, avec ou sans désembuage",
       "Déflecteurs et triangles de custode",
       "Intervention rapide en atelier ou à domicile",
+      "Nettoyage du véhicule après intervention",
     ],
   },
 ];
