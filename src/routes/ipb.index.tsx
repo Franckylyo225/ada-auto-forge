@@ -669,16 +669,23 @@ function IPBPage() {
             Nous intervenons sur tous les véhicules particuliers et utilitaires du marché ivoirien.
           </p>
         </Reveal>
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div className="mt-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
           {BRANDS.map((b) => (
             <div
-              key={b}
-              className="rounded-full border border-border bg-white text-ada-black text-center text-sm font-semibold px-4 py-2.5 hover:border-ada-black transition"
+              key={b.n}
+              title={b.n}
+              className="flex items-center justify-center rounded-xl border border-border bg-white h-20 px-4 hover:border-ada-black transition"
             >
-              {b}
+              <img
+                src={b.src}
+                alt={`Logo ${b.n}`}
+                loading="lazy"
+                className="max-h-10 max-w-[85%] w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"
+              />
             </div>
           ))}
         </div>
+
         <p className="mt-8 text-center text-sm text-muted-foreground">
           Votre marque n'est pas listée ? Contactez-nous — nous intervenons sur la quasi-totalité des véhicules.
         </p>
