@@ -53,6 +53,7 @@ const SERVICES = [
       "Résine haute résistance certifiée constructeur",
       "Intervention en moins d'une heure",
       "Traitement quasi invisible après séchage",
+      "Nettoyage du véhicule après intervention",
     ],
     tag: "Solution la plus économique",
   },
@@ -67,6 +68,7 @@ const SERVICES = [
       "Mastic uréthane et joints neufs systématiques",
       "Temps de séchage respecté avant remise du véhicule",
       "Garantie 12 mois pièces & pose",
+      "Nettoyage du véhicule après intervention",
     ],
     featured: true,
   },
@@ -81,6 +83,7 @@ const SERVICES = [
       "Lunette arrière, avec ou sans désembuage",
       "Déflecteurs et triangles de custode",
       "Intervention rapide en atelier ou à domicile",
+      "Nettoyage du véhicule après intervention",
     ],
   },
 ];
