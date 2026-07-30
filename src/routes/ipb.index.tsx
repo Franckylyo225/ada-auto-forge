@@ -47,6 +47,10 @@ import heroAtelier from "@/assets/hero-parebrise.jpg";
 import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
+import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.json";
+const mobileIntervention = mobileInterventionAsset.url;
+
+
 
 
 import { abs, SITE_URL } from "@/lib/seo";
@@ -474,7 +478,91 @@ function IPBPage() {
         </div>
       </section>
 
+      {/* SECTION 3b — INTERVENTIONS MOBILES */}
+      <section className="bg-ada-black text-white py-20">
+        <div className="container-ada">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <Reveal>
+              <div className="relative rounded-2xl overflow-hidden">
+                <img
+                  src={mobileIntervention}
+                  alt="Technicien Ivoire Pare-Brise en intervention à domicile sur un pare-brise"
+                  className="w-full h-full object-cover"
+                  width={1024}
+                  height={768}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ada-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/10 backdrop-blur border border-white/15 p-4 flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-ada-yellow text-ada-black grid place-items-center">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold">Service mobile</div>
+                    <div className="text-xs text-white/70">+225 07 00 28 29 30</div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <div>
+              <Reveal>
+                <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Interventions à domicile</span>
+              </Reveal>
+              <Reveal delay={0.05}>
+                <h2 className="mt-3 text-3xl md:text-4xl font-bold">
+                  Nous venons à vous, où que vous soyez
+                </h2>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="mt-4 text-white/75 leading-relaxed">
+                  Pas le temps de passer à l'atelier ? Notre équipe mobile se déplace à votre domicile, au bureau, dans un parking ou sur le lieu de votre choix à Abidjan et environs. Même matériel, même qualité, même garantie.
+                </p>
+              </Reveal>
+              <Reveal delay={0.15}>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {[
+                    { icon: Home, label: "À domicile", desc: "Intervention dans votre cour ou devant chez vous" },
+                    { icon: ShieldCheck, label: "Au bureau", desc: "Réparation pendant vos heures de travail" },
+                    { icon: Clock, label: "Rapide", desc: "Même délai garanti qu'en atelier" },
+                    { icon: CheckCircle2, label: "Sans surprise", desc: "Devis fixé avant déplacement" },
+                  ].map(({ icon: Icon, label, desc }, i) => (
+                    <div key={label} className="flex gap-3">
+                      <div className="h-10 w-10 shrink-0 rounded-xl bg-white/10 border border-white/10 grid place-items-center">
+                        <Icon className="h-5 w-5 text-ada-yellow" />
+                      </div>
+                      <div>
+                        <div className="font-semibold">{label}</div>
+                        <div className="text-sm text-white/60">{desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={openDevis}
+                    className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
+                  >
+                    Planifier un déplacement <ArrowRight className="h-4 w-4" />
+                  </button>
+                  <a
+                    href="tel:+22507002829830"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition"
+                  >
+                    <Phone className="h-4 w-4" /> Appeler maintenant
+                  </a>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 4 — ENGAGEMENT */}
+
       <section style={{ backgroundColor: "#FFFBEC" }} className="py-20">
         <div className="container-ada">
           <Reveal className="max-w-2xl">
