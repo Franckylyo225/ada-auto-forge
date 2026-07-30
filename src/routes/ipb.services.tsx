@@ -53,6 +53,7 @@ const SERVICES = [
       "Résine haute résistance certifiée constructeur",
       "Intervention en moins d'une heure",
       "Traitement quasi invisible après séchage",
+      "Nettoyage du véhicule après intervention",
     ],
     tag: "Solution la plus économique",
   },
