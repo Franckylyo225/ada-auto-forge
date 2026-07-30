@@ -3,6 +3,32 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion, useInView } from "framer-motion";
 
+import brandToyota from "@/assets/brands/toyota.svg";
+import brandRenault from "@/assets/brands/renault.svg";
+import brandPeugeot from "@/assets/brands/peugeot.svg";
+import brandCitroen from "@/assets/brands/citroen.svg";
+import brandHyundai from "@/assets/brands/hyundai.svg";
+import brandKia from "@/assets/brands/kia.svg";
+import brandMercedes from "@/assets/brands/mercedes-benz.svg";
+import brandVolkswagen from "@/assets/brands/volkswagen.svg";
+import brandFord from "@/assets/brands/ford.svg";
+import brandNissan from "@/assets/brands/nissan.svg";
+import brandHonda from "@/assets/brands/honda.svg";
+import brandMitsubishi from "@/assets/brands/mitsubishi.svg";
+import brandSuzuki from "@/assets/brands/suzuki.svg";
+import brandDacia from "@/assets/brands/dacia.svg";
+import brandOpel from "@/assets/brands/opel.svg";
+import brandBmw from "@/assets/brands/bmw.svg";
+import brandFiat from "@/assets/brands/fiat.svg";
+import brandLandRover from "@/assets/brands/land-rover.svg";
+import brandIsuzu from "@/assets/brands/isuzu.svg";
+import brandMahindra from "@/assets/brands/mahindra.svg";
+import brandByd from "@/assets/brands/byd.svg";
+import brandMg from "@/assets/brands/mg.svg";
+import brandBaic from "@/assets/brands/baic.png";
+import brandChery from "@/assets/brands/chery.svg";
+
+
 import {
   ArrowRight,
   Phone,
@@ -125,11 +151,20 @@ function CountUp({ end, suffix = "", duration = 1400 }: { end: number; suffix?: 
 }
 
 const BRANDS = [
-  "Toyota", "Renault", "Peugeot", "Citroën", "Hyundai", "Kia",
-  "Mercedes-Benz", "Volkswagen", "Ford", "Nissan", "Honda", "Mitsubishi",
-  "Suzuki", "Dacia", "Opel", "BMW", "Fiat", "Land Rover",
-  "Isuzu", "Mahindra", "BYD", "MG", "BAIC", "Chery",
+  { n: "Toyota", src: brandToyota }, { n: "Renault", src: brandRenault },
+  { n: "Peugeot", src: brandPeugeot }, { n: "Citroën", src: brandCitroen },
+  { n: "Hyundai", src: brandHyundai }, { n: "Kia", src: brandKia },
+  { n: "Mercedes-Benz", src: brandMercedes }, { n: "Volkswagen", src: brandVolkswagen },
+  { n: "Ford", src: brandFord }, { n: "Nissan", src: brandNissan },
+  { n: "Honda", src: brandHonda }, { n: "Mitsubishi", src: brandMitsubishi },
+  { n: "Suzuki", src: brandSuzuki }, { n: "Dacia", src: brandDacia },
+  { n: "Opel", src: brandOpel }, { n: "BMW", src: brandBmw },
+  { n: "Fiat", src: brandFiat }, { n: "Land Rover", src: brandLandRover },
+  { n: "Isuzu", src: brandIsuzu }, { n: "Mahindra", src: brandMahindra },
+  { n: "BYD", src: brandByd }, { n: "MG", src: brandMg },
+  { n: "BAIC", src: brandBaic }, { n: "Chery", src: brandChery },
 ];
+
 
 const TESTIMONIALS = [
   {
@@ -634,16 +669,23 @@ function IPBPage() {
             Nous intervenons sur tous les véhicules particuliers et utilitaires du marché ivoirien.
           </p>
         </Reveal>
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div className="mt-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
           {BRANDS.map((b) => (
             <div
-              key={b}
-              className="rounded-full border border-border bg-white text-ada-black text-center text-sm font-semibold px-4 py-2.5 hover:border-ada-black transition"
+              key={b.n}
+              title={b.n}
+              className="flex items-center justify-center rounded-xl border border-border bg-white h-20 px-4 hover:border-ada-black transition"
             >
-              {b}
+              <img
+                src={b.src}
+                alt={`Logo ${b.n}`}
+                loading="lazy"
+                className="max-h-10 max-w-[85%] w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"
+              />
             </div>
           ))}
         </div>
+
         <p className="mt-8 text-center text-sm text-muted-foreground">
           Votre marque n'est pas listée ? Contactez-nous — nous intervenons sur la quasi-totalité des véhicules.
         </p>
