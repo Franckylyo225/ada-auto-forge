@@ -125,11 +125,20 @@ function CountUp({ end, suffix = "", duration = 1400 }: { end: number; suffix?: 
 }
 
 const BRANDS = [
-  "Toyota", "Renault", "Peugeot", "Citroën", "Hyundai", "Kia",
-  "Mercedes-Benz", "Volkswagen", "Ford", "Nissan", "Honda", "Mitsubishi",
-  "Suzuki", "Dacia", "Opel", "BMW", "Fiat", "Land Rover",
-  "Isuzu", "Mahindra", "BYD", "MG", "BAIC", "Chery",
+  { n: "Toyota", src: brandToyota }, { n: "Renault", src: brandRenault },
+  { n: "Peugeot", src: brandPeugeot }, { n: "Citroën", src: brandCitroen },
+  { n: "Hyundai", src: brandHyundai }, { n: "Kia", src: brandKia },
+  { n: "Mercedes-Benz", src: brandMercedes }, { n: "Volkswagen", src: brandVolkswagen },
+  { n: "Ford", src: brandFord }, { n: "Nissan", src: brandNissan },
+  { n: "Honda", src: brandHonda }, { n: "Mitsubishi", src: brandMitsubishi },
+  { n: "Suzuki", src: brandSuzuki }, { n: "Dacia", src: brandDacia },
+  { n: "Opel", src: brandOpel }, { n: "BMW", src: brandBmw },
+  { n: "Fiat", src: brandFiat }, { n: "Land Rover", src: brandLandRover },
+  { n: "Isuzu", src: brandIsuzu }, { n: "Mahindra", src: brandMahindra },
+  { n: "BYD", src: brandByd }, { n: "MG", src: brandMg },
+  { n: "BAIC", src: brandBaic }, { n: "Chery", src: brandChery },
 ];
+
 
 const TESTIMONIALS = [
   {
