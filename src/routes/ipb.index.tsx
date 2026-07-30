@@ -393,6 +393,7 @@ function IPBPage() {
                 "Résine haute résistance certifiée",
                 "Traitement invisible après séchage",
                 "Économique vs remplacement",
+                "Nettoyage du véhicule après intervention",
               ],
               tag: "",
               featured: false,
