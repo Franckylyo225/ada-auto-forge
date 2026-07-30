@@ -3,6 +3,32 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion, useInView } from "framer-motion";
 
+import brandToyota from "@/assets/brands/toyota.svg";
+import brandRenault from "@/assets/brands/renault.svg";
+import brandPeugeot from "@/assets/brands/peugeot.svg";
+import brandCitroen from "@/assets/brands/citroen.svg";
+import brandHyundai from "@/assets/brands/hyundai.svg";
+import brandKia from "@/assets/brands/kia.svg";
+import brandMercedes from "@/assets/brands/mercedes-benz.svg";
+import brandVolkswagen from "@/assets/brands/volkswagen.svg";
+import brandFord from "@/assets/brands/ford.svg";
+import brandNissan from "@/assets/brands/nissan.svg";
+import brandHonda from "@/assets/brands/honda.svg";
+import brandMitsubishi from "@/assets/brands/mitsubishi.svg";
+import brandSuzuki from "@/assets/brands/suzuki.svg";
+import brandDacia from "@/assets/brands/dacia.svg";
+import brandOpel from "@/assets/brands/opel.svg";
+import brandBmw from "@/assets/brands/bmw.svg";
+import brandFiat from "@/assets/brands/fiat.svg";
+import brandLandRover from "@/assets/brands/land-rover.jpg";
+import brandIsuzu from "@/assets/brands/isuzu.jpg";
+import brandMahindra from "@/assets/brands/mahindra.svg";
+import brandByd from "@/assets/brands/byd.svg";
+import brandMg from "@/assets/brands/mg.svg";
+import brandBaic from "@/assets/brands/baic.png";
+import brandChery from "@/assets/brands/chery.svg";
+
+
 import {
   ArrowRight,
   Phone,
