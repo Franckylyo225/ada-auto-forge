@@ -47,7 +47,9 @@ import heroAtelier from "@/assets/hero-parebrise.jpg";
 import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
-import mobileIntervention from "@/assets/ipb-mobile-intervention.jpg";
+import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.json";
+const mobileIntervention = mobileInterventionAsset.url;
+
 
 
 
