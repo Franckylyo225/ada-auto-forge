@@ -424,6 +424,7 @@ function IPBPage() {
                 "Lunette arrière (avec ou sans désembuage)",
                 "Déflecteurs et triangles de custode",
                 "Intervention rapide en atelier",
+                "Nettoyage du véhicule après intervention",
               ],
               featured: false,
             },
