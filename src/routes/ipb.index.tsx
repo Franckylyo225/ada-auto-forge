@@ -604,14 +604,14 @@ function IPBPage() {
             <span className="text-xs uppercase tracking-wider font-semibold text-ada-black/60">Pourquoi nous</span>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold">Notre engagement qualité</h2>
             <p className="mt-3 text-muted-foreground">
-              Chaque intervention est réalisée dans les règles de l'art, avec les bons matériaux de qualité et des techniciens prodessionnels.
+              Chaque intervention est réalisée dans les règles de l'art, avec des matériaux de qualité et des techniciens professionnels.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {[
               {
                 icon: BadgeCheck,
-                t: "Techniciens certifiés",
+                t: "Techniciens professionnels",
                 d: "Notre équipe est formée aux techniques de pose et de réparation les plus récentes. Chaque intervention est réalisée avec précision et professionnalisme.",
               },
               {
