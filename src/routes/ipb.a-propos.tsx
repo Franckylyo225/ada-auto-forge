@@ -41,7 +41,7 @@ export const Route = createFileRoute("/ipb/a-propos")({
 const VALEURS = [
   {
     icon: BadgeCheck,
-    t: "Techniciens certifiés",
+    t: "Techniciens experts",
     d: "Une équipe formée aux dernières techniques de pose et de réparation, capable d'intervenir avec précision sur tous les modèles du marché ivoirien — du véhicule familial au SUV premium.",
   },
   {
