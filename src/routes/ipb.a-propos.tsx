@@ -107,7 +107,7 @@ function IPBAboutPage() {
               <span className="block text-ada-yellow">la touche de l'expert.</span>
             </h1>
             <p className="mt-6 text-white/70 text-lg max-w-xl leading-relaxed">
-              Ivoire Pare-Brise by ADA est la filiale dédiée à la réparation et au remplacement
+              Ivoire Pare-Brise by ADA est un service dédié à la réparation et au remplacement
               de vitrages automobiles en Côte d'Ivoire. Nous mettons au service de chaque
               véhicule la rigueur d'un groupe spécialiste de la mobilité : pièces homologuées,
               techniciens professionnels.&nbsp;
