@@ -63,7 +63,7 @@ const VALEURS = [
 
 const STATS = [
   { v: "100%", l: "INTERVENTION SUR TOUTE LA CÔTE D'IVOIRE" },
-  { v: "80+", l: "Marques couvertes, toutes générations" },
+  { v: "+30", l: "Marques couvertes, toutes générations" },
   { v: "90 min", l: "Délai moyen pour une réparation d'impact" },
   { v: "12 mois", l: "Garantie pièces & pose systématique" },
 ];
@@ -71,8 +71,8 @@ const STATS = [
 const PILIERS = [
   {
     icon: Award,
-    t: "Adossé au groupe ADA",
-    d: "+5 années d'expertise mobilité en Côte d'Ivoire. Une rigueur de gestion, des process éprouvés, une exigence de service héritée du métier de la location premium.",
+    t: "Adossé à l'entreprise ADA",
+    d: "Plusieurs années d'expertise mobilité en Côte d'Ivoire. Une rigueur de gestion, des process éprouvés, une exigence de service héritée du métier de la location premium.",
   },
   {
     icon: Users,
@@ -81,7 +81,7 @@ const PILIERS = [
   },
   {
     icon: Building2,
-    t: "Partenaire des assureurs & flottes",
+    t: "Partenaire des assureurs & gestionnaires flottes entreprises",
     d: "Facturation directe avec les principales compagnies d'assurance ivoiriennes. Contrats cadres pour les entreprises et institutions gérant un parc automobile.",
   },
   {
