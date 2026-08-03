@@ -666,7 +666,7 @@ function IPBPage() {
         <Reveal className="max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-bold">Toutes les marques, sans exception</h2>
           <p className="mt-3 text-muted-foreground">
-            Nous intervenons sur tous les véhicules particuliers et utilitaires du marché ivoirien.
+            Nous intervenons sur tous les véhicules de tourisme et utilitaires du marché ivoirien.
           </p>
         </Reveal>
         <div className="mt-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
