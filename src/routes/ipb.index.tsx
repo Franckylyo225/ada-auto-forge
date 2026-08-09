@@ -95,6 +95,10 @@ import insSonam from "@/assets/partners/sonam.png";
 import insWafa from "@/assets/partners/wafa.png";
 import insLoyale from "@/assets/partners/loyale.png";
 import insGna from "@/assets/partners/gna.png";
+import insActiva from "@/assets/partners/activa.png";
+import insAscoma from "@/assets/partners/ascoma.png";
+import insOlea from "@/assets/partners/olea.png";
+import insWtw from "@/assets/partners/wtw.png";
 
 const INSURERS: { src: string; alt: string }[] = [
   { src: insAllianz, alt: "Allianz" },
@@ -117,6 +121,10 @@ const INSURERS: { src: string; alt: string }[] = [
   { src: insWafa, alt: "Wafa Assurance Côte d'Ivoire" },
   { src: insLoyale, alt: "La Loyale Assurances" },
   { src: insGna, alt: "GNA Assurances" },
+  { src: insActiva, alt: "Activa Assurances" },
+  { src: insAscoma, alt: "ASCOMA Conseil & Courtier en Assurances" },
+  { src: insOlea, alt: "OLEA Insurance Solutions Africa" },
+  { src: insWtw, alt: "Willis Towers Watson" },
 ];
 
 const mobileIntervention = mobileInterventionAsset.url;
