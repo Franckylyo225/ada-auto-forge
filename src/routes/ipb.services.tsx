@@ -15,6 +15,7 @@ import { Reveal } from "@/components/ada/Reveal";
 import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
+import heroParebriseCrack from "@/assets/hero-parebrise-crack.png";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
@@ -123,7 +124,7 @@ function IPBServicesPage() {
     <>
       {/* HERO */}
       <section className="bg-ada-black text-white">
-        <div className="container-ada py-20 md:py-28">
+        <div className="container-ada py-20 md:py-28 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/15 text-ada-yellow px-3 py-1 text-xs font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-ada-yellow" />
@@ -151,6 +152,18 @@ function IPBServicesPage() {
               >
                 <PhoneCall className="h-4 w-4" /> Nous appeler
               </a>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="relative">
+              <div className="absolute -top-3 -left-3 h-16 w-16 border-t-4 border-l-4 border-ada-yellow rounded-tl-2xl" />
+              <div className="absolute -bottom-3 -right-3 h-16 w-16 border-b-4 border-r-4 border-ada-yellow rounded-br-2xl" />
+              <img
+                src={heroParebriseCrack}
+                alt="Pare-brise fissuré — diagnostic et réparation chez Ivoire Pare-Brise"
+                className="relative w-full aspect-[4/3] object-cover rounded-2xl"
+                loading="eager"
+              />
             </div>
           </Reveal>
         </div>
