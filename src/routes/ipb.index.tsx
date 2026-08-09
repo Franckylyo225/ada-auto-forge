@@ -71,7 +71,6 @@ import heroNew from "@/assets/ipb-hero-new-cdn.png";
 import heroWindshield from "@/assets/ipb-hero-windshield-cropped.jpg";
 import heroAtelier from "@/assets/hero-parebrise.jpg";
 import heroGifts from "@/assets/ipb-hero-gifts.jpg";
-import heroGifts from "@/assets/ipb-hero-gifts.jpg";
 import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
