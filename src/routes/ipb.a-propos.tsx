@@ -9,11 +9,16 @@ import {
   Users,
   Building2,
   Sparkles,
+  Car,
+  Gift,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import heroParebrise from "@/assets/hero-parebrise.jpg";
 import heroAtelier from "@/assets/ipb-hero-windshield-cropped.jpg";
+import heroGifts from "@/assets/ipb-hero-gifts.jpg";
+import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.json";
 import { abs, SITE_URL } from "@/lib/seo";
+
 
 const TITLE = "À propos d'Ivoire Pare-Brise — Expertise vitrage auto Abidjan";
 const DESC =
