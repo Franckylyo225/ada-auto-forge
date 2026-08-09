@@ -107,6 +107,16 @@ const INSURERS: { src: string; alt: string }[] = [
   { src: insAfg, alt: "AFG Assurances" },
   { src: insSerenity, alt: "Serenity S.A" },
   { src: insSaar, alt: "SAAR Vie" },
+  { src: insComar, alt: "COMAR Assurances" },
+  { src: insSidam, alt: "SIDAM S.A" },
+  { src: insMatca, alt: "MATCA" },
+  { src: insAfricaine, alt: "L'Africaine des Assurances" },
+  { src: insSmabtp, alt: "SMA BTP" },
+  { src: insAtlanta, alt: "Atlanta Assurances Côte d'Ivoire" },
+  { src: insSonam, alt: "Sonam Assurances" },
+  { src: insWafa, alt: "Wafa Assurance Côte d'Ivoire" },
+  { src: insLoyale, alt: "La Loyale Assurances" },
+  { src: insGna, alt: "GNA Assurances" },
 ];
 
 const mobileIntervention = mobileInterventionAsset.url;
