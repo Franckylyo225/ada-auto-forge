@@ -15,6 +15,7 @@ import { Reveal } from "@/components/ada/Reveal";
 import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
+import heroParebriseCrack from "@/assets/hero-parebrise-crack.png";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
