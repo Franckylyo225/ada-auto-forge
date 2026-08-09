@@ -652,13 +652,13 @@ function IPBPage() {
             <div
               key={b.n}
               title={b.n}
-              className="flex items-center justify-center rounded-xl border border-border bg-white h-20 px-4 hover:border-ada-black transition"
+              className="flex items-center justify-center rounded-xl border border-border bg-white h-20 px-4 hover:border-ada-yellow transition hover:shadow-sm"
             >
               <img
                 src={b.src}
                 alt={`Logo ${b.n}`}
                 loading="lazy"
-                className="max-h-10 max-w-[85%] w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"
+                className="max-h-10 max-w-[85%] w-auto object-contain transition hover:scale-105"
               />
             </div>
           ))}
