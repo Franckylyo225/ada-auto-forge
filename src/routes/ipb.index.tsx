@@ -168,30 +168,6 @@ const BRANDS = [
 ];
 
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "Un impact sur mon pare-brise un lundi matin. J'ai appelé Ivoire Pare-Brise, ils sont venus à mon bureau, réparation faite en 45 min. Impeccable !",
-    name: "Adjoua K.",
-    meta: "Toyota Corolla · Cocody",
-    initials: "AK",
-  },
-  {
-    quote:
-      "Remplacement complet de mon pare-brise suite à un accident. Devis honnête, pièce d'origine, pose soignée. Je recommande sans hésiter.",
-    name: "Issa D.",
-    meta: "Hyundai Tucson · Marcory",
-    initials: "ID",
-  },
-  {
-    quote:
-      "En tant que responsable flotte d'une entreprise, j'ai confié tous nos vitrages à IPB. Réactivité et tarifs compétitifs. Notre partenaire de confiance.",
-    name: "Sylvie M.",
-    meta: "Responsable flotte · Plateau",
-    initials: "SM",
-  },
-];
-
 const FAQ = [
   {
     q: "Puis-je réparer mon pare-brise plutôt que le remplacer ?",
