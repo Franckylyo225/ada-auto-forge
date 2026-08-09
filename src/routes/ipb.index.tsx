@@ -70,11 +70,13 @@ import {
 import heroNew from "@/assets/ipb-hero-new-cdn.png";
 import heroWindshield from "@/assets/ipb-hero-windshield-cropped.jpg";
 import heroAtelier from "@/assets/hero-parebrise.jpg";
+import heroGifts from "@/assets/ipb-hero-gifts.jpg";
 import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
 import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.json";
 const mobileIntervention = mobileInterventionAsset.url;
+
 
 
 
@@ -262,42 +264,42 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
       ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
     },
     {
-      img: heroAtelier,
+      img: mobileIntervention,
       badge: (
         <>
-          <Clock className="h-3.5 w-3.5 text-ada-yellow" />
-          Intervention rapide
+          <Home className="h-3.5 w-3.5 text-ada-yellow" />
+          Interventions à domicile & au bureau
         </>
       ),
       title: (
         <>
-          Réparation d'impact,<br />
-          <span className="text-ada-yellow">en moins de 45 min.</span>
+          Interventions mobiles,<br />
+          <span className="text-ada-yellow">où vous êtes.</span>
         </>
       ),
       desc:
-        "Atelier, à domicile ou sur votre lieu de travail, nos techniciens interviennent rapidement avec une résine haute résistance certifiée pour restaurer la solidité et la transparence du verre.",
+        "À domicile, au bureau ou sur votre lieu de travail, nos techniciens se déplacent pour une réparation d'impact ou un remplacement rapide. Vous ne bougez pas, nous venons à vous.",
       ctaPrimaryLabel: "Prendre rendez-vous",
-      ctaSecondary: { href: "tel:+22507002829830", label: "Diagnostic gratuit" },
+      ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
     },
     {
-      img: heroNew,
+      img: heroGifts,
       badge: (
         <>
-          <ShieldCheck className="h-3.5 w-3.5 text-ada-yellow" />
-          Pièces homologuées
+          <Star className="h-3.5 w-3.5 text-ada-yellow" />
+          Offre partenaire
         </>
       ),
       title: (
         <>
-          Remplacement pare-brise,<br />
-          <span className="text-ada-yellow">garanti 12 mois.</span>
+          Cadeaux offerts à chaque pose,<br />
+          <span className="text-ada-yellow">10 000 à 50 000 F.</span>
         </>
       ),
       desc:
-        "Vitrages d'origine ou certifé, mastics et joints neufs, temps de séchage respecté : chaque pose est réalisée selon les normes constructeur.",
-      ctaPrimaryLabel: "Obtenir un devis",
-      ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
+        "À chaque intervention, repartez avec un bon d'essence et un bon d'achat supermarché. Une valeur de 10 000 F à 50 000 F offerte selon le partenariat en cours.",
+      ctaPrimaryLabel: "Profiter de l'offre",
+      ctaSecondary: { href: "tel:+22507002829830", label: "En savoir plus" },
     },
   ];
 
