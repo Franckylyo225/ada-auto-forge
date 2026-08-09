@@ -85,6 +85,16 @@ import insSanlam from "@/assets/partners/sanlam.png";
 import insSerenity from "@/assets/partners/serenity.png";
 import insSaar from "@/assets/partners/saar.jpeg";
 import insAxa from "@/assets/partners/axa.svg";
+import insComar from "@/assets/partners/comar.png";
+import insSidam from "@/assets/partners/sidam.png";
+import insMatca from "@/assets/partners/matca.png";
+import insAfricaine from "@/assets/partners/africaine.png";
+import insSmabtp from "@/assets/partners/smabtp.png";
+import insAtlanta from "@/assets/partners/atlanta.png";
+import insSonam from "@/assets/partners/sonam.png";
+import insWafa from "@/assets/partners/wafa.png";
+import insLoyale from "@/assets/partners/loyale.png";
+import insGna from "@/assets/partners/gna.png";
 
 const INSURERS: { src: string; alt: string }[] = [
   { src: insAllianz, alt: "Allianz" },
@@ -97,6 +107,16 @@ const INSURERS: { src: string; alt: string }[] = [
   { src: insAfg, alt: "AFG Assurances" },
   { src: insSerenity, alt: "Serenity S.A" },
   { src: insSaar, alt: "SAAR Vie" },
+  { src: insComar, alt: "COMAR Assurances" },
+  { src: insSidam, alt: "SIDAM S.A" },
+  { src: insMatca, alt: "MATCA" },
+  { src: insAfricaine, alt: "L'Africaine des Assurances" },
+  { src: insSmabtp, alt: "SMA BTP" },
+  { src: insAtlanta, alt: "Atlanta Assurances Côte d'Ivoire" },
+  { src: insSonam, alt: "Sonam Assurances" },
+  { src: insWafa, alt: "Wafa Assurance Côte d'Ivoire" },
+  { src: insLoyale, alt: "La Loyale Assurances" },
+  { src: insGna, alt: "GNA Assurances" },
 ];
 
 const mobileIntervention = mobileInterventionAsset.url;
