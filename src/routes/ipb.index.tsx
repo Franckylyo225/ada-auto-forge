@@ -75,7 +75,30 @@ import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
 import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.json";
-import partnersAssurancesAsset from "@/assets/partenaires-assurances.png.asset.json";
+import insAllianz from "@/assets/partners/allianz.png";
+import insNsia from "@/assets/partners/nsia.webp";
+import insSunu from "@/assets/partners/sunu.jpg";
+import insAtlantique from "@/assets/partners/atlantique.png";
+import insAmsa from "@/assets/partners/amsa.png";
+import insAfg from "@/assets/partners/afg.png";
+import insSanlam from "@/assets/partners/sanlam.png";
+import insSerenity from "@/assets/partners/serenity.png";
+import insSaar from "@/assets/partners/saar.jpeg";
+import insAxa from "@/assets/partners/axa.svg";
+
+const INSURERS: { src: string; alt: string }[] = [
+  { src: insAllianz, alt: "Allianz" },
+  { src: insAxa, alt: "AXA" },
+  { src: insNsia, alt: "NSIA Assurances" },
+  { src: insSunu, alt: "SUNU Assurances" },
+  { src: insAtlantique, alt: "Atlantique Assurances" },
+  { src: insAmsa, alt: "AMSA Assurances" },
+  { src: insSanlam, alt: "Sanlam" },
+  { src: insAfg, alt: "AFG Assurances" },
+  { src: insSerenity, alt: "Serenity S.A" },
+  { src: insSaar, alt: "SAAR Vie" },
+];
+
 const mobileIntervention = mobileInterventionAsset.url;
 const partnersAssurances = partnersAssurancesAsset.url;
 
