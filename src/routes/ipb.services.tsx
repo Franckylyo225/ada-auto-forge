@@ -10,12 +10,16 @@ import {
   BadgeCheck,
   Home,
   PhoneCall,
+  Car,
+  Gift,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
 import heroParebriseCrack from "@/assets/hero-parebrise-crack.png";
+import heroGifts from "@/assets/ipb-hero-gifts.jpg";
+import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.json";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
