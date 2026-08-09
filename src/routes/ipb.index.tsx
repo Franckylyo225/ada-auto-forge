@@ -993,12 +993,12 @@ function IPBPage() {
               {INSURERS.map((p) => (
                 <div
                   key={p.alt}
-                  className="rounded-xl border border-border bg-white p-4 h-24 grid place-items-center transition hover:border-ada-yellow hover:shadow-sm"
+                  className="group rounded-xl border border-border bg-white p-4 h-28 grid place-items-center transition hover:border-ada-yellow hover:shadow-sm"
                 >
                   <img
                     src={p.src}
                     alt={`Logo ${p.alt}`}
-                    className="max-h-12 max-w-full object-contain"
+                    className="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
                   />
                 </div>
