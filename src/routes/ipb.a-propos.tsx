@@ -266,23 +266,23 @@ function IPBAboutPage() {
       </section>
 
       {/* CTA DUAL */}
-      <section className="bg-ada-black text-white py-20">
+      <section className="bg-white py-20">
         <div className="container-ada">
           <Reveal>
             <div className="grid md:grid-cols-2 gap-6">
               {/* Left — Mobile intervention */}
-              <div className="relative overflow-hidden rounded-3xl bg-ada-black border border-white/10 group">
+              <div className="relative overflow-hidden rounded-3xl bg-white border border-border group shadow-[var(--shadow-premium)]">
                 <img
                   src={mobileInterventionAsset.url}
                   alt="Technicien Ivoire Pare-Brise intervenant à domicile ou au bureau"
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition duration-500"
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-90 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ada-black via-ada-black/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ada-black/80 via-ada-black/40 to-transparent" />
                 <div className="relative p-8 md:p-10 h-full flex flex-col justify-end min-h-[360px]">
                   <div className="h-12 w-12 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center mb-4">
                     <Car className="h-6 w-6" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-black tracking-tight">
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight text-white">
                     Interventions mobiles
                   </h3>
                   <p className="mt-3 text-white/80 leading-relaxed max-w-md">
@@ -300,18 +300,18 @@ function IPBAboutPage() {
               </div>
 
               {/* Right — Gifts */}
-              <div className="relative overflow-hidden rounded-3xl bg-ada-black border border-white/10 group">
+              <div className="relative overflow-hidden rounded-3xl bg-white border border-border group shadow-[var(--shadow-premium)]">
                 <img
                   src={heroGifts}
                   alt="Cadeaux offerts : bons de carburant et bons d'achat supermarché"
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition duration-500"
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-90 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ada-black via-ada-black/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ada-black/80 via-ada-black/40 to-transparent" />
                 <div className="relative p-8 md:p-10 h-full flex flex-col justify-end min-h-[360px]">
                   <div className="h-12 w-12 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center mb-4">
                     <Gift className="h-6 w-6" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-black tracking-tight">
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight text-white">
                     Des cadeaux à chaque pose
                   </h3>
                   <p className="mt-3 text-white/80 leading-relaxed max-w-md">
