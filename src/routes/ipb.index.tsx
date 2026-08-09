@@ -725,19 +725,32 @@ function IPBPage() {
         <div className="container-ada">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <Reveal className="order-2 lg:order-1">
-              <div className="relative rounded-2xl overflow-hidden">
-                <img
-                  src={heroGifts}
-                  alt="Cadeaux offerts par Ivoire Pare-Brise : bons de carburant et bons d'achat"
-                  className="w-full h-full object-cover"
-                  width={1024}
-                  height={768}
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ada-black/70 via-ada-black/20 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-ada-yellow text-ada-black p-4 text-center">
-                  <div className="text-sm font-semibold">Valeur offerte</div>
-                  <div className="text-2xl font-black">10 000 F à 50 000 F</div>
+              <div className="relative grid grid-cols-2 gap-3">
+                <div className="relative rounded-2xl overflow-hidden">
+                  <img
+                    src={giftClient}
+                    alt="Cliente recevant un cadeau après son intervention pare-brise"
+                    className="w-full h-72 md:h-96 object-cover"
+                    width={512}
+                    height={768}
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ada-black/60 via-transparent to-transparent" />
+                </div>
+                <div className="relative rounded-2xl overflow-hidden">
+                  <img
+                    src={giftTaxi}
+                    alt="Chauffeur de taxi recevant un bon de carburant et un bon d'achat"
+                    className="w-full h-72 md:h-96 object-cover"
+                    width={512}
+                    height={768}
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ada-black/60 via-transparent to-transparent" />
+                </div>
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-xl bg-ada-yellow text-ada-black px-5 py-2 text-center shadow-lg">
+                  <div className="text-xs font-semibold">Valeur offerte</div>
+                  <div className="text-lg font-black">10 000 F à 50 000 F</div>
                 </div>
               </div>
             </Reveal>
