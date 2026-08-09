@@ -9,11 +9,16 @@ import {
   Users,
   Building2,
   Sparkles,
+  Car,
+  Gift,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import heroParebrise from "@/assets/hero-parebrise.jpg";
 import heroAtelier from "@/assets/ipb-hero-windshield-cropped.jpg";
+import heroGifts from "@/assets/ipb-hero-gifts.jpg";
+import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.json";
 import { abs, SITE_URL } from "@/lib/seo";
+
 
 const TITLE = "À propos d'Ivoire Pare-Brise — Expertise vitrage auto Abidjan";
 const DESC =
@@ -260,25 +265,68 @@ function IPBAboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA DUAL */}
       <section className="bg-ada-black text-white py-20">
         <div className="container-ada">
           <Reveal>
-            <div className="rounded-3xl bg-white/5 border border-white/10 p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div className="max-w-xl">
-                <h2 className="text-3xl md:text-4xl font-black tracking-tight">
-                  Un impact ? Une fissure ? Un doute ?
-                </h2>
-                <p className="mt-3 text-white/70 text-lg">
-                  Diagnostic gratuit, devis précis sous 2 heures ouvrables, intervention sous 45 min à Abidjan.
-                </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Left — Mobile intervention */}
+              <div className="relative overflow-hidden rounded-3xl bg-ada-black border border-white/10 group">
+                <img
+                  src={mobileInterventionAsset.url}
+                  alt="Technicien Ivoire Pare-Brise intervenant à domicile ou au bureau"
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ada-black via-ada-black/70 to-transparent" />
+                <div className="relative p-8 md:p-10 h-full flex flex-col justify-end min-h-[360px]">
+                  <div className="h-12 w-12 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center mb-4">
+                    <Car className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight">
+                    Interventions mobiles
+                  </h3>
+                  <p className="mt-3 text-white/80 leading-relaxed max-w-md">
+                    À domicile, au bureau ou sur votre chantier. Un technicien équipé se déplace
+                    partout en Côte d'Ivoire pour réparer ou remplacer votre vitrage, sans
+                    déranger votre journée.
+                  </p>
+                  <Link
+                    to="/ipb/rendez-vous"
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)] w-fit"
+                  >
+                    Prendre rendez-vous <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
-              <Link
-                to="/ipb/rendez-vous"
-                className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-bold px-7 py-4 hover:brightness-95 transition shadow-[var(--shadow-yellow)] shrink-0"
-              >
-                Demander un devis <ArrowRight className="h-4 w-4" />
-              </Link>
+
+              {/* Right — Gifts */}
+              <div className="relative overflow-hidden rounded-3xl bg-ada-black border border-white/10 group">
+                <img
+                  src={heroGifts}
+                  alt="Cadeaux offerts : bons de carburant et bons d'achat supermarché"
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ada-black via-ada-black/70 to-transparent" />
+                <div className="relative p-8 md:p-10 h-full flex flex-col justify-end min-h-[360px]">
+                  <div className="h-12 w-12 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center mb-4">
+                    <Gift className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight">
+                    Des cadeaux à chaque pose
+                  </h3>
+                  <p className="mt-3 text-white/80 leading-relaxed max-w-md">
+                    À chaque intervention, recevez un bon de carburant ou un bon d'achat
+                    supermarché. Une valeur de 10 000 F à 50 000 F selon le partenariat en cours,
+                    offerte au client à chaque pose.
+                  </p>
+                  <Link
+                    to="/ipb/services"
+                    className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-bold px-6 py-3.5 hover:bg-white hover:text-ada-black transition w-fit"
+                  >
+                    Découvrir nos services <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -286,3 +334,4 @@ function IPBAboutPage() {
     </>
   );
 }
+
