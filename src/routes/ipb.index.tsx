@@ -168,30 +168,6 @@ const BRANDS = [
 ];
 
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "Un impact sur mon pare-brise un lundi matin. J'ai appelé Ivoire Pare-Brise, ils sont venus à mon bureau, réparation faite en 45 min. Impeccable !",
-    name: "Adjoua K.",
-    meta: "Toyota Corolla · Cocody",
-    initials: "AK",
-  },
-  {
-    quote:
-      "Remplacement complet de mon pare-brise suite à un accident. Devis honnête, pièce d'origine, pose soignée. Je recommande sans hésiter.",
-    name: "Issa D.",
-    meta: "Hyundai Tucson · Marcory",
-    initials: "ID",
-  },
-  {
-    quote:
-      "En tant que responsable flotte d'une entreprise, j'ai confié tous nos vitrages à IPB. Réactivité et tarifs compétitifs. Notre partenaire de confiance.",
-    name: "Sylvie M.",
-    meta: "Responsable flotte · Plateau",
-    initials: "SM",
-  },
-];
-
 const FAQ = [
   {
     q: "Puis-je réparer mon pare-brise plutôt que le remplacer ?",
@@ -742,35 +718,81 @@ function IPBPage() {
       </section>
 
 
-      {/* SECTION 8 — TÉMOIGNAGES */}
-      <section className="container-ada py-20">
-        <Reveal className="max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold">Ce que disent nos clients</h2>
-        </Reveal>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.08}>
-              <div className="h-full rounded-2xl bg-white border border-border p-6 flex flex-col">
-                <div className="flex gap-0.5 text-ada-yellow">
-                  {Array.from({ length: 5 }).map((_, k) => (
-                    <Star key={k} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <p className="mt-4 italic text-ada-black/85">"{t.quote}"</p>
-                <div className="mt-6 pt-4 border-t border-border flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-ada-yellow text-ada-black grid place-items-center text-sm font-bold">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.meta}</div>
-                  </div>
+      {/* SECTION 8 — CADEAUX OFFERTS */}
+      <section className="bg-ada-black text-white py-20 overflow-hidden">
+        <div className="container-ada">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <Reveal className="order-2 lg:order-1">
+              <div className="relative rounded-2xl overflow-hidden">
+                <img
+                  src={heroGifts}
+                  alt="Cadeaux offerts par Ivoire Pare-Brise : bons de carburant et bons d'achat"
+                  className="w-full h-full object-cover"
+                  width={1024}
+                  height={768}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ada-black/70 via-ada-black/20 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-ada-yellow text-ada-black p-4 text-center">
+                  <div className="text-sm font-semibold">Valeur offerte</div>
+                  <div className="text-2xl font-black">10 000 F à 50 000 F</div>
                 </div>
               </div>
             </Reveal>
-          ))}
+
+            <div className="order-1 lg:order-2">
+              <Reveal>
+                <span className="inline-flex items-center gap-2 rounded-full bg-ada-yellow/15 text-ada-yellow px-3 py-1 text-xs font-semibold">
+                  <Star className="h-3.5 w-3.5 fill-current" />
+                  Offre partenaire exclusive
+                </span>
+              </Reveal>
+              <Reveal delay={0.05}>
+                <h2 className="mt-4 text-3xl md:text-4xl font-bold">
+                  Des cadeaux offerts à chaque intervention
+                </h2>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="mt-4 text-white/75 leading-relaxed">
+                  Faites confiance à Ivoire Pare-Brise et repartez avec un cadeau utile. À chaque pose ou remplacement, nous vous offrons un <span className="text-ada-yellow font-semibold">bon de carburant</span> et un <span className="text-ada-yellow font-semibold">bon d'achat supermarché</span> selon notre partenariat en cours.
+                </p>
+              </Reveal>
+              <Reveal delay={0.15}>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {[
+                    { icon: "⛽", label: "Bon de carburant", desc: "Repartez avec le plein d'essence offert pour votre véhicule." },
+                    { icon: "🛒", label: "Bon d'achat supermarché", desc: "Faites vos courses grâce à un chèque cadeau utilisable en grande surface." },
+                  ].map(({ icon, label, desc }) => (
+                    <div key={label} className="rounded-2xl bg-white/5 border border-white/10 p-5">
+                      <div className="text-3xl">{icon}</div>
+                      <div className="mt-3 font-semibold text-lg">{label}</div>
+                      <p className="mt-1 text-sm text-white/60">{desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={openDevis}
+                    className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-6 py-3.5 hover:brightness-95 transition shadow-[var(--shadow-yellow)]"
+                  >
+                    Profiter de l'offre <ArrowRight className="h-4 w-4" />
+                  </button>
+                  <a
+                    href="tel:+22507002829830"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition"
+                  >
+                    <Phone className="h-4 w-4" /> Nous appeler
+                  </a>
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
+
 
       {/* SECTION 9 — FAQ */}
       <section className="bg-muted/40 py-20">
