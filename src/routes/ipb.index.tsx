@@ -937,26 +937,18 @@ function IPBPage() {
               Prise en charge directe et facturation simplifiée avec les principales compagnies d'assurance en Côte d'Ivoire.
             </p>
           </Reveal>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {[
-              "NSIA Assurance",
-              "SUNU",
-              "GRAS SAVOYE",
-              "GNA Assurances",
-              "ASACO",
-              "SIA Assurances",
-              "SICOM",
-              "COLINA",
-              "AFRICA RE",
-              "MISCO",
-            ].map((assurance) => (
-              <Reveal key={assurance}>
-                <div className="rounded-full border border-border bg-white text-ada-black text-center text-sm font-semibold px-5 py-2.5 hover:border-ada-yellow hover:bg-ada-yellow/5 transition shadow-sm">
-                  {assurance}
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal className="mt-10">
+            <div className="rounded-2xl border border-border bg-white p-4 md:p-6">
+              <img
+                src={partnersAssurances}
+                alt="Logos des partenaires assureurs : Sanlam, Atlantique Assurances, Serenity, Saab, Sunu, Comar, Allianz, Sidam, Matca, AOA, SMA, AXA, NSIA, Amsa, Atlanta, Sonam, Wafa, La Loyale, AIA, Activa, AFG, Ascoma, Olea, Willis Towers Watson"
+                className="w-full h-auto object-contain"
+                width={1200}
+                height={400}
+                loading="lazy"
+              />
+            </div>
+          </Reveal>
           <p className="mt-8 text-center text-sm text-muted-foreground">
             Votre assurance n'est pas listée ? Contactez-nous — nous pouvons très probablement aussi gérer votre prise en charge.
           </p>
