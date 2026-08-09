@@ -85,6 +85,16 @@ import insSanlam from "@/assets/partners/sanlam.png";
 import insSerenity from "@/assets/partners/serenity.png";
 import insSaar from "@/assets/partners/saar.jpeg";
 import insAxa from "@/assets/partners/axa.svg";
+import insComar from "@/assets/partners/comar.png";
+import insSidam from "@/assets/partners/sidam.png";
+import insMatca from "@/assets/partners/matca.png";
+import insAfricaine from "@/assets/partners/africaine.png";
+import insSmabtp from "@/assets/partners/smabtp.png";
+import insAtlanta from "@/assets/partners/atlanta.png";
+import insSonam from "@/assets/partners/sonam.png";
+import insWafa from "@/assets/partners/wafa.png";
+import insLoyale from "@/assets/partners/loyale.png";
+import insGna from "@/assets/partners/gna.png";
 
 const INSURERS: { src: string; alt: string }[] = [
   { src: insAllianz, alt: "Allianz" },
