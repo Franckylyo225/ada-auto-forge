@@ -75,7 +75,9 @@ import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
 import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.json";
+import partnersAssurancesAsset from "@/assets/partenaires-assurances.png.asset.json";
 const mobileIntervention = mobileInterventionAsset.url;
+const partnersAssurances = partnersAssurancesAsset.url;
 
 
 
