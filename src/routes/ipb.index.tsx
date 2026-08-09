@@ -100,7 +100,7 @@ const INSURERS: { src: string; alt: string }[] = [
 ];
 
 const mobileIntervention = mobileInterventionAsset.url;
-const partnersAssurances = partnersAssurancesAsset.url;
+
 
 
 
