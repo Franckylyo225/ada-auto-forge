@@ -71,8 +71,6 @@ import heroNew from "@/assets/ipb-hero-new-cdn.png";
 import heroWindshield from "@/assets/ipb-hero-windshield-cropped.jpg";
 import heroAtelier from "@/assets/hero-parebrise.jpg";
 import heroGifts from "@/assets/ipb-hero-gifts.jpg";
-import giftClient from "@/assets/ipb-gift-client.jpg";
-import giftTaxi from "@/assets/ipb-gift-taxi.jpg";
 import cardRep from "@/assets/ipb-card-reparation-cdn.png";
 import cardRemp from "@/assets/ipb-card-remplacement-cdn.png";
 import cardLat from "@/assets/ipb-card-lateral-cdn.png";
@@ -725,30 +723,17 @@ function IPBPage() {
         <div className="container-ada">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <Reveal className="order-2 lg:order-1">
-              <div className="relative grid grid-cols-2 gap-3">
-                <div className="relative rounded-2xl overflow-hidden">
-                  <img
-                    src={giftClient}
-                    alt="Cliente recevant un cadeau après son intervention pare-brise"
-                    className="w-full h-72 md:h-96 object-cover"
-                    width={512}
-                    height={768}
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ada-black/60 via-transparent to-transparent" />
-                </div>
-                <div className="relative rounded-2xl overflow-hidden">
-                  <img
-                    src={giftTaxi}
-                    alt="Chauffeur de taxi recevant un bon de carburant et un bon d'achat"
-                    className="w-full h-72 md:h-96 object-cover"
-                    width={512}
-                    height={768}
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ada-black/60 via-transparent to-transparent" />
-                </div>
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-xl bg-ada-yellow text-ada-black px-5 py-2 text-center shadow-lg">
+              <div className="relative rounded-2xl overflow-hidden">
+                <img
+                  src={heroGifts}
+                  alt="Cadeaux offerts à chaque intervention pare-brise : bons de carburant et d'achat"
+                  className="w-full h-80 md:h-[28rem] object-cover"
+                  width={1024}
+                  height={768}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ada-black/70 via-ada-black/20 to-transparent" />
+                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-xl bg-ada-yellow text-ada-black px-5 py-2 text-center shadow-lg">
                   <div className="text-xs font-semibold">Valeur offerte</div>
                   <div className="text-lg font-black">10 000 F à 50 000 F</div>
                 </div>
