@@ -938,17 +938,23 @@ function IPBPage() {
             </p>
           </Reveal>
           <Reveal className="mt-10">
-            <div className="rounded-2xl border border-border bg-white p-4 md:p-6">
-              <img
-                src={partnersAssurances}
-                alt="Logos des partenaires assureurs : Sanlam, Atlantique Assurances, Serenity, Saab, Sunu, Comar, Allianz, Sidam, Matca, AOA, SMA, AXA, NSIA, Amsa, Atlanta, Sonam, Wafa, La Loyale, AIA, Activa, AFG, Ascoma, Olea, Willis Towers Watson"
-                className="w-full h-auto object-contain"
-                width={1200}
-                height={400}
-                loading="lazy"
-              />
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+              {INSURERS.map((p) => (
+                <div
+                  key={p.alt}
+                  className="rounded-xl border border-border bg-white p-4 h-24 grid place-items-center transition hover:border-ada-yellow hover:shadow-sm"
+                >
+                  <img
+                    src={p.src}
+                    alt={`Logo ${p.alt}`}
+                    className="max-h-12 max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
             </div>
           </Reveal>
+
           <p className="mt-8 text-center text-sm text-muted-foreground">
             Votre assurance n'est pas listée ? Contactez-nous — nous pouvons très probablement aussi gérer votre prise en charge.
           </p>
