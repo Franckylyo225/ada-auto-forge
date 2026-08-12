@@ -435,8 +435,21 @@ function Home() {
         </div>
       </section>
 
-      {/* PARTNERS */}
-      <PartnersMarquee />
+      {/* PARTOUT EN CÔTE D'IVOIRE */}
+      <PartnersMarquee cities={[
+        "Abidjan",
+        "Yamoussoukro",
+        "Bouaké",
+        "Korhogo",
+        "Ferkessédougou",
+        "San pedro",
+        "Man",
+        "Daloa",
+        "Bondougou",
+        "Abengourou",
+        "Odienné",
+        "Bongouanou",
+      ]} />
 
       {/* FAQ */}
       <section className="container-ada py-20">
