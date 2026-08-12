@@ -67,7 +67,7 @@ export default function PartnersMarquee() {
     <section className="bg-white border-y border-border py-12">
       <div className="container-ada">
         <p className="text-center text-xs uppercase tracking-[0.2em] font-semibold text-muted-foreground">
-          Ils nous font confiance
+          PARTOUT EN CÔTE D'IVOIRE
         </p>
       </div>
       <div className="mt-8 space-y-6">
