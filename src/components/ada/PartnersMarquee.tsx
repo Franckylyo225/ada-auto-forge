@@ -8,7 +8,7 @@ import serenity from "@/assets/partners/serenity.png";
 import nsia from "@/assets/partners/nsia.webp";
 import sanlam from "@/assets/partners/sanlam.png";
 
-const row1 = [
+const defaultRow1 = [
   { src: allianz, alt: "Allianz" },
   { src: nsia, alt: "NSIA Assurances" },
   { src: sunu, alt: "SUNU Assurances" },
@@ -16,15 +16,29 @@ const row1 = [
   { src: amsa, alt: "AMSA Assurances" },
 ];
 
-const row2 = [
+const defaultRow2 = [
   { src: afg, alt: "AFG Assurances" },
   { src: sanlam, alt: "Sanlam" },
   { src: serenity, alt: "Serenity S.A" },
   { src: saar, alt: "SAAR Vie" },
 ];
 
+const defaultCities = [
+  "Abidjan",
+  "Yamoussoukro",
+  "Bouaké",
+  "Korhogo",
+  "Ferkessédougou",
+  "San pedro",
+  "Man",
+  "Daloa",
+  "Bondougou",
+  "Abengourou",
+  "Odienné",
+  "Bongouanou",
+];
 
-function Track({
+function LogoTrack({
   items,
   reverse = false,
   duration = 40,
@@ -61,8 +75,49 @@ function Track({
   );
 }
 
+function CityTrack({
+  items,
+  reverse = false,
+  duration = 40,
+}: {
+  items: string[];
+  reverse?: boolean;
+  duration?: number;
+}) {
+  const loop = [...items, ...items];
+  return (
+    <div className="group relative overflow-hidden">
+      <div
+        className="marquee-track flex w-max gap-4 md:gap-6"
+        style={{
+          animation: `marquee-x ${duration}s linear infinite`,
+          animationDirection: reverse ? "reverse" : "normal",
+        }}
+      >
+        {loop.map((city, i) => (
+          <div
+            key={`${city}-${i}`}
+            className="shrink-0 h-12 md:h-14 px-6 md:px-8 rounded-full bg-[var(--color-ada-yellow-soft)]/60 border border-ada-yellow/30 grid place-items-center"
+          >
+            <span className="text-sm md:text-base font-bold text-ada-black whitespace-nowrap">
+              {city}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-export default function PartnersMarquee() {
+export default function PartnersMarquee({
+  cities,
+}: {
+  cities?: string[];
+}) {
+  const cityList = cities && cities.length > 0 ? cities : defaultCities;
+  const cityRow1 = cityList.slice(0, Math.ceil(cityList.length / 2));
+  const cityRow2 = cityList.slice(Math.ceil(cityList.length / 2));
+
   return (
     <section className="bg-white border-y border-border py-12">
       <div className="container-ada">
@@ -71,8 +126,17 @@ export default function PartnersMarquee() {
         </p>
       </div>
       <div className="mt-8 space-y-6">
-        <Track items={row1} duration={45} />
-        <Track items={row2} reverse duration={40} />
+        {cities && cities.length > 0 ? (
+          <>
+            <CityTrack items={cityRow1} duration={45} />
+            <CityTrack items={cityRow2} reverse duration={40} />
+          </>
+        ) : (
+          <>
+            <LogoTrack items={defaultRow1} duration={45} />
+            <LogoTrack items={defaultRow2} reverse duration={40} />
+          </>
+        )}
       </div>
       <style>{`
         @keyframes marquee-x {
@@ -89,3 +153,4 @@ export default function PartnersMarquee() {
     </section>
   );
 }
+
