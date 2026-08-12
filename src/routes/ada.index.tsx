@@ -12,6 +12,12 @@ import locParticuliers from "@/assets/loc-particuliers.jpg";
 import locAssurances from "@/assets/loc-assurances.jpg";
 import locEntreprises from "@/assets/loc-entreprises.jpg";
 import locEtat from "@/assets/loc-etat.jpg";
+import fleetCitadine from "@/assets/fleet-citadine.jpg";
+import fleetBerline from "@/assets/fleet-berline.jpg";
+import fleetSuv from "@/assets/fleet-suv.jpg";
+import fleetPickup from "@/assets/fleet-pickup.jpg";
+import fleetUtilitaire from "@/assets/fleet-utilitaire.jpg";
+import fleetMinibus from "@/assets/fleet-minibus.jpg";
 import ctaCar from "@/assets/cta-car-cdn.png";
 import ctaBgAsset from "@/assets/cta-bg.png.asset.json";
 const ctaBg = ctaBgAsset.url;
@@ -364,45 +370,53 @@ function Home() {
         </div>
       </section>
 
-      {/* STATS */}
+      {/* NOTRE FLOTTE */}
       <section className="bg-ada-black text-white py-24">
         <div className="container-ada">
           <Reveal className="max-w-2xl">
-            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Pourquoi ADA</span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-bold">Une référence sur le marché ivoirien.</h2>
+            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Notre flotte</span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-bold">Une catégorie pour chaque besoin.</h2>
+            <p className="mt-4 text-white/70">
+              Des véhicules récents, entretenus et assurés — de la citadine économique au minibus pour vos équipes.
+            </p>
           </Reveal>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { v: "100+", l: "Véhicules dans la flotte" },
-              { v: "10+", l: "Années d'expérience" },
-              { v: "500+", l: "Clients satisfaits" },
-              { v: "24/7", l: "Assistance disponible" },
-            ].map((s, i) => (
-              <Reveal key={s.l} delay={i * 0.08}>
-                <div className="rounded-2xl bg-white/5 border border-white/10 p-6">
-                  <div className="text-4xl md:text-5xl font-black text-ada-yellow">{s.v}</div>
-                  <div className="mt-2 text-white/70 text-sm">{s.l}</div>
+              { img: fleetCitadine, t: "Citadines", d: "Économiques et agiles, idéales pour circuler en ville au quotidien." },
+              { img: fleetBerline, t: "Berlines", d: "Confort et élégance pour vos déplacements professionnels et VIP." },
+              { img: fleetSuv, t: "SUV & 4×4", d: "Robustes et spacieux, parfaits pour les longues distances et missions terrain." },
+              { img: fleetPickup, t: "Pick-up", d: "Double cabine et benne pour vos chantiers et interventions techniques." },
+              { img: fleetUtilitaire, t: "Utilitaires", d: "Fourgons volumineux pour vos livraisons et transports de marchandises." },
+              { img: fleetMinibus, t: "Minibus & Vans", d: "Jusqu'à 9 places pour vos équipes, séminaires et transferts aéroport." },
+            ].map((c, i) => (
+              <Reveal key={c.t} delay={i * 0.08}>
+                <div className="group h-full overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-ada-yellow/50 transition">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={c.img}
+                      alt={`Location ${c.t} en Côte d'Ivoire — ADA Rent`}
+                      loading="lazy"
+                      width={800}
+                      height={600}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold">{c.t}</h3>
+                    <p className="mt-2 text-sm text-white/65">{c.d}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
           </div>
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {[
-              { icon: Zap, t: "Réactivité absolue", d: "Mise à disposition d'un véhicule en moins de 2 heures dans la zone d'Abidjan." },
-              { icon: Car, t: "Flotte premium", d: "Berlines, SUV, 4×4, utilitaires — entretenus, fiables, parfaitement confortables." },
-              { icon: Clock, t: "Service 7j/7", d: "Une équipe disponible chaque jour pour répondre à vos urgences et imprévus." },
-            ].map(({ icon: Icon, t, d }, i) => (
-              <Reveal key={t} delay={i * 0.08}>
-                <div className="rounded-2xl bg-white/5 border border-white/10 p-6 h-full">
-                  <Icon className="h-7 w-7 text-ada-yellow" />
-                  <h3 className="mt-4 text-lg font-semibold">{t}</h3>
-                  <p className="mt-2 text-sm text-white/65">{d}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-10">
+            <Link to="/ada/reservation" className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-7 py-3 hover:brightness-95 transition">
+              Réserver un véhicule
+            </Link>
           </div>
         </div>
       </section>
+
 
       {/* TESTIMONIALS */}
       <section className="container-ada py-24">
