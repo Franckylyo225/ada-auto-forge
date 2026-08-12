@@ -12,12 +12,11 @@ import locParticuliers from "@/assets/loc-particuliers.jpg";
 import locAssurances from "@/assets/loc-assurances.jpg";
 import locEntreprises from "@/assets/loc-entreprises.jpg";
 import locEtat from "@/assets/loc-etat.jpg";
-import fleetCitadine from "@/assets/fleet-citadine.jpg";
-import fleetBerline from "@/assets/fleet-berline.jpg";
-import fleetSuv from "@/assets/fleet-suv.jpg";
-import fleetPickup from "@/assets/fleet-pickup.jpg";
-import fleetUtilitaire from "@/assets/fleet-utilitaire.jpg";
-import fleetMinibus from "@/assets/fleet-minibus.jpg";
+import fleetMoyensSonet from "@/assets/fleet-moyens-sonet.jpg";
+import fleetGrandsSuvRav4 from "@/assets/fleet-grands-suv-rav4.jpg";
+import fleet4x4Prado from "@/assets/fleet-4x4-prado.jpg";
+import fleetLuxeMercedesE from "@/assets/fleet-luxe-mercedes-e.jpg";
+import fleetMonospaceMercedesV from "@/assets/fleet-monospace-mercedes-v.jpg";
 import ctaCar from "@/assets/cta-car-cdn.png";
 import ctaBgAsset from "@/assets/cta-bg.png.asset.json";
 const ctaBg = ctaBgAsset.url;
@@ -375,19 +374,18 @@ function Home() {
         <div className="container-ada">
           <Reveal className="max-w-2xl">
             <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Notre flotte</span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-bold">Une catégorie pour chaque besoin.</h2>
+            <h2 className="mt-3 text-4xl md:text-5xl font-bold">5 catégories pour chaque besoin.</h2>
             <p className="mt-4 text-white/70">
-              Des véhicules récents, entretenus et assurés — de la citadine économique au minibus pour vos équipes.
+              Des véhicules récents, entretenus et assurés — de la compacte citadine au monospace premium pour vos équipes.
             </p>
           </Reveal>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { img: fleetCitadine, t: "Citadines", d: "Économiques et agiles, idéales pour circuler en ville au quotidien." },
-              { img: fleetBerline, t: "Berlines", d: "Confort et élégance pour vos déplacements professionnels et VIP." },
-              { img: fleetSuv, t: "SUV & 4×4", d: "Robustes et spacieux, parfaits pour les longues distances et missions terrain." },
-              { img: fleetPickup, t: "Pick-up", d: "Double cabine et benne pour vos chantiers et interventions techniques." },
-              { img: fleetUtilitaire, t: "Utilitaires", d: "Fourgons volumineux pour vos livraisons et transports de marchandises." },
-              { img: fleetMinibus, t: "Minibus & Vans", d: "Jusqu'à 9 places pour vos équipes, séminaires et transferts aéroport." },
+              { img: fleetMoyensSonet, t: "Modèles moyens", d: "Kia Sonet et compactes équivalentes : agiles en ville, économiques et idéales pour vos déplacements quotidiens." },
+              { img: fleetGrandsSuvRav4, t: "Grands modèles (SUV)", d: "Toyota RAV4 et grands SUV : confort, espace et tenue de route pour les longues distances et la famille." },
+              { img: fleet4x4Prado, t: "4×4", d: "Toyota Prado et 4×4 premium : robustesse et performance pour missions terrain, routes difficiles et zones rurales." },
+              { img: fleetLuxeMercedesE, t: "Modèles de luxe", d: "Mercedes Classe E et berlines premium : élégance, raffinement et technologie pour réceptions et déplacements VIP." },
+              { img: fleetMonospaceMercedesV, t: "Monospaces", d: "Mercedes Classe V et monospaces : jusqu'à 8 places pour transferts aéroport, séminaires et déplacements groupés." },
             ].map((c, i) => (
               <Reveal key={c.t} delay={i * 0.08}>
                 <div className="group h-full overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-ada-yellow/50 transition">
@@ -396,8 +394,8 @@ function Home() {
                       src={c.img}
                       alt={`Location ${c.t} en Côte d'Ivoire — ADA Rent`}
                       loading="lazy"
-                      width={800}
-                      height={600}
+                      width={1024}
+                      height={768}
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     />
                   </div>
