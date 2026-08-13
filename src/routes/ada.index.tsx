@@ -12,11 +12,11 @@ import locParticuliers from "@/assets/loc-particuliers.jpg";
 import locAssurances from "@/assets/loc-assurances.jpg";
 import locEntreprises from "@/assets/loc-entreprises.jpg";
 import locEtat from "@/assets/loc-etat.jpg";
-import fleetMoyensSonet from "@/assets/fleet-moyens-sonet.jpg";
-import fleetGrandsSuvRav4 from "@/assets/fleet-grands-suv-rav4.jpg";
-import fleet4x4Prado from "@/assets/fleet-4x4-prado.jpg";
-import fleetLuxeMercedesE from "@/assets/fleet-luxe-mercedes-e.jpg";
-import fleetMonospaceMercedesV from "@/assets/fleet-monospace-mercedes-v.jpg";
+import fleetSideMoyens from "@/assets/fleet-side-moyens.png";
+import fleetSideSuv from "@/assets/fleet-side-suv.png";
+import fleetSide4x4 from "@/assets/fleet-side-4x4.png";
+import fleetSideLuxe from "@/assets/fleet-side-luxe.png";
+import fleetSideMonospace from "@/assets/fleet-side-monospace.png";
 import ctaCar from "@/assets/cta-car-cdn.png";
 import ctaBgAsset from "@/assets/cta-bg.png.asset.json";
 const ctaBg = ctaBgAsset.url;
@@ -370,50 +370,53 @@ function Home() {
       </section>
 
       {/* NOTRE FLOTTE */}
-      <section className="bg-ada-black text-white py-24">
+      <section className="bg-muted/40 py-24">
         <div className="container-ada">
-          <Reveal className="max-w-2xl">
-            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Notre flotte</span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-bold">5 catégories pour chaque besoin.</h2>
-            <p className="mt-4 text-white/70">
-              Des véhicules récents, entretenus et assurés — de la compacte citadine au monospace premium pour vos équipes.
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <span className="text-xs uppercase tracking-wider font-semibold text-muted-foreground">Notre flotte</span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-bold">Découvrez la flotte</h2>
+            <p className="mt-4 text-muted-foreground">
+              5 catégories de véhicules récents, entretenus et assurés — de la citadine au monospace premium.
             </p>
           </Reveal>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { img: fleetMoyensSonet, t: "Modèles moyens", d: "Kia Sonet et compactes équivalentes : agiles en ville, économiques et idéales pour vos déplacements quotidiens." },
-              { img: fleetGrandsSuvRav4, t: "Grands modèles (SUV)", d: "Toyota RAV4 et grands SUV : confort, espace et tenue de route pour les longues distances et la famille." },
-              { img: fleet4x4Prado, t: "4×4", d: "Toyota Prado et 4×4 premium : robustesse et performance pour missions terrain, routes difficiles et zones rurales." },
-              { img: fleetLuxeMercedesE, t: "Modèles de luxe", d: "Mercedes Classe E et berlines premium : élégance, raffinement et technologie pour réceptions et déplacements VIP." },
-              { img: fleetMonospaceMercedesV, t: "Monospaces", d: "Mercedes Classe V et monospaces : jusqu'à 8 places pour transferts aéroport, séminaires et déplacements groupés." },
-            ].map((c, i) => (
-              <Reveal key={c.t} delay={i * 0.08}>
-                <div className="group h-full overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-ada-yellow/50 transition">
-                  <div className="aspect-[4/3] overflow-hidden">
+
+          <div className="mt-14 -mx-5 md:mx-0 overflow-x-auto scrollbar-none">
+            <div className="flex md:grid md:grid-cols-5 gap-6 md:gap-4 px-5 md:px-0 min-w-max md:min-w-0">
+              {[
+                { img: fleetSideMoyens, t: "Modèles moyens", d: "Kia Sonet" },
+                { img: fleetSideSuv, t: "Grands modèles", d: "Toyota RAV4" },
+                { img: fleetSide4x4, t: "4×4", d: "Toyota Prado" },
+                { img: fleetSideLuxe, t: "Modèles de luxe", d: "Mercedes Classe E" },
+                { img: fleetSideMonospace, t: "Monospaces", d: "Mercedes Classe V" },
+              ].map((c, i) => (
+                <Reveal key={c.t} delay={i * 0.06} className="w-[240px] md:w-auto shrink-0">
+                  <div className="group flex h-full flex-col items-center text-center">
                     <img
                       src={c.img}
                       alt={`Location ${c.t} en Côte d'Ivoire — ADA Rent`}
                       loading="lazy"
                       width={1024}
-                      height={768}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      height={640}
+                      className="w-full max-w-[240px] object-contain transition duration-500 group-hover:-translate-y-1"
                     />
+                    <span className="mt-4 font-semibold underline decoration-ada-yellow decoration-2 underline-offset-8 group-hover:text-ada-black">
+                      {c.t}
+                    </span>
+                    <span className="mt-2 text-xs text-muted-foreground">{c.d}</span>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold">{c.t}</h3>
-                    <p className="mt-2 text-sm text-white/65">{c.d}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
-          <div className="mt-10">
+
+          <div className="mt-12 flex justify-center">
             <Link to="/ada/reservation" className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-7 py-3 hover:brightness-95 transition">
-              Réserver un véhicule
+              Voir nos véhicules
             </Link>
           </div>
         </div>
       </section>
+
 
 
       {/* TESTIMONIALS */}
