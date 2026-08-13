@@ -383,11 +383,11 @@ function Home() {
           <div className="mt-14 -mx-5 md:mx-0 overflow-x-auto scrollbar-none">
             <div className="flex md:grid md:grid-cols-5 gap-6 md:gap-4 px-5 md:px-0 min-w-max md:min-w-0">
               {[
-                { img: fleetSideMoyens, t: "Modèles moyens", d: "Kia Sonet" },
-                { img: fleetSideSuv, t: "Grands modèles", d: "Toyota RAV4" },
-                { img: fleetSide4x4, t: "4×4", d: "Toyota Prado" },
-                { img: fleetSideLuxe, t: "Modèles de luxe", d: "Mercedes Classe E" },
-                { img: fleetSideMonospace, t: "Monospaces", d: "Mercedes Classe V" },
+                { img: fleetSideMoyens, t: "Modèles moyens", d: "" },
+                { img: fleetSideSuv, t: "Grands modèles", d: "" },
+                { img: fleetSide4x4, t: "4×4", d: "" },
+                { img: fleetSideLuxe, t: "Modèles de luxe", d: "" },
+                { img: fleetSideMonospace, t: "Monospaces", d: "" },
               ].map((c, i) => (
                 <Reveal key={c.t} delay={i * 0.06} className="w-[240px] md:w-auto shrink-0">
                   <div className="group flex h-full flex-col items-center text-center">
