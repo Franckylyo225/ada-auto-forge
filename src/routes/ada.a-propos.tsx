@@ -150,7 +150,7 @@ function AboutPage() {
             </div>
           </Reveal>
         </div>
-
+      </section>
 
       {/* NOTRE FLOTTE */}
       <section className="bg-muted/40 py-24">
