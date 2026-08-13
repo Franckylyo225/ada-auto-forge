@@ -19,6 +19,11 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import heroAbout from "@/assets/about-hero-cdn.png";
+import fleetSideMoyens from "@/assets/fleet-side-moyens.png";
+import fleetSideSuv from "@/assets/fleet-side-suv.png";
+import fleetSide4x4 from "@/assets/fleet-side-4x4.png";
+import fleetSideLuxe from "@/assets/fleet-side-luxe.png";
+import fleetSideMonospace from "@/assets/fleet-side-monospace.png";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
