@@ -167,24 +167,51 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="bg-white border-b border-border">
-        <div className="container-ada py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { n: 0, s: "+ Plus", l: "VEHICULES DISPONIBLES TOUTES CATÉGORIES" },
-            { n: 0, s: "+ Plus", l: "VÉHICULES DE REMPLACEMENT" },
-            { n: 500, s: "+", l: "ASSISTANCE" },
-            { n: 24, s: "/7", l: "Clients satisfaits" },
-          ].map((stat, i) => (
-            <Reveal key={stat.l} delay={i * 0.05} className="text-center md:text-left">
-              <div className="text-3xl md:text-4xl font-black text-ada-black">
-                <CountUp end={stat.n} suffix={stat.s} />
-              </div>
-              <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground font-semibold">
-                {stat.l}
-              </div>
-            </Reveal>
-          ))}
+      {/* NOTRE FLOTTE */}
+      <section className="bg-muted/40 py-24">
+        <div className="container-ada">
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <span className="text-xs uppercase tracking-wider font-semibold text-muted-foreground">Notre flotte</span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-bold">Découvrez la flotte</h2>
+            <p className="mt-4 text-muted-foreground">
+              5 catégories de véhicules récents, entretenus et assurés — de la citadine au monospace premium.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 -mx-5 md:mx-0 overflow-x-auto scrollbar-none">
+            <div className="flex md:grid md:grid-cols-5 gap-6 md:gap-4 px-5 md:px-0 min-w-max md:min-w-0">
+              {[
+                { img: fleetSideMoyens, t: "Modèles moyens", d: "" },
+                { img: fleetSideSuv, t: "Grands modèles", d: "" },
+                { img: fleetSide4x4, t: "4×4", d: "" },
+                { img: fleetSideLuxe, t: "Modèles de luxe", d: "" },
+                { img: fleetSideMonospace, t: "Monospaces", d: "" },
+              ].map((c, i) => (
+                <Reveal key={c.t} delay={i * 0.06} className="w-[240px] md:w-auto shrink-0">
+                  <div className="group flex h-full flex-col items-center text-center">
+                    <img
+                      src={c.img}
+                      alt={`Location ${c.t} en Côte d'Ivoire — ADA Rent`}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="w-full max-w-[240px] object-contain transition duration-500 group-hover:-translate-y-1"
+                    />
+                    <span className="mt-4 font-semibold underline decoration-ada-yellow decoration-2 underline-offset-8 group-hover:text-ada-black">
+                      {c.t}
+                    </span>
+                    <span className="mt-2 text-xs text-muted-foreground">{c.d}</span>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link to="/ada/reservation" className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-7 py-3 hover:brightness-95 transition">
+              Voir nos véhicules
+            </Link>
+          </div>
         </div>
       </section>
 
