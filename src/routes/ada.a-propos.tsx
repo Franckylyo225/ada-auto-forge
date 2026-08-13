@@ -13,9 +13,6 @@ import {
   Award,
   Handshake,
   MessageSquare,
-  MapPin,
-  Building2,
-  Briefcase,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import heroAbout from "@/assets/about-hero-cdn.png";
@@ -152,23 +149,6 @@ function AboutPage() {
               />
             </div>
           </Reveal>
-        </div>
-
-        <div className="border-t border-white/10 bg-white/5">
-          <div className="container-ada py-6 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-sm text-white/60">
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-ada-yellow" />
-              Cocody – Riviera Bonoumin, Abidjan
-            </div>
-            <div className="flex items-center gap-2">
-              <Building2 className="h-4 w-4 text-ada-yellow" />
-              RCCM CI-ABJ-03-2024-B13-04287
-            </div>
-            <div className="flex items-center gap-2">
-              <Briefcase className="h-4 w-4 text-ada-yellow" />
-              Capital : 5 000 000 FCFA
-            </div>
-          </div>
         </div>
       </section>
 
