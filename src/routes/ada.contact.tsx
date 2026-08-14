@@ -111,7 +111,7 @@ function ContactPage() {
                     </div>
                     <div>
                       <div className="text-[9px] uppercase tracking-widest text-white/40 font-black">{t}</div>
-                      <div className="mt-0.5 text-sm text-white font-medium">{v}</div>
+                      <div className="mt-0.5 text-sm text-white font-medium whitespace-pre-line">{v}</div>
                     </div>
                   </div>
                 ))}
