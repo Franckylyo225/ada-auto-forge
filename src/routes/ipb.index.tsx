@@ -136,7 +136,7 @@ const mobileIntervention = mobileInterventionAsset.url;
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "Ivoire Pare-Brise Abidjan — Réparation & remplacement pare-brise";
+const TITLE = "Ivoire Pare-Brise Abidjan — Réparation & remplacement · +225 01 05 49 93 13";
 const DESC =
   "Ivoire Pare-Brise by ADA à Abidjan (Angré) : réparation d'impact, remplacement pare-brise et vitrages latéraux. Pièces homologuées, garantie 12 mois, intervention 45 min.";
 
@@ -164,7 +164,7 @@ export const Route = createFileRoute("/ipb/")({
           name: "Ivoire Pare-Brise by ADA",
           image: abs(heroNew),
           url: SITE_URL + "/ipb",
-          telephone: "+225 07 00 28 29 30",
+          telephone: "+225 01 05 49 93 13",
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",
@@ -173,7 +173,10 @@ export const Route = createFileRoute("/ipb/")({
             addressCountry: "CI",
           },
           areaServed: "Abidjan",
-          openingHours: "Mo-Sa 08:00-18:00",
+          openingHours: [
+            "Mo-Fr 08:00-18:00",
+            "Sa 08:00-13:00"
+          ],
         }),
       },
     ],
@@ -290,7 +293,7 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
       desc:
         "Impact, fissure ou bris complet : techniciens professionnels, vitrages homologués constructeur et garantie 12 mois pièces & pose. Toutes marques, partout en Côte d'Ivoire.",
       ctaPrimaryLabel: "Demander un devis gratuit",
-      ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
+      ctaSecondary: { href: "tel:+2250105499313", label: "Nous appeler" },
     },
     {
       img: mobileIntervention,
@@ -309,7 +312,7 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
       desc:
         "À domicile, au bureau ou sur votre lieu de travail, nos techniciens se déplacent pour une réparation d'impact ou un remplacement rapide. Vous ne bougez pas, nous venons à vous.",
       ctaPrimaryLabel: "Prendre rendez-vous",
-      ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
+      ctaSecondary: { href: "tel:+2250105499313", label: "Nous appeler" },
     },
     {
       img: heroGifts,
@@ -328,7 +331,7 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
       desc:
         "À chaque intervention, repartez avec un bon d'essence et un bon d'achat supermarché. Une valeur de 10 000 F à 50 000 F offerte selon le partenariat en cours.",
       ctaPrimaryLabel: "Profiter de l'offre",
-      ctaSecondary: { href: "tel:+22507002829830", label: "En savoir plus" },
+      ctaSecondary: { href: "tel:+2250105499313", label: "En savoir plus" },
     },
   ];
 

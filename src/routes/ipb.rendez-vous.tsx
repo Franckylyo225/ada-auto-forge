@@ -14,7 +14,7 @@ import { Reveal } from "@/components/ada/Reveal";
 
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Rendez-vous pare-brise Abidjan — Devis gratuit sous 2h | Ivoire Pare-Brise";
+const TITLE = "Rendez-vous pare-brise Abidjan — Ivoire Pare-Brise · +225 01 05 49 93 13";
 const DESC =
   "Prenez rendez-vous en ligne avec Ivoire Pare-Brise à Abidjan : devis gratuit sous 2h, intervention sous 45 min, atelier Angré ou à domicile, garantie 12 mois.";
 
@@ -30,6 +30,28 @@ export const Route = createFileRoute("/ipb/rendez-vous")({
       { name: "twitter:description", content: DESC },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/ipb/rendez-vous" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AutoRepair",
+          name: "Ivoire Pare-Brise by ADA",
+          telephone: "+225 01 05 49 93 13",
+          url: SITE_URL + "/ipb/rendez-vous",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Angré nouveau CHU, Pharmacie Val d'Oise",
+            addressLocality: "Cocody, Abidjan",
+            addressCountry: "CI",
+          },
+          openingHours: [
+            "Mo-Fr 08:00-18:00",
+            "Sa 08:00-13:00"
+          ],
+        }),
+      },
+    ],
   }),
   component: IPBRdvPage,
 });
@@ -164,7 +186,7 @@ function IPBRdvPage() {
                 </p>
                 <div className="mt-6 space-y-3">
                   <a
-                    href="tel:+22507002829830"
+                    href="tel:+2250105499313"
                     className="flex items-center gap-3 rounded-2xl bg-white/5 border border-white/10 px-4 py-3 hover:bg-white/10 transition"
                   >
                     <div className="h-10 w-10 rounded-xl bg-ada-yellow text-ada-black grid place-items-center shrink-0">
@@ -172,11 +194,11 @@ function IPBRdvPage() {
                     </div>
                     <div>
                       <div className="text-xs uppercase tracking-wider text-white/50 font-semibold">Téléphone</div>
-                      <div className="text-sm font-bold text-white">+225 07 00 28 29 30</div>
+                      <div className="text-sm font-bold text-white">+225 01 05 49 93 13</div>
                     </div>
                   </a>
                   <a
-                    href="https://wa.me/2250700282930"
+                    href="https://wa.me/2250105499313"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 rounded-2xl bg-white/5 border border-white/10 px-4 py-3 hover:bg-white/10 transition"

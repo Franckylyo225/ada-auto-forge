@@ -3,9 +3,9 @@ import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ArrowRight, ShieldChec
 import { Reveal } from "@/components/ada/Reveal";
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Contact Ivoire Pare-Brise Abidjan — Atelier Angré · +225 07 00 28 29 30";
+const TITLE = "Contact Ivoire Pare-Brise Abidjan — Atelier Angré · +225 01 05 49 93 13";
 const DESC =
-  "Contactez Ivoire Pare-Brise à Abidjan (Angré, près du nouveau CHU) : téléphone, WhatsApp, email. Diagnostic gratuit, devis sous 2h ouvrables. Lun–Sam · 8h–18h.";
+  "Contactez Ivoire Pare-Brise à Abidjan (Angré, près du nouveau CHU) : téléphone, WhatsApp, email. Diagnostic gratuit, devis sous 2h ouvrables. Du lun-ven 8h-18h / Sam 8h-13h.";
 
 export const Route = createFileRoute("/ipb/contact")({
   head: () => ({
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/ipb/contact")({
           "@context": "https://schema.org",
           "@type": "AutoRepair",
           name: "Ivoire Pare-Brise by ADA",
-          telephone: "+225 07 00 28 29 30",
+          telephone: "+225 01 05 49 93 13",
           url: SITE_URL + "/ipb/contact",
           address: {
             "@type": "PostalAddress",
@@ -34,7 +34,10 @@ export const Route = createFileRoute("/ipb/contact")({
             addressLocality: "Cocody, Abidjan",
             addressCountry: "CI",
           },
-          openingHours: "Mo-Sa 08:00-18:00",
+          openingHours: [
+            "Mo-Fr 08:00-18:00",
+            "Sa 08:00-13:00"
+          ],
         }),
       },
     ],
@@ -110,10 +113,10 @@ function IPBContactPage() {
                   </div>
                 </li>
                 {[
-                  { icon: Phone, t: "Téléphone", v: "+225 07 00 28 29 30", href: "tel:+22507002829830" },
-                  { icon: MessageCircle, t: "WhatsApp", v: "Réponse instantanée", href: "https://wa.me/2250700282930" },
+                  { icon: Phone, t: "Téléphone", v: "+225 01 05 49 93 13", href: "tel:+2250105499313" },
+                  { icon: MessageCircle, t: "WhatsApp", v: "Réponse instantanée", href: "https://wa.me/2250105499313" },
                   { icon: Mail, t: "Email", v: "assistance@ada-africa.com", href: "mailto:assistance@ada-africa.com" },
-                  { icon: Clock, t: "Horaires", v: "Lun–Sam · 8h–18h" },
+                  { icon: Clock, t: "Horaires", v: "Du lun-ven 8h-18h / Sam 8h-13h" },
                 ].map(({ icon: Icon, t, v, href }) => (
                   <li key={t} className="flex gap-4">
                     <div className="h-11 w-11 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center shrink-0">
@@ -126,7 +129,7 @@ function IPBContactPage() {
                           {v}
                         </a>
                       ) : (
-                        <div className="mt-0.5 text-white font-medium">{v}</div>
+                        <div className="mt-0.5 text-white font-medium whitespace-pre-line">{v}</div>
                       )}
                     </div>
                   </li>

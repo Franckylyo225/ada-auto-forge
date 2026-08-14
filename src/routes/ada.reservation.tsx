@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Réserver un véhicule à Abidjan — ADA · Devis sous 2h";
+const TITLE = "Réserver un véhicule à Abidjan — ADA · +225 01 05 49 93 13";
 const DESC =
   "Réservation en ligne de votre véhicule de location à Abidjan : berline, SUV, 4×4, pick-up, minibus ou utilitaire. Confirmation et tarif sous 2h ouvrables.";
 
@@ -31,6 +31,25 @@ export const Route = createFileRoute("/ada/reservation")({
       { name: "twitter:description", content: DESC },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/ada/reservation" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AutoRental",
+          name: "ADA Côte d'Ivoire",
+          telephone: "+225 01 05 49 93 13",
+          url: SITE_URL + "/ada/reservation",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Boulevard VGE, Immeuble Chevalier de Clieu",
+            addressLocality: "Treichville, Abidjan",
+            addressCountry: "CI",
+          },
+          openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-13:00"],
+        }),
+      },
+    ],
   }),
   component: ReservationPage,
 });

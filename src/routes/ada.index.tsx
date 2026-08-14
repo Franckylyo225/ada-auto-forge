@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import {
   Car, Shield, ArrowRight, Zap, Clock, Star, ChevronLeft, ChevronRight,
   CheckCircle2, Phone, Building2, Landmark, User as UserIcon, Award, ChevronDown,
-  KeyRound, Headphones, MapPin, ShieldCheck,
+  KeyRound, Headphones, MapPin, ShieldCheck, MessageSquare,
 } from "lucide-react";
 import heroImg from "@/assets/hero-loc-key.png";
 import locHeroSuv from "@/assets/loc-hero-suv.jpg";
@@ -25,7 +25,7 @@ import PartnersMarquee from "@/components/ada/PartnersMarquee";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "ADA Côte d'Ivoire — Location de véhicules à Abidjan (CDD & LLD)";
+const TITLE = "ADA Côte d'Ivoire — Location de véhicules à Abidjan · +225 01 05 49 93 13";
 const DESC =
   "Louez berline, SUV, 4×4, pick-up ou utilitaire à Abidjan avec ADA : courte & longue durée, flotte récente assurée tous risques, mise à disposition sous 2h, assistance 24/7.";
 
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/ada/")({
           name: "ADA — Location de véhicules Côte d'Ivoire",
           image: abs(locHeroSuv),
           url: SITE_URL + "/ada",
-          telephone: "+225 07 00 28 29 30",
+          telephone: "+225 01 05 49 93 13",
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",
@@ -558,12 +558,14 @@ function Home() {
                 >
                   Réserver maintenant <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link
-                  to="/ada/contact"
+                <a
+                  href="https://wa.me/2250105499313"
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 text-white font-semibold px-7 py-4 hover:bg-white hover:text-ada-black backdrop-blur transition"
                 >
-                  Nous contacter
-                </Link>
+                  <MessageSquare className="h-4 w-4" /> WhatsApp
+                </a>
               </div>
             </div>
           </div>

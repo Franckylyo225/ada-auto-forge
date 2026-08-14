@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Clock, Send, MessageSquare } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Contact ADA Abidjan — Location & Pare-brise · +225 07 00 28 29 30";
+const TITLE = "Contact ADA Abidjan — Location & Pare-brise · +225 01 05 49 93 13";
 const DESC =
   "Contactez ADA Côte d'Ivoire à Treichville (Boulevard VGE) : téléphone, WhatsApp, email. Réponse sous 2h, devis location ou pare-brise gratuit. Du lun-ven 8h-18h, Sam 8h-13h.";
 
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/ada/contact")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "ADA Côte d'Ivoire",
-          telephone: "+225 07 00 28 29 30",
+          telephone: "+225 01 05 49 93 13",
           email: "assistance@ada-africa.com",
           url: SITE_URL + "/ada/contact",
           address: {
@@ -100,8 +100,8 @@ function ContactPage() {
 
               <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-8 border-t border-white/10">
                 {[
-                  { icon: Phone, t: "Téléphone", v: "+225 07 00 28 29 30" },
-                  { icon: MessageSquare, t: "WhatsApp", v: "+225 07 00 28 29 30" },
+                  { icon: Phone, t: "Téléphone", v: "+225 01 05 49 93 13" },
+                  { icon: MessageSquare, t: "WhatsApp", v: "+225 01 05 49 93 13" },
                   { icon: Mail, t: "Email", v: "assistance@ada-africa.com" },
                   { icon: Clock, t: "Horaires", v: "Du lun-ven 8h-18h\nSam 8h-13h" },
                 ].map(({ icon: Icon, t, v }) => (

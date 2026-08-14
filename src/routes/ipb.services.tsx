@@ -23,7 +23,7 @@ import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "Services pare-brise Abidjan — Réparation, remplacement & latéraux";
+const TITLE = "Services pare-brise Abidjan — Ivoire Pare-Brise · +225 01 05 49 93 13";
 const DESC =
   "Réparation d'impact, remplacement pare-brise, vitrage latéral et lunette arrière à Abidjan. Pièces OEM homologuées, pose par technicien certifié, garantie 12 mois.";
 
@@ -151,7 +151,7 @@ function IPBServicesPage() {
                 Demander un devis gratuit <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="tel:+22507002829830"
+                href="tel:+2250105499313"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition"
               >
                 <PhoneCall className="h-4 w-4" /> Nous appeler
