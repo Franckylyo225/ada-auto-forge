@@ -136,7 +136,7 @@ const mobileIntervention = mobileInterventionAsset.url;
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "Ivoire Pare-Brise Abidjan — Réparation & remplacement pare-brise";
+const TITLE = "Ivoire Pare-Brise Abidjan — Réparation & remplacement · +225 01 05 49 93 13";
 const DESC =
   "Ivoire Pare-Brise by ADA à Abidjan (Angré) : réparation d'impact, remplacement pare-brise et vitrages latéraux. Pièces homologuées, garantie 12 mois, intervention 45 min.";
 

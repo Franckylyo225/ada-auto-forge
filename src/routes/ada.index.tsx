@@ -25,7 +25,7 @@ import PartnersMarquee from "@/components/ada/PartnersMarquee";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "ADA Côte d'Ivoire — Location de véhicules à Abidjan (CDD & LLD)";
+const TITLE = "ADA Côte d'Ivoire — Location de véhicules à Abidjan · +225 01 05 49 93 13";
 const DESC =
   "Louez berline, SUV, 4×4, pick-up ou utilitaire à Abidjan avec ADA : courte & longue durée, flotte récente assurée tous risques, mise à disposition sous 2h, assistance 24/7.";
 
