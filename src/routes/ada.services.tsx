@@ -170,26 +170,6 @@ function LocationPage() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="bg-white border-b border-border">
-        <div className="container-ada py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
-          {[
-            { n: 150, s: "+", l: "Véhicules en flotte" },
-            { n: 10, s: "+", l: "Années d'expérience" },
-            { n: 5000, s: "+", l: "Clients satisfaits" },
-            { n: 2, s: "h", l: "Délai de réponse max" },
-          ].map((stat, i) => (
-            <Reveal key={stat.l} delay={i * 0.05}>
-              <div className="text-3xl md:text-4xl font-black text-ada-black">
-                <CountUp to={stat.n} suffix={stat.s} />
-              </div>
-              <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground font-semibold">
-                {stat.l}
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       {/* PROFILES TABS */}
       <section className="bg-[var(--color-ada-yellow-soft)]/40 py-20 md:py-24">
