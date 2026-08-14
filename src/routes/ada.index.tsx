@@ -559,7 +559,7 @@ function Home() {
                   Réserver maintenant <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
-                  href="https://wa.me/2250105499313"
+                  href="https://wa.me/2250700282930"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 text-white font-semibold px-7 py-4 hover:bg-white hover:text-ada-black backdrop-blur transition"

@@ -373,7 +373,7 @@ function AboutPage() {
                 Réserver un véhicule <ArrowRight className="h-5 w-5" />
               </Link>
               <a
-                href="https://wa.me/2250105499313"
+                href="https://wa.me/2250700282930"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-bold px-8 py-4 hover:brightness-110 transition"

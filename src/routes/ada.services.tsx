@@ -148,7 +148,7 @@ function LocationPage() {
                 <Phone className="h-4 w-4" /> Nous appeler
               </a>
               <a
-                href="https://wa.me/2250105499313"
+                href="https://wa.me/2250700282930"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition"
@@ -329,7 +329,7 @@ function LocationPage() {
                     <Phone className="h-5 w-5" /> Appeler un conseiller
                   </a>
                   <a
-                    href="https://wa.me/2250105499313"
+                    href="https://wa.me/2250700282930"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-white text-ada-black font-bold px-8 py-4 border border-border hover:bg-muted transition"

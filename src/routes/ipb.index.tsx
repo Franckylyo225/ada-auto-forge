@@ -892,7 +892,7 @@ function IPBPage() {
                 Demander un devis gratuit <ArrowRight className="h-4 w-4" />
               </button>
               <a
-                href="https://wa.me/2250700282930"
+                href="https://wa.me/2250105499313"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#25D366] text-[#25D366] font-semibold px-6 py-3 hover:bg-[#25D366] hover:text-white transition"
@@ -968,7 +968,7 @@ function IPBPage() {
             <div className="pt-1 text-center text-sm text-muted-foreground">
               Ou contactez-nous directement :
               <a
-                href="https://wa.me/2250700282930"
+                href="https://wa.me/2250105499313"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ml-2 inline-flex items-center gap-2 rounded-full border-2 border-[#25D366] text-[#1f9d52] font-semibold px-4 py-1.5 hover:bg-[#25D366] hover:text-white transition"
