@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import {
   Car, Shield, ArrowRight, Zap, Clock, Star, ChevronLeft, ChevronRight,
   CheckCircle2, Phone, Building2, Landmark, User as UserIcon, Award, ChevronDown,
-  KeyRound, Headphones, MapPin, ShieldCheck,
+  KeyRound, Headphones, MapPin, ShieldCheck, MessageSquare,
 } from "lucide-react";
 import heroImg from "@/assets/hero-loc-key.png";
 import locHeroSuv from "@/assets/loc-hero-suv.jpg";
