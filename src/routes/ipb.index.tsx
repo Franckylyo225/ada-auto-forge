@@ -312,7 +312,7 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
       desc:
         "À domicile, au bureau ou sur votre lieu de travail, nos techniciens se déplacent pour une réparation d'impact ou un remplacement rapide. Vous ne bougez pas, nous venons à vous.",
       ctaPrimaryLabel: "Prendre rendez-vous",
-      ctaSecondary: { href: "tel:+22507002829830", label: "Nous appeler" },
+      ctaSecondary: { href: "tel:+2250105499313", label: "Nous appeler" },
     },
     {
       img: heroGifts,
