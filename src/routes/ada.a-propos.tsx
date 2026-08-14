@@ -372,12 +372,14 @@ function AboutPage() {
               >
                 Réserver un véhicule <ArrowRight className="h-5 w-5" />
               </Link>
-              <Link
-                to="/ada/contact"
+              <a
+                href="https://wa.me/2250105499313"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-ada-black text-white font-bold px-8 py-4 hover:brightness-110 transition"
               >
-                Nous contacter
-              </Link>
+                <MessageSquare className="h-5 w-5" /> WhatsApp
+              </a>
             </div>
           </Reveal>
         </div>
