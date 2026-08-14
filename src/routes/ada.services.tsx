@@ -14,7 +14,7 @@ import imgEntreprises from "@/assets/loc-entreprises.jpg";
 import imgEtat from "@/assets/loc-etat.jpg";
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "Location de véhicules à Abidjan — ADA · +225 01 05 49 93 13";
+const TITLE = "Location de véhicules à Abidjan — ADA · +225 07 00 28 29 30";
 const DESC =
   "Berlines, SUV, 4×4, pick-up, minibus, utilitaires : location courte et longue durée à Abidjan. Tarifs dégressifs, véhicules de remplacement assurance, contrats LLD entreprises.";
 
@@ -142,13 +142,13 @@ function LocationPage() {
                 Réserver en ligne <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="tel:+2250105499313"
+                href="tel:+2250700282930"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition"
               >
                 <Phone className="h-4 w-4" /> Nous appeler
               </a>
               <a
-                href="https://wa.me/2250105499313"
+                href="https://wa.me/2250700282930"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white hover:text-ada-black transition"
@@ -323,13 +323,13 @@ function LocationPage() {
                    Faire une demande <ArrowRight className="h-4 w-4" />
                  </Link>
                   <a
-                    href="tel:+2250105499313"
+                    href="tel:+2250700282930"
                     className="inline-flex items-center gap-2 rounded-full bg-white text-ada-black font-bold px-8 py-4 border border-border hover:bg-muted transition"
                   >
                     <Phone className="h-5 w-5" /> Appeler un conseiller
                   </a>
                   <a
-                    href="https://wa.me/2250105499313"
+                    href="https://wa.me/2250700282930"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-white text-ada-black font-bold px-8 py-4 border border-border hover:bg-muted transition"

@@ -1,9 +1,14 @@
 import { MessageCircle } from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
 
 export function WhatsAppButton() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isIpb = pathname.startsWith("/ipb");
+  const wa = isIpb ? "2250105499313" : "2250700282930";
+
   return (
     <a
-      href="https://wa.me/2250700282930"
+      href={`https://wa.me/${wa}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactez-nous sur WhatsApp"
