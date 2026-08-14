@@ -81,7 +81,7 @@ export function Footer() {
             </li>
             <li>+225 07 00 28 29 30</li>
             <li>assistance@ada-africa.com</li>
-            <li>Lun–Sam · 8h–18h</li>
+            <li className="whitespace-pre-line">Du lun-ven 8h-18h{"\n"}Sam 8h-13h</li>
           </ul>
         </div>
       </div>
