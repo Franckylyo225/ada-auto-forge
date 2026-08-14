@@ -24,19 +24,36 @@ const defaultRow2 = [
 ];
 
 const defaultCities = [
-  "Abidjan",
-  "Yamoussoukro",
-  "Bouaké",
-  "Korhogo",
-  "Ferkessédougou",
-  "San pedro",
-  "Man",
-  "Daloa",
-  "Bondougou",
-  "Abengourou",
-  "Odienné",
-  "Bongouanou",
-];
+  { name: "Abidjan", color: "blue" },
+  { name: "Yamoussoukro", color: "emerald" },
+  { name: "Bouaké", color: "rose" },
+  { name: "Korhogo", color: "amber" },
+  { name: "Ferkessédougou", color: "indigo" },
+  { name: "San pedro", color: "cyan" },
+  { name: "Man", color: "violet" },
+  { name: "Daloa", color: "orange" },
+  { name: "Bondougou", color: "teal" },
+  { name: "Abengourou", color: "fuchsia" },
+  { name: "Odienné", color: "lime" },
+  { name: "Bongouanou", color: "red" },
+] as const;
+
+type CityColor = (typeof defaultCities)[number]["color"];
+
+const colorMap: Record<CityColor, { bg: string; border: string; dot: string; text: string }> = {
+  blue: { bg: "bg-blue-50", border: "border-blue-200", dot: "bg-blue-500", text: "text-blue-900" },
+  emerald: { bg: "bg-emerald-50", border: "border-emerald-200", dot: "bg-emerald-500", text: "text-emerald-900" },
+  rose: { bg: "bg-rose-50", border: "border-rose-200", dot: "bg-rose-500", text: "text-rose-900" },
+  amber: { bg: "bg-amber-50", border: "border-amber-200", dot: "bg-amber-500", text: "text-amber-900" },
+  indigo: { bg: "bg-indigo-50", border: "border-indigo-200", dot: "bg-indigo-500", text: "text-indigo-900" },
+  cyan: { bg: "bg-cyan-50", border: "border-cyan-200", dot: "bg-cyan-500", text: "text-cyan-900" },
+  violet: { bg: "bg-violet-50", border: "border-violet-200", dot: "bg-violet-500", text: "text-violet-900" },
+  orange: { bg: "bg-orange-50", border: "border-orange-200", dot: "bg-orange-500", text: "text-orange-900" },
+  teal: { bg: "bg-teal-50", border: "border-teal-200", dot: "bg-teal-500", text: "text-teal-900" },
+  fuchsia: { bg: "bg-fuchsia-50", border: "border-fuchsia-200", dot: "bg-fuchsia-500", text: "text-fuchsia-900" },
+  lime: { bg: "bg-lime-50", border: "border-lime-200", dot: "bg-lime-500", text: "text-lime-900" },
+  red: { bg: "bg-red-50", border: "border-red-200", dot: "bg-red-500", text: "text-red-900" },
+};
 
 function LogoTrack({
   items,
