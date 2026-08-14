@@ -20,7 +20,7 @@ import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.
 import { abs, SITE_URL } from "@/lib/seo";
 
 
-const TITLE = "À propos d'Ivoire Pare-Brise — Expertise vitrage auto Abidjan";
+const TITLE = "À propos d'Ivoire Pare-Brise Abidjan · +225 01 05 49 93 13";
 const DESC =
   "Ivoire Pare-Brise by ADA : filiale spécialisée vitrage automobile à Abidjan. Techniciens certifiés, pièces OEM, garantie 12 mois. Notre histoire et nos engagements.";
 
