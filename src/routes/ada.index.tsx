@@ -389,17 +389,19 @@ function Home() {
                 { img: fleetSideLuxe, t: "Modèles de luxe", d: "" },
                 { img: fleetSideMonospace, t: "Monospaces", d: "" },
               ].map((c, i) => (
-                <Reveal key={c.t} delay={i * 0.06} className="w-[240px] md:w-auto shrink-0">
+                <Reveal key={c.t} delay={i * 0.06} className="w-[260px] md:w-auto shrink-0">
                   <div className="group flex h-full flex-col items-center text-center">
-                    <img
-                      src={c.img}
-                      alt={`Location ${c.t} en Côte d'Ivoire — ADA Rent`}
-                      loading="lazy"
-                      width={1024}
-                      height={640}
-                      className="w-full max-w-[240px] object-contain transition duration-500 group-hover:-translate-y-1"
-                    />
-                    <span className="mt-4 font-semibold underline decoration-ada-yellow decoration-2 underline-offset-8 group-hover:text-ada-black">
+                    <div className="relative h-44 md:h-52 w-full flex items-center justify-center rounded-xl bg-gradient-to-b from-white to-muted/60 p-4">
+                      <img
+                        src={c.img}
+                        alt={`Location ${c.t} en Côte d'Ivoire — ADA Rent`}
+                        loading="lazy"
+                        width={1024}
+                        height={640}
+                        className="max-h-full max-w-full w-auto h-auto object-contain transition duration-500 group-hover:-translate-y-1"
+                      />
+                    </div>
+                    <span className="mt-5 font-semibold underline decoration-ada-yellow decoration-2 underline-offset-8 group-hover:text-ada-black">
                       {c.t}
                     </span>
                     <span className="mt-2 text-xs text-muted-foreground">{c.d}</span>
