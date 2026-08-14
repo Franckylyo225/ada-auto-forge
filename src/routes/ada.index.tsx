@@ -558,12 +558,14 @@ function Home() {
                 >
                   Réserver maintenant <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link
-                  to="/ada/contact"
+                <a
+                  href="https://wa.me/2250105499313"
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 text-white font-semibold px-7 py-4 hover:bg-white hover:text-ada-black backdrop-blur transition"
                 >
-                  Nous contacter
-                </Link>
+                  <MessageSquare className="h-4 w-4" /> WhatsApp
+                </a>
               </div>
             </div>
           </div>
