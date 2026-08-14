@@ -97,7 +97,7 @@ function CityTrack({
   reverse = false,
   duration = 40,
 }: {
-  items: string[];
+  items: { name: string; color: CityColor }[];
   reverse?: boolean;
   duration?: number;
 }) {
@@ -111,16 +111,20 @@ function CityTrack({
           animationDirection: reverse ? "reverse" : "normal",
         }}
       >
-        {loop.map((city, i) => (
-          <div
-            key={`${city}-${i}`}
-            className="shrink-0 h-12 md:h-14 px-6 md:px-8 rounded-full bg-[var(--color-ada-yellow-soft)]/60 border border-ada-yellow/30 grid place-items-center"
-          >
-            <span className="text-sm md:text-base font-bold text-ada-black whitespace-nowrap">
-              {city}
-            </span>
-          </div>
-        ))}
+        {loop.map((city, i) => {
+          const palette = colorMap[city.color];
+          return (
+            <div
+              key={`${city.name}-${i}`}
+              className={`shrink-0 h-12 md:h-14 px-6 md:px-8 rounded-full ${palette.bg} border ${palette.border} shadow-sm grid place-items-center transition-transform hover:scale-105`}
+            >
+              <span className={`flex items-center gap-2 text-sm md:text-base font-bold whitespace-nowrap ${palette.text}`}>
+                <span className={`h-2 w-2 rounded-full ${palette.dot}`} />
+                {city.name}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
