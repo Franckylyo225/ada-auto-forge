@@ -103,7 +103,7 @@ function ContactPage() {
                   { icon: Phone, t: "Téléphone", v: "+225 07 00 28 29 30" },
                   { icon: MessageSquare, t: "WhatsApp", v: "+225 07 00 28 29 30" },
                   { icon: Mail, t: "Email", v: "assistance@ada-africa.com" },
-                  { icon: Clock, t: "Horaires", v: "Lun–Sam · 8h–18h" },
+                  { icon: Clock, t: "Horaires", v: "Du lun-ven 8h-18h\nSam 8h-13h" },
                 ].map(({ icon: Icon, t, v }) => (
                   <div key={t} className="group flex gap-4">
                     <div className="h-10 w-10 rounded-xl bg-white/5 text-ada-yellow grid place-items-center shrink-0 group-hover:bg-ada-yellow group-hover:text-ada-black transition-colors">
