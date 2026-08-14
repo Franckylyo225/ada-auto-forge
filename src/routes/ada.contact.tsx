@@ -35,7 +35,7 @@ export const Route = createFileRoute("/ada/contact")({
             addressLocality: "Treichville, Abidjan",
             addressCountry: "CI",
           },
-          openingHours: "Mo-Sa 08:00-18:00",
+          openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-13:00"],
         }),
       },
     ],
