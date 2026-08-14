@@ -164,7 +164,7 @@ export const Route = createFileRoute("/ipb/")({
           name: "Ivoire Pare-Brise by ADA",
           image: abs(heroNew),
           url: SITE_URL + "/ipb",
-          telephone: "+225 07 00 28 29 30",
+          telephone: "+225 01 05 49 93 13",
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",
