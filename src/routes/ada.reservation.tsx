@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Réserver un véhicule à Abidjan — ADA · Devis sous 2h";
+const TITLE = "Réserver un véhicule à Abidjan — ADA · +225 01 05 49 93 13";
 const DESC =
   "Réservation en ligne de votre véhicule de location à Abidjan : berline, SUV, 4×4, pick-up, minibus ou utilitaire. Confirmation et tarif sous 2h ouvrables.";
 
