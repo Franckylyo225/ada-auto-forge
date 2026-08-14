@@ -116,7 +116,7 @@ function IPBContactPage() {
                   { icon: Phone, t: "Téléphone", v: "+225 01 05 49 93 13", href: "tel:+2250105499313" },
                   { icon: MessageCircle, t: "WhatsApp", v: "Réponse instantanée", href: "https://wa.me/2250105499313" },
                   { icon: Mail, t: "Email", v: "assistance@ada-africa.com", href: "mailto:assistance@ada-africa.com" },
-                  { icon: Clock, t: "Horaires", v: "Du lun-ven 8h-18h\nSam 8h-13h" },
+                  { icon: Clock, t: "Horaires", v: "Du lun-ven 8h-18h / Sam 8h-13h" },
                 ].map(({ icon: Icon, t, v, href }) => (
                   <li key={t} className="flex gap-4">
                     <div className="h-11 w-11 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center shrink-0">
