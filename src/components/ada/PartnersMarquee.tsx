@@ -23,20 +23,51 @@ const defaultRow2 = [
   { src: saar, alt: "SAAR Vie" },
 ];
 
-const defaultCities = [
-  "Abidjan",
-  "Yamoussoukro",
-  "Bouaké",
-  "Korhogo",
-  "Ferkessédougou",
-  "San pedro",
-  "Man",
-  "Daloa",
-  "Bondougou",
-  "Abengourou",
-  "Odienné",
-  "Bongouanou",
+type CityColor =
+  | "blue"
+  | "emerald"
+  | "rose"
+  | "amber"
+  | "indigo"
+  | "cyan"
+  | "violet"
+  | "orange"
+  | "teal"
+  | "fuchsia"
+  | "lime"
+  | "red";
+
+type CityItem = { name: string; color: CityColor };
+
+const defaultCities: CityItem[] = [
+  { name: "Abidjan", color: "blue" },
+  { name: "Yamoussoukro", color: "emerald" },
+  { name: "Bouaké", color: "rose" },
+  { name: "Korhogo", color: "amber" },
+  { name: "Ferkessédougou", color: "indigo" },
+  { name: "San pedro", color: "cyan" },
+  { name: "Man", color: "violet" },
+  { name: "Daloa", color: "orange" },
+  { name: "Bondougou", color: "teal" },
+  { name: "Abengourou", color: "fuchsia" },
+  { name: "Odienné", color: "lime" },
+  { name: "Bongouanou", color: "red" },
 ];
+
+const colorMap: Record<CityColor, { bg: string; border: string; dot: string; text: string }> = {
+  blue: { bg: "bg-blue-50", border: "border-blue-200", dot: "bg-blue-500", text: "text-blue-900" },
+  emerald: { bg: "bg-emerald-50", border: "border-emerald-200", dot: "bg-emerald-500", text: "text-emerald-900" },
+  rose: { bg: "bg-rose-50", border: "border-rose-200", dot: "bg-rose-500", text: "text-rose-900" },
+  amber: { bg: "bg-amber-50", border: "border-amber-200", dot: "bg-amber-500", text: "text-amber-900" },
+  indigo: { bg: "bg-indigo-50", border: "border-indigo-200", dot: "bg-indigo-500", text: "text-indigo-900" },
+  cyan: { bg: "bg-cyan-50", border: "border-cyan-200", dot: "bg-cyan-500", text: "text-cyan-900" },
+  violet: { bg: "bg-violet-50", border: "border-violet-200", dot: "bg-violet-500", text: "text-violet-900" },
+  orange: { bg: "bg-orange-50", border: "border-orange-200", dot: "bg-orange-500", text: "text-orange-900" },
+  teal: { bg: "bg-teal-50", border: "border-teal-200", dot: "bg-teal-500", text: "text-teal-900" },
+  fuchsia: { bg: "bg-fuchsia-50", border: "border-fuchsia-200", dot: "bg-fuchsia-500", text: "text-fuchsia-900" },
+  lime: { bg: "bg-lime-50", border: "border-lime-200", dot: "bg-lime-500", text: "text-lime-900" },
+  red: { bg: "bg-red-50", border: "border-red-200", dot: "bg-red-500", text: "text-red-900" },
+};
 
 function LogoTrack({
   items,
@@ -80,7 +111,7 @@ function CityTrack({
   reverse = false,
   duration = 40,
 }: {
-  items: string[];
+  items: CityItem[];
   reverse?: boolean;
   duration?: number;
 }) {
@@ -94,16 +125,20 @@ function CityTrack({
           animationDirection: reverse ? "reverse" : "normal",
         }}
       >
-        {loop.map((city, i) => (
-          <div
-            key={`${city}-${i}`}
-            className="shrink-0 h-12 md:h-14 px-6 md:px-8 rounded-full bg-[var(--color-ada-yellow-soft)]/60 border border-ada-yellow/30 grid place-items-center"
-          >
-            <span className="text-sm md:text-base font-bold text-ada-black whitespace-nowrap">
-              {city}
-            </span>
-          </div>
-        ))}
+        {loop.map((city, i) => {
+          const palette = colorMap[city.color];
+          return (
+            <div
+              key={`${city.name}-${i}`}
+              className={`shrink-0 h-12 md:h-14 px-6 md:px-8 rounded-full ${palette.bg} border ${palette.border} shadow-sm grid place-items-center transition-transform hover:scale-105`}
+            >
+              <span className={`flex items-center gap-2 text-sm md:text-base font-bold whitespace-nowrap ${palette.text}`}>
+                <span className={`h-2 w-2 rounded-full ${palette.dot}`} />
+                {city.name}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -112,9 +147,16 @@ function CityTrack({
 export default function PartnersMarquee({
   cities,
 }: {
-  cities?: string[];
+  cities?: string[] | CityItem[];
 }) {
-  const cityList = cities && cities.length > 0 ? cities : defaultCities;
+  const cityList: CityItem[] =
+    cities && cities.length > 0
+      ? cities.map((c, i) =>
+          typeof c === "string"
+            ? { name: c, color: defaultCities[i % defaultCities.length].color }
+            : c
+        )
+      : defaultCities;
   const cityRow1 = cityList.slice(0, Math.ceil(cityList.length / 2));
   const cityRow2 = cityList.slice(Math.ceil(cityList.length / 2));
 
@@ -122,7 +164,7 @@ export default function PartnersMarquee({
     <section className="bg-white border-y border-border py-12">
       <div className="container-ada">
         <p className="text-center text-xs uppercase tracking-[0.2em] font-semibold text-muted-foreground">
-          PARTOUT EN CÔTE D'IVOIRE
+          PARTOUT EN CÔTE D&apos;IVOIRE
         </p>
       </div>
       <div className="mt-8 space-y-6">
@@ -153,4 +195,3 @@ export default function PartnersMarquee({
     </section>
   );
 }
-
