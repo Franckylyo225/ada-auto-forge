@@ -100,8 +100,8 @@ function ContactPage() {
 
               <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-8 border-t border-white/10">
                 {[
-                  { icon: Phone, t: "Téléphone", v: "+225 07 00 28 29 30" },
-                  { icon: MessageSquare, t: "WhatsApp", v: "+225 07 00 28 29 30" },
+                  { icon: Phone, t: "Téléphone", v: "+225 01 05 49 93 13" },
+                  { icon: MessageSquare, t: "WhatsApp", v: "+225 01 05 49 93 13" },
                   { icon: Mail, t: "Email", v: "assistance@ada-africa.com" },
                   { icon: Clock, t: "Horaires", v: "Du lun-ven 8h-18h\nSam 8h-13h" },
                 ].map(({ icon: Icon, t, v }) => (
