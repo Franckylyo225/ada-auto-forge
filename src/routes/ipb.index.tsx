@@ -331,7 +331,7 @@ function HeroCarousel({ onDevis }: { onDevis: () => void }) {
       desc:
         "À chaque intervention, repartez avec un bon d'essence et un bon d'achat supermarché. Une valeur de 10 000 F à 50 000 F offerte selon le partenariat en cours.",
       ctaPrimaryLabel: "Profiter de l'offre",
-      ctaSecondary: { href: "tel:+22507002829830", label: "En savoir plus" },
+      ctaSecondary: { href: "tel:+2250105499313", label: "En savoir plus" },
     },
   ];
 
