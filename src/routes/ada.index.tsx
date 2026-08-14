@@ -53,7 +53,7 @@ export const Route = createFileRoute("/ada/")({
           name: "ADA — Location de véhicules Côte d'Ivoire",
           image: abs(locHeroSuv),
           url: SITE_URL + "/ada",
-          telephone: "+225 07 00 28 29 30",
+          telephone: "+225 01 05 49 93 13",
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",
