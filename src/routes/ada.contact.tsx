@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Clock, Send, MessageSquare } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Contact ADA Abidjan — Location & Pare-brise · +225 07 00 28 29 30";
+const TITLE = "Contact ADA Abidjan — Location & Pare-brise · +225 01 05 49 93 13";
 const DESC =
   "Contactez ADA Côte d'Ivoire à Treichville (Boulevard VGE) : téléphone, WhatsApp, email. Réponse sous 2h, devis location ou pare-brise gratuit. Du lun-ven 8h-18h, Sam 8h-13h.";
 
