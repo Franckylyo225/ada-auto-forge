@@ -130,12 +130,21 @@ function CityTrack({
   );
 }
 
+type CityItem = { name: string; color: CityColor };
+
 export default function PartnersMarquee({
   cities,
 }: {
-  cities?: string[];
+  cities?: string[] | CityItem[];
 }) {
-  const cityList = cities && cities.length > 0 ? cities : defaultCities;
+  const cityList: CityItem[] =
+    cities && cities.length > 0
+      ? cities.map((c, i) =>
+          typeof c === "string"
+            ? { name: c, color: defaultCities[i % defaultCities.length].color }
+            : c
+        )
+      : defaultCities;
   const cityRow1 = cityList.slice(0, Math.ceil(cityList.length / 2));
   const cityRow2 = cityList.slice(Math.ceil(cityList.length / 2));
 
