@@ -24,7 +24,7 @@ import fleetSideMonospace from "@/assets/fleet-side-monospace.png";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "À propos d'ADA — Mobilité premium à Abidjan · +225 01 05 49 93 13";
+const TITLE = "À propos d'ADA — Mobilité premium à Abidjan · +225 07 00 28 29 30";
 const DESC =
   "ADA Côte d'Ivoire : entreprise ivoirienne de location de véhicules et de réparation pare-brise (Ivoire Pare-Brise). Notre mission, notre équipe, nos engagements à Abidjan.";
 

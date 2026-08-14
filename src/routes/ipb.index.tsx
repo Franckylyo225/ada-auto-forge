@@ -568,7 +568,7 @@ function IPBPage() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Service mobile</div>
-                    <div className="text-xs text-white/70">+225 07 00 28 29 30</div>
+                    <div className="text-xs text-white/70">+225 01 05 49 93 13</div>
                   </div>
                 </div>
               </div>

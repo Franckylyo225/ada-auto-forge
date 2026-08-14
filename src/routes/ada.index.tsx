@@ -25,7 +25,7 @@ import PartnersMarquee from "@/components/ada/PartnersMarquee";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "ADA Côte d'Ivoire — Location de véhicules à Abidjan · +225 01 05 49 93 13";
+const TITLE = "ADA Côte d'Ivoire — Location de véhicules à Abidjan · +225 07 00 28 29 30";
 const DESC =
   "Louez berline, SUV, 4×4, pick-up ou utilitaire à Abidjan avec ADA : courte & longue durée, flotte récente assurée tous risques, mise à disposition sous 2h, assistance 24/7.";
 
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/ada/")({
           name: "ADA — Location de véhicules Côte d'Ivoire",
           image: abs(locHeroSuv),
           url: SITE_URL + "/ada",
-          telephone: "+225 01 05 49 93 13",
+          telephone: "+225 07 00 28 29 30",
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",
