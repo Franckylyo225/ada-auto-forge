@@ -5,7 +5,7 @@ import { SITE_URL } from "@/lib/seo";
 
 const TITLE = "Contact ADA Abidjan — Location & Pare-brise · +225 07 00 28 29 30";
 const DESC =
-  "Contactez ADA Côte d'Ivoire à Treichville (Boulevard VGE) : téléphone, WhatsApp, email. Réponse sous 2h, devis location ou pare-brise gratuit. Lun–Sam · 8h–18h.";
+  "Contactez ADA Côte d'Ivoire à Treichville (Boulevard VGE) : téléphone, WhatsApp, email. Réponse sous 2h, devis location ou pare-brise gratuit. Du lun-ven 8h-18h, Sam 8h-13h.";
 
 export const Route = createFileRoute("/ada/contact")({
   head: () => ({
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/ada/contact")({
             addressLocality: "Treichville, Abidjan",
             addressCountry: "CI",
           },
-          openingHours: "Mo-Sa 08:00-18:00",
+          openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-13:00"],
         }),
       },
     ],
@@ -103,7 +103,7 @@ function ContactPage() {
                   { icon: Phone, t: "Téléphone", v: "+225 07 00 28 29 30" },
                   { icon: MessageSquare, t: "WhatsApp", v: "+225 07 00 28 29 30" },
                   { icon: Mail, t: "Email", v: "assistance@ada-africa.com" },
-                  { icon: Clock, t: "Horaires", v: "Lun–Sam · 8h–18h" },
+                  { icon: Clock, t: "Horaires", v: "Du lun-ven 8h-18h\nSam 8h-13h" },
                 ].map(({ icon: Icon, t, v }) => (
                   <div key={t} className="group flex gap-4">
                     <div className="h-10 w-10 rounded-xl bg-white/5 text-ada-yellow grid place-items-center shrink-0 group-hover:bg-ada-yellow group-hover:text-ada-black transition-colors">
@@ -111,7 +111,7 @@ function ContactPage() {
                     </div>
                     <div>
                       <div className="text-[9px] uppercase tracking-widest text-white/40 font-black">{t}</div>
-                      <div className="mt-0.5 text-sm text-white font-medium">{v}</div>
+                      <div className="mt-0.5 text-sm text-white font-medium whitespace-pre-line">{v}</div>
                     </div>
                   </div>
                 ))}
