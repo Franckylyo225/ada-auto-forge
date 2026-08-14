@@ -173,7 +173,10 @@ export const Route = createFileRoute("/ipb/")({
             addressCountry: "CI",
           },
           areaServed: "Abidjan",
-          openingHours: "Mo-Sa 08:00-18:00",
+          openingHours: [
+            "Mo-Fr 08:00-18:00",
+            "Sa 08:00-13:00"
+          ],
         }),
       },
     ],
