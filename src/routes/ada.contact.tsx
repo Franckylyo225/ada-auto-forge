@@ -26,7 +26,7 @@ export const Route = createFileRoute("/ada/contact")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "ADA Côte d'Ivoire",
-          telephone: "+225 07 00 28 29 30",
+          telephone: "+225 01 05 49 93 13",
           email: "assistance@ada-africa.com",
           url: SITE_URL + "/ada/contact",
           address: {
