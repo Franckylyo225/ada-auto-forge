@@ -27,6 +27,9 @@ export function Footer() {
     ? { title: "Atelier Ivoire Pare-Brise", body: <>Angré nouveau CHU,<br />Pharmacie Val d'Oise</> }
     : { title: "Bureau ADA", body: <>Treichville, Boulevard VGE,<br />Immeuble Chevalier de Clieu, 1er étage</> };
 
+  const phone = isIpb ? "+225 01 05 49 93 13" : "+225 07 00 28 29 30";
+  const phoneE164 = isIpb ? "+2250105499313" : "+2250700282930";
+
   const tagline = isIpb
     ? "Ivoire Pare-Brise by ADA — Réparation et remplacement de vitrages automobiles à Abidjan. Toutes marques, garantie 12 mois."
     : "Assistance Distribution Auto — La mobilité premium au service des particuliers, des entreprises et des institutions en Côte d'Ivoire.";
@@ -79,7 +82,7 @@ export function Footer() {
               <div className="text-white font-semibold">{address.title}</div>
               <div>{address.body}</div>
             </li>
-            <li>+225 01 05 49 93 13</li>
+            <li><a href={`tel:${phoneE164}`} className="hover:text-white transition">{phone}</a></li>
             <li>assistance@ada-africa.com</li>
             <li className="whitespace-pre-line">Du lun-ven 8h-18h{"\n"}Sam 8h-13h</li>
           </ul>
