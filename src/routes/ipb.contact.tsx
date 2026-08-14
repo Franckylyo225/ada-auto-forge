@@ -129,7 +129,7 @@ function IPBContactPage() {
                           {v}
                         </a>
                       ) : (
-                        <div className="mt-0.5 text-white font-medium">{v}</div>
+                        <div className="mt-0.5 text-white font-medium whitespace-pre-line">{v}</div>
                       )}
                     </div>
                   </li>
