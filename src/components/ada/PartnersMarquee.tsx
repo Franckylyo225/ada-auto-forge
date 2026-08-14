@@ -23,7 +23,23 @@ const defaultRow2 = [
   { src: saar, alt: "SAAR Vie" },
 ];
 
-const defaultCities = [
+type CityColor =
+  | "blue"
+  | "emerald"
+  | "rose"
+  | "amber"
+  | "indigo"
+  | "cyan"
+  | "violet"
+  | "orange"
+  | "teal"
+  | "fuchsia"
+  | "lime"
+  | "red";
+
+type CityItem = { name: string; color: CityColor };
+
+const defaultCities: CityItem[] = [
   { name: "Abidjan", color: "blue" },
   { name: "Yamoussoukro", color: "emerald" },
   { name: "Bouaké", color: "rose" },
@@ -36,9 +52,7 @@ const defaultCities = [
   { name: "Abengourou", color: "fuchsia" },
   { name: "Odienné", color: "lime" },
   { name: "Bongouanou", color: "red" },
-] as const;
-
-type CityColor = (typeof defaultCities)[number]["color"];
+];
 
 const colorMap: Record<CityColor, { bg: string; border: string; dot: string; text: string }> = {
   blue: { bg: "bg-blue-50", border: "border-blue-200", dot: "bg-blue-500", text: "text-blue-900" },
@@ -97,7 +111,7 @@ function CityTrack({
   reverse = false,
   duration = 40,
 }: {
-  items: { name: string; color: CityColor }[];
+  items: CityItem[];
   reverse?: boolean;
   duration?: number;
 }) {
@@ -130,8 +144,6 @@ function CityTrack({
   );
 }
 
-type CityItem = { name: string; color: CityColor };
-
 export default function PartnersMarquee({
   cities,
 }: {
@@ -152,7 +164,7 @@ export default function PartnersMarquee({
     <section className="bg-white border-y border-border py-12">
       <div className="container-ada">
         <p className="text-center text-xs uppercase tracking-[0.2em] font-semibold text-muted-foreground">
-          PARTOUT EN CÔTE D'IVOIRE
+          PARTOUT EN CÔTE D&apos;IVOIRE
         </p>
       </div>
       <div className="mt-8 space-y-6">
@@ -183,4 +195,3 @@ export default function PartnersMarquee({
     </section>
   );
 }
-
