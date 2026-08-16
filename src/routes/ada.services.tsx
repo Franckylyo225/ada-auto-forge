@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-  ArrowRight, Shield, Building2, Landmark, Car,
+  ArrowRight, Users, Shield, Building2, Landmark, Car,
   CheckCircle2, Phone, MessageSquare, FileText, KeyRound, ClipboardCheck,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
