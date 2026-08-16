@@ -2,9 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-  ArrowRight, Users, Shield, Building2, Landmark, Car, Truck,
+  ArrowRight, Shield, Building2, Landmark, Car,
   CheckCircle2, Phone, MessageSquare, FileText, KeyRound, ClipboardCheck,
-  Fuel, Settings2,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import heroSuv from "@/assets/loc-hero-suv.jpg";
