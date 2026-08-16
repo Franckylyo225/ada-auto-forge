@@ -101,14 +101,6 @@ const profiles = [
   },
 ] as const;
 
-const categories = [
-  { name: "Berline", icon: Car, seats: 5, transmission: "Auto/BVM", fuel: "Essence/Diesel" },
-  { name: "SUV / 4x4", icon: Car, seats: 5, transmission: "Auto", fuel: "Diesel" },
-  { name: "Pick-up", icon: Truck, seats: 5, transmission: "BVM", fuel: "Diesel" },
-  { name: "Minibus", icon: Truck, seats: 15, transmission: "BVM", fuel: "Diesel" },
-  { name: "Utilitaire", icon: Truck, seats: 3, transmission: "BVM", fuel: "Diesel" },
-  { name: "Prestige", icon: Car, seats: 5, transmission: "Auto", fuel: "Essence" },
-] as const;
 
 const steps = [
   { icon: ClipboardCheck, title: "Demande", text: "Formulaire en ligne ou WhatsApp." },
