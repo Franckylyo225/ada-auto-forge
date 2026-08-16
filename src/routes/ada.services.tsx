@@ -2,9 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-  ArrowRight, Users, Shield, Building2, Landmark, Car, Truck,
+  ArrowRight, Users, Shield, Building2, Landmark, Car,
   CheckCircle2, Phone, MessageSquare, FileText, KeyRound, ClipboardCheck,
-  Fuel, Settings2,
 } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import heroSuv from "@/assets/loc-hero-suv.jpg";
@@ -12,6 +11,11 @@ import imgParticuliers from "@/assets/loc-particuliers.jpg";
 import imgAssurances from "@/assets/loc-assurances.jpg";
 import imgEntreprises from "@/assets/loc-entreprises.jpg";
 import imgEtat from "@/assets/loc-etat.jpg";
+import fleetSideMoyens from "@/assets/fleet-side-moyens.png";
+import fleetSideSuv from "@/assets/fleet-side-suv.png";
+import fleetSide4x4 from "@/assets/fleet-side-4x4.png";
+import fleetSideLuxe from "@/assets/fleet-side-luxe.png";
+import fleetSideMonospace from "@/assets/fleet-side-monospace.png";
 import { abs, SITE_URL } from "@/lib/seo";
 
 const TITLE = "Location de véhicules à Abidjan — ADA · +225 07 00 28 29 30";
@@ -96,14 +100,6 @@ const profiles = [
   },
 ] as const;
 
-const categories = [
-  { name: "Berline", icon: Car, seats: 5, transmission: "Auto/BVM", fuel: "Essence/Diesel" },
-  { name: "SUV / 4x4", icon: Car, seats: 5, transmission: "Auto", fuel: "Diesel" },
-  { name: "Pick-up", icon: Truck, seats: 5, transmission: "BVM", fuel: "Diesel" },
-  { name: "Minibus", icon: Truck, seats: 15, transmission: "BVM", fuel: "Diesel" },
-  { name: "Utilitaire", icon: Truck, seats: 3, transmission: "BVM", fuel: "Diesel" },
-  { name: "Prestige", icon: Car, seats: 5, transmission: "Auto", fuel: "Essence" },
-] as const;
 
 const steps = [
   { icon: ClipboardCheck, title: "Demande", text: "Formulaire en ligne ou WhatsApp." },
@@ -239,37 +235,52 @@ function LocationPage() {
         </div>
       </section>
 
-      {/* FLOTTE */}
-      <section className="bg-white py-20 md:py-24 text-ada-black">
+      {/* NOTRE FLOTTE */}
+      <section className="bg-muted/40 py-24">
         <div className="container-ada">
-          <Reveal>
-            <span className="text-xs uppercase tracking-wider font-semibold text-ada-yellow">Notre Flotte</span>
-            <h2 className="mt-3 text-3xl md:text-4xl font-black tracking-tight">Le choix de la performance.</h2>
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <span className="text-xs uppercase tracking-wider font-semibold text-muted-foreground">Notre flotte</span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-bold">Découvrez la flotte</h2>
+            <p className="mt-4 text-muted-foreground">
+              5 catégories de véhicules récents, entretenus et assurés — de la citadine au monospace premium.
+            </p>
           </Reveal>
 
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((c, i) => (
-              <Reveal key={c.name} delay={i * 0.05}>
-                <div className="group h-full rounded-2xl border border-border bg-white p-6 hover:border-ada-yellow hover:shadow-2xl transition-all duration-500">
-                  <div className="flex items-center justify-between">
-                    <div className="h-14 w-14 rounded-2xl bg-ada-yellow text-ada-black grid place-items-center group-hover:scale-110 transition-transform">
-                      <c.icon className="h-7 w-7" />
+          <div className="mt-14 -mx-5 md:mx-0 overflow-x-auto scrollbar-none">
+            <div className="flex md:grid md:grid-cols-5 gap-6 md:gap-4 px-5 md:px-0 min-w-max md:min-w-0">
+              {[
+                { img: fleetSideMoyens, t: "Modèles moyens", d: "", scale: "scale-[1.12]" },
+                { img: fleetSideSuv, t: "Grands modèles", d: "", scale: "scale-[1.06]" },
+                { img: fleetSide4x4, t: "4×4", d: "", scale: "scale-100" },
+                { img: fleetSideLuxe, t: "Modèles de luxe", d: "", scale: "scale-100" },
+                { img: fleetSideMonospace, t: "Monospaces", d: "", scale: "scale-100" },
+              ].map((c, i) => (
+                <Reveal key={c.t} delay={i * 0.06} className="w-[260px] md:w-auto shrink-0">
+                  <div className="group flex h-full flex-col items-center text-center">
+                    <div className="relative h-44 md:h-52 w-full flex items-center justify-center rounded-xl bg-gradient-to-b from-white to-muted/60 p-4">
+                      <img
+                        src={c.img}
+                        alt={`Location ${c.t} en Côte d'Ivoire — ADA Rent`}
+                        loading="lazy"
+                        width={1024}
+                        height={640}
+                        className={`max-h-full max-w-full w-auto h-auto object-contain transition duration-500 group-hover:-translate-y-1 ${c.scale}`}
+                      />
                     </div>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Catégorie</span>
+                    <span className="mt-5 font-semibold underline decoration-ada-yellow decoration-2 underline-offset-8 group-hover:text-ada-black">
+                      {c.t}
+                    </span>
+                    <span className="mt-2 text-xs text-muted-foreground">{c.d}</span>
                   </div>
-                  <h3 className="mt-6 text-xl font-bold">{c.name}</h3>
-                  <div className="mt-6 flex flex-wrap gap-4 text-xs text-ada-black/60 font-semibold">
-                    <div className="flex items-center gap-1.5"><Users className="h-4 w-4 text-ada-yellow" /> {c.seats} pers.</div>
-                    <div className="flex items-center gap-1.5"><Settings2 className="h-4 w-4 text-ada-yellow" /> {c.transmission}</div>
-                    <div className="flex items-center gap-1.5"><Fuel className="h-4 w-4 text-ada-yellow" /> {c.fuel}</div>
-                  </div>
-                  <div className="mt-8 pt-6 border-t border-border flex items-center justify-between">
-                     <Link to="/ada/reservation" className="text-sm font-bold hover:text-ada-yellow transition-colors">Réserver</Link>
-                     <ArrowRight className="h-4 w-4 text-ada-yellow group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link to="/ada/reservation" className="inline-flex items-center gap-2 rounded-full bg-ada-yellow text-ada-black font-semibold px-7 py-3 hover:brightness-95 transition">
+              Voir nos véhicules
+            </Link>
           </div>
         </div>
       </section>
