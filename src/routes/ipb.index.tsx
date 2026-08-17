@@ -859,6 +859,46 @@ function IPBPage() {
         </div>
       </section>
 
+      {/* SECTION 8bis — ZONES D'INTERVENTION (SEO local) */}
+      <section className="bg-white py-20 border-y border-border">
+        <div className="container-ada">
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-bold text-center">
+              Pare-brise et bris de glace partout en Côte d'Ivoire
+            </h2>
+            <p className="mt-4 text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed">
+              Remplacement de pare-brise, réparation d'impact, vitre latérale, lunette arrière et
+              custode : nos équipes interviennent à Abidjan et se déplacent dans les principales
+              villes du pays, en atelier comme sur votre lieu de travail.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <ul className="mt-10 flex flex-wrap justify-center gap-3">
+              {[
+                "Pare-brise à Abidjan",
+                "Pare-brise à Bouaké",
+                "Pare-brise à Yamoussoukro",
+                "Pare-brise à Korhogo",
+                "Pare-brise à San Pedro",
+                "Pare-brise à Man",
+                "Pare-brise à Bondoukou",
+                "Bris de glace en Côte d'Ivoire",
+                "Remplacement de vitre latérale",
+                "Remplacement de lunette arrière",
+                "Remplacement de custode",
+              ].map((v) => (
+                <li
+                  key={v}
+                  className="rounded-full border border-border bg-muted/40 px-4 py-2 text-sm font-medium text-foreground"
+                >
+                  {v}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
 
       {/* SECTION 9 — FAQ */}
       <section className="bg-muted/40 py-20">
