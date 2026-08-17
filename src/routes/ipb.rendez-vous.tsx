@@ -14,9 +14,9 @@ import { Reveal } from "@/components/ada/Reveal";
 
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Rendez-vous pare-brise Abidjan — Ivoire Pare-Brise · +225 01 05 49 93 13";
+const TITLE = "Rendez-vous pare-brise Abidjan — Ivoire Pare-Brise";
 const DESC =
-  "Prenez rendez-vous en ligne avec Ivoire Pare-Brise à Abidjan : devis gratuit sous 2h, intervention sous 45 min, atelier Angré ou à domicile, garantie 12 mois.";
+  "Prenez rendez-vous pour un remplacement de pare-brise ou un bris de glace à Abidjan, Bouaké, Yamoussoukro ou Korhogo. Atelier Angré ou intervention mobile, devis gratuit sous 2h.";
 
 export const Route = createFileRoute("/ipb/rendez-vous")({
   head: () => ({

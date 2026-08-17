@@ -3,9 +3,9 @@ import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ArrowRight, ShieldChec
 import { Reveal } from "@/components/ada/Reveal";
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Contact Ivoire Pare-Brise Abidjan — Atelier Angré · +225 01 05 49 93 13";
+const TITLE = "Contact Ivoire Pare-Brise Abidjan — Bris de glace & devis";
 const DESC =
-  "Contactez Ivoire Pare-Brise à Abidjan (Angré, près du nouveau CHU) : téléphone, WhatsApp, email. Diagnostic gratuit, devis sous 2h ouvrables. Du lun-ven 8h-18h / Sam 8h-13h.";
+  "Contactez Ivoire Pare-Brise (ADA) à Abidjan, Angré nouveau CHU : pare-brise, bris de glace, remplacement de vitre auto partout en Côte d'Ivoire. Diagnostic gratuit, devis sous 2h.";
 
 export const Route = createFileRoute("/ipb/contact")({
   head: () => ({

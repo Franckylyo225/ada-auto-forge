@@ -23,9 +23,9 @@ import mobileInterventionAsset from "@/assets/ipb-mobile-intervention.jpg.asset.
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "Services pare-brise Abidjan — Ivoire Pare-Brise · +225 01 05 49 93 13";
+const TITLE = "Remplacement de pare-brise & bris de glace en Côte d'Ivoire";
 const DESC =
-  "Réparation d'impact, remplacement pare-brise, vitrage latéral et lunette arrière à Abidjan. Pièces OEM homologuées, pose par technicien certifié, garantie 12 mois.";
+  "Remplacement de pare-brise, réparation d'impact, vitre latérale, lunette arrière et custode à Abidjan, Bouaké, Korhogo et Yamoussoukro. Bris de glace pris en charge, pièces OEM, garantie 12 mois.";
 
 export const Route = createFileRoute("/ipb/services")({
   head: () => ({

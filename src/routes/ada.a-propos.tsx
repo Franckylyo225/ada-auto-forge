@@ -24,9 +24,9 @@ import fleetSideMonospace from "@/assets/fleet-side-monospace.png";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "À propos d'ADA — Mobilité premium à Abidjan · +225 07 00 28 29 30";
+const TITLE = "Assistance Distribution Auto (ADA) — Abidjan, Côte d'Ivoire";
 const DESC =
-  "ADA Côte d'Ivoire : entreprise ivoirienne de location de véhicules et de réparation pare-brise (Ivoire Pare-Brise). Notre mission, notre équipe, nos engagements à Abidjan.";
+  "Assistance Distribution Auto (ADA Côte d'Ivoire) : location de voiture ADA Rent à Abidjan et vitrage automobile Ivoire Pare-Brise. Notre mission, notre équipe, nos engagements.";
 
 export const Route = createFileRoute("/ada/a-propos")({
   head: () => ({

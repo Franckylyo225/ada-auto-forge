@@ -136,9 +136,9 @@ const mobileIntervention = mobileInterventionAsset.url;
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "Ivoire Pare-Brise Abidjan — Réparation & remplacement · +225 01 05 49 93 13";
+const TITLE = "Pare-brise Abidjan & Côte d'Ivoire — Ivoire Pare-Brise";
 const DESC =
-  "Ivoire Pare-Brise by ADA à Abidjan (Angré) : réparation d'impact, remplacement pare-brise et vitrages latéraux. Pièces homologuées, garantie 12 mois, intervention 45 min.";
+  "Ivoire Pare-Brise by ADA : pare-brise, bris de glace et remplacement de vitre auto à Abidjan, Bouaké, Yamoussoukro, Korhogo, San Pedro et Man. Pièces homologuées, garantie 12 mois, intervention 45 min.";
 
 export const Route = createFileRoute("/ipb/")({
   head: () => ({
@@ -162,6 +162,7 @@ export const Route = createFileRoute("/ipb/")({
           "@context": "https://schema.org",
           "@type": "AutoRepair",
           name: "Ivoire Pare-Brise by ADA",
+          alternateName: ["Ivoire Pare-Brise", "ADA Pare-Brise", "Assistance Distribution Auto Pare-Brise"],
           image: abs(heroNew),
           url: SITE_URL + "/ipb",
           telephone: "+225 01 05 49 93 13",
@@ -172,7 +173,16 @@ export const Route = createFileRoute("/ipb/")({
             addressLocality: "Cocody, Abidjan",
             addressCountry: "CI",
           },
-          areaServed: "Abidjan",
+          areaServed: [
+            "Abidjan",
+            "Bouaké",
+            "Yamoussoukro",
+            "Korhogo",
+            "San Pedro",
+            "Man",
+            "Bondoukou",
+            "Côte d'Ivoire",
+          ],
           openingHours: [
             "Mo-Fr 08:00-18:00",
             "Sa 08:00-13:00"
@@ -846,6 +856,46 @@ function IPBPage() {
               </Reveal>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* SECTION 8bis — ZONES D'INTERVENTION (SEO local) */}
+      <section className="bg-white py-20 border-y border-border">
+        <div className="container-ada">
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-bold text-center">
+              Pare-brise et bris de glace partout en Côte d'Ivoire
+            </h2>
+            <p className="mt-4 text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed">
+              Remplacement de pare-brise, réparation d'impact, vitre latérale, lunette arrière et
+              custode : nos équipes interviennent à Abidjan et se déplacent dans les principales
+              villes du pays, en atelier comme sur votre lieu de travail.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <ul className="mt-10 flex flex-wrap justify-center gap-3">
+              {[
+                "Pare-brise à Abidjan",
+                "Pare-brise à Bouaké",
+                "Pare-brise à Yamoussoukro",
+                "Pare-brise à Korhogo",
+                "Pare-brise à San Pedro",
+                "Pare-brise à Man",
+                "Pare-brise à Bondoukou",
+                "Bris de glace en Côte d'Ivoire",
+                "Remplacement de vitre latérale",
+                "Remplacement de lunette arrière",
+                "Remplacement de custode",
+              ].map((v) => (
+                <li
+                  key={v}
+                  className="rounded-full border border-border bg-muted/40 px-4 py-2 text-sm font-medium text-foreground"
+                >
+                  {v}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
 
