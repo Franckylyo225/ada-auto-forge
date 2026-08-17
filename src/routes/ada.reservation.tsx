@@ -15,9 +15,9 @@ import {
 } from "@/components/ui/dialog";
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Réserver un véhicule à Abidjan — ADA · +225 07 00 28 29 30";
+const TITLE = "Réserver une voiture à Abidjan — ADA Rent Côte d'Ivoire";
 const DESC =
-  "Réservation en ligne de votre véhicule de location à Abidjan : berline, SUV, 4×4, pick-up, minibus ou utilitaire. Confirmation et tarif sous 2h ouvrables.";
+  "Réservez votre location de voiture en Côte d'Ivoire : Abidjan, Bouaké, Korhogo, San Pedro. Berline, SUV, 4×4, pick-up, minibus ou véhicule de remplacement. Confirmation sous 2h ouvrables.";
 
 export const Route = createFileRoute("/ada/reservation")({
   head: () => ({

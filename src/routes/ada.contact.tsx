@@ -3,9 +3,9 @@ import { MapPin, Phone, Mail, Clock, Send, MessageSquare } from "lucide-react";
 import { Reveal } from "@/components/ada/Reveal";
 import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Contact ADA Abidjan — Location & Pare-brise · +225 07 00 28 29 30";
+const TITLE = "Contact ADA Rent Abidjan — Location de voiture Côte d'Ivoire";
 const DESC =
-  "Contactez ADA Côte d'Ivoire à Treichville (Boulevard VGE) : téléphone, WhatsApp, email. Réponse sous 2h, devis location ou pare-brise gratuit. Du lun-ven 8h-18h, Sam 8h-13h.";
+  "Contactez ADA (Assistance Distribution Auto) à Treichville, Abidjan : location de voiture courte et longue durée en Côte d'Ivoire. Devis gratuit, réponse sous 2h. Lun-ven 8h-18h, Sam 8h-13h.";
 
 export const Route = createFileRoute("/ada/contact")({
   head: () => ({

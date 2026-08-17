@@ -18,9 +18,9 @@ import fleetSideLuxe from "@/assets/fleet-side-luxe.png";
 import fleetSideMonospace from "@/assets/fleet-side-monospace.png";
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "Location de véhicules à Abidjan — ADA · +225 07 00 28 29 30";
+const TITLE = "Location de voiture Côte d'Ivoire — courte & longue durée";
 const DESC =
-  "Berlines, SUV, 4×4, pick-up, minibus, utilitaires : location courte et longue durée à Abidjan. Tarifs dégressifs, véhicules de remplacement assurance, contrats LLD entreprises.";
+  "Location de voiture à Abidjan, Bouaké, Korhogo, San Pedro : berlines, SUV, 4×4, pick-up, minibus. Location longue durée et courte durée auto, véhicule de remplacement, contrats mines, BTP, hydrocarbures et assurances.";
 
 export const Route = createFileRoute("/ada/services")({
   head: () => ({

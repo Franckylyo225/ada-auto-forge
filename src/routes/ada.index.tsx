@@ -25,9 +25,9 @@ import PartnersMarquee from "@/components/ada/PartnersMarquee";
 
 import { abs, SITE_URL } from "@/lib/seo";
 
-const TITLE = "ADA Côte d'Ivoire — Location de véhicules à Abidjan · +225 07 00 28 29 30";
+const TITLE = "Location de voiture Abidjan & Côte d'Ivoire — ADA Rent";
 const DESC =
-  "Louez berline, SUV, 4×4, pick-up ou utilitaire à Abidjan avec ADA : courte & longue durée, flotte récente assurée tous risques, mise à disposition sous 2h, assistance 24/7.";
+  "ADA Rent (Assistance Distribution Auto) : location de voiture à Abidjan, Bouaké, Korhogo, San Pedro et partout en Côte d'Ivoire. Courte et longue durée, véhicule de remplacement assurance, flotte récente assurée.";
 
 export const Route = createFileRoute("/ada/")({
   head: () => ({
