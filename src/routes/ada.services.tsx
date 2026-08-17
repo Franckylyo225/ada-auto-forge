@@ -313,6 +313,47 @@ function LocationPage() {
         </div>
       </section>
 
+      {/* ZONES & SECTEURS (SEO local) */}
+      <section className="bg-white py-20 border-y border-border">
+        <div className="container-ada">
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-bold text-center">
+              Location de voiture partout en Côte d'Ivoire
+            </h2>
+            <p className="mt-4 text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed">
+              ADA Rent met ses véhicules à disposition à Abidjan et dans les principales villes du
+              pays, en location courte durée comme en location longue durée, avec ou sans chauffeur.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <ul className="mt-10 flex flex-wrap justify-center gap-3">
+              {[
+                "Location de voiture Abidjan",
+                "Location de voiture Bouaké",
+                "Location de voiture Korhogo",
+                "Location de voiture San Pedro",
+                "Location de voiture Yamoussoukro",
+                "Location longue durée auto",
+                "Location courte durée auto",
+                "Véhicule de remplacement",
+                "Location pour mines",
+                "Location pour BTP",
+                "Location pour assurances",
+                "Location pour hydrocarbures",
+              ].map((v) => (
+                <li
+                  key={v}
+                  className="rounded-full border border-border bg-muted/40 px-4 py-2 text-sm font-medium text-foreground"
+                >
+                  {v}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+
       {/* FINAL CTA */}
       <section className="bg-white py-20">
         <div className="container-ada">
