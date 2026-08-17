@@ -162,6 +162,7 @@ export const Route = createFileRoute("/ipb/")({
           "@context": "https://schema.org",
           "@type": "AutoRepair",
           name: "Ivoire Pare-Brise by ADA",
+          alternateName: ["Ivoire Pare-Brise", "ADA Pare-Brise", "Assistance Distribution Auto Pare-Brise"],
           image: abs(heroNew),
           url: SITE_URL + "/ipb",
           telephone: "+225 01 05 49 93 13",
@@ -172,7 +173,16 @@ export const Route = createFileRoute("/ipb/")({
             addressLocality: "Cocody, Abidjan",
             addressCountry: "CI",
           },
-          areaServed: "Abidjan",
+          areaServed: [
+            "Abidjan",
+            "Bouaké",
+            "Yamoussoukro",
+            "Korhogo",
+            "San Pedro",
+            "Man",
+            "Bondoukou",
+            "Côte d'Ivoire",
+          ],
           openingHours: [
             "Mo-Fr 08:00-18:00",
             "Sa 08:00-13:00"
